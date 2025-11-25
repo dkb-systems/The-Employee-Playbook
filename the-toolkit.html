@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tools | The Employee Playbook</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --medium-gray: #E9ECEF;
+            --dark-gray: #6C757D;
+            --text-dark: #212529;
+            --text-medium: #495057;
+            --accent-purple: #7B5FC4;
+            --accent-purple-dark: #5A4496;
+            --light-purple: #E6E0F5;
+            --lighter-purple: #F0EBFA;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --hero-gray: #f5f7fa;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --sidebar-bg: #fafbfc;
+            --chat-bg: #ffffff;
+            --online-green: #10B981;
+            --hero-purple: #5A4496;
+            --user-msg-bg: #7B5FC4;
+            --bot-msg-bg: #F1F3F9;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --premium-gradient: linear-gradient(135deg, #7B5FC4 0%, #5A4496 100%);
+            --premium-card-shadow: 0 10px 30px rgba(123, 95, 196, 0.15);
+            
+            /* Updated Tool type colors */
+            --template-color: #FFF2E5; /* Warm peach */
+            --template-text: #CC7A2E;
+            --template-icon: #CC7A2E;
+            
+            --framework-color: #DFF6EC;
+            --framework-text: #2E8B57;
+            --framework-icon: #2E8B57;
+            
+            --script-color: #E6F3FF; /* Better blue */
+            --script-text: #1E6FC6;
+            --script-icon: #1E6FC6;
+            
+            --decision-color: #E9F7D7;
+            --decision-text: #6B8E23;
+            --decision-icon: #6B8E23;
+            
+            --communication-color: #DDE8FF;
+            --communication-text: #4A6FC8;
+            --communication-icon: #4A6FC8;
+            
+            --calculator-color: #FFF9D9;
+            --calculator-text: #B8860B;
+            --calculator-icon: #B8860B;
+            
+            --accountability-color: #DFF6F5;
+            --accountability-text: #008B8B;
+            --accountability-icon: #008B8B;
+            
+            --crisis-color: #FFE6E6; /* Crisis navigation color */
+            --crisis-text: #C41E3A;
+            --crisis-icon: #C41E3A;
+        }
+
+        /* Dark mode variables */
+        .dark-mode {
+            --primary-white: #121212;
+            --light-gray: #1E1E1E;
+            --medium-gray: #2D2D2D;
+            --dark-gray: #A0A0A0;
+            --text-dark: #E0E0E0;
+            --text-medium: #B0B0B0;
+            --accent-purple: #9D86E9;
+            --accent-purple-dark: #7B5FC4;
+            --light-purple: #2A2540;
+            --lighter-purple: #1E1A2E;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --hero-gray: #1A1A1A;
+            --nav-bg: rgba(18, 18, 18, 0.95);
+            --sidebar-bg: #1A1A1A;
+            --chat-bg: #252525;
+            --premium-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            
+            /* Tool colors adjusted for dark mode */
+            --template-color: #3A2A1A;
+            --template-text: #E6A85C;
+            
+            --framework-color: #1A3A2A;
+            --framework-text: #5CD85C;
+            
+            --script-color: #1A2A3A;
+            --script-text: #5C9AE6;
+            
+            --decision-color: #2A3A1A;
+            --decision-text: #9AE65C;
+            
+            --communication-color: #1A2A3A;
+            --communication-text: #5C9AE6;
+            
+            --calculator-color: #3A3A1A;
+            --calculator-text: #E6D85C;
+            
+            --accountability-color: #1A3A3A;
+            --accountability-text: #5CD8D8;
+            
+            --crisis-color: #3A1A1A;
+            --crisis-text: #E65C5C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            height: 80px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            height: 100%;
+        }
+
+        .logo-img {
+            height: 72px;
+            width: auto;
+            transform: translateX(20%);
+            padding: 16px 12;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 17px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-purple);
+        }
+
+        .nav-link.active {
+            color: var(--text-dark);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-purple);
+            border-radius: 2px 2px 0 0;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transform: translateX(-20%);
+        }
+
+        .sign-in {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        .header-cta {
+            background: var(--accent-purple);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 100px 40px 40px;
+            display: flex;
+            min-height: calc(100vh - 160px);
+        }
+
+        .content-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Tools Header */
+        .tools-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 30px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .tools-subtitle {
+            font-size: 22px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Full Width Section */
+        .full-width-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: left;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-medium);
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .search-container {
+            width: 400px;
+            max-width: 400px;
+            position: relative;
+            margin-bottom: 10px;
+            margin-left: 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 50px;
+            font-size: 15px;
+            background: var(--primary-white);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .search-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 30px 20px; /* Reduced padding on left/right */
+            box-shadow: var(--premium-card-shadow);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .category-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .category-tools {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .tool-tag {
+            padding: 6px 10px; /* Reduced padding for smaller tags */
+            border-radius: 20px;
+            font-size: 11px; /* Smaller font size */
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Final Tool type color coding */
+        .tool-tag.template {
+            background: var(--template-color);
+            color: var(--template-text);
+        }
+        
+        .tool-tag.framework {
+            background: var(--framework-color);
+            color: var(--framework-text);
+        }
+        
+        .tool-tag.script {
+            background: var(--script-color);
+            color: var(--script-text);
+        }
+        
+        .tool-tag.decision {
+            background: var(--decision-color);
+            color: var(--decision-text);
+        }
+        
+        .tool-tag.communication {
+            background: var(--communication-color);
+            color: var(--communication-text);
+        }
+        
+        .tool-tag.calculator {
+            background: var(--calculator-color);
+            color: var(--calculator-text);
+        }
+        
+        .tool-tag.accountability {
+            background: var(--accountability-color);
+            color: var(--accountability-text);
+        }
+        
+        .tool-tag.crisis {
+            background: var(--crisis-color);
+            color: var(--crisis-text);
+        }
+
+        .tool-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Tools Showcase Section */
+        .tools-showcase {
+            margin-bottom: 40px;
+        }
+
+        .tools-showcase-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .compact-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .compact-tool-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 20px 15px;
+            box-shadow: var(--premium-card-shadow);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            justify-content: flex-start;
+        }
+
+        .compact-tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--premium-gradient);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .compact-tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .compact-tool-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 20px;
+        }
+
+        /* Final Color-coded icons for featured tools */
+        .compact-tool-icon.accountability {
+            background: var(--accountability-color);
+            color: var(--accountability-icon);
+        }
+        
+        .compact-tool-icon.script {
+            background: var(--script-color);
+            color: var(--script-icon);
+        }
+        
+        .compact-tool-icon.framework {
+            background: var(--framework-color);
+            color: var(--framework-icon);
+        }
+        
+        .compact-tool-icon.crisis {
+            background: var(--crisis-color);
+            color: var(--crisis-icon);
+        }
+        
+        .compact-tool-icon.communication {
+            background: var(--communication-color);
+            color: var(--communication-icon);
+        }
+
+        .compact-tool-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .compact-tool-category {
+            color: var(--accent-purple);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .compact-tool-description {
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .compact-tool-button {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 11px;
+            width: 100%;
+        }
+
+        .compact-tool-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
+        }
+
+        /* Tool Tags Online Section */
+        .tool-tags-section {
+            margin: 40px 0;
+            padding: 30px 20px; /* Reduced padding on left/right */
+            background: var(--lighter-purple);
+            border-radius: 16px;
+        }
+
+        .tool-tags-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .tool-tags-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .tool-tags-subtitle {
+            font-size: 16px;
+            color: var(--text-medium);
+        }
+
+        .tool-tags-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .tool-tag-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 20px 15px; /* Reduced padding on left/right */
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tool-tag-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-tag-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 20px;
+        }
+
+        /* Final tool tag icons */
+        .tool-tag-icon.template {
+            background: var(--template-color);
+            color: var(--template-icon);
+        }
+        
+        .tool-tag-icon.framework {
+            background: var(--framework-color);
+            color: var(--framework-icon);
+        }
+        
+        .tool-tag-icon.script {
+            background: var(--script-color);
+            color: var(--script-icon);
+        }
+        
+        .tool-tag-icon.decision {
+            background: var(--decision-color);
+            color: var(--decision-icon);
+        }
+        
+        .tool-tag-icon.communication {
+            background: var(--communication-color);
+            color: var(--communication-icon);
+        }
+        
+        .tool-tag-icon.calculator {
+            background: var(--calculator-color);
+            color: var(--calculator-icon);
+        }
+        
+        .tool-tag-icon.accountability {
+            background: var(--accountability-color);
+            color: var(--accountability-icon);
+        }
+        
+        .tool-tag-icon.crisis {
+            background: var(--crisis-color);
+            color: var(--crisis-icon);
+        }
+
+        .tool-tag-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .tool-tag-count {
+            font-size: 12px;
+            color: var(--dark-gray);
+        }
+
+        /* Larger Featured Tools */
+        .larger-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .larger-tool-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 30px 25px; /* Reduced padding on left/right */
+            box-shadow: var(--premium-card-shadow);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .larger-tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .larger-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .larger-tool-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .larger-tool-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .larger-tool-title-section {
+            flex-grow: 1;
+        }
+
+        .larger-tool-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 22px;
+            color: var(--text-dark);
+        }
+
+        .larger-tool-category {
+            color: var(--accent-purple);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .larger-tool-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .larger-tool-features {
+            margin-bottom: 25px;
+        }
+
+        .larger-tool-features-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .larger-tool-features-list {
+            list-style-type: none;
+        }
+
+        .larger-tool-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .larger-tool-feature i {
+            color: var(--accent-purple);
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 12px;
+        }
+
+        .larger-tool-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            align-items: center;
+        }
+
+        .larger-tool-button {
+            flex: 1;
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .larger-tool-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .larger-tool-button.secondary {
+            background: transparent;
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .larger-tool-button.secondary:hover {
+            background: var(--light-purple);
+        }
+
+        .tool-stats {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--dark-gray);
+            margin-top: 10px;
+        }
+
+        .tool-stats i {
+            color: var(--accent-purple);
+        }
+
+        /* Inspiring Closing Section */
+        .closing-section {
+            background: var(--lighter-purple);
+            border-radius: 16px;
+            padding: 50px 30px; /* Reduced padding on left/right */
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .closing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .closing-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .closing-text {
+            font-size: 18px;
+            color: var(--text-medium);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .closing-cta {
+            background: var(--accent-purple);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .closing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-white);
+            padding: 40px 0 20px;
+            color: var(--text-medium);
+            border-top: 1px solid var(--border-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .footer-about {
+            max-width: 400px;
+            padding-left: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo-img {
+            height: 100px;
+            width: auto;
+            padding: 8px 0;
+        }
+
+        .footer-description {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--accent-purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        .footer-nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Footer Newsletter */
+        .footer-newsletter {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            text-align: center;
+        }
+
+        .footer-newsletter-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .footer-newsletter-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .footer-newsletter-button {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .compact-tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .tool-tags-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .larger-tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-tags-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-white);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid var(--border-light);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link.active::after {
+                bottom: -10px;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            main {
+                flex-direction: column;
+                padding: 100px 20px 20px;
+            }
+
+            .content-wrapper {
+                max-width: 100%;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .tools-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .compact-tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-logo-img {
+                height: 60px;
+            }
+            
+            .larger-tool-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .larger-tool-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .larger-tool-actions {
+                flex-direction: column;
+            }
+            
+            .category-tools {
+                grid-template-columns: 1fr;
+            }
+            
+            .closing-section {
+                padding: 30px 20px;
+            }
+            
+            .closing-title {
+                font-size: 24px;
+            }
+            
+            .closing-text {
+                font-size: 16px;
+            }
+            
+            .tool-tags-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .compact-tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .larger-tool-actions {
+                flex-direction: column;
+            }
+            
+            .tool-tags-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="container nav-container">
+        <a href="index.html"><img src="assets/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"></a>
+        <div class="nav-links">
+            <a href="the-lens.html" class="nav-link">The Lens</a>
+            <a href="the-tools.html" class="nav-link active">The Tools</a>
+            <a href="the-shift.html" class="nav-link">The Shift</a>
+            <a href="the-pricing.html" class="nav-link">The Pricing</a>
+        </div>
+        <div class="nav-actions">
+            <a href="create-account.html" class="header-cta">Sign me up</a>
+            <a href="sign-in.html" class="sign-in">Sign in</a>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+            <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main>
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Tools Header -->
+            <div class="tools-header">
+                <h1 class="hero-title">The Tools: Your Strategic Toolkit</h1>
+                <p class="tools-subtitle">Practical resources to navigate workplace challenges with confidence</p>
+            </div>
+            
+            <!-- Categories Section -->
+            <div class="full-width-section categories-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Employment Issue Categories</h2>
+                        <p class="section-subtitle">Find tools and resources for your specific workplace challenge</p>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search tools, resources...">
+                        <button class="search-button" id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="categories-grid">
+                    <!-- Category 1 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="category-title">Workload & Burnout</div>
+                        <div class="category-description">
+                            Tools to manage overwhelming workloads, prevent burnout, and establish healthy work boundaries.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag accountability">Burnout Checklist</span>
+                            <span class="tool-tag script">Workload Script</span>
+                            <span class="tool-tag framework">Boundary Framework</span>
+                            <span class="tool-tag calculator">Prioritization Matrix</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 2 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="category-title">Micromanagement</div>
+                        <div class="category-description">
+                            Strategies to address excessive oversight, build trust, and establish autonomy in your role.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag script">Response Script</span>
+                            <span class="tool-tag accountability">Trust Building Plan</span>
+                            <span class="tool-tag communication">Clarity Meeting Guide</span>
+                            <span class="tool-tag accountability">Progress Tracker</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 3 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="category-title">Exclusion & Visibility</div>
+                        <div class="category-description">
+                            Tools to increase your visibility, ensure inclusion in key conversations, and build influence.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag script">Inclusion Script</span>
+                            <span class="tool-tag accountability">Visibility Strategy</span>
+                            <span class="tool-tag accountability">Networking Plan</span>
+                            <span class="tool-tag framework">Influence Framework</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 4 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="category-title">Promotion & Recognition</div>
+                        <div class="category-description">
+                            Resources to position yourself for advancement, showcase achievements, and navigate promotion processes.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag accountability">Achievement Tracker</span>
+                            <span class="tool-tag template">Promotion Proposal</span>
+                            <span class="tool-tag accountability">Career Path Map</span>
+                            <span class="tool-tag script">Self-Advocacy Script</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 5 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="category-title">Toxic Behavior</div>
+                        <div class="category-description">
+                            Tools to navigate difficult behaviors, protect your wellbeing, and address workplace toxicity.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag framework">Response Framework</span>
+                            <span class="tool-tag accountability">Documentation Tool</span>
+                            <span class="tool-tag script">Boundary Script</span>
+                            <span class="tool-tag crisis">Escalation Guide</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 6 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="category-title">Conflict Resolution</div>
+                        <div class="category-description">
+                            Frameworks to navigate disagreements, resolve conflicts professionally, and maintain positive relationships.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag framework">Conflict Map</span>
+                            <span class="tool-tag framework">Resolution Framework</span>
+                            <span class="tool-tag script">Mediation Script</span>
+                            <span class="tool-tag communication">Communication Guide</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 7 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="category-title">Difficult Conversations</div>
+                        <div class="category-description">
+                            Scripts and guides for challenging discussions, feedback delivery, and sensitive topic navigation.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag template">Conversation Planner</span>
+                            <span class="tool-tag script">Feedback Script</span>
+                            <span class="tool-tag communication">Negotiation Guide</span>
+                            <span class="tool-tag framework">Saying No Framework</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 8 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="category-title">Career Development</div>
+                        <div class="category-description">
+                            Tools to plan your career path, identify growth opportunities, and develop new skills.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag accountability">Career Roadmap</span>
+                            <span class="tool-tag calculator">Skill Gap Analysis</span>
+                            <span class="tool-tag accountability">Development Plan</span>
+                            <span class="tool-tag communication">Mentorship Guide</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Category 9 -->
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="category-title">Workplace Rights</div>
+                        <div class="category-description">
+                            Resources to understand your rights, navigate policies, and address potential violations.
+                        </div>
+                        <div class="category-tools">
+                            <span class="tool-tag accountability">Rights Checklist</span>
+                            <span class="tool-tag communication">Policy Navigator</span>
+                            <span class="tool-tag communication">Compliance Guide</span>
+                            <span class="tool-tag framework">Reporting Framework</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tool Tags Online Section -->
+            <div class="tool-tags-section">
+                <div class="tool-tags-header">
+                    <h2 class="tool-tags-title">Strategic Resource Library</h2>
+                    <p class="tool-tags-subtitle">Curated tools designed for specific workplace scenarios</p>
+                </div>
+                <div class="tool-tags-grid">
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon template">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="tool-tag-name">Templates</div>
+                        <div class="tool-tag-count">25 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon framework">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="tool-tag-name">Strategic Frameworks</div>
+                        <div class="tool-tag-count">16 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon script">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div class="tool-tag-name">Communication Scripts</div>
+                        <div class="tool-tag-count">28 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon decision">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <div class="tool-tag-name">Decision Trees</div>
+                        <div class="tool-tag-count">10 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon communication">
+                            <i class="fas fa-life-ring"></i>
+                        </div>
+                        <div class="tool-tag-name">Communication Tools</div>
+                        <div class="tool-tag-count">22 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon calculator">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="tool-tag-name">Calculators</div>
+                        <div class="tool-tag-count">12 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon accountability">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="tool-tag-name">Accountability Tools</div>
+                        <div class="tool-tag-count">16 tools</div>
+                    </div>
+                    <div class="tool-tag-card">
+                        <div class="tool-tag-icon crisis">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <div class="tool-tag-name">Crisis Navigation</div>
+                        <div class="tool-tag-count">18 tools</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools Showcase Section -->
+            <div class="full-width-section tools-showcase">
+                <div class="tools-showcase-header">
+                    <h2 class="section-title">Featured Tools</h2>
+                    <p class="section-subtitle">Quick access to our most popular resources</p>
+                </div>
+                
+                <div class="compact-tools-grid">
+                    <!-- Tool 1 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon accountability">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="compact-tool-title">Burnout Checklist</h3>
+                        <div class="compact-tool-category">Workload & Burnout</div>
+                        <p class="compact-tool-description">Identify and address burnout symptoms with this comprehensive assessment.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 2.4k times</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 2 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon script">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <h3 class="compact-tool-title">Response Script</h3>
+                        <div class="compact-tool-category">Micromanagement</div>
+                        <p class="compact-tool-description">Professional scripts to address micromanagement concerns effectively.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 1.8k times</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 3 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon accountability">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="compact-tool-title">Visibility Strategy</h3>
+                        <div class="compact-tool-category">Exclusion & Visibility</div>
+                        <p class="compact-tool-description">Increase your professional visibility and ensure inclusion in key decisions.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 1.5k times</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 4 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon crisis">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="compact-tool-title">When Things Escalate</h3>
+                        <div class="compact-tool-category">Conflict Resolution</div>
+                        <p class="compact-tool-description">Guidance for de-escalating tense situations and managing conflict safely.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 2.1k times</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 5 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon framework">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="compact-tool-title">Response Framework</h3>
+                        <div class="compact-tool-category">Toxic Behavior</div>
+                        <p class="compact-tool-description">Navigate toxic workplace behaviors while protecting your wellbeing.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 1.9k times</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 6 -->
+                    <div class="compact-tool-card">
+                        <div class="compact-tool-icon script">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="compact-tool-title">Dispute with a Colleague</h3>
+                        <div class="compact-tool-category">Conflict Resolution</div>
+                        <p class="compact-tool-description">Strategies to resolve workplace disputes professionally and effectively.</p>
+                        <button class="compact-tool-button">Access</button>
+                        <div class="tool-stats">
+                            <i class="fas fa-eye"></i>
+                            <span>Viewed 2.3k times</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Larger Featured Tools -->
+                <div class="larger-tools-grid">
+                    <!-- Larger Tool 1 -->
+                    <div class="larger-tool-card">
+                        <div class="larger-tool-header">
+                            <div class="larger-tool-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="larger-tool-title-section">
+                                <h3 class="larger-tool-title">Burnout Intervention Checklist</h3>
+                                <div class="larger-tool-category">Workload & Burnout</div>
+                            </div>
+                        </div>
+                        <div class="larger-tool-description">
+                            A comprehensive checklist to identify burnout symptoms, assess contributing factors, and implement targeted interventions to restore balance and wellbeing.
+                        </div>
+                        <div class="larger-tool-features">
+                            <h4 class="larger-tool-features-title">What's Included:</h4>
+                            <ul class="larger-tool-features-list">
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> 25-point burnout symptom assessment</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Workload analysis framework</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Boundary-setting strategies</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Recovery action plan template</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Manager conversation guide</li>
+                            </ul>
+                        </div>
+                        <div class="larger-tool-actions">
+                            <a href="#" class="larger-tool-button">Access Tool</a>
+                            <a href="#" class="larger-tool-button secondary">Preview</a>
+                            <div class="tool-stats">
+                                <i class="fas fa-eye"></i>
+                                <span>Viewed 2.4k times</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Larger Tool 2 -->
+                    <div class="larger-tool-card">
+                        <div class="larger-tool-header">
+                            <div class="larger-tool-icon">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <div class="larger-tool-title-section">
+                                <h3 class="larger-tool-title">Micromanagement Response Script</h3>
+                                <div class="larger-tool-category">Micromanagement</div>
+                            </div>
+                        </div>
+                        <div class="larger-tool-description">
+                            Professionally crafted scripts to address micromanagement concerns while building trust and establishing appropriate autonomy in your role.
+                        </div>
+                        <div class="larger-tool-features">
+                            <h4 class="larger-tool-features-title">What's Included:</h4>
+                            <ul class="larger-tool-features-list">
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> 5 different conversation approaches</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Email templates for sensitive topics</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Trust-building communication strategies</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Progress reporting frameworks</li>
+                                <li class="larger-tool-feature"><i class="fas fa-check"></i> Follow-up plan templates</li>
+                            </ul>
+                        </div>
+                        <div class="larger-tool-actions">
+                            <a href="#" class="larger-tool-button">Access Tool</a>
+                            <a href="#" class="larger-tool-button secondary">Preview</a>
+                            <div class="tool-stats">
+                                <i class="fas fa-eye"></i>
+                                <span>Viewed 1.8k times</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inspiring Closing Section -->
+            <div class="closing-section">
+                <h2 class="closing-title">Your Career, Your Strategy, Your Success</h2>
+                <p class="closing-text">Every workplace challenge is an opportunity to grow, learn, and strengthen your professional foundation. With the right tools and strategies, you can transform obstacles into stepping stones toward the career you deserve.</p>
+                <p class="closing-text">Remember: You have the power to shape your professional journey. Use these tools not just to navigate challenges, but to build the resilient, fulfilling career you envision.</p>
+                <a href="create-account.html" class="closing-cta">Start Your Journey Today</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <a href="index.html"><img src="assets/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"></a>
+                </div>
+                <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-nav-grid">
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">Product</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
+                            <li class="footer-link"><a href="the-tools.html">The Tools</a></li>
+                            <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
+                            <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">Company</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="about-us.html">About</a></li>
+                            <li class="footer-link"><a href="#">Privacy</a></li>
+                            <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
+                            <li class="footer-link"><a href="#">Security</a></li>
+                            <li class="footer-link"><a href="#">Help Centre</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 The Employee Playbook. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // JavaScript for The Tools page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Light/Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const categoryCards = document.querySelectorAll('.category-card');
+        
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '') {
+                // Reset all cards if search is empty
+                categoryCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+                return;
+            }
+            
+            let foundResults = false;
+            
+            categoryCards.forEach(card => {
+                const title = card.querySelector('.category-title').textContent.toLowerCase();
+                const description = card.querySelector('.category-description').textContent.toLowerCase();
+                const tools = Array.from(card.querySelectorAll('.tool-tag'))
+                    .map(tag => tag.textContent.toLowerCase());
+                
+                const matches = title.includes(query) || 
+                               description.includes(query) || 
+                               tools.some(tool => tool.includes(query));
+                
+                if (matches) {
+                    card.style.display = 'flex';
+                    foundResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show message if no results found
+            if (!foundResults) {
+                alert(`No results found for "${query}". Try different keywords.`);
+                // Reset display
+                categoryCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+            }
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Tool tag interactions
+        const toolTags = document.querySelectorAll('.tool-tag');
+        toolTags.forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const toolType = this.textContent;
+                alert(`Filtering by tool: ${toolType}`);
+                // In a full implementation, this would filter the tools shown
+            });
+        });
+        
+        // Compact tool card interactions
+        const compactToolButtons = document.querySelectorAll('.compact-tool-button');
+        compactToolButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const toolTitle = this.closest('.compact-tool-card').querySelector('.compact-tool-title').textContent;
+                alert(`Accessing tool: ${toolTitle}`);
+                // In a full implementation, this would navigate to the tool page
+            });
+        });
+        
+        // Larger tool button interactions
+        const largerToolButtons = document.querySelectorAll('.larger-tool-button');
+        largerToolButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const toolTitle = this.closest('.larger-tool-card').querySelector('.larger-tool-title').textContent;
+                alert(`Accessing tool: ${toolTitle}`);
+                // In a full implementation, this would navigate to the tool page
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
