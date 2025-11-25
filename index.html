@@ -107,7 +107,7 @@
             height: 100%;
         }
 
-        /* Logo Styles - Updated to match tools page */
+        /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
@@ -117,7 +117,7 @@
         }
 
         .dark-mode .logo-img {
-            filter: invert(1) brightness(2); /* Fix for dark mode logo */
+            filter: invert(1) brightness(2);
         }
 
         .nav-links {
@@ -620,6 +620,89 @@
 
         .close-expansion:hover {
             background-color: var(--light-gray);
+        }
+
+        /* Mobile Stats Layout */
+        .mobile-stats-layout {
+            display: none;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .mobile-stat-category {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+        }
+        
+        .mobile-stat-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .mobile-stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--accent-purple);
+            flex-shrink: 0;
+        }
+        
+        .mobile-stat-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+        
+        .mobile-stat-subtitle {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .mobile-stat-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .mobile-stat-item {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .mobile-stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--accent-purple);
+            line-height: 1;
+        }
+        
+        .mobile-stat-explanation {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .mobile-stat-source {
+            font-size: 12px;
+            color: var(--dark-gray);
+            font-style: italic;
         }
 
         /* Cookie Message */
@@ -1267,7 +1350,7 @@
         .footer-about {
             max-width: 400px;
             padding-left: 20px;
-            text-align: left; /* Fix: Left-align footer text under logo */
+            text-align: left;
         }
 
         .footer-logo {
@@ -1276,7 +1359,7 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Logo - Updated to match tools page */
+        /* Footer Logo */
         .footer-logo-img {
             height: 105px; /* Increased by 5% (from 100px to 105px) */
             width: auto;
@@ -1285,7 +1368,7 @@
         }
 
         .dark-mode .footer-logo-img {
-            filter: invert(1) brightness(2); /* Fix for dark mode logo */
+            filter: invert(1) brightness(2);
         }
 
         .footer-description {
@@ -1626,46 +1709,6 @@
             text-decoration: none;
         }
 
-        /* Mobile Stats Animation */
-        .mobile-stats-animation {
-            display: none;
-            position: relative;
-            overflow: hidden;
-            margin-top: 30px;
-        }
-
-        .mobile-stats-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: transform 0.8s ease, opacity 0.8s ease;
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-stats-slide.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-stats-slide.personal {
-            z-index: 3;
-        }
-
-        .mobile-stats-slide.career {
-            z-index: 2;
-        }
-
-        .mobile-stats-slide.knowledge {
-            z-index: 1;
-        }
-
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             /* Dark mode fix for mobile */
@@ -1682,6 +1725,21 @@
                 --border-light: rgba(255, 255, 255, 0.08);
                 --hero-gray: #1a1a1a;
                 --nav-bg: rgba(18, 18, 18, 0.95);
+            }
+            
+            /* Move logo in and make 5% bigger */
+            .logo-img {
+                height: 105px; /* Increased by 5% (from 100px to 105px) */
+                transform: translateX(10%); /* Moved in from 20% to 10% */
+                padding: 12px 0;
+            }
+            
+            /* Move NEW tag closer to The Coach button */
+            .new-tag {
+                top: -6px;
+                right: -25px; /* Moved closer from -35px to -25px */
+                font-size: 9px;
+                padding: 1px 4px;
             }
             
             /* Remove Sign Up button from navigation on mobile */
@@ -1712,6 +1770,21 @@
             .stats-cards-column {
                 flex: 1;
                 max-width: 100%;
+                display: none; /* Hide the cards on mobile */
+            }
+            
+            /* Show mobile stats layout */
+            .mobile-stats-layout {
+                display: flex;
+            }
+            
+            /* Hide desktop stats elements on mobile */
+            .stats-display-area {
+                display: none;
+            }
+            
+            .stats-placeholder {
+                display: none;
             }
             
             .stat-card {
@@ -1742,11 +1815,6 @@
                 font-size: 13px;
             }
             
-            .stats-display-area {
-                min-height: 400px;
-                padding: 25px;
-            }
-            
             .stats-expansion-bar {
                 padding: 25px;
             }
@@ -1774,67 +1842,6 @@
                 min-height: auto;
             }
             
-            /* Mobile stats behavior - open directly on mobile */
-            .stats-cards-column {
-                display: none; /* Hide the cards on mobile */
-            }
-            
-            .stats-expansion-bar {
-                position: static;
-                transform: none;
-                display: none;
-                padding: 25px;
-            }
-            
-            .stats-expansion-bar.active {
-                display: flex;
-            }
-            
-            .stats-placeholder {
-                display: none; /* Hide placeholder on mobile */
-            }
-            
-            /* Mobile stats selector */
-            .mobile-stats-selector {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                margin-bottom: 30px;
-            }
-            
-            .mobile-stat-option {
-                background: var(--primary-white);
-                border-radius: 12px;
-                padding: 20px;
-                text-align: center;
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-                cursor: pointer;
-                border: 2px solid transparent;
-                transition: all 0.3s ease;
-            }
-            
-            .mobile-stat-option.active {
-                border-color: var(--accent-purple);
-                box-shadow: 0 5px 15px rgba(139, 95, 191, 0.15);
-            }
-            
-            /* Mobile stats animation */
-            .mobile-stats-animation {
-                display: block;
-                height: 400px;
-                margin-top: 20px;
-            }
-            
-            .mobile-stats-slide {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            
-            .mobile-stats-slide.active {
-                display: flex;
-            }
-            
             /* Footer mobile improvements */
             .footer-content {
                 grid-template-columns: 1fr;
@@ -1843,7 +1850,7 @@
             
             .footer-about {
                 padding-left: 0;
-                text-align: left; /* Keep left-aligned on mobile */
+                text-align: left;
             }
             
             .footer-logo-img {
@@ -1924,13 +1931,6 @@
                 height: 350px;
             }
             
-            /* Mobile Logo Adjustments - Make logo bigger on mobile */
-            .logo-img {
-                height: 90px; /* Increased size on mobile */
-                transform: translateX(0); /* Remove transform on mobile */
-                padding: 12px 0;
-            }
-            
             .stats-title {
                 font-size: 32px;
             }
@@ -1948,7 +1948,7 @@
             }
             
             .nav-actions {
-                transform: translateX(0); /* Remove transform on mobile */
+                transform: translateX(0);
                 gap: 16px;
             }
             
@@ -1957,19 +1957,12 @@
                 padding: 12px 8px;
                 font-size: 14px;
             }
-            
-            /* New Tag Mobile Adjustments */
-            .new-tag {
-                top: -6px;
-                right: -30px;
-                font-size: 9px;
-                padding: 1px 4px;
-            }
         }
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 80px; /* Slightly smaller on very small screens but still bigger than before */
+                height: 92px; /* Slightly smaller on very small screens but still bigger than before */
+                transform: translateX(5%); /* Move in even more on very small screens */
             }
             
             .footer-logo-img {
@@ -1986,6 +1979,10 @@
             
             .hero-subhead {
                 font-size: 18px;
+            }
+            
+            .new-tag {
+                right: -20px; /* Move even closer on very small screens */
             }
         }
     </style>
@@ -2140,100 +2137,100 @@
                 <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
             </div>
             
-            <!-- Mobile Stats Animation (only visible on mobile) -->
-            <div class="mobile-stats-animation" id="mobileStatsAnimation">
-                <div class="mobile-stats-slide personal active" id="mobilePersonalSlide">
-                    <h3 class="stats-expansion-title">Personal Impact</h3>
-                    <p class="stats-expansion-subtitle">How work stress affects your health and wellbeing</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">43%</div>
-                            <div class="stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
-                            <div class="stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
+            <!-- Mobile Stats Layout (only visible on mobile) -->
+            <div class="mobile-stats-layout">
+                <!-- Personal Impact -->
+                <div class="mobile-stat-category">
+                    <div class="mobile-stat-header">
+                        <div class="mobile-stat-icon">
+                            <i class="fas fa-heartbeat"></i>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">79%</div>
-                            <div class="stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
-                            <div class="stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                        <div>
+                            <div class="mobile-stat-title">Personal Impact</div>
+                            <div class="mobile-stat-subtitle">How work affects health, sleep and wellbeing</div>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">63%</div>
-                            <div class="stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
-                            <div class="stat-source">MHFA England (2024)</div>
+                    </div>
+                    <div class="mobile-stat-content">
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">43%</div>
+                            <div class="mobile-stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
+                            <div class="mobile-stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">79%</div>
+                            <div class="mobile-stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
+                            <div class="mobile-stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">63%</div>
+                            <div class="mobile-stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
+                            <div class="mobile-stat-source">MHFA England (2024)</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mobile-stats-slide career" id="mobileCareerSlide">
-                    <h3 class="stats-expansion-title">Career Impact</h3>
-                    <p class="stats-expansion-subtitle">How workplace barriers hold back your professional growth</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">33%</div>
-                            <div class="stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
-                            <div class="stat-source">Workplace Insight (UK)</div>
+                <!-- Career Impact -->
+                <div class="mobile-stat-category">
+                    <div class="mobile-stat-header">
+                        <div class="mobile-stat-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">48%</div>
-                            <div class="stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
-                            <div class="stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                        <div>
+                            <div class="mobile-stat-title">Career Impact</div>
+                            <div class="mobile-stat-subtitle">Barriers to progression and professional growth</div>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">50%</div>
-                            <div class="stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
-                            <div class="stat-source">O.C. Tanner – HRReview, 2021</div>
+                    </div>
+                    <div class="mobile-stat-content">
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">33%</div>
+                            <div class="mobile-stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
+                            <div class="mobile-stat-source">Workplace Insight (UK)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">48%</div>
+                            <div class="mobile-stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
+                            <div class="mobile-stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">50%</div>
+                            <div class="mobile-stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
+                            <div class="mobile-stat-source">O.C. Tanner – HRReview, 2021</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mobile-stats-slide knowledge" id="mobileKnowledgeSlide">
-                    <h3 class="stats-expansion-title">Knowledge & Clarity Gaps</h3>
-                    <p class="stats-expansion-subtitle">How lack of information creates workplace uncertainty</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">21%</div>
-                            <div class="stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
-                            <div class="stat-source">Personnel Today – Lattice Survey (2024)</div>
+                <!-- Knowledge Gaps -->
+                <div class="mobile-stat-category">
+                    <div class="mobile-stat-header">
+                        <div class="mobile-stat-icon">
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">53%</div>
-                            <div class="stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
-                            <div class="stat-source">People Management (2024)</div>
+                        <div>
+                            <div class="mobile-stat-title">Knowledge Gaps</div>
+                            <div class="mobile-stat-subtitle">Understanding policies, rights and expectations</div>
                         </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">25%</div>
-                            <div class="stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
-                            <div class="stat-source">CIPHR Research (2024)</div>
+                    </div>
+                    <div class="mobile-stat-content">
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">21%</div>
+                            <div class="mobile-stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
+                            <div class="mobile-stat-source">Personnel Today – Lattice Survey (2024)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">53%</div>
+                            <div class="mobile-stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
+                            <div class="mobile-stat-source">People Management (2024)</div>
+                        </div>
+                        <div class="mobile-stat-item">
+                            <div class="mobile-stat-value">25%</div>
+                            <div class="mobile-stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
+                            <div class="mobile-stat-source">CIPHR Research (2024)</div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Mobile Stats Selector (only visible on mobile) -->
-            <div class="mobile-stats-selector" id="mobileStatsSelector">
-                <div class="mobile-stat-option active" data-target="personal">
-                    <div class="stat-title">Personal Impact</div>
-                    <div class="stat-subtitle">How work affects health, sleep and wellbeing</div>
-                </div>
-                <div class="mobile-stat-option" data-target="career">
-                    <div class="stat-title">Career Impact</div>
-                    <div class="stat-subtitle">Barriers to progression and professional growth</div>
-                </div>
-                <div class="mobile-stat-option" data-target="knowledge">
-                    <div class="stat-title">Knowledge Gaps</div>
-                    <div class="stat-subtitle">Understanding policies, rights and expectations</div>
-                </div>
-            </div>
-            
+            <!-- Desktop layout (hidden on mobile) -->
             <div class="stats-interactive-container">
                 <div class="stats-cards-column">
                     <!-- Personal Impact Card -->
@@ -2870,13 +2867,6 @@
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
-            
-            // Update logo for dark mode using CSS filter instead of changing src
-            // This is more reliable than trying to change the image source
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
-            
-            // The CSS already handles this with .dark-mode .logo-img filter
         });
 
         // Mobile navigation toggle
@@ -3009,71 +2999,16 @@
             window.requestAnimationFrame(step);
         }
         
-        // Statistics cards interactive functionality
+        // Statistics cards interactive functionality (desktop only)
         const statCards = document.querySelectorAll('.stat-card');
         const statsPlaceholder = document.getElementById('stats-placeholder');
         const expansionBars = document.querySelectorAll('.stats-expansion-bar');
-        const mobileStatsSelector = document.getElementById('mobileStatsSelector');
-        const mobileStatOptions = document.querySelectorAll('.mobile-stat-option');
-        const mobileStatsAnimation = document.getElementById('mobileStatsAnimation');
-        const mobileStatsSlides = document.querySelectorAll('.mobile-stats-slide');
         
         // Check if we're on mobile
         const isMobile = window.innerWidth <= 768;
         
         // Initialize stats based on device type
-        if (isMobile) {
-            // On mobile, show the mobile selector and hide the desktop cards
-            mobileStatsSelector.style.display = 'flex';
-            mobileStatsAnimation.style.display = 'block';
-            document.querySelector('.stats-cards-column').style.display = 'none';
-            statsPlaceholder.style.display = 'none';
-            
-            // Set up mobile stats selector
-            mobileStatOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Get the target expansion bar
-                    const targetId = this.getAttribute('data-target');
-                    
-                    // Hide all expansion bars
-                    mobileStatsSlides.forEach(slide => {
-                        slide.classList.remove('active');
-                    });
-                    
-                    // Show the selected expansion bar
-                    document.getElementById(`mobile${targetId.charAt(0).toUpperCase() + targetId.slice(1)}Slide`).classList.add('active');
-                    
-                    // Update active state for mobile options
-                    mobileStatOptions.forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-            
-            // Auto-rotate mobile stats slides every 6 seconds
-            let currentMobileSlide = 0;
-            const mobileSlideInterval = setInterval(() => {
-                // Hide current slide
-                mobileStatsSlides[currentMobileSlide].classList.remove('active');
-                
-                // Update current slide index
-                currentMobileSlide = (currentMobileSlide + 1) % mobileStatsSlides.length;
-                
-                // Show next slide
-                mobileStatsSlides[currentMobileSlide].classList.add('active');
-                
-                // Update active state for mobile options
-                mobileStatOptions.forEach((opt, index) => {
-                    opt.classList.toggle('active', index === currentMobileSlide);
-                });
-            }, 6000);
-            
-            // Stop auto-rotation when user interacts with the stats
-            mobileStatsSelector.addEventListener('click', function() {
-                clearInterval(mobileSlideInterval);
-            });
-        } else {
+        if (!isMobile) {
             // On desktop, use the original functionality
             statCards.forEach(card => {
                 card.addEventListener('click', function() {
