@@ -117,7 +117,7 @@
         }
 
         .dark-mode .logo-img {
-            filter: invert(1) brightness(2); /* Fix for dark mode logo */
+            content: url('assets/img/logo-dark.png');
         }
 
         .nav-links {
@@ -715,139 +715,6 @@
             border: 1px solid var(--border-light);
         }
 
-        /* Cookie Settings Modal */
-        .cookie-settings-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2001;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cookie-settings-modal.active {
-            display: flex;
-        }
-
-        .cookie-settings-content {
-            background: var(--primary-white);
-            padding: 30px;
-            border-radius: 16px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .cookie-settings-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .cookie-setting-group {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .cookie-setting-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .cookie-setting-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .cookie-setting-description {
-            font-size: 14px;
-            color: var(--text-medium);
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--medium-gray);
-            transition: .4s;
-            border-radius: 24px;
-        }
-
-        .toggle-slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .toggle-slider {
-            background-color: var(--accent-purple);
-        }
-
-        input:checked + .toggle-slider:before {
-            transform: translateX(26px);
-        }
-
-        .cookie-settings-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .cookie-settings-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .cookie-settings-save {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        .cookie-settings-cancel {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--border-light);
-        }
-
         /* Pillars Section */
         .pillars {
             background-color: var(--primary-white);
@@ -1267,7 +1134,6 @@
         .footer-about {
             max-width: 400px;
             padding-left: 20px;
-            text-align: left; /* Fix: Left-align footer text under logo */
         }
 
         .footer-logo {
@@ -1278,14 +1144,14 @@
 
         /* Footer Logo - Updated to match tools page */
         .footer-logo-img {
-            height: 105px; /* Increased by 5% (from 100px to 105px) */
+            height: 100px;
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
         }
 
         .dark-mode .footer-logo-img {
-            filter: invert(1) brightness(2); /* Fix for dark mode logo */
+            content: url('assets/img/logo-dark.png');
         }
 
         .footer-description {
@@ -1626,365 +1492,51 @@
             text-decoration: none;
         }
 
-        /* Mobile Stats Animation */
-        .mobile-stats-animation {
-            display: none;
-            position: relative;
-            overflow: hidden;
-            margin-top: 30px;
-        }
-
-        .mobile-stats-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: transform 0.8s ease, opacity 0.8s ease;
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-stats-slide.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-stats-slide.personal {
-            z-index: 3;
-        }
-
-        .mobile-stats-slide.career {
-            z-index: 2;
-        }
-
-        .mobile-stats-slide.knowledge {
-            z-index: 1;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            flex-direction: column;
-            padding: 30px 20px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-            gap: 0;
-            z-index: 1001;
-            overflow-y: auto;
-        }
-        
-        .dark-mode .mobile-menu {
-            background: rgba(18, 18, 18, 0.85);
-        }
-        
-        .mobile-menu.active {
-            display: flex;
-        }
-        
-        .mobile-menu-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .mobile-menu-link:last-child {
-            border-bottom: none;
-        }
-        
-        .mobile-menu-link:hover {
-            color: var(--accent-purple);
-        }
-        
-        /* Mobile NEW tag positioning - aligned with text */
-        .mobile-new-tag {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #000;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-left: 10px;
-            display: inline-block;
-            transform: translateY(-1px); /* Move up slightly to align with text */
-        }
-
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            /* Dark mode fix for mobile */
-            .dark-mode {
-                --primary-white: #121212;
-                --light-gray: #1E1E1E;
-                --medium-gray: #2D2D2D;
-                --dark-gray: #8A8A8A;
-                --text-dark: #F5F5F5;
-                --text-medium: #CCCCCC;
-                --accent-purple: #8B6CE6;
-                --accent-purple-dark: #6A4FC4;
-                --light-purple: #E6E0F5;
-                --border-light: rgba(255, 255, 255, 0.08);
-                --hero-gray: #1a1a1a;
-                --nav-bg: rgba(18, 18, 18, 0.95);
-            }
-            
-            /* Mobile Navigation Layout */
-            .nav-container {
-                justify-content: space-between;
-                position: relative;
-            }
-            
-            /* Center logo on mobile */
-            .logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .logo-img {
-                height: 105px; /* Increased by 5% */
-                transform: none; /* Remove previous transform */
-                padding: 12px 0;
-            }
-            
-            /* Hide desktop navigation links */
-            .nav-links {
-                display: none;
-            }
-            
-            /* Mobile menu styling with frost effect */
-            .mobile-menu {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 30px 20px;
-                box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-                gap: 0;
-                z-index: 1001;
-                overflow-y: auto;
-            }
-            
-            .dark-mode .mobile-menu {
-                background: rgba(18, 18, 18, 0.85);
-            }
-            
-            .mobile-menu.active {
-                display: flex;
-            }
-            
-            .mobile-menu-link {
-                color: var(--text-dark);
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 18px;
-                padding: 18px 0;
-                border-bottom: 1px solid var(--border-light);
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            
-            .mobile-menu-link:last-child {
-                border-bottom: none;
-            }
-            
-            .mobile-menu-link:hover {
-                color: var(--accent-purple);
-            }
-            
-            /* Mobile NEW tag positioning - aligned with text */
-            .mobile-new-tag {
-                background: linear-gradient(135deg, #FFD700, #FFA500);
-                color: #000;
-                font-size: 10px;
-                font-weight: 700;
-                padding: 3px 8px;
-                border-radius: 4px;
-                margin-left: 10px;
-                display: inline-block;
-                transform: translateY(-1px); /* Move up slightly to align with text */
-            }
-            
-            /* Mobile actions (right side) - reordered */
-            .nav-actions {
-                transform: none;
-                gap: 12px;
-                margin-left: auto;
-                display: flex;
-                align-items: center;
-                order: 2; /* Ensure it stays on the right */
-            }
-            
-            /* Hide desktop sign up button on mobile */
-            .header-cta {
-                display: none;
-            }
-            
-            /* Show mobile toggle */
-            .mobile-toggle {
-                display: flex;
-                order: 3; /* Ensure hamburger is on the far right */
-            }
-            
-            /* Theme toggle positioning */
-            .theme-toggle {
-                order: 1; /* Theme toggle comes before sign-in */
-            }
-            
-            /* Sign-in positioning */
-            .sign-in {
-                order: 2; /* Sign-in comes after theme toggle */
-                font-size: 16px;
-            }
-            
-            /* Reduce font size for final statement */
-            .final-statement {
-                font-size: 32px; /* Reduced from 40px */
-            }
-            
-            /* Statistics section mobile improvements */
-            .statistics {
-                padding: 60px 0;
-            }
-            
-            .stats-title {
-                font-size: 32px;
-                margin-bottom: 16px;
-            }
-            
-            .stats-description {
-                font-size: 18px;
-                margin-bottom: 30px;
-            }
-            
+        /* Responsive */
+        @media (max-width: 1200px) {
             .stats-interactive-container {
                 flex-direction: column;
-                gap: 20px;
             }
             
             .stats-cards-column {
                 flex: 1;
                 max-width: 100%;
-                display: none; /* Hide the cards on mobile */
             }
             
-            /* Show mobile stats layout */
-            .mobile-stats-animation {
-                display: block;
-            }
-            
-            /* Hide desktop stats elements on mobile */
-            .stats-display-area {
-                display: none;
-            }
-            
-            .stats-placeholder {
-                display: none;
-            }
-            
-            .stat-card {
-                padding: 20px;
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .stat-card-header {
-                margin-bottom: 0;
-                flex: 1;
-            }
-            
-            .icon-container {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .icon-circle {
-                font-size: 20px;
-            }
-            
-            .stat-title {
-                font-size: 16px;
-            }
-            
-            .stat-subtitle {
-                font-size: 13px;
-            }
-            
-            .stats-expansion-bar {
-                padding: 25px;
-            }
-            
-            .stats-expansion-title {
-                font-size: 24px;
-            }
-            
-            .stats-expansion-subtitle {
-                font-size: 16px;
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 40px;
             }
-            
-            .stat-value {
-                font-size: 28px;
-                min-height: 35px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-headline {
+                font-size: 58px;
             }
-            
-            .stat-explanation {
-                font-size: 15px;
-                min-height: auto;
-            }
-            
-            /* Footer mobile improvements */
-            .footer-content {
+
+            .stats-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
-            .footer-about {
-                padding-left: 0;
-                text-align: left;
+
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .footer-logo-img {
-                height: 88px; /* Increased by 5% on mobile */
+
+            .footer-content {
+                grid-template-columns: 1fr;
             }
-            
-            .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
+
+            .nav-links {
                 gap: 30px;
             }
-            
-            .footer-newsletter {
-                order: -1;
-            }
-            
-            /* Other mobile adjustments */
+        }
+
+        @media (max-width: 768px) {
             .hero-headline {
                 font-size: 44px;
             }
@@ -1994,7 +1546,7 @@
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 45px;
             }
 
             .stats-grid, .metrics-grid {
@@ -2002,6 +1554,38 @@
             }
 
             .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backface-visibility: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid var(--border-light);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -2025,8 +1609,19 @@
                 height: 350px;
             }
             
+            /* Mobile Logo Adjustments */
+            .logo-img {
+                height: 72px; /* Keep the same size on mobile */
+                transform: translateX(0); /* Remove transform on mobile */
+                padding: 12px 0;
+            }
+            
+            .footer-logo-img {
+                height: 60px; /* Slightly smaller on mobile */
+            }
+            
             .stats-title {
-                font-size: 32px;
+                font-size: 45px;
             }
             
             .usage-statement {
@@ -2041,20 +1636,33 @@
                 flex-direction: column;
             }
             
+            .nav-actions {
+                transform: translateX(0); /* Remove transform on mobile */
+                gap: 16px;
+            }
+            
             /* Floating CTA Mobile Adjustments */
             .floating-cta {
                 padding: 12px 8px;
                 font-size: 14px;
             }
+            
+            /* New Tag Mobile Adjustments */
+            .new-tag {
+                top: -6px;
+                right: -30px;
+                font-size: 9px;
+                padding: 1px 4px;
+            }
         }
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 92px; /* Slightly smaller on very small screens but still bigger than before */
+                height: 60px; /* Slightly smaller on very small screens */
             }
             
             .footer-logo-img {
-                height: 77px; /* Slightly smaller on very small screens but still bigger than before */
+                height: 50px; /* Even smaller on very small screens */
             }
             
             .logo-fallback {
@@ -2068,11 +1676,6 @@
             .hero-subhead {
                 font-size: 18px;
             }
-            
-            /* Further reduce final statement font size on very small screens */
-            .final-statement {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
@@ -2085,63 +1688,12 @@
         <div class="cookie-content">
             <div class="cookie-text">
                 We use cookies to enhance your experience and analyse site traffic. By clicking "Accept", you consent to our use of cookies. 
-                <a href="#" id="cookieLearnMore">Learn more</a>
+                <a href="#">Learn more</a>
             </div>
             <div class="cookie-buttons">
-                <button class="cookie-button cookie-settings" id="cookieSettingsBtn">Settings</button>
-                <button class="cookie-button cookie-accept" id="cookieAcceptBtn">Accept</button>
+                <button class="cookie-button cookie-settings">Settings</button>
+                <button class="cookie-button cookie-accept">Accept</button>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Cookie Settings Modal -->
-<div class="cookie-settings-modal" id="cookieSettingsModal">
-    <div class="cookie-settings-content">
-        <h2 class="cookie-settings-title">Cookie Settings</h2>
-        
-        <div class="cookie-setting-group">
-            <div class="cookie-setting-header">
-                <h3 class="cookie-setting-title">Essential Cookies</h3>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked disabled>
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <p class="cookie-setting-description">
-                These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.
-            </p>
-        </div>
-        
-        <div class="cookie-setting-group">
-            <div class="cookie-setting-header">
-                <h3 class="cookie-setting-title">Analytics Cookies</h3>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="analyticsCookies" checked>
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <p class="cookie-setting-description">
-                These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.
-            </p>
-        </div>
-        
-        <div class="cookie-setting-group">
-            <div class="cookie-setting-header">
-                <h3 class="cookie-setting-title">Marketing Cookies</h3>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="marketingCookies">
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-            <p class="cookie-setting-description">
-                These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.
-            </p>
-        </div>
-        
-        <div class="cookie-settings-actions">
-            <button class="cookie-settings-btn cookie-settings-cancel" id="cookieSettingsCancel">Cancel</button>
-            <button class="cookie-settings-btn cookie-settings-save" id="cookieSettingsSave">Save Preferences</button>
         </div>
     </div>
 </div>
@@ -2173,18 +1725,6 @@
         </div>
     </div>
 </nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="the-lens.html" class="mobile-menu-link">The Lens</a>
-    <a href="the-tools.html" class="mobile-menu-link">The Toolkit</a>
-    <a href="the-coach.html" class="mobile-menu-link">
-        The Coach
-        <span class="mobile-new-tag">NEW</span>
-    </a>
-    <a href="the-shift.html" class="mobile-menu-link">The Shift</a>
-    <a href="the-pricing.html" class="mobile-menu-link">The Pricing</a>
-</div>
 
 <!-- Floating CTA -->
 <a href="create-account.html" class="floating-cta">SIGN UP</a>
@@ -2236,100 +1776,6 @@
             <div class="stats-content">
                 <h2 class="stats-title">The hidden costs of workplace stress</h2>
                 <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
-            </div>
-            
-            <!-- Mobile Stats Animation (only visible on mobile) -->
-            <div class="mobile-stats-animation" id="mobileStatsAnimation">
-                <div class="mobile-stats-slide personal active" id="mobilePersonalSlide">
-                    <h3 class="stats-expansion-title">Personal Impact</h3>
-                    <p class="stats-expansion-subtitle">How work stress affects your health and wellbeing</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">43%</div>
-                            <div class="stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
-                            <div class="stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">79%</div>
-                            <div class="stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
-                            <div class="stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">63%</div>
-                            <div class="stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
-                            <div class="stat-source">MHFA England (2024)</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mobile-stats-slide career" id="mobileCareerSlide">
-                    <h3 class="stats-expansion-title">Career Impact</h3>
-                    <p class="stats-expansion-subtitle">How workplace barriers hold back your professional growth</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">33%</div>
-                            <div class="stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
-                            <div class="stat-source">Workplace Insight (UK)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">48%</div>
-                            <div class="stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
-                            <div class="stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">50%</div>
-                            <div class="stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
-                            <div class="stat-source">O.C. Tanner – HRReview, 2021</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mobile-stats-slide knowledge" id="mobileKnowledgeSlide">
-                    <h3 class="stats-expansion-title">Knowledge & Clarity Gaps</h3>
-                    <p class="stats-expansion-subtitle">How lack of information creates workplace uncertainty</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">21%</div>
-                            <div class="stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
-                            <div class="stat-source">Personnel Today – Lattice Survey (2024)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">53%</div>
-                            <div class="stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
-                            <div class="stat-source">People Management (2024)</div>
-                        </div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">25%</div>
-                            <div class="stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
-                            <div class="stat-source">CIPHR Research (2024)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mobile Stats Selector (only visible on mobile) -->
-            <div class="mobile-stats-selector" id="mobileStatsSelector">
-                <div class="mobile-stat-option active" data-target="personal">
-                    <div class="stat-title">Personal Impact</div>
-                    <div class="stat-subtitle">How work affects health, sleep and wellbeing</div>
-                </div>
-                <div class="mobile-stat-option" data-target="career">
-                    <div class="stat-title">Career Impact</div>
-                    <div class="stat-subtitle">Barriers to progression and professional growth</div>
-                </div>
-                <div class="mobile-stat-option" data-target="knowledge">
-                    <div class="stat-title">Knowledge Gaps</div>
-                    <div class="stat-subtitle">Understanding policies, rights and expectations</div>
-                </div>
             </div>
             
             <div class="stats-interactive-container">
@@ -2895,12 +2341,8 @@
         
         // Cookie popup functionality
         const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
-        const cookieAccept = document.getElementById('cookieAcceptBtn');
-        const cookieSettings = document.getElementById('cookieSettingsBtn');
-        const cookieLearnMore = document.getElementById('cookieLearnMore');
-        const cookieSettingsModal = document.getElementById('cookieSettingsModal');
-        const cookieSettingsCancel = document.getElementById('cookieSettingsCancel');
-        const cookieSettingsSave = document.getElementById('cookieSettingsSave');
+        const cookieAccept = document.querySelector('.cookie-accept');
+        const cookieSettings = document.querySelector('.cookie-settings');
         
         // Show cookie popup after 3 seconds
         setTimeout(() => {
@@ -2917,36 +2359,7 @@
         
         // Cookie settings
         cookieSettings.addEventListener('click', function() {
-            cookiePopupOverlay.classList.remove('active');
-            cookieSettingsModal.classList.add('active');
-        });
-        
-        // Cookie learn more
-        cookieLearnMore.addEventListener('click', function(e) {
-            e.preventDefault();
-            cookiePopupOverlay.classList.remove('active');
-            cookieSettingsModal.classList.add('active');
-        });
-        
-        // Cookie settings cancel
-        cookieSettingsCancel.addEventListener('click', function() {
-            cookieSettingsModal.classList.remove('active');
-        });
-        
-        // Cookie settings save
-        cookieSettingsSave.addEventListener('click', function() {
-            const analyticsCookies = document.getElementById('analyticsCookies').checked;
-            const marketingCookies = document.getElementById('marketingCookies').checked;
-            
-            // Save cookie preferences
-            localStorage.setItem('cookiesAccepted', 'true');
-            localStorage.setItem('analyticsCookies', analyticsCookies);
-            localStorage.setItem('marketingCookies', marketingCookies);
-            
-            cookieSettingsModal.classList.remove('active');
-            
-            // Show confirmation message
-            alert('Your cookie preferences have been saved.');
+            alert('Cookie settings would be displayed here in a real implementation.');
         });
         
         // Coach popup after 20 seconds
@@ -2969,17 +2382,21 @@
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
             
-            // Update logo for dark mode using CSS filter instead of changing src
-            // This is more reliable than trying to change the image source
+            // Update logo for dark mode
             const logo = document.getElementById('logo');
             const footerLogo = document.getElementById('footer-logo');
-            
-            // The CSS already handles this with .dark-mode .logo-img filter
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
+            } else {
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
+            }
         });
 
         // Mobile navigation toggle
         document.querySelector('.mobile-toggle').addEventListener('click', function () {
-            document.getElementById('mobileMenu').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
@@ -2996,7 +2413,7 @@
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
                     // Close mobile menu if open
-                    document.getElementById('mobileMenu').classList.remove('active');
+                    document.querySelector('.nav-links').classList.remove('active');
                     document.querySelector('.mobile-toggle i').classList.add('fa-bars');
                     document.querySelector('.mobile-toggle i').classList.remove('fa-times');
                 }
@@ -3111,109 +2528,47 @@
         const statCards = document.querySelectorAll('.stat-card');
         const statsPlaceholder = document.getElementById('stats-placeholder');
         const expansionBars = document.querySelectorAll('.stats-expansion-bar');
-        const mobileStatsSelector = document.getElementById('mobileStatsSelector');
-        const mobileStatOptions = document.querySelectorAll('.mobile-stat-option');
-        const mobileStatsAnimation = document.getElementById('mobileStatsAnimation');
-        const mobileStatsSlides = document.querySelectorAll('.mobile-stats-slide');
         
-        // Check if we're on mobile
-        const isMobile = window.innerWidth <= 768;
+        statCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Get the target expansion bar
+                const targetId = this.getAttribute('data-target');
+                const targetExpansion = document.getElementById(targetId);
+                
+                // Hide all expansion bars and placeholder
+                expansionBars.forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                statsPlaceholder.style.display = 'none';
+                
+                // Show the selected expansion bar
+                targetExpansion.classList.add('active');
+                
+                // Update active state for cards
+                statCards.forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
         
-        // Initialize stats based on device type
-        if (isMobile) {
-            // On mobile, show the mobile selector and hide the desktop cards
-            mobileStatsSelector.style.display = 'flex';
-            mobileStatsAnimation.style.display = 'block';
-            document.querySelector('.stats-cards-column').style.display = 'none';
-            statsPlaceholder.style.display = 'none';
-            
-            // Set up mobile stats selector
-            mobileStatOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Get the target expansion bar
-                    const targetId = this.getAttribute('data-target');
-                    
-                    // Hide all expansion bars
-                    mobileStatsSlides.forEach(slide => {
-                        slide.classList.remove('active');
-                    });
-                    
-                    // Show the selected expansion bar
-                    document.getElementById(`mobile${targetId.charAt(0).toUpperCase() + targetId.slice(1)}Slide`).classList.add('active');
-                    
-                    // Update active state for mobile options
-                    mobileStatOptions.forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-            
-            // Auto-rotate mobile stats slides every 6 seconds
-            let currentMobileSlide = 0;
-            const mobileSlideInterval = setInterval(() => {
-                // Hide current slide
-                mobileStatsSlides[currentMobileSlide].classList.remove('active');
+        // Close expansion bars
+        const closeButtons = document.querySelectorAll('.close-expansion');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const expansionBar = this.closest('.stats-expansion-bar');
+                expansionBar.classList.remove('active');
                 
-                // Update current slide index
-                currentMobileSlide = (currentMobileSlide + 1) % mobileStatsSlides.length;
+                // Show placeholder again
+                statsPlaceholder.style.display = 'block';
                 
-                // Show next slide
-                mobileStatsSlides[currentMobileSlide].classList.add('active');
-                
-                // Update active state for mobile options
-                mobileStatOptions.forEach((opt, index) => {
-                    opt.classList.toggle('active', index === currentMobileSlide);
-                });
-            }, 6000);
-            
-            // Stop auto-rotation when user interacts with the stats
-            mobileStatsSelector.addEventListener('click', function() {
-                clearInterval(mobileSlideInterval);
-            });
-        } else {
-            // On desktop, use the original functionality
-            statCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Get the target expansion bar
-                    const targetId = this.getAttribute('data-target');
-                    const targetExpansion = document.getElementById(targetId);
-                    
-                    // Hide all expansion bars and placeholder
-                    expansionBars.forEach(bar => {
-                        bar.classList.remove('active');
-                    });
-                    statsPlaceholder.style.display = 'none';
-                    
-                    // Show the selected expansion bar
-                    targetExpansion.classList.add('active');
-                    
-                    // Update active state for cards
-                    statCards.forEach(c => {
-                        c.classList.remove('active');
-                    });
-                    this.classList.add('active');
+                // Remove active state from cards
+                statCards.forEach(card => {
+                    card.classList.remove('active');
                 });
             });
-            
-            // Close expansion bars
-            const closeButtons = document.querySelectorAll('.close-expansion');
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const expansionBar = this.closest('.stats-expansion-bar');
-                    expansionBar.classList.remove('active');
-                    
-                    // Show placeholder again
-                    statsPlaceholder.style.display = 'block';
-                    
-                    // Remove active state from cards
-                    statCards.forEach(card => {
-                        card.classList.remove('active');
-                    });
-                });
-            });
-        }
+        });
         
         // Pillar cards mobile-friendly functionality
         const pillarCards = document.querySelectorAll('.pillar-card');
