@@ -1727,24 +1727,96 @@
                 --nav-bg: rgba(18, 18, 18, 0.95);
             }
             
-            /* Move logo in and make 5% bigger */
+            /* Mobile Navigation Layout */
+            .nav-container {
+                justify-content: space-between;
+                position: relative;
+            }
+            
+            /* Center logo on mobile */
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
             .logo-img {
-                height: 105px; /* Increased by 5% (from 100px to 105px) */
-                transform: translateX(10%); /* Moved in from 20% to 10% */
+                height: 105px; /* Increased by 5% */
+                transform: none; /* Remove previous transform */
                 padding: 12px 0;
             }
             
-            /* Move NEW tag closer to The Coach button */
-            .new-tag {
-                top: -6px;
-                right: -25px; /* Moved closer from -35px to -25px */
-                font-size: 9px;
-                padding: 1px 4px;
+            /* Hide desktop navigation links */
+            .nav-links {
+                display: none;
             }
             
-            /* Remove Sign Up button from navigation on mobile */
+            /* Mobile menu styling */
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid var(--border-light);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+                z-index: 1001;
+            }
+            
+            .mobile-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-link {
+                color: var(--text-dark);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 17px;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            .mobile-menu-link:last-child {
+                border-bottom: none;
+            }
+            
+            .mobile-menu-link:hover {
+                color: var(--accent-purple);
+            }
+            
+            /* Mobile NEW tag positioning */
+            .mobile-new-tag {
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                color: #000;
+                font-size: 9px;
+                font-weight: 700;
+                padding: 2px 6px;
+                border-radius: 4px;
+                margin-left: 8px;
+                display: inline-block;
+            }
+            
+            /* Mobile actions (right side) */
+            .nav-actions {
+                transform: none;
+                gap: 16px;
+                margin-left: auto;
+            }
+            
+            /* Hide desktop sign up button on mobile */
             .header-cta {
                 display: none;
+            }
+            
+            /* Show mobile toggle */
+            .mobile-toggle {
+                display: flex;
             }
             
             /* Statistics section mobile improvements */
@@ -1854,7 +1926,7 @@
             }
             
             .footer-logo-img {
-                height: 88px; /* Increased by 5% on mobile (from 80px to 88px) */
+                height: 88px; /* Increased by 5% on mobile */
             }
             
             .footer-nav-grid {
@@ -1885,30 +1957,6 @@
 
             .pillars-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--nav-bg);
-                backdrop-filter: blur(10px);
-                -webkit-backface-visibility: blur(10px);
-                flex-direction: column;
-                padding: 20px;
-                border-top: 1px solid var(--border-light);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                gap: 20px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: flex;
             }
 
             .footer-newsletter-form {
@@ -1947,11 +1995,6 @@
                 flex-direction: column;
             }
             
-            .nav-actions {
-                transform: translateX(0);
-                gap: 16px;
-            }
-            
             /* Floating CTA Mobile Adjustments */
             .floating-cta {
                 padding: 12px 8px;
@@ -1962,7 +2005,6 @@
         @media (max-width: 480px) {
             .logo-img {
                 height: 92px; /* Slightly smaller on very small screens but still bigger than before */
-                transform: translateX(5%); /* Move in even more on very small screens */
             }
             
             .footer-logo-img {
@@ -1979,10 +2021,6 @@
             
             .hero-subhead {
                 font-size: 18px;
-            }
-            
-            .new-tag {
-                right: -20px; /* Move even closer on very small screens */
             }
         }
     </style>
@@ -2060,12 +2098,14 @@
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
-        <!-- Logo with correct path and fallback -->
+        <!-- Logo centered on mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
+        
+        <!-- Desktop Navigation Links (hidden on mobile) -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-tools.html" class="nav-link">The Toolkit</a>
@@ -2076,11 +2116,22 @@
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
         </div>
+        
+        <!-- Mobile Menu (hidden on desktop) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="the-lens.html" class="mobile-menu-link">The Lens</a>
+            <a href="the-tools.html" class="mobile-menu-link">The Toolkit</a>
+            <a href="the-coach.html" class="mobile-menu-link">The Coach <span class="mobile-new-tag">NEW</span></a>
+            <a href="the-shift.html" class="mobile-menu-link">The Shift</a>
+            <a href="the-pricing.html" class="mobile-menu-link">The Pricing</a>
+        </div>
+        
+        <!-- Navigation Actions (right side on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign me up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
-            <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
     </div>
 </nav>
@@ -2792,6 +2843,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
         
+        // Mobile menu functionality
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
         // Cookie popup functionality
         const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
         const cookieAccept = document.getElementById('cookieAcceptBtn');
@@ -2869,14 +2931,6 @@
             icon.classList.toggle('fa-sun');
         });
 
-        // Mobile navigation toggle
-        document.querySelector('.mobile-toggle').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
         // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2888,9 +2942,9 @@
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
                     // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                    document.querySelector('.mobile-toggle i').classList.add('fa-bars');
-                    document.querySelector('.mobile-toggle i').classList.remove('fa-times');
+                    mobileMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
                 }
             });
         });
