@@ -107,7 +107,7 @@
             height: 100%;
         }
 
-        /* Logo Styles - Updated to match tools page */
+        /* Logo Styles - Fixed dark mode issue */
         .logo-img {
             height: 100px;
             width: auto;
@@ -116,8 +116,17 @@
             transition: all 0.3s ease;
         }
 
-        .dark-mode .logo-img {
-            content: url('assets/img/logo-dark.png');
+        /* Fixed dark mode logo switching */
+        .dark-logo {
+            display: none;
+        }
+        
+        .dark-mode .light-logo {
+            display: none;
+        }
+        
+        .dark-mode .dark-logo {
+            display: block;
         }
 
         .nav-links {
@@ -1142,7 +1151,7 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Logo - Updated to match tools page */
+        /* Footer Logo - Fixed dark mode issue */
         .footer-logo-img {
             height: 100px;
             width: auto;
@@ -1150,8 +1159,17 @@
             transition: all 0.3s ease;
         }
 
-        .dark-mode .footer-logo-img {
-            content: url('assets/img/logo-dark.png');
+        /* Fixed dark mode logo switching for footer */
+        .footer-dark-logo {
+            display: none;
+        }
+        
+        .dark-mode .footer-light-logo {
+            display: none;
+        }
+        
+        .dark-mode .footer-dark-logo {
+            display: block;
         }
 
         .footer-description {
@@ -1635,13 +1653,10 @@
                 text-decoration: none;
             }
 
-            /* Reduce padding above H1 by 10% */
-            .hero-content {
-                padding-top: 126px; /* 140px * 0.9 = 126px */
-            }
-
+            /* Reduce H1 size by 15% and move up 10% */
             .hero-headline {
-                font-size: 44px;
+                font-size: 37.4px; /* 44px * 0.85 = 37.4px */
+                margin-top: -14px; /* Move up 10% of original padding */
             }
 
             .hero-subhead {
@@ -1785,13 +1800,13 @@
                 font-style: italic;
             }
             
-            /* Reduce banner height and font size by 15% */
+            /* Reduce banner height and font size by 10% */
             .search-banner {
-                padding: 13.6px 0; /* 16px * 0.85 = 13.6px */
+                padding: 14.4px 0; /* 16px * 0.9 = 14.4px */
             }
             
             .search-banner-content {
-                font-size: 15.3px; /* 18px * 0.85 = 15.3px */
+                font-size: 16.2px; /* 18px * 0.9 = 16.2px */
             }
             
             /* Reduce final statement font size */
@@ -1820,7 +1835,7 @@
             }
             
             .hero-headline {
-                font-size: 36px;
+                font-size: 30.6px; /* 36px * 0.85 = 30.6px */
             }
             
             .hero-subhead {
@@ -1859,10 +1874,10 @@
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile -->
+        <!-- Logo centered for mobile with fixed dark mode switching -->
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
-                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img light-logo" id="logo-light">
+            <img src="assets/img/logo-dark.png" alt="The Employee Playbook" class="logo-img dark-logo" id="logo-dark">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
@@ -2202,312 +2217,6 @@
 </section>
 
 <!-- Rest of the HTML remains the same -->
-<!-- Pillars Section -->
-<section class="pillars">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Your framework for decisive action</h2>
-            <p class="section-subtitle">Stop guessing in high-stakes moments. Start executing with precision. <strong>Select to see more</strong></p>
-        </div>
-        
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-card-inner">
-                    <div class="pillar-card-front">
-                        <div class="pillar-icon">
-                            <i class="fas fa-binoculars"></i>
-                        </div>
-                        <h3 class="pillar-title">The Lens</h3>
-                        <p class="pillar-description">See beyond surface dynamics to understand what's truly happening in any situation.</p>
-                    </div>
-                    <div class="pillar-card-back">
-                        <div class="pillar-back-content">
-                            <div class="pillar-back-heading">
-                                <span>Before reacting, run it through The Lens.</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-search"></i></span>
-                                <span>What's really happening?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-question-circle"></i></span>
-                                <span>What's actually being challenged on?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span>What response strengthens your position?</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pillar-card">
-                <div class="pillar-card-inner">
-                    <div class="pillar-card-front">
-                        <div class="pillar-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3 class="pillar-title">The Toolkit</h3>
-                        <p class="pillar-description">Precision instruments for communication, negotiation, and strategic positioning.</p>
-                    </div>
-                    <div class="pillar-card-back">
-                        <div class="pillar-back-content">
-                            <div class="pillar-back-heading">
-                                Before speaking, run it through The Toolkit.
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-bullseye"></i></span>
-                                <span>What outcome do you want?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-comments"></i></span>
-                                <span>Which words shift the dynamic?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-balance-scale"></i></span>
-                                <span>How do you say it without weakening your position?</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pillar-card">
-                <div class="pillar-card-inner">
-                    <div class="pillar-card-front">
-                        <div class="pillar-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3 class="pillar-title">The Coach</h3>
-                        <p class="pillar-description">Strategic guidance translated into actionable language for your specific situation.</p>
-                    </div>
-                    <div class="pillar-card-back">
-                        <div class="pillar-back-content">
-                            <div class="pillar-back-heading">
-                                Before deciding, run it past The Coach.
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-lightbulb"></i></span>
-                                <span>What would a mentor or friend advise?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-exclamation-triangle"></i></span>
-                                <span>What risk are you not seeing?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-user-shield"></i></span>
-                                <span>What action preserves credibility?</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pillar-card">
-                <div class="pillar-card-inner">
-                    <div class="pillar-card-front">
-                        <div class="pillar-icon">
-                            <i class="fas fa-arrow-trend-up"></i>
-                        </div>
-                        <h3 class="pillar-title">The Shift</h3>
-                        <p class="pillar-description">Transform how you're perceived and how you operate in your organization.</p>
-                    </div>
-                    <div class="pillar-card-back">
-                        <div class="pillar-back-content">
-                            <div class="pillar-back-heading">
-                                Before moving forward, run it through The Shift.
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-user"></i></span>
-                                <span>Who do you need to be in this moment?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-bolt"></i></span>
-                                <span>What would signal confidence, not reaction?</span>
-                            </div>
-                            <div class="pillar-back-point">
-                                <span class="pillar-back-icon"><i class="fas fa-arrows-alt"></i></span>
-                                <span>How do you move so others shift around you?</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Usage Section with Impact Metrics -->
-<section class="usage">
-    <div class="container">
-        <h2 class="usage-statement">This isn't about working harder.<br>It's about making every move count.</h2>
-        <p class="usage-subtitle">We're proud to share with you the impact we've made together with our community</p>
-        
-        <div class="impact-metrics">
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-icon-container">
-                        <i class="fas fa-book-open metric-icon policy-icon"></i>
-                    </div>
-                    <div class="metric-value">83%</div>
-                    <div class="metric-label">Understanding Policies<br>& Rights</div>
-                    <div class="metric-description">Employees gain clarity on workplace guidelines and their entitlements with our AI-powered guidance</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-icon-container">
-                        <i class="fas fa-comments metric-icon confidence-icon"></i>
-                    </div>
-                    <div class="metric-value">76%</div>
-                    <div class="metric-label">Confidence in Difficult Conversations</div>
-                    <div class="metric-description">Feel more prepared to handle challenging workplace discussions with our frameworks and scripts</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-icon-container">
-                        <i class="fas fa-shield-alt metric-icon boundaries-icon"></i>
-                    </div>
-                    <div class="metric-value">68%</div>
-                    <div class="metric-label">Equipped to Set Boundaries</div>
-                    <div class="metric-description">Better able to establish work-life boundaries to prevent burnout with personalized coaching</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-icon-container">
-                        <i class="fas fa-hands-helping metric-icon support-icon"></i>
-                    </div>
-                    <div class="metric-value">72%</div>
-                    <div class="metric-label">Feel Supported & Less Alone</div>
-                    <div class="metric-description">Access to 24/7 AI support means you're never alone in tough moments. Our AI coach is always there when you need backup.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Trusted Section -->
-<section class="trusted">
-    <div class="container">
-        <div class="trusted-header">
-            <h2 class="trusted-title">Trusted by professionals seeking clarity</h2>
-        </div>
-        
-        <div class="testimonials-carousel">
-            <div class="testimonials-track" id="testimonialsTrack">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The free tier gave me exactly what I needed to navigate my first promotion conversation. I used the 'Words That Change the Outcome' tool and got a 15% raise. I've since upgraded to Core and it's been worth every penny."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JS</div>
-                            <div class="author-info">
-                                <div class="author-name">Jamie Sullivan</div>
-                                <div class="author-role">Marketing Coordinator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"As someone who's always avoided difficult conversations, The Employee Playbook has been transformative. The Core tier gives me the confidence to handle situations I would have previously panicked about. The 30-second strategy resets are genius."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MR</div>
-                            <div class="author-info">
-                                <div class="author-name">Maya Rodriguez</div>
-                                <div class="author-role">Content Writer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"I started with the free version to test the waters, and within a month I knew I needed Core Strategy. The unlimited plays and priority coaching have helped me navigate three major organizational changes without losing my footing."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">TC</div>
-                            <div class="author-info">
-                                <div class="author-name">Thomas Chen</div>
-                                <div class="author-role">Software Developer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The free tier's Conversation Matrix helped me prepare for a crucial meeting with my director. I felt so prepared that the conversation went better than I could have imagined. I'm now using Core and it's become my secret weapon."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">SP</div>
-                            <div class="author-info">
-                                <div class="author-name">Sarah Patel</div>
-                                <div class="author-role">Customer Support Specialist</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Core Strategy has paid for itself ten times over. The advanced frameworks helped me negotiate a package that was 30% higher than their initial offer. The Follow-up Dynamics tool alone is worth the subscription."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">DW</div>
-                            <div class="author-info">
-                                <div class="author-name">David Wilson</div>
-                                <div class="author-role">Account Manager</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"I was skeptical about paying for something like this, but the free tier convinced me. The two monthly coach queries helped me navigate office politics that had been stressing me out for months. Upgraded to Core and haven't looked back."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">EG</div>
-                            <div class="author-info">
-                                <div class="author-name">Elena Gomez</div>
-                                <div class="author-role">Project Coordinator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The Core tier has been invaluable for my professional development. I use the tools to prepare for client negotiations and internal strategy sessions. The Immediate Action Plays have saved me in last-minute meeting prep more times than I can count."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RK</div>
-                            <div class="author-info">
-                                <div class="author-name">Ryan Kim</div>
-                                <div class="author-role">Team Lead</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-nav" id="carouselNav">
-                <div class="carousel-dot active" data-index="0"></div>
-                <div class="carousel-dot" data-index="1"></div>
-                <div class="carousel-dot" data-index="2"></div>
-                <div class="carousel-dot" data-index="3"></div>
-                <div class="carousel-dot" data-index="4"></div>
-                <div class="carousel-dot" data-index="5"></div>
-                <div class="carousel-dot" data-index="6"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section class="final-cta">
-    <div class="container">
-        <h2 class="final-statement">Your career shouldn't be left to chance. <br>Shape it by the choices you make deliberately.</h2>
-        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
-    </div>
-</section>
-
 <!-- Footer -->
 <footer>
     <div class="container">
@@ -2515,8 +2224,8 @@
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
-                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img footer-light-logo" id="footer-logo-light">
+                        <img src="assets/img/logo-dark.png" alt="The Employee Playbook" class="footer-logo-img footer-dark-logo" id="footer-logo-dark">
                         <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
                     </a>
                 </div>
@@ -2644,23 +2353,14 @@
             document.getElementById('coach-popup').style.display = 'none';
         });
         
-        // Dark mode toggle
+        // Dark mode toggle - Fixed logo switching
         document.querySelector('.theme-toggle').addEventListener('click', function () {
             document.body.classList.toggle('dark-mode');
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
             
-            // Update logo for dark mode
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
-            if (document.body.classList.contains('dark-mode')) {
-                logo.src = 'assets/img/logo-dark.png';
-                footerLogo.src = 'assets/img/logo-dark.png';
-            } else {
-                logo.src = 'assets/img/logo.png';
-                footerLogo.src = 'assets/img/logo.png';
-            }
+            // No need to manually update logos anymore - CSS handles it
         });
 
         // Mobile navigation toggle
