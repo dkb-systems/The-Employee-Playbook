@@ -715,6 +715,139 @@
             border: 1px solid var(--border-light);
         }
 
+        /* Cookie Settings Modal */
+        .cookie-settings-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cookie-settings-modal.active {
+            display: flex;
+        }
+
+        .cookie-settings-content {
+            background: var(--primary-white);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cookie-settings-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .cookie-setting-group {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cookie-setting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cookie-setting-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .cookie-setting-description {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--medium-gray);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--accent-purple);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .cookie-settings-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .cookie-settings-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-settings-save {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        .cookie-settings-cancel {
+            background: var(--light-gray);
+            color: var(--text-medium);
+            border: 1px solid var(--border-light);
+        }
+
         /* Pillars Section */
         .pillars {
             background-color: var(--primary-white);
@@ -1145,7 +1278,7 @@
 
         /* Footer Logo - Updated to match tools page */
         .footer-logo-img {
-            height: 100px;
+            height: 105px; /* Increased by 5% (from 100px to 105px) */
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
@@ -1493,6 +1626,46 @@
             text-decoration: none;
         }
 
+        /* Mobile Stats Animation */
+        .mobile-stats-animation {
+            display: none;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .mobile-stats-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-stats-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-stats-slide.personal {
+            z-index: 3;
+        }
+
+        .mobile-stats-slide.career {
+            z-index: 2;
+        }
+
+        .mobile-stats-slide.knowledge {
+            z-index: 1;
+        }
+
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             /* Dark mode fix for mobile */
@@ -1509,6 +1682,11 @@
                 --border-light: rgba(255, 255, 255, 0.08);
                 --hero-gray: #1a1a1a;
                 --nav-bg: rgba(18, 18, 18, 0.95);
+            }
+            
+            /* Remove Sign Up button from navigation on mobile */
+            .header-cta {
+                display: none;
             }
             
             /* Statistics section mobile improvements */
@@ -1640,6 +1818,23 @@
                 box-shadow: 0 5px 15px rgba(139, 95, 191, 0.15);
             }
             
+            /* Mobile stats animation */
+            .mobile-stats-animation {
+                display: block;
+                height: 400px;
+                margin-top: 20px;
+            }
+            
+            .mobile-stats-slide {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .mobile-stats-slide.active {
+                display: flex;
+            }
+            
             /* Footer mobile improvements */
             .footer-content {
                 grid-template-columns: 1fr;
@@ -1652,7 +1847,7 @@
             }
             
             .footer-logo-img {
-                height: 80px;
+                height: 88px; /* Increased by 5% on mobile (from 80px to 88px) */
             }
             
             .footer-nav-grid {
@@ -1736,10 +1931,6 @@
                 padding: 12px 0;
             }
             
-            .footer-logo-img {
-                height: 80px; /* Increased size on mobile */
-            }
-            
             .stats-title {
                 font-size: 32px;
             }
@@ -1782,7 +1973,7 @@
             }
             
             .footer-logo-img {
-                height: 70px; /* Slightly smaller on very small screens but still bigger than before */
+                height: 77px; /* Slightly smaller on very small screens but still bigger than before */
             }
             
             .logo-fallback {
@@ -1808,12 +1999,63 @@
         <div class="cookie-content">
             <div class="cookie-text">
                 We use cookies to enhance your experience and analyse site traffic. By clicking "Accept", you consent to our use of cookies. 
-                <a href="#">Learn more</a>
+                <a href="#" id="cookieLearnMore">Learn more</a>
             </div>
             <div class="cookie-buttons">
-                <button class="cookie-button cookie-settings">Settings</button>
-                <button class="cookie-button cookie-accept">Accept</button>
+                <button class="cookie-button cookie-settings" id="cookieSettingsBtn">Settings</button>
+                <button class="cookie-button cookie-accept" id="cookieAcceptBtn">Accept</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div class="cookie-settings-modal" id="cookieSettingsModal">
+    <div class="cookie-settings-content">
+        <h2 class="cookie-settings-title">Cookie Settings</h2>
+        
+        <div class="cookie-setting-group">
+            <div class="cookie-setting-header">
+                <h3 class="cookie-setting-title">Essential Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked disabled>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="cookie-setting-description">
+                These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.
+            </p>
+        </div>
+        
+        <div class="cookie-setting-group">
+            <div class="cookie-setting-header">
+                <h3 class="cookie-setting-title">Analytics Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="analyticsCookies" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="cookie-setting-description">
+                These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.
+            </p>
+        </div>
+        
+        <div class="cookie-setting-group">
+            <div class="cookie-setting-header">
+                <h3 class="cookie-setting-title">Marketing Cookies</h3>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="marketingCookies">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <p class="cookie-setting-description">
+                These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.
+            </p>
+        </div>
+        
+        <div class="cookie-settings-actions">
+            <button class="cookie-settings-btn cookie-settings-cancel" id="cookieSettingsCancel">Cancel</button>
+            <button class="cookie-settings-btn cookie-settings-save" id="cookieSettingsSave">Save Preferences</button>
         </div>
     </div>
 </div>
@@ -1898,17 +2140,95 @@
                 <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
             </div>
             
+            <!-- Mobile Stats Animation (only visible on mobile) -->
+            <div class="mobile-stats-animation" id="mobileStatsAnimation">
+                <div class="mobile-stats-slide personal active" id="mobilePersonalSlide">
+                    <h3 class="stats-expansion-title">Personal Impact</h3>
+                    <p class="stats-expansion-subtitle">How work stress affects your health and wellbeing</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">43%</div>
+                            <div class="stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
+                            <div class="stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">79%</div>
+                            <div class="stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
+                            <div class="stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">63%</div>
+                            <div class="stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
+                            <div class="stat-source">MHFA England (2024)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mobile-stats-slide career" id="mobileCareerSlide">
+                    <h3 class="stats-expansion-title">Career Impact</h3>
+                    <p class="stats-expansion-subtitle">How workplace barriers hold back your professional growth</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">33%</div>
+                            <div class="stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
+                            <div class="stat-source">Workplace Insight (UK)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">48%</div>
+                            <div class="stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
+                            <div class="stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">50%</div>
+                            <div class="stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
+                            <div class="stat-source">O.C. Tanner – HRReview, 2021</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mobile-stats-slide knowledge" id="mobileKnowledgeSlide">
+                    <h3 class="stats-expansion-title">Knowledge & Clarity Gaps</h3>
+                    <p class="stats-expansion-subtitle">How lack of information creates workplace uncertainty</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">21%</div>
+                            <div class="stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
+                            <div class="stat-source">Personnel Today – Lattice Survey (2024)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">53%</div>
+                            <div class="stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
+                            <div class="stat-source">People Management (2024)</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value">25%</div>
+                            <div class="stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
+                            <div class="stat-source">CIPHR Research (2024)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Mobile Stats Selector (only visible on mobile) -->
             <div class="mobile-stats-selector" id="mobileStatsSelector">
-                <div class="mobile-stat-option active" data-target="personal-expansion">
+                <div class="mobile-stat-option active" data-target="personal">
                     <div class="stat-title">Personal Impact</div>
                     <div class="stat-subtitle">How work affects health, sleep and wellbeing</div>
                 </div>
-                <div class="mobile-stat-option" data-target="career-expansion">
+                <div class="mobile-stat-option" data-target="career">
                     <div class="stat-title">Career Impact</div>
                     <div class="stat-subtitle">Barriers to progression and professional growth</div>
                 </div>
-                <div class="mobile-stat-option" data-target="knowledge-expansion">
+                <div class="mobile-stat-option" data-target="knowledge">
                     <div class="stat-title">Knowledge Gaps</div>
                     <div class="stat-subtitle">Understanding policies, rights and expectations</div>
                 </div>
@@ -1976,7 +2296,7 @@
                     </div>
                     
                     <!-- Personal Impact Expansion Bar -->
-                    <div class="stats-expansion-bar active" id="personal-expansion">
+                    <div class="stats-expansion-bar" id="personal-expansion">
                         <button class="close-expansion">&times;</button>
                         <div class="stats-expansion-header">
                             <h3 class="stats-expansion-title">Personal Impact</h3>
@@ -2477,8 +2797,12 @@
         
         // Cookie popup functionality
         const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
-        const cookieAccept = document.querySelector('.cookie-accept');
-        const cookieSettings = document.querySelector('.cookie-settings');
+        const cookieAccept = document.getElementById('cookieAcceptBtn');
+        const cookieSettings = document.getElementById('cookieSettingsBtn');
+        const cookieLearnMore = document.getElementById('cookieLearnMore');
+        const cookieSettingsModal = document.getElementById('cookieSettingsModal');
+        const cookieSettingsCancel = document.getElementById('cookieSettingsCancel');
+        const cookieSettingsSave = document.getElementById('cookieSettingsSave');
         
         // Show cookie popup after 3 seconds
         setTimeout(() => {
@@ -2495,7 +2819,36 @@
         
         // Cookie settings
         cookieSettings.addEventListener('click', function() {
-            alert('Cookie settings would be displayed here in a real implementation.');
+            cookiePopupOverlay.classList.remove('active');
+            cookieSettingsModal.classList.add('active');
+        });
+        
+        // Cookie learn more
+        cookieLearnMore.addEventListener('click', function(e) {
+            e.preventDefault();
+            cookiePopupOverlay.classList.remove('active');
+            cookieSettingsModal.classList.add('active');
+        });
+        
+        // Cookie settings cancel
+        cookieSettingsCancel.addEventListener('click', function() {
+            cookieSettingsModal.classList.remove('active');
+        });
+        
+        // Cookie settings save
+        cookieSettingsSave.addEventListener('click', function() {
+            const analyticsCookies = document.getElementById('analyticsCookies').checked;
+            const marketingCookies = document.getElementById('marketingCookies').checked;
+            
+            // Save cookie preferences
+            localStorage.setItem('cookiesAccepted', 'true');
+            localStorage.setItem('analyticsCookies', analyticsCookies);
+            localStorage.setItem('marketingCookies', marketingCookies);
+            
+            cookieSettingsModal.classList.remove('active');
+            
+            // Show confirmation message
+            alert('Your cookie preferences have been saved.');
         });
         
         // Coach popup after 20 seconds
@@ -2662,6 +3015,8 @@
         const expansionBars = document.querySelectorAll('.stats-expansion-bar');
         const mobileStatsSelector = document.getElementById('mobileStatsSelector');
         const mobileStatOptions = document.querySelectorAll('.mobile-stat-option');
+        const mobileStatsAnimation = document.getElementById('mobileStatsAnimation');
+        const mobileStatsSlides = document.querySelectorAll('.mobile-stats-slide');
         
         // Check if we're on mobile
         const isMobile = window.innerWidth <= 768;
@@ -2670,26 +3025,23 @@
         if (isMobile) {
             // On mobile, show the mobile selector and hide the desktop cards
             mobileStatsSelector.style.display = 'flex';
+            mobileStatsAnimation.style.display = 'block';
             document.querySelector('.stats-cards-column').style.display = 'none';
             statsPlaceholder.style.display = 'none';
-            
-            // Show the first expansion by default on mobile
-            document.getElementById('personal-expansion').style.display = 'flex';
             
             // Set up mobile stats selector
             mobileStatOptions.forEach(option => {
                 option.addEventListener('click', function() {
                     // Get the target expansion bar
                     const targetId = this.getAttribute('data-target');
-                    const targetExpansion = document.getElementById(targetId);
                     
                     // Hide all expansion bars
-                    expansionBars.forEach(bar => {
-                        bar.style.display = 'none';
+                    mobileStatsSlides.forEach(slide => {
+                        slide.classList.remove('active');
                     });
                     
                     // Show the selected expansion bar
-                    targetExpansion.style.display = 'flex';
+                    document.getElementById(`mobile${targetId.charAt(0).toUpperCase() + targetId.slice(1)}Slide`).classList.add('active');
                     
                     // Update active state for mobile options
                     mobileStatOptions.forEach(opt => {
@@ -2697,6 +3049,29 @@
                     });
                     this.classList.add('active');
                 });
+            });
+            
+            // Auto-rotate mobile stats slides every 6 seconds
+            let currentMobileSlide = 0;
+            const mobileSlideInterval = setInterval(() => {
+                // Hide current slide
+                mobileStatsSlides[currentMobileSlide].classList.remove('active');
+                
+                // Update current slide index
+                currentMobileSlide = (currentMobileSlide + 1) % mobileStatsSlides.length;
+                
+                // Show next slide
+                mobileStatsSlides[currentMobileSlide].classList.add('active');
+                
+                // Update active state for mobile options
+                mobileStatOptions.forEach((opt, index) => {
+                    opt.classList.toggle('active', index === currentMobileSlide);
+                });
+            }, 6000);
+            
+            // Stop auto-rotation when user interacts with the stats
+            mobileStatsSelector.addEventListener('click', function() {
+                clearInterval(mobileSlideInterval);
             });
         } else {
             // On desktop, use the original functionality
