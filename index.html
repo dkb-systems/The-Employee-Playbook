@@ -1492,6 +1492,11 @@
             text-decoration: none;
         }
 
+        /* Mobile Statistics Layout */
+        .mobile-stats-container {
+            display: none;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .stats-interactive-container {
@@ -1549,10 +1554,16 @@
                 transform: translateX(-50%);
             }
             
+            /* Increase logo size by 30% */
             .logo-img {
-                height: 72px;
+                height: 94px; /* 72px * 1.3 = 93.6px */
                 transform: none;
                 padding: 12px 0;
+            }
+            
+            /* Make header 15% bigger */
+            nav {
+                height: 92px; /* 80px * 1.15 = 92px */
             }
             
             .mobile-toggle {
@@ -1592,6 +1603,21 @@
                 display: flex;
             }
             
+            /* Move The Coach to the left and New tag next to it */
+            .nav-link-container {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+            }
+            
+            .new-tag {
+                position: static;
+                margin-left: 8px;
+                top: auto;
+                right: auto;
+            }
+            
             /* Move sign-in button to mobile menu */
             .nav-actions .sign-in {
                 display: none;
@@ -1608,19 +1634,10 @@
                 font-weight: 600;
                 text-decoration: none;
             }
-            
-            /* Center NEW tag vertically */
-            .nav-link-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .new-tag {
-                position: static;
-                margin-left: 8px;
-                top: auto;
-                right: auto;
+
+            /* Reduce padding above H1 by 10% */
+            .hero-content {
+                padding-top: 126px; /* 140px * 0.9 = 126px */
             }
 
             .hero-headline {
@@ -1673,7 +1690,7 @@
             
             /* Mobile Logo Adjustments */
             .footer-logo-img {
-                height: 60px; /* Slightly smaller on mobile */
+                height: 78px; /* 60px * 1.3 = 78px */
             }
             
             .stats-title {
@@ -1701,25 +1718,85 @@
             /* Statistics Section Mobile Layout */
             .stats-interactive-container {
                 flex-direction: column;
+                display: none;
             }
             
-            .stats-cards-column {
-                order: 1;
+            .mobile-stats-container {
+                display: block;
                 width: 100%;
             }
             
-            .stats-display-area {
-                order: 2;
-                min-height: 400px;
+            .mobile-stat-section {
+                margin-bottom: 40px;
             }
             
-            .stats-expansion-bar {
-                padding: 30px 20px;
+            .mobile-stat-card {
+                background: var(--primary-white);
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                margin-bottom: 20px;
+                border: 2px solid var(--accent-purple);
             }
             
-            .stats-grid {
+            .mobile-stat-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .mobile-stat-title {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--text-dark);
+            }
+            
+            .mobile-stats-grid {
+                display: grid;
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
+            }
+            
+            .mobile-stat-item {
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+            }
+            
+            .mobile-stat-value {
+                font-size: 32px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                color: var(--accent-purple);
+                line-height: 1;
+            }
+            
+            .mobile-stat-explanation {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                color: var(--text-dark);
+            }
+            
+            .mobile-stat-source {
+                font-size: 14px;
+                color: var(--dark-gray);
+                font-style: italic;
+            }
+            
+            /* Reduce banner height and font size by 15% */
+            .search-banner {
+                padding: 13.6px 0; /* 16px * 0.85 = 13.6px */
+            }
+            
+            .search-banner-content {
+                font-size: 15.3px; /* 18px * 0.85 = 15.3px */
+            }
+            
+            /* Reduce final statement font size */
+            .final-statement {
+                font-size: 34px; /* 40px * 0.85 = 34px */
             }
             
             /* Footer Changes */
@@ -1731,11 +1808,11 @@
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 60px; /* Slightly smaller on very small screens */
+                height: 78px; /* 60px * 1.3 = 78px */
             }
             
             .footer-logo-img {
-                height: 50px; /* Even smaller on very small screens */
+                height: 65px; /* 50px * 1.3 = 65px */
             }
             
             .logo-fallback {
@@ -1863,6 +1940,7 @@
                 <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
             </div>
             
+            <!-- Desktop Stats Layout -->
             <div class="stats-interactive-container">
                 <div class="stats-cards-column">
                     <!-- Personal Impact Card -->
@@ -2013,11 +2091,117 @@
                 </div>
             </div>
             
+            <!-- Mobile Stats Layout - Stats directly below title cards -->
+            <div class="mobile-stats-container">
+                <!-- Personal Impact Section -->
+                <div class="mobile-stat-section">
+                    <div class="mobile-stat-card">
+                        <div class="mobile-stat-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <div class="mobile-stat-title">Personal Impact</div>
+                        </div>
+                        
+                        <div class="mobile-stats-grid">
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">43%</div>
+                                <div class="mobile-stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
+                                <div class="mobile-stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">79%</div>
+                                <div class="mobile-stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
+                                <div class="mobile-stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">63%</div>
+                                <div class="mobile-stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
+                                <div class="mobile-stat-source">MHFA England (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Impact Section -->
+                <div class="mobile-stat-section">
+                    <div class="mobile-stat-card">
+                        <div class="mobile-stat-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                            </div>
+                            <div class="mobile-stat-title">Career Impact</div>
+                        </div>
+                        
+                        <div class="mobile-stats-grid">
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">33%</div>
+                                <div class="mobile-stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
+                                <div class="mobile-stat-source">Workplace Insight (UK)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">48%</div>
+                                <div class="mobile-stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
+                                <div class="mobile-stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">50%</div>
+                                <div class="mobile-stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
+                                <div class="mobile-stat-source">O.C. Tanner – HRReview, 2021</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Knowledge Impact Section -->
+                <div class="mobile-stat-section">
+                    <div class="mobile-stat-card">
+                        <div class="mobile-stat-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="mobile-stat-title">Knowledge Gaps</div>
+                        </div>
+                        
+                        <div class="mobile-stats-grid">
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">21%</div>
+                                <div class="mobile-stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
+                                <div class="mobile-stat-source">Personnel Today – Lattice Survey (2024)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">53%</div>
+                                <div class="mobile-stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
+                                <div class="mobile-stat-source">People Management (2024)</div>
+                            </div>
+                            
+                            <div class="mobile-stat-item">
+                                <div class="mobile-stat-value">25%</div>
+                                <div class="mobile-stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
+                                <div class="mobile-stat-source">CIPHR Research (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <a href="create-account.html" class="cta-button">Get the clarity you need</a>
         </div>
     </div>
 </section>
 
+<!-- Rest of the HTML remains the same -->
 <!-- Pillars Section -->
 <section class="pillars">
     <div class="container">
