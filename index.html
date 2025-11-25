@@ -1492,10 +1492,42 @@
             text-decoration: none;
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            /* Dark mode fix for mobile */
+            .dark-mode {
+                --primary-white: #121212;
+                --light-gray: #1E1E1E;
+                --medium-gray: #2D2D2D;
+                --dark-gray: #8A8A8A;
+                --text-dark: #F5F5F5;
+                --text-medium: #CCCCCC;
+                --accent-purple: #8B6CE6;
+                --accent-purple-dark: #6A4FC4;
+                --light-purple: #E6E0F5;
+                --border-light: rgba(255, 255, 255, 0.08);
+                --hero-gray: #1a1a1a;
+                --nav-bg: rgba(18, 18, 18, 0.95);
+            }
+            
+            /* Statistics section mobile improvements */
+            .statistics {
+                padding: 60px 0;
+            }
+            
+            .stats-title {
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+            
+            .stats-description {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            
             .stats-interactive-container {
                 flex-direction: column;
+                gap: 20px;
             }
             
             .stats-cards-column {
@@ -1503,40 +1535,91 @@
                 max-width: 100%;
             }
             
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .stat-card {
+                padding: 20px;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .stat-card-header {
+                margin-bottom: 0;
+                flex: 1;
+            }
+            
+            .icon-container {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .icon-circle {
+                font-size: 20px;
+            }
+            
+            .stat-title {
+                font-size: 16px;
+            }
+            
+            .stat-subtitle {
+                font-size: 13px;
+            }
+            
+            .stats-display-area {
+                min-height: 400px;
+                padding: 25px;
+            }
+            
+            .stats-expansion-bar {
+                padding: 25px;
+            }
+            
+            .stats-expansion-title {
+                font-size: 24px;
+            }
+            
+            .stats-expansion-subtitle {
+                font-size: 16px;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 25px;
             }
-        }
-
-        @media (max-width: 992px) {
-            .hero-headline {
-                font-size: 58px;
+            
+            .stat-value {
+                font-size: 28px;
+                min-height: 35px;
             }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            
+            .stat-explanation {
+                font-size: 15px;
+                min-height: auto;
             }
-
-            .pillars-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
+            
+            /* Footer mobile improvements */
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
-
-            .nav-links {
+            
+            .footer-about {
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            .footer-logo-img {
+                height: 80px;
+            }
+            
+            .footer-nav-grid {
+                grid-template-columns: 1fr 1fr;
                 gap: 30px;
             }
-        }
-
-        @media (max-width: 768px) {
+            
+            .footer-newsletter {
+                order: -1;
+            }
+            
+            /* Other mobile adjustments */
             .hero-headline {
                 font-size: 44px;
             }
@@ -1546,7 +1629,7 @@
             }
 
             .section-title {
-                font-size: 45px;
+                font-size: 32px;
             }
 
             .stats-grid, .metrics-grid {
@@ -1581,14 +1664,6 @@
                 display: flex;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-nav-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-newsletter-form {
                 flex-direction: column;
             }
@@ -1621,7 +1696,7 @@
             }
             
             .stats-title {
-                font-size: 45px;
+                font-size: 32px;
             }
             
             .usage-statement {
