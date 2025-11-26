@@ -141,10 +141,27 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
+            position: relative;
         }
 
         .nav-link:hover {
             color: var(--accent-purple);
+        }
+
+        /* Active page indicator - Purple underline */
+        .nav-link.active {
+            color: var(--accent-purple);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-purple);
+            border-radius: 2px;
         }
 
         .nav-actions {
@@ -1037,12 +1054,12 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
-            <a href="the-tools.html" class="nav-link">The Toolkit</a>
+            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
             </div>
-            <a href="the-shift.html" class="nav-link">The Shift</a>
+            <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
@@ -1241,7 +1258,7 @@
                         <p class="module-subtitle">Recover and rebuild sustainable energy</p>
                     </div>
                 </div>
-                <p class="module-description">Identify burnout triggers and implement a personalised recovery plan. Develop sustainable work habits that protect your energy while maintaining high performance.</p>
+                <p class="module-description">Identify burnout triggers and implement a personalized recovery plan. Develop sustainable work habits that protect your energy while maintaining high performance.</p>
                 <ul class="module-features">
                     <li class="module-feature">
                         <span class="feature-icon"><i class="fas fa-check"></i></span>
@@ -1329,7 +1346,7 @@
                         <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
-                            <li class="footer-link"><a href="the-tools.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
                             <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
@@ -1351,7 +1368,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 The Employee Playbook. All rights reserved.</p>
+            <p>© 2023 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -1410,4 +1427,3 @@
 
 </body>
 </html>
-
