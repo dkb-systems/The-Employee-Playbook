@@ -124,7 +124,7 @@
             font-size: 20px;
         }
 
-        /* Navigation */
+        /* Navigation - UPDATED for proper mobile centering */
         nav {
             position: fixed;
             top: 0;
@@ -147,7 +147,7 @@
             height: 100%;
         }
 
-        /* Logo Styles */
+        /* Logo Styles - UPDATED for better mobile centering */
         .logo-img {
             height: 100px;
             width: auto;
@@ -1875,7 +1875,7 @@
                 display: block;
             }
 
-            /* Mobile Navigation Changes */
+            /* Mobile Navigation Changes - UPDATED for better centering */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1885,18 +1885,25 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                height: 100%;
             }
             
+            /* UPDATED: Mobile logo size and positioning to match Lens page */
             .logo-img {
-                height: 122px;
-                transform: none;
+                height: 122px; /* Increased from 100px to match Lens page */
+                transform: none; /* Remove desktop transform */
                 padding: 12px 0;
+                display: flex;
+                align-items: center;
             }
             
             .mobile-toggle {
                 display: flex;
                 position: absolute;
                 left: 20px;
+                align-items: center;
             }
             
             .header-cta {
@@ -1908,6 +1915,7 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
+                align-items: center;
             }
             
             .nav-actions .sign-in {
@@ -2243,13 +2251,13 @@
 </div>
 
 
-<!-- Navigation -->
+<!-- Navigation - UPDATED for proper mobile centering -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile -->
+        <!-- Logo centered for mobile - UPDATED to match Lens page -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
@@ -2271,7 +2279,7 @@
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <a href="create-account.html" class="header-cta">Sign up</a>
+            <a href="create-account.html" class="header-cta">Sign me up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
