@@ -1627,8 +1627,11 @@
                 left: 20px;
             }
             
+            /* Show the Sign Up button in mobile view and position it on the right */
             .header-cta {
-                display: none;
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
             .nav-actions {
@@ -1636,6 +1639,11 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
+                display: none;
             }
             
             .nav-links {
@@ -1673,21 +1681,24 @@
                 right: auto;
             }
             
-            /* Move sign-in button to mobile menu */
-            .nav-actions .sign-in {
-                display: none;
-            }
-            
+            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
                 padding: 12px 20px;
-                background: var(--accent-purple);
-                color: white;
+                background: white;
+                color: var(--accent-purple);
                 border-radius: 8px;
                 text-align: center;
                 font-weight: 600;
                 text-decoration: none;
+                border: 2px solid var(--accent-purple);
+            }
+
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
             }
 
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
