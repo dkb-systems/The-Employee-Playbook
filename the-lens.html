@@ -314,11 +314,11 @@
         .lens-header {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 120px; /* Increased padding */
+            padding-top: 110px; /* Increased padding */
         }
 
         .hero-title {
-            font-size: 3.7rem; /* Increased font size */
+            font-size: 72px; /* Increased font size */
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-dark);
@@ -331,18 +331,11 @@
         .hero-subtitle {
             font-size: 20px;
             color: var(--text-medium);
-            max-width: 700px;
-            margin: 0 auto 20px;
+            max-width: 1000px;
+            margin: 0 auto 0px;
             font-weight: 500;
         }
 
-        .clarity-tag {
-            font-size: 14px;
-            color: var(--dark-gray);
-            font-style: italic;
-            margin-top: 10px;
-            opacity: 0.7;
-        }
 
         /* NEW: Clarity Intro Block */
         .clarity-intro {
@@ -1695,6 +1688,10 @@
 
             .chat-messages {
                 padding: 15px;
+                /* ADDED: Ensure scrolling works properly on mobile */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                max-height: calc(100% - 60px);
             }
 
             .message {
@@ -1932,7 +1929,7 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link active">The Lens</a>
-            <a href="the-tools.html" class="nav-link">The Toolkit</a>
+            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
@@ -1959,7 +1956,6 @@
             <div class="lens-header">
                 <h1 class="hero-title">Whatever's happening at work right now, let's get clear on it</h1>
                 <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, <br> and find your best next move</p>
-                <p class="clarity-tag">See Clearly. Act with Precision</p>
             </div>
             
             <!-- NEW: Clarity Intro Block -->
@@ -2332,7 +2328,7 @@
                         <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
-                            <li class="footer-link"><a href="the-tools.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
                             <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
@@ -2355,7 +2351,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2023 The Employee Playbook. All rights reserved.</p>
+            <p>© 2025 The Employee Playbook. All rights reserved.</p> <!-- Updated to 2025 -->
         </div>
     </div>
 </footer>
@@ -2801,7 +2797,7 @@
             } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
                 return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
             } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
-                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognized, it can make you question your value and contributions.";
+                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
             } else {
                 return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
             }
@@ -2853,7 +2849,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('excluded') || userMessage.includes('conversation')) {
+            } else if (userMessage.includes('excluded') || message.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
