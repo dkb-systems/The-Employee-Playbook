@@ -276,21 +276,23 @@
             position: fixed;
             top: 50%;
             right: 0;
-            transform: translateY(-50%) rotate(-90deg);
-            transform-origin: right bottom;
+            transform: translateY(-50%);
             background: var(--accent-purple);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px 8px 0 0;
+            padding: 25px 15px;
+            border-radius: 12px 0 0 12px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 998;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
+            z-index: 997;
             transition: all 0.3s ease;
-            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 1px;
             border: 2px solid white;
-            letter-spacing: 0.5px;
         }
 
         .mobile-cta-tab:hover {
@@ -2935,3 +2937,4 @@
 
 </body>
 </html>
+
