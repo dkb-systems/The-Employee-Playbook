@@ -431,24 +431,24 @@
         /* Stages Narrative */
         .stages-narrative {
             background: var(--primary-white);
-            padding: 60px 0 40px;
+            padding: 100px 0 40px;
         }
 
         .narrative-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
         .narrative-title {
-            font-size: 28px;
+            font-size: 44px;
             font-weight: 700;
             margin-bottom: 24px;
             color: var(--deep-navy);
         }
 
         .narrative-text {
-            font-size: 18px;
+            font-size: 22px;
             line-height: 1.6;
             color: var(--text-medium);
         }
@@ -970,8 +970,9 @@
                 padding: 0 20px;
             }
             
+            /* INCREASED: Narrative text size for mobile */
             .narrative-text {
-                font-size: 16px;
+                font-size: 20px; /* Increased from 16px */
                 padding: 0 20px;
             }
         }
@@ -1002,6 +1003,11 @@
             /* REDUCED: Further reduce final statement size for very small mobile */
             .final-statement {
                 font-size: 24px; /* Further reduced for very small screens */
+            }
+            
+            /* INCREASED: Narrative text size for very small mobile */
+            .narrative-text {
+                font-size: 18px; /* Increased from 16px */
             }
         }
     </style>
@@ -1037,7 +1043,8 @@
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <a href="create-account.html" class="header-cta">Sign me up</a>
+            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
+            <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -1086,6 +1093,7 @@
     <div class="container">
         <div class="narrative-content">
             <h3 class="narrative-title">The Architecture of Your Shift</h3>
+            <!-- CHANGED: Increased font size for mobile view -->
             <p class="narrative-text">This is not sequential training. Each stage addresses a different dimension of strategic leadership. You progress by integrating new operational identities, not by consuming resources. The sequence builds from internal stability to external influence.</p>
         </div>
     </div>
@@ -1096,7 +1104,7 @@
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Your Framework for Lasting Impact</h2>
-            <p class="section-subtitle">Transform how you operate, lead, and thrive in your organization</p>
+            <p class="section-subtitle">Transform how you operate, lead, and thrive in your organisation</p>
         </div>
         
         <div class="modules-grid">
