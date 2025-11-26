@@ -1127,7 +1127,7 @@
         /* NEW: Micro CTA Section - UPDATED with larger text */
         .micro-cta {
             text-align: center;
-            padding: 40px;
+            padding: 30px;
             margin: 40px 0;
             background: var(--neutral-bg);
             border-radius: 12px;
@@ -1135,7 +1135,7 @@
         }
 
         .micro-cta p {
-            font-size: 30px; /* Increased font size */
+            font-size: 22px; /* Increased font size */
             color: var(--text-dark);
             margin-bottom: 20px;
             font-weight: 600; /* Increased weight */
@@ -1592,9 +1592,8 @@
                 left: 20px;
             }
             
-            /* Hide the Sign Up button in mobile view */
             .header-cta {
-                display: none !important;
+                display: none;
             }
             
             .nav-actions {
@@ -1710,8 +1709,10 @@
                 grid-template-columns: 1fr;
             }
 
+            /* NEW: Footer layout update - The Company next to The Playbook */
             .footer-nav-grid {
                 grid-template-columns: 1fr 1fr; /* Keep The Playbook and The Company side by side */
+                gap: 20px;
             }
 
             .footer-newsletter-form {
@@ -1805,11 +1806,24 @@
                 border-top: 1px solid var(--border-light);
             }
             
-            /* Ensure chat messages area scrolls properly */
+            /* FINAL UPDATE: Ensure chat messages area scrolls properly to see older messages */
             .chat-messages {
                 max-height: calc(100% - 60px);
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
+                /* Enable scrolling to see older messages */
+                height: auto;
+                min-height: 200px;
+            }
+            
+            /* FINAL UPDATE: Reduce clarity intro font size to fit in 5 lines */
+            .clarity-intro {
+                font-size: 14px;
+                line-height: 1.4;
+                padding: 15px;
+                margin: 0 auto 30px;
+                max-height: 98px; /* Approximately 5 lines */
+                overflow: hidden;
             }
             
             /* Adjust viewport when keyboard is open */
@@ -1918,7 +1932,7 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link active">The Lens</a>
-            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
+            <a href="the-tools.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
@@ -2318,7 +2332,7 @@
                         <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
-                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-tools.html">The Toolkit</a></li>
                             <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
@@ -2330,10 +2344,10 @@
                         <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="#">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
-                            <li class="footer-link"><a href="security.html">Security</a></li>
-                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
+                            <li class="footer-link"><a href="#">Security</a></li>
+                            <li class="footer-link"><a href="#">Help Centre</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2341,7 +2355,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 The Employee Playbook. All rights reserved.</p>
+            <p>© 2023 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -2787,7 +2801,7 @@
             } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
                 return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
             } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
-                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
+                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognized, it can make you question your value and contributions.";
             } else {
                 return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
             }
@@ -2839,7 +2853,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('excluded') || message.includes('conversation')) {
+            } else if (userMessage.includes('excluded') || userMessage.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
