@@ -115,19 +115,17 @@
             height: 100%;
         }
 
-        /* Logo Styles */
+        /* Logo Styles - FIXED */
         .logo-img {
-            height: 100px;
+            height: 60px;
             width: auto;
-            transform: translateX(20%);
             padding: 14px 10px;
             transition: all 0.3s ease;
             display: block;
-            min-height: 100px;
         }
 
         .dark-mode .logo-img {
-            filter: invert(1) hue-rotate(180deg);
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
@@ -167,7 +165,6 @@
             display: flex;
             align-items: center;
             gap: 24px;
-            transform: translateX(-20%);
         }
 
         .sign-in {
@@ -551,6 +548,8 @@
         .chat-content-wrapper {
             display: flex;
             height: 100%;
+            flex: 1;
+            min-height: 0; /* Critical for flex children */
         }
 
         .most-popular-sidebar {
@@ -559,6 +558,7 @@
             border-right: 1px solid var(--border-light);
             padding: 20px;
             overflow-y: auto;
+            flex-shrink: 0;
         }
 
         .sidebar-title {
@@ -607,6 +607,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            min-height: 0; /* Critical for flex children */
         }
 
         /* FIXED: Chat messages with proper scrolling */
@@ -619,7 +620,7 @@
             gap: 15px;
             background-color: var(--light-gray);
             height: auto;
-            min-height: 200px;
+            min-height: 0; /* Critical for flex children */
             -webkit-overflow-scrolling: touch;
         }
 
@@ -727,6 +728,7 @@
             position: sticky;
             bottom: 0;
             z-index: 10;
+            flex-shrink: 0; /* Prevent input from shrinking */
         }
 
         .chat-input {
@@ -1182,7 +1184,7 @@
             right: 0;
         }
 
-        /* Footer */
+        /* Footer - FIXED logo */
         footer {
             background-color: var(--primary-white);
             padding: 35px 0 20px;
@@ -1210,14 +1212,14 @@
         }
 
         .footer-logo-img {
-            height: 100px;
+            height: 60px;
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
         }
 
         .dark-mode .footer-logo-img {
-            filter: invert(1) hue-rotate(180deg);
+            filter: brightness(0) invert(1);
         }
 
         .footer-description {
@@ -1367,7 +1369,7 @@
             }
             
             .logo-img {
-                height: 122px;
+                height: 50px;
                 transform: none;
                 padding: 12px 0;
             }
@@ -1482,9 +1484,9 @@
                 padding: 15px;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                max-height: none;
                 height: auto;
-                margin-bottom: 10px;
+                min-height: 0;
+                max-height: none;
                 position: relative;
             }
 
@@ -1494,6 +1496,11 @@
 
             .chat-input-container {
                 padding: 12px 15px;
+                position: sticky;
+                bottom: 0;
+                background: var(--primary-white);
+                z-index: 100;
+                flex-shrink: 0;
             }
 
             .footer-content {
@@ -1510,7 +1517,7 @@
             }
             
             .footer-logo-img {
-                height: 120px;
+                height: 50px;
             }
 
             /* Chat Layout for Mobile - Remove Most Popular sidebar */
@@ -1561,7 +1568,7 @@
                 grid-template-columns: 1fr;
             }
             
-            /* Adjust chat container height and spacing for mobile */
+            /* FIXED: Adjust chat container height for mobile */
             .chat-container {
                 height: 550px;
                 margin: 20px 0;
@@ -1577,26 +1584,6 @@
             
             .lens-header {
                 padding-top: 100px;
-            }
-            
-            /* FIXED: Ensure input stays at bottom when focused on mobile */
-            .chat-input-container {
-                position: sticky;
-                bottom: 0;
-                background: var(--primary-white);
-                z-index: 100;
-                padding: 12px 15px;
-                border-top: 1px solid var(--border-light);
-            }
-            
-            /* FIXED: Ensure chat messages area scrolls properly to see older messages */
-            .chat-messages {
-                max-height: none;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                height: auto;
-                min-height: 200px;
-                padding-bottom: 10px;
             }
             
             /* FIXED: Reduce clarity intro font size to fit in 5 lines */
@@ -1650,11 +1637,11 @@
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 100px;
+                height: 45px;
             }
             
             .footer-logo-img {
-                height: 100px;
+                height: 45px;
             }
             
             .hero-title {
@@ -1671,7 +1658,6 @@
             }
             
             .chat-messages {
-                height: 350px;
                 padding: 12px;
             }
             
@@ -1695,9 +1681,9 @@
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile -->
+        <!-- Logo centered for mobile - FIXED -->
         <a href="index.html" class="logo">
-            <img src="https://via.placeholder.com/200x60/7B5FC4/FFFFFF?text=EMPLOYEE+PLAYBOOK" alt="The Employee Playbook" class="logo-img" id="logo">
+            <img src="https://placehold.co/200x60/7b5fc4/ffffff?text=Employee+Playbook" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
         
         <!-- Navigation links with mobile sign-in -->
@@ -1991,14 +1977,14 @@
     </div>
 </main>
 
-<!-- Footer -->
+<!-- Footer - FIXED logo -->
 <footer>
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="https://via.placeholder.com/200x60/7B5FC4/FFFFFF?text=EMPLOYEE+PLAYBOOK" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
+                        <img src="https://placehold.co/200x60/7b5fc4/ffffff?text=Employee+Playbook" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
                     </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
@@ -2160,7 +2146,7 @@
             messageCount: 0
         };
         
-        // NEW: Clear session functionality
+        // Clear session functionality
         clearSessionBtn.addEventListener('click', function() {
             // Clear chat messages except the initial bot message
             chatMessages.innerHTML = `
@@ -2283,10 +2269,10 @@
             
             chatMessages.appendChild(messageDiv);
             
-            // Simple scroll to bottom - removed overflow toggling hack
+            // Simple, reliable scroll to bottom - NO overflow toggling hack
             setTimeout(() => {
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 100);
+            }, 50);
         }
         
         // Send message function
