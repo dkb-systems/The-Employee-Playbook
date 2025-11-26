@@ -36,6 +36,10 @@
             --border-light: rgba(0, 0, 0, 0.08);
             --hero-gray: #f5f7fa;
             --nav-bg: rgba(255, 255, 255, 0.95);
+            --deep-navy: #0A1428;
+            --soft-blue: #EFF5FF;
+            --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
+            --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
         }
 
         .dark-mode {
@@ -51,6 +55,10 @@
             --border-light: rgba(255, 255, 255, 0.08);
             --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
+            --deep-navy: #EFF5FF;
+            --soft-blue: #1A2333;
+            --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
+            --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
         }
 
         * {
@@ -70,6 +78,12 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         .container {
@@ -124,7 +138,7 @@
             font-size: 20px;
         }
 
-        /* Navigation - UPDATED for proper mobile centering */
+        /* Navigation - UPDATED to match The Shift page */
         nav {
             position: fixed;
             top: 0;
@@ -147,7 +161,7 @@
             height: 100%;
         }
 
-        /* Logo Styles - UPDATED for better mobile centering */
+        /* Logo Styles - UPDATED to match The Shift page */
         .logo-img {
             height: 100px;
             width: auto;
@@ -297,6 +311,11 @@
         .floating-cta:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
         }
 
         /* Hero Section */
@@ -1875,7 +1894,7 @@
                 display: block;
             }
 
-            /* Mobile Navigation Changes - UPDATED for better centering */
+            /* Mobile Navigation Changes - UPDATED to match The Shift page */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1890,9 +1909,9 @@
                 height: 100%;
             }
             
-            /* UPDATED: Mobile logo size and positioning to match Lens page */
+            /* UPDATED: Mobile logo size increased by 25% to match Lens page */
             .logo-img {
-                height: 122px; /* Increased from 100px to match Lens page */
+                height: 125px; /* Increased from 100px to 125px (25% increase) */
                 transform: none; /* Remove desktop transform */
                 padding: 12px 0;
                 display: flex;
@@ -1906,8 +1925,11 @@
                 align-items: center;
             }
             
+            /* Show the Sign Up button in mobile view and position it on the right */
             .header-cta {
-                display: none !important;
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
             .nav-actions {
@@ -1918,6 +1940,7 @@
                 align-items: center;
             }
             
+            /* Hide the desktop Sign In button in mobile view */
             .nav-actions .sign-in {
                 display: none;
             }
@@ -1942,6 +1965,7 @@
                 display: flex;
             }
             
+            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -1956,6 +1980,7 @@
                 right: auto;
             }
             
+            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
@@ -2171,11 +2196,6 @@
                 font-size: 14px;
             }
         }
-        
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
-            display: none;
-        }
     </style>
 </head>
 
@@ -2251,13 +2271,13 @@
 </div>
 
 
-<!-- Navigation - UPDATED for proper mobile centering -->
+<!-- Navigation - UPDATED to match The Shift page -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile - UPDATED to match Lens page -->
+        <!-- Logo centered for mobile - UPDATED to match The Shift page -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
@@ -2294,6 +2314,7 @@
             The confidence you need when work gets difficult <br>Powered by smart scripts, frameworks and real-time support from The Coach
             <span class="hero-note">Not legal advice. Just the clarity you wish you'd had sooner</span>
         </p>
+        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
     </div>
 
     <!-- Banner -->
@@ -2982,330 +3003,338 @@
     </div>
 </div>
 
+<!-- NEW: Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign Up Now</a>
+
 <script>
-    // Cookie popup functionality
-    const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
-    const cookieAccept = document.querySelector('.cookie-accept');
-    const cookieSettings = document.querySelector('.cookie-settings');
-    
-    // Show cookie popup after 3 seconds
-    setTimeout(() => {
-        if (!localStorage.getItem('cookiesAccepted')) {
-            cookiePopupOverlay.classList.add('active');
-        }
-    }, 3000);
-    
-    // Accept cookies
-    cookieAccept.addEventListener('click', function() {
-        localStorage.setItem('cookiesAccepted', 'true');
-        cookiePopupOverlay.classList.remove('active');
-    });
-    
-    // Cookie settings functionality
-    const cookieSettingsButton = document.querySelector('.cookie-settings');
-    const cookieSettingsModal = document.getElementById('cookieSettingsModal');
-    const cookieSettingsClose = document.querySelector('.cookie-settings-close');
-    const cookieSettingsSave = document.querySelector('.cookie-settings-save');
-    const cookieAcceptAll = document.querySelector('.cookie-settings-accept-all');
-    const cookieRejectAll = document.querySelector('.cookie-settings-reject-all');
-    const analyticsCookies = document.getElementById('analyticsCookies');
-    const marketingCookies = document.getElementById('marketingCookies');
-
-    // Open cookie settings
-    cookieSettingsButton.addEventListener('click', function() {
-        cookiePopupOverlay.classList.remove('active');
-        cookieSettingsModal.classList.add('active');
+    // Mark page as loaded to prevent FOUC
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
         
-        // Load current preferences
-        const currentPreferences = getCookiePreferences();
-        analyticsCookies.checked = currentPreferences.analytics;
-        marketingCookies.checked = currentPreferences.marketing;
-    });
-
-    // Close cookie settings
-    cookieSettingsClose.addEventListener('click', function() {
-        cookieSettingsModal.classList.remove('active');
-    });
-
-    // Save cookie preferences
-    cookieSettingsSave.addEventListener('click', function() {
-        saveCookiePreferences();
-        cookieSettingsModal.classList.remove('active');
-        alert('Your cookie preferences have been saved.');
-    });
-
-    // Accept all cookies
-    cookieAcceptAll.addEventListener('click', function() {
-        analyticsCookies.checked = true;
-        marketingCookies.checked = true;
-        saveCookiePreferences();
-        cookieSettingsModal.classList.remove('active');
-        alert('All cookies have been accepted.');
-    });
-
-    // Reject all non-essential cookies
-    cookieRejectAll.addEventListener('click', function() {
-        analyticsCookies.checked = false;
-        marketingCookies.checked = false;
-        saveCookiePreferences();
-        cookieSettingsModal.classList.remove('active');
-        alert('Non-essential cookies have been rejected.');
-    });
-
-    // Get current cookie preferences from localStorage
-    function getCookiePreferences() {
-        const preferences = localStorage.getItem('cookiePreferences');
-        if (preferences) {
-            return JSON.parse(preferences);
-        }
-        // Default preferences if none exist
-        return {
-            analytics: true,
-            marketing: false
-        };
-    }
-
-    // Save cookie preferences to localStorage
-    function saveCookiePreferences() {
-        const preferences = {
-            analytics: analyticsCookies.checked,
-            marketing: marketingCookies.checked
-        };
-        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-        localStorage.setItem('cookiesAccepted', 'true');
+        // Cookie popup functionality
+        const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
+        const cookieAccept = document.querySelector('.cookie-accept');
+        const cookieSettings = document.querySelector('.cookie-settings');
         
-        // In a real implementation, you would update the actual cookies here
-        // based on the user's preferences
-    }
-    
-    // Coach popup after 20 seconds
-    setTimeout(() => {
-        if (!localStorage.getItem('coachPopupShown')) {
-            document.getElementById('coach-popup').style.display = 'flex';
-            localStorage.setItem('coachPopupShown', 'true');
-        }
-    }, 20000);
-    
-    // Close coach popup
-    document.querySelector('.coach-popup-close').addEventListener('click', function() {
-        document.getElementById('coach-popup').style.display = 'none';
-    });
-    
-    // Dark mode toggle
-    document.querySelector('.theme-toggle').addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-moon');
-        icon.classList.toggle('fa-sun');
+        // Show cookie popup after 3 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookiePopupOverlay.classList.add('active');
+            }
+        }, 3000);
         
-        // Update logo for dark mode
-        const logo = document.getElementById('logo');
-        const footerLogo = document.getElementById('footer-logo');
-        if (document.body.classList.contains('dark-mode')) {
-            logo.src = 'assets/img/logo-dark.png';
-            footerLogo.src = 'assets/img/logo-dark.png';
-        } else {
-            logo.src = 'assets/img/logo.png';
-            footerLogo.src = 'assets/img/logo.png';
+        // Accept cookies
+        cookieAccept.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookiePopupOverlay.classList.remove('active');
+        });
+        
+        // Cookie settings functionality
+        const cookieSettingsButton = document.querySelector('.cookie-settings');
+        const cookieSettingsModal = document.getElementById('cookieSettingsModal');
+        const cookieSettingsClose = document.querySelector('.cookie-settings-close');
+        const cookieSettingsSave = document.querySelector('.cookie-settings-save');
+        const cookieAcceptAll = document.querySelector('.cookie-settings-accept-all');
+        const cookieRejectAll = document.querySelector('.cookie-settings-reject-all');
+        const analyticsCookies = document.getElementById('analyticsCookies');
+        const marketingCookies = document.getElementById('marketingCookies');
+
+        // Open cookie settings
+        cookieSettingsButton.addEventListener('click', function() {
+            cookiePopupOverlay.classList.remove('active');
+            cookieSettingsModal.classList.add('active');
+            
+            // Load current preferences
+            const currentPreferences = getCookiePreferences();
+            analyticsCookies.checked = currentPreferences.analytics;
+            marketingCookies.checked = currentPreferences.marketing;
+        });
+
+        // Close cookie settings
+        cookieSettingsClose.addEventListener('click', function() {
+            cookieSettingsModal.classList.remove('active');
+        });
+
+        // Save cookie preferences
+        cookieSettingsSave.addEventListener('click', function() {
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('Your cookie preferences have been saved.');
+        });
+
+        // Accept all cookies
+        cookieAcceptAll.addEventListener('click', function() {
+            analyticsCookies.checked = true;
+            marketingCookies.checked = true;
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('All cookies have been accepted.');
+        });
+
+        // Reject all non-essential cookies
+        cookieRejectAll.addEventListener('click', function() {
+            analyticsCookies.checked = false;
+            marketingCookies.checked = false;
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('Non-essential cookies have been rejected.');
+        });
+
+        // Get current cookie preferences from localStorage
+        function getCookiePreferences() {
+            const preferences = localStorage.getItem('cookiePreferences');
+            if (preferences) {
+                return JSON.parse(preferences);
+            }
+            // Default preferences if none exist
+            return {
+                analytics: true,
+                marketing: false
+            };
         }
-    });
 
-    // Mobile navigation toggle
-    document.querySelector('.mobile-toggle').addEventListener('click', function () {
-        document.querySelector('.nav-links').classList.toggle('active');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    });
+        // Save cookie preferences to localStorage
+        function saveCookiePreferences() {
+            const preferences = {
+                analytics: analyticsCookies.checked,
+                marketing: marketingCookies.checked
+            };
+            localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+            localStorage.setItem('cookiesAccepted', 'true');
+            
+            // In a real implementation, you would update the actual cookies here
+            // based on the user's preferences
+        }
+        
+        // Coach popup after 20 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('coachPopupShown')) {
+                document.getElementById('coach-popup').style.display = 'flex';
+                localStorage.setItem('coachPopupShown', 'true');
+            }
+        }, 20000);
+        
+        // Close coach popup
+        document.querySelector('.coach-popup-close').addEventListener('click', function() {
+            document.getElementById('coach-popup').style.display = 'none';
+        });
+        
+        // Dark mode toggle
+        document.querySelector('.theme-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            
+            // Update logo for dark mode
+            const logo = document.getElementById('logo');
+            const footerLogo = document.getElementById('footer-logo');
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
+            } else {
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
+            }
+        });
 
-    // Smooth scrolling with offset for fixed header
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        // Mobile navigation toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 96; // 80px header + 16px extra spacing
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.mobile-toggle i').classList.add('fa-bars');
+                    document.querySelector('.mobile-toggle i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Chat Widget Functionality
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatContainer = document.querySelector('.chat-container');
+        const chatClose = document.querySelector('.chat-close');
+        const chatForm = document.getElementById('chatForm');
+
+        chatToggle.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+
+        chatClose.addEventListener('click', function() {
+            chatContainer.classList.remove('active');
+        });
+
+        chatForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offset = 96; // 80px header + 16px extra spacing
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                
-                // Close mobile menu if open
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.mobile-toggle i').classList.add('fa-bars');
-                document.querySelector('.mobile-toggle i').classList.remove('fa-times');
-            }
+            
+            // Get form data
+            const formData = {
+                name: this.querySelector('input[type="text"]').value,
+                email: this.querySelector('input[type="email"]').value,
+                message: this.querySelector('textarea').value
+            };
+            
+            // In a real implementation, you would send this data to a server
+            console.log('Chat form submitted:', formData);
+            
+            // Show success message
+            const chatMessages = document.querySelector('.chat-messages');
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'message-user');
+            userMessage.textContent = "Thanks! We'll get back to you soon.";
+            chatMessages.appendChild(userMessage);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         });
-    });
 
-    // Chat Widget Functionality
-    const chatToggle = document.querySelector('.chat-toggle');
-    const chatContainer = document.querySelector('.chat-container');
-    const chatClose = document.querySelector('.chat-close');
-    const chatForm = document.getElementById('chatForm');
+        // Testimonials Carousel
+        const testimonialsTrack = document.getElementById('testimonialsTrack');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 7;
 
-    chatToggle.addEventListener('click', function() {
-        chatContainer.classList.toggle('active');
-    });
+        function updateCarousel() {
+            testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
 
-    chatClose.addEventListener('click', function() {
-        chatContainer.classList.remove('active');
-    });
-
-    chatForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: this.querySelector('input[type="text"]').value,
-            email: this.querySelector('input[type="email"]').value,
-            message: this.querySelector('textarea').value
-        };
-        
-        // In a real implementation, you would send this data to a server
-        console.log('Chat form submitted:', formData);
-        
-        // Show success message
-        const chatMessages = document.querySelector('.chat-messages');
-        const userMessage = document.createElement('div');
-        userMessage.classList.add('message', 'message-user');
-        userMessage.textContent = "Thanks! We'll get back to you soon.";
-        chatMessages.appendChild(userMessage);
-        
-        // Reset form
-        this.reset();
-        
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    });
-
-    // Testimonials Carousel
-    const testimonialsTrack = document.getElementById('testimonialsTrack');
-    const carouselDots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
-    const totalSlides = 7;
-
-    function updateCarousel() {
-        testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-        
-        // Update active dot
-        carouselDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
+        // Add click events to dots
+        carouselDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                currentSlide = parseInt(this.getAttribute('data-index'));
+                updateCarousel();
+            });
         });
-    }
 
-    // Add click events to dots
-    carouselDots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            currentSlide = parseInt(this.getAttribute('data-index'));
+        // Auto-advance carousel
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
             updateCarousel();
+        }, 5000);
+        
+        // Animated counter for metrics
+        const metricValues = document.querySelectorAll('.metric-value');
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const metricValue = entry.target;
+                    const finalValue = parseInt(metricValue.textContent);
+                    
+                    animateValue(metricValue, 0, finalValue, 1500);
+                    observer.unobserve(metricValue);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        metricValues.forEach(value => {
+            observer.observe(value);
         });
-    });
-
-    // Auto-advance carousel
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }, 5000);
-    
-    // Animated counter for metrics
-    const metricValues = document.querySelectorAll('.metric-value');
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const metricValue = entry.target;
-                const finalValue = parseInt(metricValue.textContent);
+        
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + '%';
                 
-                animateValue(metricValue, 0, finalValue, 1500);
-                observer.unobserve(metricValue);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    metricValues.forEach(value => {
-        observer.observe(value);
-    });
-    
-    function animateValue(element, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const value = Math.floor(progress * (end - start) + start);
-            element.textContent = value + '%';
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-    
-    // Statistics cards interactive functionality
-    const statCards = document.querySelectorAll('.stat-card');
-    const statsPlaceholder = document.getElementById('stats-placeholder');
-    const expansionBars = document.querySelectorAll('.stats-expansion-bar');
-    
-    statCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Get the target expansion bar
-            const targetId = this.getAttribute('data-target');
-            const targetExpansion = document.getElementById(targetId);
-            
-            // Hide all expansion bars and placeholder
-            expansionBars.forEach(bar => {
-                bar.classList.remove('active');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Statistics cards interactive functionality
+        const statCards = document.querySelectorAll('.stat-card');
+        const statsPlaceholder = document.getElementById('stats-placeholder');
+        const expansionBars = document.querySelectorAll('.stats-expansion-bar');
+        
+        statCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Get the target expansion bar
+                const targetId = this.getAttribute('data-target');
+                const targetExpansion = document.getElementById(targetId);
+                
+                // Hide all expansion bars and placeholder
+                expansionBars.forEach(bar => {
+                    bar.classList.remove('active');
+                });
+                statsPlaceholder.style.display = 'none';
+                
+                // Show the selected expansion bar
+                targetExpansion.classList.add('active');
+                
+                // Update active state for cards
+                statCards.forEach(c => {
+                    c.classList.remove('active');
+                });
+                this.classList.add('active');
             });
-            statsPlaceholder.style.display = 'none';
-            
-            // Show the selected expansion bar
-            targetExpansion.classList.add('active');
-            
-            // Update active state for cards
-            statCards.forEach(c => {
-                c.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-    });
-    
-    // Close expansion bars
-    const closeButtons = document.querySelectorAll('.close-expansion');
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const expansionBar = this.closest('.stats-expansion-bar');
-            expansionBar.classList.remove('active');
-            
-            // Show placeholder again
-            statsPlaceholder.style.display = 'block';
-            
-            // Remove active state from cards
-            statCards.forEach(card => {
-                card.classList.remove('active');
-            });
-        });
-    });
-    
-    // Pillar cards mobile-friendly functionality
-    const pillarCards = document.querySelectorAll('.pillar-card');
-    
-    pillarCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Toggle flipped state on click for mobile
-            this.classList.toggle('flipped');
         });
         
-        // Keep hover functionality for desktop
-        card.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                this.classList.add('flipped');
-            }
+        // Close expansion bars
+        const closeButtons = document.querySelectorAll('.close-expansion');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const expansionBar = this.closest('.stats-expansion-bar');
+                expansionBar.classList.remove('active');
+                
+                // Show placeholder again
+                statsPlaceholder.style.display = 'block';
+                
+                // Remove active state from cards
+                statCards.forEach(card => {
+                    card.classList.remove('active');
+                });
+            });
         });
         
-        card.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                this.classList.remove('flipped');
-            }
+        // Pillar cards mobile-friendly functionality
+        const pillarCards = document.querySelectorAll('.pillar-card');
+        
+        pillarCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Toggle flipped state on click for mobile
+                this.classList.toggle('flipped');
+            });
+            
+            // Keep hover functionality for desktop
+            card.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    this.classList.add('flipped');
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 768) {
+                    this.classList.remove('flipped');
+                }
+            });
         });
     });
 </script>
