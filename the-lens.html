@@ -268,34 +268,27 @@
             white-space: nowrap;
         }
 
-        /* NEW: Floating CTA for Mobile */
+        /* NEW: Floating CTA for Mobile - UPDATED to match homepage tab style */
         .floating-cta {
             display: none;
             position: fixed;
-            bottom: 90px;
-            right: 0px;
+            bottom: 0;
+            left: 0;
+            right: 0;
             background: var(--accent-purple);
             color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
+            padding: 15px 20px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.35);
+            font-size: 16px;
             z-index: 999;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(123, 95, 196, 0.35);
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
         }
 
         .floating-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.45);
+            background: var(--accent-purple-dark);
         }
 
         /* Main Content */
@@ -334,7 +327,7 @@
         .hero-subtitle {
             font-size: 20px;
             color: var(--text-medium);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 20px;
             font-weight: 500;
         }
@@ -542,14 +535,14 @@
             padding: 0 20px;
         }
 
-        /* Chat Container - UPDATED with sticky input */
+        /* Chat Container - REDESIGNED for better visibility */
         .chat-container {
             background: var(--primary-white);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
-            height: 580px;
+            height: 600px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -600,7 +593,7 @@
             font-size: 18px;
         }
 
-        /* Chat Layout */
+        /* Chat Layout - REDESIGNED for better visibility */
         .chat-content-wrapper {
             display: flex;
             height: 100%;
@@ -659,6 +652,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .chat-messages {
@@ -669,6 +663,8 @@
             flex-direction: column;
             gap: 15px;
             background-color: var(--light-gray);
+            /* Ensure messages are fully visible */
+            max-height: calc(100% - 70px);
         }
 
         .message {
@@ -1124,7 +1120,7 @@
             color: white;
         }
 
-        /* NEW: Micro CTA Section */
+        /* NEW: Micro CTA Section - UPDATED with larger text */
         .micro-cta {
             text-align: center;
             padding: 30px;
@@ -1135,10 +1131,10 @@
         }
 
         .micro-cta p {
-            font-size: 18px;
+            font-size: 22px; /* Increased font size */
             color: var(--text-dark);
             margin-bottom: 20px;
-            font-weight: 500;
+            font-weight: 600; /* Increased weight */
         }
 
         .cta-small {
@@ -1247,7 +1243,7 @@
             right: 0;
         }
 
-        /* Footer - UPDATED with mobile styling from second page */
+        /* Footer - UPDATED with The Company next to The Playbook */
         footer {
             background-color: var(--primary-white);
             padding: 35px 0 20px;
@@ -1710,7 +1706,7 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr; /* Keep The Playbook and The Company side by side */
             }
 
             .footer-newsletter-form {
@@ -1780,7 +1776,7 @@
                 grid-template-columns: 1fr;
             }
             
-            /* NEW: Floating CTA for mobile */
+            /* NEW: Floating CTA for mobile - UPDATED to match homepage tab style */
             .floating-cta {
                 display: block;
             }
@@ -1821,7 +1817,7 @@
             }
 
             .micro-cta p {
-                font-size: 16px;
+                font-size: 18px; /* Slightly smaller on mobile */
             }
 
             .cta-small, .cta-link {
@@ -1852,12 +1848,8 @@
                 font-size: 16px;
             }
             
-            /* NEW: Further floating CTA adjustments for small mobile */
-            .floating-cta {
-                bottom: 80px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
+            .footer-nav-grid {
+                grid-template-columns: 1fr; /* Stack on very small screens */
             }
         }
         
@@ -1870,7 +1862,7 @@
 
 <body>
 
-<!-- NEW: Floating CTA for Mobile -->
+<!-- NEW: Floating CTA for Mobile - UPDATED to match homepage tab style -->
 <a href="create-account.html" class="floating-cta">Sign up</a>
 
 <!-- Navigation -->
@@ -1914,15 +1906,15 @@
         <div class="content-wrapper">
             <!-- Lens Header - UPDATED -->
             <div class="lens-header">
-                <h1 class="hero-title">Whatever's happening at work right now – let's get clear on it.</h1>
-                <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, and find your best next move.</p>
-                <p class="clarity-tag">See Clearly. Act with Precision.</p>
+                <h1 class="hero-title">Whatever's happening at work right now, let's get clear on it</h1>
+                <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, <br> and find your best next move</p>
+                <p class="clarity-tag">See Clearly. Act with Precision</p>
             </div>
             
             <!-- NEW: Clarity Intro Block -->
             <p class="clarity-intro">
-                Clarity isn't about more information — it's about knowing what matters right now.
-                The Lens cuts through noise so you can respond strategically, not react emotionally.
+                Clarity isn't about more information — it's about knowing what matters right now
+                The Lens cuts through noise so you can respond strategically, not react emotionally
             </p>
             
             <!-- Three Pill Sections -->
@@ -2238,7 +2230,7 @@
                 </div>
             </div>
 
-            <!-- NEW: Micro CTA Section -->
+            <!-- NEW: Micro CTA Section - UPDATED with larger text -->
             <div class="micro-cta">
                 <p>Ready to turn clarity into strategy?</p>
                 <a href="the-pricing.html" class="cta-small">Start with Clarity (£9/mo)</a>
@@ -2260,7 +2252,7 @@
     </div>
 </main>
 
-<!-- Footer - UPDATED with mobile styling from second page -->
+<!-- Footer - UPDATED with The Company next to The Playbook -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -2296,7 +2288,7 @@
                         </ul>
                     </div>
                     
-                    <!-- NEW: Company links moved next to The Playbook links -->
+                    <!-- UPDATED: The Company next to The Playbook -->
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
@@ -2732,8 +2724,8 @@
                         ${generateThreeTools(conversationState.userScenario + ' ' + userMessage)}
                     </div>
                     <br>
-                    <p>These tools are designed to give you immediate clarity and actionable steps</p>
-                    <p>If you still need help, please check The Toolkit or have a chat with The Coach</p>
+                    <p style="font-size: 16px; line-height: 2;">These tools are designed to give you immediate clarity and actionable steps.</p>
+                    <p style="font-size: 16px; line-height: 1.5;">If you still need help, please check The Toolkit or have a chat with The Coach.</p>
                 `;
             } else {
                 // Third+ interaction - suggest The Coach
