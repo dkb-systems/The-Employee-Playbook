@@ -70,10 +70,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
-            /* REMOVED: opacity: 0; and transition */
         }
-
-        /* REMOVED: body.loaded class */
 
         .container {
             max-width: 1400px;
@@ -1881,11 +1878,11 @@
                 transform: translateX(-50%);
             }
             
-            /* INCREASED: Mobile header logo size by 25% */
+            /* UPDATED: Mobile header logo size */
             .logo-img {
-                height: 120px; /* Increased from 100px to 125px (25% increase) */
+                height: 122px; /* Consistent size for both pages */
                 transform: none;
-                padding: 14px 0;
+                padding: 12px 0;
             }
             
             .mobile-toggle {
@@ -1919,7 +1916,7 @@
                 width: 100%;
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
-                -webkit-backface-visibility: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
@@ -1966,18 +1963,19 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
+            /* UPDATED: Consistent Hero headline size for mobile across both pages */
             .hero-headline {
-                font-size: 55px; /* Increased from 50.6px to 55px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+                font-size: 52px; /* Consistent size for both pages */
+                margin-top: -10px; /* Slight adjustment to move it higher */
+                line-height: 1.2;
             }
 
             .hero-subhead {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .section-title {
-                font-size: 45px;
+                font-size: 38px;
             }
 
             .stats-grid, .metrics-grid {
@@ -2022,7 +2020,7 @@
             }
             
             .stats-title {
-                font-size: 45px;
+                font-size: 38px;
             }
             
             .usage-statement {
@@ -2030,7 +2028,7 @@
             }
             
             .usage-subtitle {
-                font-size: 20px;
+                font-size: 18px;
             }
             
             .cookie-buttons {
@@ -2078,11 +2076,6 @@
                 display: block;
             }
             
-            /* NEW: Mobile CTA Tab */
-            .mobile-cta-tab {
-                display: block;
-            }
-            
             /* REDUCED: Final statement size for mobile */
             .final-statement {
                 font-size: 28px; /* Reduced from 40px */
@@ -2124,14 +2117,14 @@
                 font-size: 18px;
             }
             
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
+            /* UPDATED: Further mobile adjustments for very small screens */
             .hero-headline {
-                font-size: 45px; /* Increased from 41.4px to 45px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+                font-size: 42px; /* Adjusted for very small screens */
+                margin-top: -5px;
             }
             
             .hero-subhead {
-                font-size: 18px;
+                font-size: 16px;
             }
             
             /* NEW: Further banner adjustments for small mobile */
@@ -2164,12 +2157,6 @@
             .floating-cta {
                 bottom: 80px;
                 right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-            
-            /* NEW: Adjust mobile CTA tab for small screens */
-            .mobile-cta-tab {
                 padding: 10px 16px;
                 font-size: 13px;
             }
@@ -2990,9 +2977,6 @@
 </div>
 
 <script>
-    // REMOVED: The DOMContentLoaded event listener that was setting body opacity
-    // The page will now load without the initial opacity transition
-    
     // Cookie popup functionality
     const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
     const cookieAccept = document.querySelector('.cookie-accept');
@@ -3322,7 +3306,3 @@
 
 </body>
 </html>
-
-
-
-
