@@ -3,21 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Lens - See clearly and act with precision. Turn unfiltered experience into clear direction with The Employee Playbook.">
     <title>The Lens | The Employee Playbook</title>
-    
-    <!-- Font Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-white: #FFFFFF;
@@ -42,8 +30,6 @@
             --shadow: 0 2px 8px rgba(0,0,0,0.08);
             --premium-gradient: linear-gradient(135deg, #7B5FC4 0%, #5A4496 100%);
             --premium-card-shadow: 0 6px 20px rgba(123, 95, 196, 0.12);
-            
-            /* Simplified Color Scheme */
             --neutral-bg: #F8F9FA;
             --crisis-red: #FF6B6B;
         }
@@ -68,8 +54,6 @@
             --bot-msg-bg: #2D2D2D;
             --shadow: 0 2px 8px rgba(0,0,0,0.2);
             --premium-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            
-            /* Simplified Dark Mode Colors */
             --neutral-bg: #1E1E1E;
             --crisis-red: #FF5252;
         }
@@ -92,7 +76,6 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         body.loaded {
@@ -144,7 +127,7 @@
         }
 
         .dark-mode .logo-img {
-            content: url('assets/img/logo-dark.png');
+            filter: invert(1) hue-rotate(180deg);
         }
 
         .nav-links {
@@ -270,35 +253,6 @@
             white-space: nowrap;
         }
 
-        /* NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text */
-        .mobile-cta-tab {
-            display: none;
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px 12px;
-            border-radius: 12px 0 0 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
-            z-index: 997;
-            transition: all 0.3s ease;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            text-align: center;
-            line-height: 1.3;
-            letter-spacing: 1px;
-            border: 2px solid white;
-        }
-
-        .mobile-cta-tab:hover {
-            background: var(--accent-purple-dark);
-        }
-
         /* Main Content */
         main {
             flex: 1;
@@ -314,20 +268,20 @@
             gap: 25px;
         }
 
-        /* Lens Header - UPDATED */
+        /* Lens Header */
         .lens-header {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 110px; /* Increased padding */
+            padding-top: 110px;
         }
 
         .hero-title {
-            font-size: 72px; /* Increased font size */
+            font-size: 72px;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-dark);
             line-height: 1.1;
-            max-width: 900px; /* Increased max-width */
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -340,13 +294,12 @@
             font-weight: 500;
         }
 
-
-        /* NEW: Clarity Intro Block */
+        /* Clarity Intro Block */
         .clarity-intro {
             text-align: center;
-            max-width: 800px; /* Increased max-width */
+            max-width: 800px;
             margin: 0 auto 40px;
-            font-size: 18px; /* Increased font size */
+            font-size: 18px;
             line-height: 1.6;
             color: var(--text-medium);
             font-style: italic;
@@ -363,7 +316,7 @@
             margin-bottom: 35px;
         }
 
-        /* Pill Sections - Refined animations */
+        /* Pill Sections */
         .pill-sections {
             display: flex;
             gap: 20px;
@@ -424,7 +377,7 @@
             line-height: 1.6;
         }
 
-        /* How It Works Section - UPDATED */
+        /* How It Works Section */
         .how-it-works {
             margin-bottom: 35px;
         }
@@ -506,7 +459,7 @@
             display: none;
         }
 
-        /* Zoom In Section - UPDATED with mobile spacing */
+        /* Zoom In Section */
         .zoom-in-section {
             margin-bottom: 35px;
         }
@@ -526,7 +479,7 @@
             text-align: center;
         }
 
-        /* NEW: Privacy Note */
+        /* Privacy Note */
         .privacy-note {
             text-align: center;
             font-size: 13px;
@@ -536,7 +489,7 @@
             padding: 0 20px;
         }
 
-        /* Chat Container - REDESIGNED for better visibility */
+        /* Chat Container - FIXED for mobile scrolling */
         .chat-container {
             background: var(--primary-white);
             border-radius: 16px;
@@ -560,7 +513,7 @@
             position: relative;
         }
 
-        /* NEW: Clear Session Button */
+        /* Clear Session Button */
         .clear-session {
             position: absolute;
             right: 20px;
@@ -594,7 +547,7 @@
             font-size: 18px;
         }
 
-        /* Chat Layout - REDESIGNED for better visibility */
+        /* Chat Layout */
         .chat-content-wrapper {
             display: flex;
             height: 100%;
@@ -656,7 +609,7 @@
             position: relative;
         }
 
-        /* FIXED: Mobile chat messages with proper scrolling and spacing */
+        /* FIXED: Chat messages with proper scrolling */
         .chat-messages {
             flex: 1;
             padding: 20px;
@@ -665,13 +618,9 @@
             flex-direction: column;
             gap: 15px;
             background-color: var(--light-gray);
-            /* Ensure messages are fully visible */
-            max-height: calc(100% - 70px);
-            /* Add smooth scrolling for mobile */
-            -webkit-overflow-scrolling: touch;
-            /* Ensure proper height calculation */
             height: auto;
             min-height: 200px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .message {
@@ -709,13 +658,6 @@
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
         }
 
-        .message-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        /* UPDATED: TL avatar in circle - positioned higher */
         .bot-avatar {
             width: 32px;
             height: 32px;
@@ -729,20 +671,14 @@
             font-weight: 700;
             flex-shrink: 0;
             border: 2px solid var(--accent-purple-dark);
-            align-self: flex-start; /* Position higher than text */
-            margin-top: 2px; /* Additional positioning adjustment */
-        }
-
-        .bot-name {
-            font-weight: 600;
-            font-size: 12px;
+            align-self: flex-start;
+            margin-top: 2px;
         }
 
         .message-content {
             flex: 1;
         }
 
-        /* Desktop positioning for avatar - UPDATED */
         .typing-indicator {
             display: inline-block;
             padding: 12px 16px;
@@ -753,14 +689,13 @@
 
         .typing-dots {
             display: flex;
-            align-items: flex-start; /* Align TL higher than dots */
+            align-items: flex-start;
         }
 
-        /* Desktop positioning for avatar - UPDATED */
         .typing-dots .bot-avatar {
             margin-right: 10px;
-            align-self: flex-start; /* Position TL higher */
-            margin-top: 0; /* Reset for typing indicator */
+            align-self: flex-start;
+            margin-top: 0;
         }
 
         .typing-dots span {
@@ -771,7 +706,7 @@
             display: block;
             margin: 14px 0px;
             animation: typing 1.4s infinite ease-in-out;
-            align-self: center; /* Center dots vertically */
+            align-self: center;
         }
 
         .typing-dots span:nth-child(1) { animation-delay: 0s; }
@@ -783,7 +718,7 @@
             30% { transform: translateY(-2px); }
         }
 
-        /* UPDATED: Chat input container stays at bottom */
+        /* Chat input container */
         .chat-input-container {
             display: flex;
             padding: 15px 20px;
@@ -963,7 +898,7 @@
             transform: translateY(-1px);
         }
 
-        /* Real-World Challenges Section - UPDATED */
+        /* Real-World Challenges Section */
         .challenges-section {
             margin-bottom: 35px;
         }
@@ -993,7 +928,6 @@
             gap: 20px;
         }
 
-        /* UPDATED: Minimal challenge cards */
         .challenge-card {
             background: var(--primary-white);
             border-radius: 12px;
@@ -1071,7 +1005,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Compact solution layout - UPDATED with simplified colors */
         .compact-solutions {
             display: flex;
             flex-wrap: wrap;
@@ -1111,7 +1044,6 @@
             font-weight: 500;
         }
 
-        /* SIMPLIFIED Color-coded solution icons */
         .template-icon {
             background-color: var(--lighter-purple);
             color: var(--accent-purple);
@@ -1127,7 +1059,7 @@
             color: white;
         }
 
-        /* NEW: Micro CTA Section - UPDATED with larger text */
+        /* Micro CTA Section */
         .micro-cta {
             text-align: center;
             padding: 30px;
@@ -1138,10 +1070,10 @@
         }
 
         .micro-cta p {
-            font-size: 22px; /* Increased font size */
+            font-size: 22px;
             color: var(--text-dark);
             margin-bottom: 20px;
-            font-weight: 600; /* Increased weight */
+            font-weight: 600;
         }
 
         .cta-small {
@@ -1176,7 +1108,7 @@
             color: var(--accent-purple-dark);
         }
 
-        /* Closing Statement Section - UPDATED with bigger CTA */
+        /* Closing Statement Section */
         .closing-statement {
             background: linear-gradient(135deg, var(--light-purple) 0%, var(--lighter-purple) 100%);
             border-radius: 16px;
@@ -1250,7 +1182,7 @@
             right: 0;
         }
 
-        /* Footer - UPDATED with The Company next to The Playbook */
+        /* Footer */
         footer {
             background-color: var(--primary-white);
             padding: 35px 0 20px;
@@ -1285,7 +1217,7 @@
         }
 
         .dark-mode .footer-logo-img {
-            content: url('assets/img/logo-dark.png');
+            filter: invert(1) hue-rotate(180deg);
         }
 
         .footer-description {
@@ -1387,154 +1319,6 @@
             box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 22px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.35);
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 24px;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.45);
-        }
-
-        .chat-container-widget {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 320px;
-            height: 460px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container-widget.active {
-            display: flex;
-        }
-
-        .chat-header-widget {
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-title-widget {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages-widget {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message-widget {
-            max-width: 100%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .message-bot {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .message-user {
-            background: var(--accent-purple);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            max-width: 80%;
-        }
-
-        .chat-input-container-widget {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .chat-form-widget {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-input-widget {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
-        }
-
-        /* Logo Fallback */
-        .logo-fallback {
-            display: none;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1582,7 +1366,6 @@
                 transform: translateX(-50%);
             }
             
-            /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
                 height: 122px;
                 transform: none;
@@ -1626,7 +1409,6 @@
                 display: flex;
             }
             
-            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -1641,7 +1423,6 @@
                 right: auto;
             }
             
-            /* Move sign-in button to mobile menu */
             .nav-actions .sign-in {
                 display: none;
             }
@@ -1677,7 +1458,7 @@
             }
 
             .hero-title {
-                font-size: 2.5rem; /* Adjusted for mobile */
+                font-size: 2.5rem;
             }
 
             .hero-subtitle {
@@ -1696,15 +1477,14 @@
                 font-size: 20px;
             }
 
-            /* FIXED: Mobile chat messages with proper scrolling and spacing */
+            /* FIXED: Mobile chat messages with proper scrolling */
             .chat-messages {
                 padding: 15px;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                max-height: calc(100% - 60px);
-                height: 400px; /* Increased height for mobile */
-                margin-bottom: 10px; /* Added spacing */
-                /* Ensure proper scrolling behavior */
+                max-height: none;
+                height: auto;
+                margin-bottom: 10px;
                 position: relative;
             }
 
@@ -1720,9 +1500,8 @@
                 grid-template-columns: 1fr;
             }
 
-            /* FIXED: Footer layout - The Company next to The Playbook */
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr; /* Keep The Playbook and The Company side by side */
+                grid-template-columns: 1fr 1fr;
                 gap: 20px;
             }
 
@@ -1734,17 +1513,17 @@
                 height: 120px;
             }
 
-            /* Chat Layout for Mobile - UPDATED: Remove Most Popular sidebar */
+            /* Chat Layout for Mobile - Remove Most Popular sidebar */
             .chat-content-wrapper {
                 flex-direction: column;
             }
             
             .most-popular-sidebar {
-                display: none; /* Hide Most Popular sidebar on mobile */
+                display: none;
             }
             
             .chat-area {
-                width: 100%; /* Make chat area take full width */
+                width: 100%;
             }
 
             /* Popular issues for mobile */
@@ -1782,29 +1561,20 @@
                 grid-template-columns: 1fr;
             }
             
-            /* NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text */
-            .mobile-cta-tab {
-                display: block;
-                border: 2px solid white;
-            }
-            
-            /* FIXED: Adjust chat container height and spacing for mobile */
+            /* Adjust chat container height and spacing for mobile */
             .chat-container {
-                height: 550px; /* Increased height for mobile */
-                margin: 20px 0; /* Added spacing above and below */
+                height: 550px;
+                margin: 20px 0;
             }
             
-            /* Ensure all content fits without scrolling */
             .content-wrapper {
                 gap: 20px;
             }
             
-            /* Adjust section padding for mobile */
             section {
                 padding: 60px 0;
             }
             
-            /* Adjust hero padding */
             .lens-header {
                 padding-top: 100px;
             }
@@ -1821,13 +1591,12 @@
             
             /* FIXED: Ensure chat messages area scrolls properly to see older messages */
             .chat-messages {
-                max-height: calc(100% - 60px);
+                max-height: none;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                /* Enable scrolling to see older messages */
                 height: auto;
                 min-height: 200px;
-                padding-bottom: 10px; /* Added padding for better spacing */
+                padding-bottom: 10px;
             }
             
             /* FIXED: Reduce clarity intro font size to fit in 5 lines */
@@ -1836,26 +1605,8 @@
                 line-height: 1.4;
                 padding: 15px;
                 margin: 0 auto 30px;
-                max-height: 98px; /* Approximately 5 lines */
+                max-height: 98px;
                 overflow: hidden;
-            }
-            
-            /* Adjust viewport when keyboard is open */
-            body.keyboard-open {
-                height: 100vh;
-                overflow: hidden;
-            }
-            
-            .chat-container-widget {
-                width: 90vw;
-                height: 450px;
-                right: 5vw;
-            }
-            
-            .chat-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
             }
             
             /* Mobile-specific typing indicator */
@@ -1882,7 +1633,7 @@
             }
 
             .micro-cta p {
-                font-size: 18px; /* Slightly smaller on mobile */
+                font-size: 18px;
             }
 
             .cta-small, .cta-link {
@@ -1893,7 +1644,7 @@
             
             /* FIXED: Add spacing around chat section on mobile */
             .zoom-in-section {
-                margin: 30px 0; /* Added spacing above and below */
+                margin: 30px 0;
             }
         }
 
@@ -1906,12 +1657,8 @@
                 height: 100px;
             }
             
-            .logo-fallback {
-                font-size: 18px;
-            }
-            
             .hero-title {
-                font-size: 2rem; /* Adjusted for small mobile */
+                font-size: 2rem;
             }
             
             .hero-subtitle {
@@ -1919,17 +1666,17 @@
             }
             
             .footer-nav-grid {
-                grid-template-columns: 1fr; /* Stack on very small screens */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
             
             .chat-messages {
-                height: 350px; /* Slightly reduced for very small screens */
+                height: 350px;
                 padding: 12px;
             }
             
             .chat-container {
-                height: 500px; /* Adjusted for very small screens */
+                height: 500px;
             }
         }
         
@@ -1942,9 +1689,6 @@
 
 <body>
 
-<!-- NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text -->
-<a href="create-account.html" class="mobile-cta-tab">Sign Up</a>
-
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
@@ -1953,9 +1697,7 @@
         
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
-                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
-            <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
+            <img src="https://via.placeholder.com/200x60/7B5FC4/FFFFFF?text=EMPLOYEE+PLAYBOOK" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
         
         <!-- Navigation links with mobile sign-in -->
@@ -1984,13 +1726,13 @@
 <main>
     <div class="container">
         <div class="content-wrapper">
-            <!-- Lens Header - UPDATED -->
+            <!-- Lens Header -->
             <div class="lens-header">
                 <h1 class="hero-title">Whatever's happening at work right now, let's get clear on it</h1>
                 <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, <br> and find your best next move</p>
             </div>
             
-            <!-- NEW: Clarity Intro Block -->
+            <!-- Clarity Intro Block -->
             <p class="clarity-intro">
                 Clarity isn't about more information. It's about knowing what matters right now
                 The Lens cuts through noise so you can respond strategically, not react emotionally
@@ -2023,7 +1765,7 @@
                 </div>
             </div>
             
-            <!-- How It Works Section - UPDATED -->
+            <!-- How It Works Section -->
             <div class="full-width-section how-it-works">
                 <h2 class="how-it-works-title">How The Lens Works</h2>
                 <div class="process-visual">
@@ -2067,17 +1809,17 @@
                 </div>
             </div>
             
-            <!-- Zoom In Section - UPDATED with mobile spacing -->
+            <!-- Zoom In Section -->
             <div class="full-width-section zoom-in-section">
                 <h2 class="zoom-title">Find Your Solution Path</h2>
                 <p class="zoom-subtitle">Describe your challenge and get directed to the right tools</p>
                 
-                <!-- NEW: Privacy Note -->
+                <!-- Privacy Note -->
                 <p class="privacy-note">
                     You're not identified here. This space doesn't store personal identifiers – it's between you and The Lens.
                 </p>
                 
-                <!-- Chat Container - UPDATED with clear session button -->
+                <!-- Chat Container - FIXED for both desktop and mobile -->
                 <div class="chat-container">
                     <!-- Popular Issues Panel -->
                     <div class="popular-issues" id="popularIssues">
@@ -2094,7 +1836,7 @@
                     
                     <div class="chat-header">
                         <h3 class="chat-title"><i class="fas fa-search chat-title-icon"></i> The Lens</h3>
-                        <!-- NEW: Clear Session Button -->
+                        <!-- Clear Session Button -->
                         <button class="clear-session" id="clearSession">Clear Session</button>
                     </div>
                     
@@ -2137,7 +1879,7 @@
                 </div>
             </div>
 
-            <!-- Real-World Challenges Section - UPDATED -->
+            <!-- Real-World Challenges Section -->
             <div class="full-width-section challenges-section">
                 <h2 class="challenges-title">Real-World Challenges & Solutions</h2>
                 <p class="challenges-intro">The Lens identifies your challenge and redirects you to the perfect tools in The Employee Playbook</p>
@@ -2224,99 +1966,17 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Row 2 -->
-                    <div class="challenge-card">
-                        <div class="challenge-text">Favouritism is affecting promotions. I'm being consistently overlooked.</div>
-                        <div class="try-section">
-                            <span class="try-label">Try</span>
-                        </div>
-                        <div class="compact-solutions">
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <div class="compact-text">Positioning Tools</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <div class="compact-text">Visibility Plan</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="compact-text">Achievement Tracker</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="challenge-card">
-                        <div class="challenge-text">I keep being excluded from key conversations that impact my work.</div>
-                        <div class="try-section">
-                            <span class="try-label">Try</span>
-                        </div>
-                        <div class="compact-solutions">
-                            <div class="compact-solution">
-                                <div class="compact-icon template-icon">
-                                    <i class="fas fa-scroll"></i>
-                                </div>
-                                <div class="compact-text">Exclusion Script</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-handshake"></i>
-                                </div>
-                                <div class="compact-text">Influence Strategy</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="compact-text">Relationship Building</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="challenge-card">
-                        <div class="challenge-text">My manager undermines me and takes credit for my work.</div>
-                        <div class="try-section">
-                            <span class="try-label">Try</span>
-                        </div>
-                        <div class="compact-solutions">
-                            <div class="compact-solution">
-                                <div class="compact-icon framework-icon">
-                                    <i class="fas fa-chess"></i>
-                                </div>
-                                <div class="compact-text">Credibility Strategy</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon template-icon">
-                                    <i class="fas fa-scroll"></i>
-                                </div>
-                                <div class="compact-text">Escalation Script</div>
-                            </div>
-                            <div class="compact-solution">
-                                <div class="compact-icon template-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="compact-text">Work Documentation</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- NEW: Micro CTA Section - UPDATED with larger text -->
+            <!-- Micro CTA Section -->
             <div class="micro-cta">
                 <p>Ready to turn clarity into strategy?</p>
                 <a href="the-pricing.html" class="cta-small">Start with Clarity (£9/mo)</a>
                 <a href="the-pricing.html" class="cta-link">See full pricing</a>
             </div>
 
-            <!-- Closing Statement Section - UPDATED with bigger CTA -->
+            <!-- Closing Statement Section -->
             <div class="closing-statement">
                 <div class="closing-icon">
                     <i class="fas fa-search"></i>
@@ -2331,16 +1991,14 @@
     </div>
 </main>
 
-<!-- Footer - UPDATED with The Company next to The Playbook -->
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
-                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
-                        <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
+                        <img src="https://via.placeholder.com/200x60/7B5FC4/FFFFFF?text=EMPLOYEE+PLAYBOOK" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
                     </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
@@ -2367,7 +2025,6 @@
                         </ul>
                     </div>
                     
-                    <!-- UPDATED: The Company next to The Playbook -->
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
@@ -2383,36 +2040,10 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 The Employee Playbook. All rights reserved.</p> <!-- Updated to 2025 -->
+            <p>© 2025 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
-
-<!-- Chat Widget -->
-<div class="chat-widget">
-    <button class="chat-toggle">
-        <i class="fas fa-comment"></i>
-    </button>
-    <div class="chat-container-widget">
-        <div class="chat-header-widget">
-            <div class="chat-title-widget">Send us a message</div>
-            <button class="chat-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-messages-widget">
-            <div class="message-widget message-bot">👋 Hi there! We'd love to hear from you.</div>
-        </div>
-        <div class="chat-input-container-widget">
-            <form class="chat-form-widget" id="chatForm">
-                <input type="text" class="chat-input-widget" placeholder="Your Name" required>
-                <input type="email" class="chat-input-widget" placeholder="Your Email" required>
-                <textarea class="chat-input-widget" rows="3" required></textarea>
-                <button type="submit" class="chat-send">Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script>
     // Mark page as loaded to prevent FOUC
@@ -2441,17 +2072,6 @@
             
             // Save theme preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            
-            // Update logo for dark mode
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
-            if (isDarkMode) {
-                logo.src = 'assets/img/logo-dark.png';
-                footerLogo.src = 'assets/img/logo-dark.png';
-            } else {
-                logo.src = 'assets/img/logo.png';
-                footerLogo.src = 'assets/img/logo.png';
-            }
         });
 
         // Mobile navigation toggle
@@ -2460,65 +2080,6 @@
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
-        });
-
-        // Smooth scrolling with offset for fixed header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 96;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                    document.querySelector('.mobile-toggle i').classList.add('fa-bars');
-                    document.querySelector('.mobile-toggle i').classList.remove('fa-times');
-                }
-            });
-        });
-
-        // Chat Widget Functionality
-        const chatToggle = document.querySelector('.chat-toggle');
-        const chatContainerWidget = document.querySelector('.chat-container-widget');
-        const chatClose = document.querySelector('.chat-close');
-        const chatForm = document.getElementById('chatForm');
-
-        chatToggle.addEventListener('click', function() {
-            chatContainerWidget.classList.toggle('active');
-        });
-
-        chatClose.addEventListener('click', function() {
-            chatContainerWidget.classList.remove('active');
-        });
-
-        chatForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: this.querySelector('input[type="text"]').value,
-                email: this.querySelector('input[type="email"]').value,
-                message: this.querySelector('textarea').value
-            };
-            
-            // In a real implementation, you would send this data to a server
-            console.log('Chat form submitted:', formData);
-            
-            // Show success message
-            const chatMessagesWidget = document.querySelector('.chat-messages-widget');
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message-widget', 'message-user');
-            userMessage.textContent = "Thanks! We'll get back to you soon.";
-            chatMessagesWidget.appendChild(userMessage);
-            
-            // Reset form
-            this.reset();
-            
-            // Scroll to bottom
-            chatMessagesWidget.scrollTop = chatMessagesWidget.scrollHeight;
         });
 
         // JavaScript for The Lens chat functionality
@@ -2698,7 +2259,7 @@
             popularIssues.classList.remove('active');
         }
         
-        // Enhanced function to add messages with proper mobile scrolling
+        // FIXED: Enhanced function to add messages with proper mobile scrolling
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}-message`;
@@ -2722,19 +2283,9 @@
             
             chatMessages.appendChild(messageDiv);
             
-            // Enhanced scrolling for mobile
+            // Simple scroll to bottom - removed overflow toggling hack
             setTimeout(() => {
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Additional check for mobile devices
-                if (window.innerWidth <= 768) {
-                    // Force reflow to ensure proper scrolling
-                    chatMessages.style.overflowY = 'hidden';
-                    setTimeout(() => {
-                        chatMessages.style.overflowY = 'auto';
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 50);
-                }
             }, 100);
         }
         
@@ -2849,11 +2400,12 @@
             }
         }
         
-        // Generate exactly 3 tools based on user scenario
+        // FIXED: Generate exactly 3 tools based on user scenario
         function generateThreeTools(userMessage) {
             let tools = '';
+            const msg = userMessage.toLowerCase();
             
-            if (userMessage.includes('workload') || userMessage.includes('burnout') || userMessage.includes('overwhelmed')) {
+            if (msg.includes('workload') || msg.includes('burnout') || msg.includes('overwhelmed')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Immediate Relief</div>
@@ -2874,7 +2426,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('micromanag')) {
+            } else if (msg.includes('micromanag')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
@@ -2895,7 +2447,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('excluded') || message.includes('conversation')) {
+            } else if (msg.includes('excluded') || msg.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
@@ -2950,28 +2502,6 @@
                 sendMessage();
             }
         });
-        
-        // NEW: Mobile input focus handling to ensure visibility
-        if (window.innerWidth <= 768) {
-            const chatInput = document.getElementById('userInput');
-            const chatContainer = document.querySelector('.chat-container');
-            
-            chatInput.addEventListener('focus', function() {
-                // Scroll to the bottom of the chat container
-                setTimeout(() => {
-                    chatContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                }, 300);
-            });
-            
-            // Handle viewport changes when keyboard appears
-            window.addEventListener('resize', function() {
-                if (document.activeElement === chatInput) {
-                    setTimeout(() => {
-                        chatContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                    }, 100);
-                }
-            });
-        }
     });
 </script>
 
