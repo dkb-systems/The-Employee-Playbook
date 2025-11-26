@@ -506,7 +506,7 @@
             display: none;
         }
 
-        /* Zoom In Section */
+        /* Zoom In Section - UPDATED with mobile spacing */
         .zoom-in-section {
             margin-bottom: 35px;
         }
@@ -1690,13 +1690,14 @@
                 font-size: 20px;
             }
 
-            /* UPDATED: Mobile chat messages with proper scrolling and increased height */
+            /* FIXED: Mobile chat messages with proper scrolling and spacing */
             .chat-messages {
                 padding: 15px;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 max-height: calc(100% - 60px);
                 height: 400px; /* Increased height for mobile */
+                margin-bottom: 10px; /* Added spacing */
             }
 
             .message {
@@ -1711,7 +1712,7 @@
                 grid-template-columns: 1fr;
             }
 
-            /* NEW: Footer layout update - The Company next to The Playbook */
+            /* FIXED: Footer layout - The Company next to The Playbook */
             .footer-nav-grid {
                 grid-template-columns: 1fr 1fr; /* Keep The Playbook and The Company side by side */
                 gap: 20px;
@@ -1779,9 +1780,10 @@
                 border: 2px solid white;
             }
             
-            /* Adjust chat container height to fit better on mobile */
+            /* FIXED: Adjust chat container height and spacing for mobile */
             .chat-container {
                 height: 550px; /* Increased height for mobile */
+                margin: 20px 0; /* Added spacing above and below */
             }
             
             /* Ensure all content fits without scrolling */
@@ -1799,7 +1801,7 @@
                 padding-top: 100px;
             }
             
-            /* NEW: Ensure input stays at bottom when focused on mobile */
+            /* FIXED: Ensure input stays at bottom when focused on mobile */
             .chat-input-container {
                 position: sticky;
                 bottom: 0;
@@ -1809,7 +1811,7 @@
                 border-top: 1px solid var(--border-light);
             }
             
-            /* FINAL UPDATE: Ensure chat messages area scrolls properly to see older messages */
+            /* FIXED: Ensure chat messages area scrolls properly to see older messages */
             .chat-messages {
                 max-height: calc(100% - 60px);
                 overflow-y: auto;
@@ -1817,9 +1819,10 @@
                 /* Enable scrolling to see older messages */
                 height: auto;
                 min-height: 200px;
+                padding-bottom: 10px; /* Added padding for better spacing */
             }
             
-            /* FINAL UPDATE: Reduce clarity intro font size to fit in 5 lines */
+            /* FIXED: Reduce clarity intro font size to fit in 5 lines */
             .clarity-intro {
                 font-size: 14px;
                 line-height: 1.4;
@@ -1878,6 +1881,11 @@
                 display: block;
                 margin: 8px auto;
                 max-width: 200px;
+            }
+            
+            /* FIXED: Add spacing around chat section on mobile */
+            .zoom-in-section {
+                margin: 30px 0; /* Added spacing above and below */
             }
         }
 
@@ -2041,7 +2049,7 @@
                 </div>
             </div>
             
-            <!-- Zoom In Section -->
+            <!-- Zoom In Section - UPDATED with mobile spacing -->
             <div class="full-width-section zoom-in-section">
                 <h2 class="zoom-title">Find Your Solution Path</h2>
                 <p class="zoom-subtitle">Describe your challenge and get directed to the right tools</p>
@@ -2937,6 +2945,3 @@
 
 </body>
 </html>
-
-
-
