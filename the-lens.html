@@ -92,7 +92,7 @@
             padding: 80px 0;
         }
 
-        /* Navigation */
+        /* Navigation - UPDATED to match exactly */
         nav {
             position: fixed;
             top: 0;
@@ -115,10 +115,11 @@
             height: 100%;
         }
 
-        /* Logo Styles - UPDATED */
+        /* Logo Styles - UPDATED to match exactly */
         .logo-img {
-            height: 60px;
+            height: 100px;
             width: auto;
+            transform: translateX(20%);
             padding: 14px 10px;
             transition: all 0.3s ease;
             display: block;
@@ -140,7 +141,6 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
-            position: relative;
         }
 
         .nav-link:hover {
@@ -151,21 +151,11 @@
             color: var(--text-dark);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -7px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-purple);
-            border-radius: 2px 2px 0 0;
-        }
-
         .nav-actions {
             display: flex;
             align-items: center;
             gap: 24px;
+            transform: translateX(-20%);
         }
 
         .sign-in {
@@ -184,7 +174,7 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
         .header-cta:hover {
@@ -249,6 +239,11 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             z-index: 10;
             white-space: nowrap;
+        }
+
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
         }
 
         /* Main Content */
@@ -1185,10 +1180,10 @@
             right: 0;
         }
 
-        /* Footer - UPDATED logo */
+        /* Footer - UPDATED to match exactly */
         footer {
             background-color: var(--primary-white);
-            padding: 35px 0 20px;
+            padding: 40px 0 20px;
             color: var(--text-medium);
             border-top: 1px solid var(--border-light);
         }
@@ -1196,8 +1191,8 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 70px;
-            margin-bottom: 35px;
+            gap: 80px;
+            margin-bottom: 40px;
             align-items: start;
         }
 
@@ -1213,10 +1208,12 @@
         }
 
         .footer-logo-img {
-            height: 60px;
+            height: 100px;
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
+            display: block;
+            min-height: 100px;
         }
 
         .dark-mode .footer-logo-img {
@@ -1231,7 +1228,7 @@
         .footer-heading {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             color: var(--text-dark);
         }
 
@@ -1240,7 +1237,7 @@
         }
 
         .footer-link {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-link a {
@@ -1255,7 +1252,7 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 25px;
+            padding-top: 30px;
             border-top: 1px solid var(--border-light);
             font-size: 14px;
         }
@@ -1271,7 +1268,7 @@
         .footer-nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 35px;
+            gap: 40px;
         }
 
         .footer-newsletter {
@@ -1318,8 +1315,8 @@
         }
 
         .footer-newsletter-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
         /* Responsive */
@@ -1357,7 +1354,7 @@
         }
 
         @media (max-width: 768px) {
-            /* Mobile Navigation Changes */
+            /* Mobile Navigation Changes - UPDATED to match exactly */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1367,22 +1364,25 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                height: 100%;
             }
             
+            /* UPDATED: Mobile logo size increased by 25% to match exactly */
             .logo-img {
-                height: 50px;
-                transform: none;
+                height: 125px; /* Increased from 100px to 125px (25% increase) */
+                transform: none; /* Remove desktop transform */
                 padding: 12px 0;
+                display: flex;
+                align-items: center;
             }
             
             .mobile-toggle {
                 display: flex;
                 position: absolute;
                 left: 20px;
-            }
-            
-            .header-cta {
-                display: none;
+                align-items: center;
             }
             
             .nav-actions {
@@ -1390,6 +1390,17 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
+                align-items: center;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
+                display: none;
+            }
+            
+            /* NEW: Hide the sign-up button in mobile navigation */
+            .nav-actions .header-cta {
+                display: none;
             }
             
             .nav-links {
@@ -1400,11 +1411,11 @@
                 width: 100%;
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
-                -webkit-backface-visibility: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
             }
 
@@ -1412,6 +1423,7 @@
                 display: flex;
             }
             
+            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -1426,20 +1438,24 @@
                 right: auto;
             }
             
-            .nav-actions .sign-in {
-                display: none;
-            }
-            
+            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
                 padding: 12px 20px;
-                background: var(--accent-purple);
-                color: white;
+                background: white;
+                color: var(--accent-purple);
                 border-radius: 8px;
                 text-align: center;
                 font-weight: 600;
                 text-decoration: none;
+                border: 2px solid var(--accent-purple);
+            }
+
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
             }
 
             main {
@@ -1518,7 +1534,7 @@
             }
             
             .footer-logo-img {
-                height: 50px;
+                height: 120px;
             }
 
             /* Chat Layout for Mobile - Remove Most Popular sidebar */
@@ -1638,11 +1654,11 @@
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 45px;
+                height: 100px;
             }
             
             .footer-logo-img {
-                height: 45px;
+                height: 100px;
             }
             
             .hero-title {
@@ -1676,13 +1692,13 @@
 
 <body>
 
-<!-- Navigation -->
+<!-- Navigation - UPDATED to match exactly -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile - UPDATED -->
+        <!-- Logo centered for mobile - UPDATED to match exactly -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
@@ -1702,6 +1718,7 @@
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
+            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" to match exactly -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -1978,7 +1995,7 @@
     </div>
 </main>
 
-<!-- Footer - UPDATED logo -->
+<!-- Footer - UPDATED to match exactly -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -2059,6 +2076,17 @@
             
             // Save theme preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            
+            // Update logo for dark mode
+            const logo = document.getElementById('logo');
+            const footerLogo = document.getElementById('footer-logo');
+            if (isDarkMode) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
+            } else {
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
+            }
         });
 
         // Mobile navigation toggle
