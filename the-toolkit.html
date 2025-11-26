@@ -129,15 +129,22 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--primary-white);
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             transition: background-color 0.3s ease, color 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         .container {
@@ -146,17 +153,23 @@
             padding: 0 20px;
         }
 
+        section {
+            padding: 100px 0;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--primary-white);
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-light);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            height: 80px;
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            height: 80px;
         }
 
         .nav-container {
@@ -167,11 +180,17 @@
             height: 100%;
         }
 
+        /* Logo Styles */
         .logo-img {
-            height: 72px;
+            height: 100px;
             width: auto;
             transform: translateX(20%);
-            padding: 16px 12;
+            padding: 14px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .logo-img {
+            content: url('assets/img/logo-dark.png');
         }
 
         .nav-links {
@@ -257,7 +276,6 @@
             background-color: var(--light-gray);
         }
 
-        /* Mobile Navigation */
         .mobile-toggle {
             display: none;
             background: none;
@@ -275,6 +293,57 @@
 
         .mobile-toggle:hover {
             background-color: var(--light-gray);
+        }
+
+        /* New Tag for The Coach */
+        .nav-link-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .new-tag {
+            position: absolute;
+            top: -12px;
+            right: -35px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        /* NEW: Floating CTA for Mobile */
+        .floating-cta {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 0px;
+            background: var(--accent-purple);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
         }
 
         /* Main Content */
@@ -296,7 +365,7 @@
         .tools-header {
             text-align: center;
             margin-bottom: 30px;
-            padding-top: 30px;
+            padding-top: 100px;
         }
 
         .hero-title {
@@ -996,7 +1065,6 @@
             padding: 40px 0 20px;
             color: var(--text-medium);
             border-top: 1px solid var(--border-light);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .footer-content {
@@ -1018,10 +1086,16 @@
             margin-bottom: 10px;
         }
 
+        /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 100px;
+            height: 100px; /* Doubled from 100px */
             width: auto;
             padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .footer-logo-img {
+            content: url('assets/img/logo-dark.png');
         }
 
         .footer-description {
@@ -1061,7 +1135,6 @@
             font-size: 14px;
         }
 
-        /* Footer Navigation */
         .footer-nav {
             background-color: transparent;
             padding: 0;
@@ -1076,7 +1149,6 @@
             gap: 40px;
         }
 
-        /* Footer Newsletter */
         .footer-newsletter {
             margin-top: 0;
             padding-top: 0;
@@ -1125,6 +1197,15 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
+        /* Logo Fallback */
+        .logo-fallback {
+            display: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .categories-grid {
@@ -1170,14 +1251,59 @@
         }
 
         @media (max-width: 768px) {
-            /* Mobile Navigation */
+            /* Mobile Navigation Changes */
+            .nav-container {
+                justify-content: center;
+                position: relative;
+            }
+            
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* INCREASED: Mobile header logo size by 25% */
+            .logo-img {
+                height: 122px; /* Increased from 100px to 125px (25% increase) */
+                transform: none;
+                padding: 12px 0;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                left: 20px;
+            }
+            
+            /* Show the Sign Up button in mobile view and position it on the right */
+            .header-cta {
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .nav-actions {
+                transform: none;
+                gap: 16px;
+                position: absolute;
+                right: 20px;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--primary-white);
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backface-visibility: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
@@ -1188,13 +1314,40 @@
             .nav-links.active {
                 display: flex;
             }
-
-            .nav-link.active::after {
-                bottom: -10px;
+            
+            /* Move The Coach to the left and New tag next to it */
+            .nav-link-container {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+            }
+            
+            .new-tag {
+                position: static;
+                margin-left: 8px;
+                top: auto;
+                right: auto;
+            }
+            
+            /* Make the Sign In button in hamburger menu white */
+            .mobile-sign-in {
+                display: block !important;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: white;
+                color: var(--accent-purple);
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
             }
 
-            .mobile-toggle {
-                display: flex;
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
             }
 
             main {
@@ -1239,7 +1392,7 @@
             }
             
             .footer-logo-img {
-                height: 60px;
+                height: 120px; /* Doubled for mobile (was 60px) */
             }
             
             .larger-tool-header {
@@ -1276,9 +1429,26 @@
             .tool-tags-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            /* NEW: Floating CTA for mobile */
+            .floating-cta {
+                display: block;
+            }
         }
         
         @media (max-width: 480px) {
+            .logo-img {
+                height: 100px; /* Adjusted for very small screens */
+            }
+            
+            .footer-logo-img {
+                height: 100px; /* Adjusted for very small screens */
+            }
+            
+            .logo-fallback {
+                font-size: 18px;
+            }
+            
             .compact-tools-grid {
                 grid-template-columns: 1fr;
             }
@@ -1290,27 +1460,59 @@
             .tool-tags-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* NEW: Further floating CTA adjustments for small mobile */
+            .floating-cta {
+                bottom: 80px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
         }
     </style>
 </head>
 
 <body>
 
+<!-- NEW: Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign up</a>
+
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
-        <a href="index.html"><img src="assets/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"></a>
+        <!-- Hamburger menu on the left for mobile -->
+        <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+        
+        <!-- Logo centered for mobile -->
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
+                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
+        </a>
+        
+        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-tools.html" class="nav-link active">The Tools</a>
+            <div class="nav-link-container">
+                <a href="the-coach.html" class="nav-link">The Coach</a>
+                <span class="new-tag">NEW</span>
+            </div>
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
+            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
+        
+        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign me up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
-            <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </div>
 </nav>
@@ -1322,7 +1524,10 @@
             <!-- Tools Header -->
             <div class="tools-header">
                 <h1 class="hero-title">The Tools: Your Strategic Toolkit</h1>
-                <p class="tools-subtitle">Practical resources to navigate workplace challenges with confidence</p>
+                <p class="tools-subtitle">Practical resources to navigate workplace challenges with confidence</p><br>
+                <br>
+
+                <p class="section-subtitle">best way to use these tools....</p>
             </div>
             
             <!-- Categories Section -->
@@ -1750,7 +1955,11 @@
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <a href="index.html"><img src="assets/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"></a>
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
+                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
+                    </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
             </div>
@@ -1766,10 +1975,11 @@
             <div class="footer-nav">
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">Product</h3>
+                        <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
                             <li class="footer-link"><a href="the-tools.html">The Tools</a></li>
+                            <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
                         </ul>
@@ -1798,6 +2008,9 @@
 <script>
     // JavaScript for The Tools page
     document.addEventListener('DOMContentLoaded', function() {
+        // Mark page as loaded to prevent FOUC
+        document.body.classList.add('loaded');
+        
         // Mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -1805,6 +2018,9 @@
         if (mobileToggle) {
             mobileToggle.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
             });
         }
         
@@ -1828,10 +2044,22 @@
                 localStorage.setItem('theme', 'dark');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                
+                // Update logos for dark mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo-dark.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo-dark.png';
             } else {
                 localStorage.setItem('theme', 'light');
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
+                
+                // Update logos for light mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo.png';
             }
         });
         
@@ -1915,6 +2143,24 @@
                 const toolTitle = this.closest('.larger-tool-card').querySelector('.larger-tool-title').textContent;
                 alert(`Accessing tool: ${toolTitle}`);
                 // In a full implementation, this would navigate to the tool page
+            });
+        });
+        
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 96; // 80px header + 16px extra spacing
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.mobile-toggle i').classList.add('fa-bars');
+                    document.querySelector('.mobile-toggle i').classList.remove('fa-times');
+                }
             });
         });
     });
