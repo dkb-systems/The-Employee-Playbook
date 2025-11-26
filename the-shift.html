@@ -826,11 +826,9 @@
                 left: 20px;
             }
             
-            /* Show the Sign Up button in mobile view and position it on the right */
+            /* REMOVED: Hide the Sign Up button in mobile view */
             .header-cta {
-                display: block !important;
-                padding: 8px 16px;
-                font-size: 14px;
+                display: none !important;
             }
             
             .nav-actions {
@@ -910,8 +908,14 @@
                 font-size: 20px;
             }
 
+            /* REDUCED: Reduce section titles to match conflict-title size */
             .section-title {
-                font-size: 45px;
+                font-size: 36px; /* Reduced from 45px to match conflict-title */
+            }
+            
+            /* REDUCED: Reduce narrative title to match conflict-title size */
+            .narrative-title {
+                font-size: 36px; /* Reduced from 44px to match conflict-title */
             }
 
             .conflict-grid {
@@ -920,7 +924,7 @@
             }
             
             .conflict-title {
-                font-size: 28px;
+                font-size: 36px; /* Kept the same size */
             }
             
             .conflict-cycle, .shift-solution {
