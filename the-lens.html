@@ -270,7 +270,7 @@
             white-space: nowrap;
         }
 
-        /* NEW: Mobile CTA Tab */
+        /* NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text */
         .mobile-cta-tab {
             display: none;
             position: fixed;
@@ -289,6 +289,8 @@
             z-index: 998;
             transition: all 0.3s ease;
             white-space: nowrap;
+            border: 2px solid white;
+            letter-spacing: 0.5px;
         }
 
         .mobile-cta-tab:hover {
@@ -1686,12 +1688,13 @@
                 font-size: 20px;
             }
 
+            /* UPDATED: Mobile chat messages with proper scrolling and increased height */
             .chat-messages {
                 padding: 15px;
-                /* ADDED: Ensure scrolling works properly on mobile */
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 max-height: calc(100% - 60px);
+                height: 400px; /* Increased height for mobile */
             }
 
             .message {
@@ -1768,14 +1771,15 @@
                 grid-template-columns: 1fr;
             }
             
-            /* NEW: Mobile CTA Tab */
+            /* NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text */
             .mobile-cta-tab {
                 display: block;
+                border: 2px solid white;
             }
             
             /* Adjust chat container height to fit better on mobile */
             .chat-container {
-                height: 500px;
+                height: 550px; /* Increased height for mobile */
             }
             
             /* Ensure all content fits without scrolling */
@@ -1910,7 +1914,7 @@
 
 <body>
 
-<!-- NEW: Mobile CTA Tab -->
+<!-- NEW: Mobile CTA Tab - UPDATED with white outline and inward-facing text -->
 <a href="create-account.html" class="mobile-cta-tab">Sign Up</a>
 
 <!-- Navigation -->
@@ -2849,7 +2853,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('excluded') || message.includes('conversation')) {
+            } else if (userMessage.includes('excluded') || userMessage.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
