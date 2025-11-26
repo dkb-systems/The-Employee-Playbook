@@ -656,6 +656,7 @@
             position: relative;
         }
 
+        /* FIXED: Mobile chat messages with proper scrolling and spacing */
         .chat-messages {
             flex: 1;
             padding: 20px;
@@ -666,6 +667,11 @@
             background-color: var(--light-gray);
             /* Ensure messages are fully visible */
             max-height: calc(100% - 70px);
+            /* Add smooth scrolling for mobile */
+            -webkit-overflow-scrolling: touch;
+            /* Ensure proper height calculation */
+            height: auto;
+            min-height: 200px;
         }
 
         .message {
@@ -1698,6 +1704,8 @@
                 max-height: calc(100% - 60px);
                 height: 400px; /* Increased height for mobile */
                 margin-bottom: 10px; /* Added spacing */
+                /* Ensure proper scrolling behavior */
+                position: relative;
             }
 
             .message {
@@ -1912,6 +1920,16 @@
             
             .footer-nav-grid {
                 grid-template-columns: 1fr; /* Stack on very small screens */
+                gap: 15px;
+            }
+            
+            .chat-messages {
+                height: 350px; /* Slightly reduced for very small screens */
+                padding: 12px;
+            }
+            
+            .chat-container {
+                height: 500px; /* Adjusted for very small screens */
             }
         }
         
@@ -2680,6 +2698,46 @@
             popularIssues.classList.remove('active');
         }
         
+        // Enhanced function to add messages with proper mobile scrolling
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="bot-avatar">
+                        TL
+                    </div>
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            
+            // Enhanced scrolling for mobile
+            setTimeout(() => {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Additional check for mobile devices
+                if (window.innerWidth <= 768) {
+                    // Force reflow to ensure proper scrolling
+                    chatMessages.style.overflowY = 'hidden';
+                    setTimeout(() => {
+                        chatMessages.style.overflowY = 'auto';
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 50);
+                }
+            }, 100);
+        }
+        
         // Send message function
         function sendMessage() {
             const message = userInput.value.trim();
@@ -2737,32 +2795,6 @@
                     generateBotResponse(message);
                 }, 1500);
             }, 500);
-        }
-        
-        // Add message to chat
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            
-            if (sender === 'user') {
-                messageDiv.innerHTML = `
-                    <div class="message-content">
-                        ${text}
-                    </div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="bot-avatar">
-                        TL
-                    </div>
-                    <div class="message-content">
-                        ${text}
-                    </div>
-                `;
-            }
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
         // Generate bot response based on user message
@@ -2863,7 +2895,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (userMessage.includes('excluded') || userMessage.includes('conversation')) {
+            } else if (userMessage.includes('excluded') || message.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
