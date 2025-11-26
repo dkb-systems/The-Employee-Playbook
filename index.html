@@ -1934,6 +1934,11 @@
                 display: none;
             }
             
+            /* NEW: Hide the sign-up button in mobile navigation */
+            .nav-actions .header-cta {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1989,9 +1994,10 @@
                 border: 2px solid var(--accent-purple);
             }
 
+            /* NEW: Increase mobile hero h1 font size by 15% and move it up */
             .hero-headline {
-                font-size: 52px;
-                margin-top: -10px;
+                font-size: 59.8px; /* 52px * 1.15 = 59.8px (15% increase) */
+                margin-top: -30px; /* Move up by one line */
                 line-height: 1.2;
             }
 
@@ -2135,9 +2141,10 @@
                 font-size: 18px;
             }
             
+            /* NEW: Adjust mobile hero h1 for very small screens */
             .hero-headline {
-                font-size: 42px;
-                margin-top: -5px;
+                font-size: 48.3px; /* 42px * 1.15 = 48.3px (15% increase) */
+                margin-top: -25px; /* Move up by one line */
             }
             
             .hero-subhead {
@@ -2990,7 +2997,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
     // Mark page as loaded to prevent FOUC
