@@ -268,28 +268,29 @@
             white-space: nowrap;
         }
 
-        /* NEW: Floating Sign-up Tab for Mobile */
-        .floating-signup {
+        /* NEW: Mobile CTA Tab */
+        .mobile-cta-tab {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right bottom;
             background: var(--accent-purple);
             color: white;
-            padding: 12px 16px;
-            border-radius: 25px 25px 0 25px;
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.35);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 998;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
-        .floating-signup:hover {
+        .mobile-cta-tab:hover {
             background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.45);
         }
 
         /* Main Content */
@@ -1766,8 +1767,8 @@
                 grid-template-columns: 1fr;
             }
             
-            /* NEW: Floating Sign-up Tab for Mobile */
-            .floating-signup {
+            /* NEW: Mobile CTA Tab */
+            .mobile-cta-tab {
                 display: block;
             }
             
@@ -1789,6 +1790,29 @@
             /* Adjust hero padding */
             .lens-header {
                 padding-top: 100px;
+            }
+            
+            /* NEW: Ensure input stays at bottom when focused on mobile */
+            .chat-input-container {
+                position: sticky;
+                bottom: 0;
+                background: var(--primary-white);
+                z-index: 100;
+                padding: 12px 15px;
+                border-top: 1px solid var(--border-light);
+            }
+            
+            /* Ensure chat messages area scrolls properly */
+            .chat-messages {
+                max-height: calc(100% - 60px);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Adjust viewport when keyboard is open */
+            body.keyboard-open {
+                height: 100vh;
+                overflow: hidden;
             }
             
             .chat-container-widget {
@@ -1872,8 +1896,8 @@
 
 <body>
 
-<!-- NEW: Floating Sign-up Tab for Mobile -->
-<a href="create-account.html" class="floating-signup">Sign Up</a>
+<!-- NEW: Mobile CTA Tab -->
+<a href="create-account.html" class="mobile-cta-tab">Sign Up</a>
 
 <!-- Navigation -->
 <nav>
@@ -2867,6 +2891,28 @@
                 sendMessage();
             }
         });
+        
+        // NEW: Mobile input focus handling to ensure visibility
+        if (window.innerWidth <= 768) {
+            const chatInput = document.getElementById('userInput');
+            const chatContainer = document.querySelector('.chat-container');
+            
+            chatInput.addEventListener('focus', function() {
+                // Scroll to the bottom of the chat container
+                setTimeout(() => {
+                    chatContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }, 300);
+            });
+            
+            // Handle viewport changes when keyboard appears
+            window.addEventListener('resize', function() {
+                if (document.activeElement === chatInput) {
+                    setTimeout(() => {
+                        chatContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    }, 100);
+                }
+            });
+        }
     });
 </script>
 
