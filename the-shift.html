@@ -329,103 +329,133 @@
             transform: translateY(-2px);
         }
 
-        /* Hidden utility class */
-        .hidden {
-            display: none !important;
-        }
-
-        /* Progress Indicator */
-        .progress-container {
+        /* Narrative Bridge */
+        .narrative-bridge {
             background: var(--primary-white);
-            padding: 40px 0;
+            padding: 80px 0;
             border-bottom: 1px solid var(--border-light);
         }
 
-        .progress-content {
-            max-width: 900px;
+        .bridge-content {
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .progress-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 30px;
+        .bridge-statement {
+            font-size: 22px;
+            line-height: 1.6;
             color: var(--text-dark);
-        }
-
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-bottom: 40px;
-        }
-
-        .progress-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--medium-gray);
-            z-index: 1;
-        }
-
-        .progress-bar {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            height: 3px;
-            background: var(--accent-purple);
-            z-index: 2;
-            width: 75%; /* Shift is the final step */
-            transition: width 0.5s ease;
-        }
-
-        .progress-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 3;
-        }
-
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--medium-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--text-medium);
-            transition: all 0.3s ease;
-        }
-
-        .step-circle.active {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        .step-label {
-            font-size: 14px;
             font-weight: 500;
-            color: var(--text-medium);
         }
 
-        .step-label.active {
-            color: var(--accent-purple);
-            font-weight: 600;
+        /* Emotional Conflict Section */
+        .conflict-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .progress-note {
-            font-size: 16px;
-            color: var(--text-medium);
-            max-width: 600px;
+        .conflict-content {
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .conflict-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--deep-navy);
+        }
+
+        .conflict-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .conflict-cycle, .shift-solution {
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .conflict-cycle {
+            background: var(--light-gray);
+            border: 1px solid var(--border-light);
+        }
+
+        .shift-solution {
+            background: var(--gradient-secondary);
+            border: 1px solid var(--light-purple);
+        }
+
+        .cycle-title, .solution-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--deep-navy);
+        }
+
+        .cycle-list {
+            list-style: none;
+        }
+
+        .cycle-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-medium);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .cycle-item:before {
+            content: '•';
+            color: var(--accent-purple);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .cycle-item:last-child {
+            border-bottom: none;
+        }
+
+        .solution-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        /* Stages Narrative */
+        .stages-narrative {
+            background: var(--primary-white);
+            padding: 60px 0 40px;
+        }
+
+        .narrative-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .narrative-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--deep-navy);
+        }
+
+        .narrative-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        /* Hidden utility class */
+        .hidden {
+            display: none !important;
         }
 
         /* Modules Section */
@@ -884,22 +914,17 @@
                 font-size: 45px;
             }
 
-            .progress-steps {
-                flex-direction: column;
-                gap: 30px;
+            .conflict-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-
-            .progress-steps::before, .progress-bar {
-                display: none;
+            
+            .conflict-title {
+                font-size: 28px;
             }
-
-            .progress-step {
-                flex-direction: row;
-                gap: 15px;
-            }
-
-            .step-circle {
-                margin-bottom: 0;
+            
+            .conflict-cycle, .shift-solution {
+                padding: 30px 20px;
             }
 
             .footer-content {
@@ -938,6 +963,16 @@
             /* REDUCED: Final statement size for mobile */
             .final-statement {
                 font-size: 28px; /* Reduced from 40px */
+            }
+            
+            .bridge-statement {
+                font-size: 18px;
+                padding: 0 20px;
+            }
+            
+            .narrative-text {
+                font-size: 16px;
+                padding: 0 20px;
             }
         }
 
@@ -990,7 +1025,7 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
-            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
+            <a href="the-tools.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
@@ -1015,36 +1050,50 @@
         <h1 class="shift-hero-title">Shift from reacting to leading.</h1>
         <p class="shift-hero-subtitle">Stability, influence and clarity — even under pressure.</p>
         <div class="cta-buttons">
-            <a href="create-account.html" class="cta-button">Start Your Shift Journey</a>
+            <a href="create-account.html" class="cta-button">Begin Your Shift</a>
             <a href="the-coach.html" class="secondary-cta">If your situation feels urgent → go to Coach first</a>
         </div>
     </div>
 </section>
 
-<!-- Progress Indicator -->
-<section class="progress-container">
-    <div class="container progress-content">
-        <h3 class="progress-title">Your Path to Strategic Leadership</h3>
-        <div class="progress-steps">
-            <div class="progress-bar"></div>
-            <div class="progress-step">
-                <div class="step-circle">1</div>
-                <div class="step-label">The Lens</div>
+<!-- Narrative Bridge -->
+<section class="narrative-bridge">
+    <div class="container">
+        <div class="bridge-content">
+            <p class="bridge-statement">The Shift is not about reacting better. It is about becoming harder to destabilise. You will learn how to think, communicate and position yourself like someone who leads the pace, not absorbs it. This is a transformation, not a toolkit.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Emotional Conflict Section -->
+<section class="conflict-section">
+    <div class="container conflict-content">
+        <h3 class="conflict-title">Why most employees never make the shift</h3>
+        <div class="conflict-grid">
+            <div class="conflict-cycle">
+                <h4 class="cycle-title">The Reactive Cycle</h4>
+                <ul class="cycle-list">
+                    <li class="cycle-item">Constant firefighting becomes normalised</li>
+                    <li class="cycle-item">Urgency overrides strategic thinking</li>
+                    <li class="cycle-item">Internal destabilisation erodes authority</li>
+                    <li class="cycle-item">Reactive patterns become embedded identity</li>
+                </ul>
             </div>
-            <div class="progress-step">
-                <div class="step-circle">2</div>
-                <div class="step-label">The Toolkit</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-circle">3</div>
-                <div class="step-label">The Coach</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-circle active">4</div>
-                <div class="step-label active">The Shift</div>
+            <div class="shift-solution">
+                <h4 class="solution-title">The Shift Break</h4>
+                <p class="solution-text">The Shift interrupts this cycle at its source. You won't be told how to work harder. You'll be shown how to become strategically unavoidable. Each stage builds authority and internal pace control.</p>
             </div>
         </div>
-        <p class="progress-note">Start with Lens → Shift when ready. Each step builds your strategic foundation for lasting impact.</p>
+    </div>
+</section>
+
+<!-- Stages Narrative -->
+<section class="stages-narrative">
+    <div class="container">
+        <div class="narrative-content">
+            <h3 class="narrative-title">The Architecture of Your Shift</h3>
+            <p class="narrative-text">This is not sequential training. Each stage addresses a different dimension of strategic leadership. You progress by integrating new operational identities, not by consuming resources. The sequence builds from internal stability to external influence.</p>
+        </div>
     </div>
 </section>
 
@@ -1083,7 +1132,7 @@
                         <span>Mindfulness practices for decision-making clarity</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 2 -->
@@ -1112,7 +1161,7 @@
                         <span>Progress tracking and adjustment system</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 3 -->
@@ -1141,7 +1190,7 @@
                         <span>Executive presence cultivation</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 4 -->
@@ -1170,7 +1219,7 @@
                         <span>Difficult conversation scripts and templates</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 5 -->
@@ -1199,7 +1248,7 @@
                         <span>Boundary-setting strategies for sustainable performance</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 6 -->
@@ -1228,7 +1277,7 @@
                         <span>Negotiation scripts and objection handling</span>
                     </li>
                 </ul>
-                <a href="create-account.html" class="module-cta">Start This Module</a>
+                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
         </div>
     </div>
@@ -1272,7 +1321,7 @@
                         <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
-                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-tools.html">The Toolkit</a></li>
                             <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
@@ -1353,4 +1402,3 @@
 
 </body>
 </html>
-
