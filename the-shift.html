@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Transform from reactive employee to strategic leader. Build resilience, influence and clarity for long-term career success.">
-    <title>The Shift | From Reacting to Leading | The Employee Playbook</title>
+    <title>The Toolkit | The Employee Playbook</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     
     <!-- Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --primary-white: #FFFFFF;
@@ -29,32 +29,97 @@
             --accent-purple: #7B5FC4;
             --accent-purple-dark: #5A4496;
             --light-purple: #E6E0F5;
+            --lighter-purple: #F0EBFA;
             --border-light: rgba(0, 0, 0, 0.08);
             --hero-gray: #f5f7fa;
             --nav-bg: rgba(255, 255, 255, 0.95);
-            --deep-navy: #0A1428;
-            --soft-blue: #EFF5FF;
-            --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
-            --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
+            --sidebar-bg: #fafbfc;
+            --chat-bg: #ffffff;
+            --online-green: #10B981;
+            --hero-purple: #5A4496;
+            --user-msg-bg: #7B5FC4;
+            --bot-msg-bg: #F1F3F9;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --premium-gradient: linear-gradient(135deg, #7B5FC4 0%, #5A4496 100%);
+            --premium-card-shadow: 0 10px 30px rgba(123, 95, 196, 0.15);
+            
+            /* Updated Tool type colors */
+            --template-color: #FFF2E5; /* Warm peach */
+            --template-text: #CC7A2E;
+            --template-icon: #CC7A2E;
+            
+            --framework-color: #DFF6EC;
+            --framework-text: #2E8B57;
+            --framework-icon: #2E8B57;
+            
+            --script-color: #E6F3FF; /* Better blue */
+            --script-text: #1E6FC6;
+            --script-icon: #1E6FC6;
+            
+            --decision-color: #E9F7D7;
+            --decision-text: #6B8E23;
+            --decision-icon: #6B8E23;
+            
+            --communication-color: #DDE8FF;
+            --communication-text: #4A6FC8;
+            --communication-icon: #4A6FC8;
+            
+            --calculator-color: #FFF9D9;
+            --calculator-text: #B8860B;
+            --calculator-icon: #B8860B;
+            
+            --accountability-color: #DFF6F5;
+            --accountability-text: #008B8B;
+            --accountability-icon: #008B8B;
+            
+            --crisis-color: #FFE6E6; /* Crisis navigation color */
+            --crisis-text: #C41E3A;
+            --crisis-icon: #C41E3A;
         }
 
+        /* Dark mode variables */
         .dark-mode {
             --primary-white: #121212;
             --light-gray: #1E1E1E;
             --medium-gray: #2D2D2D;
-            --dark-gray: #8A8A8A;
-            --text-dark: #F5F5F5;
-            --text-medium: #CCCCCC;
-            --accent-purple: #8B6CE6;
-            --accent-purple-dark: #6A4FC4;
-            --light-purple: #E6E0F5;
+            --dark-gray: #A0A0A0;
+            --text-dark: #E0E0E0;
+            --text-medium: #B0B0B0;
+            --accent-purple: #9D86E9;
+            --accent-purple-dark: #7B5FC4;
+            --light-purple: #2A2540;
+            --lighter-purple: #1E1A2E;
             --border-light: rgba(255, 255, 255, 0.08);
-            --hero-gray: #1a1a1a;
+            --hero-gray: #1A1A1A;
             --nav-bg: rgba(18, 18, 18, 0.95);
-            --deep-navy: #EFF5FF;
-            --soft-blue: #1A2333;
-            --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
-            --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
+            --sidebar-bg: #1A1A1A;
+            --chat-bg: #252525;
+            --premium-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            
+            /* Tool colors adjusted for dark mode */
+            --template-color: #3A2A1A;
+            --template-text: #E6A85C;
+            
+            --framework-color: #1A3A2A;
+            --framework-text: #5CD85C;
+            
+            --script-color: #1A2A3A;
+            --script-text: #5C9AE6;
+            
+            --decision-color: #2A3A1A;
+            --decision-text: #9AE65C;
+            
+            --communication-color: #1A2A3A;
+            --communication-text: #5C9AE6;
+            
+            --calculator-color: #3A3A1A;
+            --calculator-text: #E6D85C;
+            
+            --accountability-color: #1A3A3A;
+            --accountability-text: #5CD8D8;
+            
+            --crisis-color: #3A1A1A;
+            --crisis-text: #E65C5C;
         }
 
         * {
@@ -83,13 +148,13 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         /* Navigation */
@@ -148,27 +213,19 @@
             color: var(--accent-purple);
         }
 
-        /* Active page indicator - Purple underline */
         .nav-link.active {
-            color: var(--accent-purple);
+            color: var(--text-dark);
         }
 
-        /* Active page indicator - Black text for desktop with purple underline */
-        @media (min-width: 769px) {
-            .nav-link.active {
-                color: var(--text-dark);
-            }
-            
-            .nav-link.active::after {
-                content: '';
-                position: absolute;
-                bottom: -8px;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                background-color: var(--accent-purple);
-                border-radius: 2px;
-            }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-purple);
+            border-radius: 2px 2px 0 0;
         }
 
         .nav-actions {
@@ -261,397 +318,833 @@
             white-space: nowrap;
         }
 
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
-            display: none;
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 100px 40px 40px;
+            display: flex;
+            min-height: calc(100vh - 160px);
         }
 
-        /* Hero Section */
-        .shift-hero {
-            background: var(--soft-blue);
-            min-height: 100vh;
+        .content-wrapper {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding-top: 160px;
-            position: relative;
-            overflow: hidden;
+            gap: 30px;
         }
 
-        .shift-hero::before {
+        /* Tools Header */
+        .tools-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 100px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .tools-subtitle {
+            font-size: 22px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Full Width Section */
+        .full-width-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Priority Areas Section */
+        .priority-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: left;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-medium);
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .search-container {
+            width: 400px;
+            max-width: 400px;
+            position: relative;
+            margin-bottom: 10px;
+            margin-left: 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 50px;
+            font-size: 15px;
+            background: var(--primary-white);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .search-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .priority-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .priority-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .priority-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-secondary);
-            opacity: 0.7;
-            z-index: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
         }
 
-        .shift-hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        .priority-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .shift-hero-title {
-            font-size: 80px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--deep-navy);
-            letter-spacing: -1.5px;
+        .priority-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
         }
 
-        .shift-hero-subtitle {
-            font-size: 22px;
-            color: var(--text-medium);
-            margin-bottom: 44px;
-            line-height: 1.5;
-            max-width: 900px;
-            margin: 0 auto 44px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 18px 30px;
-            border-radius: 50px;
-            text-decoration: none;
+        .priority-title {
             font-weight: 600;
-            font-size: 17px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(123, 95, 196, 0.3);
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .priority-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .priority-impact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .impact-item i {
+            color: var(--accent-purple);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .priority-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .priority-button {
+            background: var(--accent-purple);
+            color: white;
             border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(123, 95, 196, 0.4);
+        .priority-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
         }
 
-        .secondary-cta {
-            display: inline-block;
+        .explore-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .explore-button {
             background: transparent;
             color: var(--accent-purple);
-            padding: 16px 32px;
+            border: 1px solid var(--accent-purple);
+            padding: 12px 30px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid var(--accent-purple);
-            margin-left: 20px;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .secondary-cta:hover {
-            background: rgba(123, 95, 196, 0.1);
+        .explore-button:hover {
+            background: var(--light-purple);
             transform: translateY(-2px);
         }
 
-        /* Narrative Bridge */
-        .narrative-bridge {
-            background: var(--primary-white);
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .bridge-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .bridge-statement {
-            font-size: 22px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        /* Emotional Conflict Section */
-        .conflict-section {
-            background: var(--primary-white);
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .conflict-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .conflict-title {
-            font-size: 36px;
-            font-weight: 700;
-            text-align: center;
+        /* Strategic Tools Section */
+        .strategic-tools-section {
             margin-bottom: 60px;
-            color: var(--deep-navy);
         }
 
-        .conflict-grid {
+        .strategic-tools-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .strategic-tools-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .conflict-cycle, .shift-solution {
-            padding: 40px;
+        .strategic-tool-card {
+            background: var(--primary-white);
             border-radius: 16px;
-        }
-
-        .conflict-cycle {
-            background: var(--light-gray);
+            padding: 40px 30px;
             border: 1px solid var(--border-light);
-        }
-
-        .shift-solution {
-            background: var(--gradient-secondary);
-            border: 1px solid var(--light-purple);
-        }
-
-        .cycle-title, .solution-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--deep-navy);
-        }
-
-        .cycle-list {
-            list-style: none;
-        }
-
-        .cycle-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-light);
-            color: var(--text-medium);
+            transition: all 0.3s ease;
             position: relative;
-            padding-left: 24px;
-        }
-
-        .cycle-item:before {
-            content: '•';
-            color: var(--accent-purple);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .cycle-item:last-child {
-            border-bottom: none;
-        }
-
-        .solution-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-medium);
-        }
-
-        /* Stages Narrative */
-        .stages-narrative {
-            background: var(--primary-white);
-            padding: 100px 0 40px;
-        }
-
-        .narrative-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .narrative-title {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--deep-navy);
-        }
-
-        .narrative-text {
-            font-size: 22px;
-            line-height: 1.6;
-            color: var(--text-medium);
-        }
-
-        /* Hidden utility class */
-        .hidden {
-            display: none !important;
-        }
-
-        /* Modules Section */
-        .modules {
-            background: var(--primary-white);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            color: var(--deep-navy);
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: var(--text-medium);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-
-        .module-card {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 40px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-light);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .module-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        .strategic-tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
         }
 
-        .module-header {
+        .strategic-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .strategic-tool-header {
             display: flex;
-            align-items: center;
-            margin-bottom: 24px;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
 
-        .module-icon {
-            width: 60px;
-            height: 60px;
+        .strategic-tool-icon {
+            width: 70px;
+            height: 70px;
             border-radius: 12px;
-            background: var(--gradient-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
             font-size: 24px;
-            color: var(--accent-purple);
+            flex-shrink: 0;
         }
 
-        .module-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--deep-navy);
+        .strategic-tool-icon.accountability {
+            background: var(--accountability-color);
+            color: var(--accountability-icon);
+        }
+        
+        .strategic-tool-icon.script {
+            background: var(--script-color);
+            color: var(--script-icon);
+        }
+        
+        .strategic-tool-icon.framework {
+            background: var(--framework-color);
+            color: var(--framework-icon);
         }
 
-        .module-subtitle {
-            font-size: 16px;
-            color: var(--text-medium);
-        }
-
-        .module-description {
-            margin-bottom: 24px;
-            color: var(--text-medium);
-            line-height: 1.6;
+        .strategic-tool-title-section {
             flex-grow: 1;
         }
 
-        .module-features {
-            list-style: none;
-            margin-bottom: 30px;
+        .strategic-tool-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 22px;
+            color: var(--text-dark);
         }
 
-        .module-feature {
+        .strategic-tool-category {
+            color: var(--accent-purple);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .strategic-tool-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .strategic-tool-outcomes {
+            margin-bottom: 25px;
+        }
+
+        .strategic-tool-outcomes-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .strategic-tool-outcomes-list {
+            list-style-type: none;
+        }
+
+        .strategic-tool-outcome {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 12px;
-            font-size: 15px;
+            margin-bottom: 8px;
+            font-size: 14px;
             color: var(--text-medium);
         }
 
-        .feature-icon {
+        .strategic-tool-outcome i {
             color: var(--accent-purple);
             margin-right: 10px;
-            font-size: 14px;
-            margin-top: 4px;
+            margin-top: 3px;
+            font-size: 12px;
         }
 
-        .module-cta {
-            align-self: flex-start;
-            background: var(--gradient-primary);
+        .strategic-tool-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .strategic-tool-button {
+            background: var(--accent-purple);
             color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 14px;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .module-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
-        }
-
-        /* Final CTA */
-        .final-cta {
-            background: var(--soft-blue);
             text-align: center;
-            padding: 100px 0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .strategic-tool-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
+        }
+
+        .upgrade-notice {
+            text-align: center;
+            padding: 15px;
+            background: var(--lighter-purple);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-top: 10px;
+        }
+
+        .upgrade-link {
+            color: var(--accent-purple);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .upgrade-link:hover {
+            text-decoration: underline;
+        }
+
+        /* NEW: Reviews Carousel */
+        .reviews-section {
+            margin-bottom: 60px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .reviews-carousel {
             position: relative;
             overflow: hidden;
+            margin-bottom: 40px;
         }
-
-        .final-cta::before {
+        
+        .reviews-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .review-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-secondary);
-            opacity: 0.7;
-            z-index: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+        
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .review-text {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+            flex-grow: 1;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--lighter-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple);
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .review-author-info {
+            flex-grow: 1;
+        }
+        
+        .review-author-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .review-author-role {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .review-tool {
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--accent-purple);
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-white);
+            border: 1px solid var(--border-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-arrow:hover {
+            background: var(--accent-purple);
+            color: white;
+            border-color: var(--accent-purple);
+        }
+        
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+        
+        .carousel-arrow.next {
+            right: 10px;
+        }
+        
+        /* Hide arrows on mobile */
+        @media (max-width: 768px) {
+            .carousel-arrow {
+                display: none;
+            }
         }
 
-        .final-cta-content {
+        /* NEW: Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 15px 20px;
+            background: var(--lighter-purple);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-title i {
+            color: var(--accent-purple);
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: var(--light-gray);
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
             position: relative;
-            z-index: 1;
+            animation: fadeIn 0.4s ease;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
-        .final-statement {
-            font-size: 38px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--user-msg-bg);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: var(--bot-msg-bg);
+            color: var(--text-dark);
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+            background-color: var(--primary-white);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-purple);
+        }
+
+        .send-button {
+            background-color: var(--accent-purple);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 0 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .send-button:hover {
+            background-color: var(--accent-purple-dark);
+        }
+
+        /* Final CTA Section */
+        .final-cta-section {
+            background: var(--lighter-purple);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .final-cta-title {
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.3;
-            color: var(--deep-navy);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .cta-note {
+        .final-cta-text {
             font-size: 18px;
             color: var(--text-medium);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-cta-button {
+            background: var(--accent-purple);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        .final-cta-button.secondary {
+            background: transparent;
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+        }
+
+        .final-cta-button.secondary:hover {
+            background: var(--light-purple);
         }
 
         /* Footer */
@@ -738,6 +1231,7 @@
             margin: 0;
         }
 
+        /* Footer navigation grid to 2 columns */
         .footer-nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -803,26 +1297,33 @@
 
         /* Responsive */
         @media (max-width: 1200px) {
-            .modules-grid {
-                grid-template-columns: 1fr;
+            .priority-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .strategic-tools-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 992px) {
-            .shift-hero-title {
-                font-size: 48px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
             .nav-links {
                 gap: 30px;
             }
-
+            
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
             }
         }
 
@@ -852,9 +1353,11 @@
                 left: 20px;
             }
             
-            /* REMOVED: Hide the Sign Up button in mobile view */
+            /* Show the Sign Up button in mobile view and position it on the right */
             .header-cta {
-                display: none !important;
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
             .nav-actions {
@@ -877,7 +1380,7 @@
                 width: 100%;
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
+                -webkit-backface-visibility: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
@@ -904,12 +1407,9 @@
                 right: auto;
             }
             
-            /* Make the Sign Up button in hamburger menu with person-plus icon */
+            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
+                display: block !important;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: white;
@@ -927,37 +1427,33 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
-            .shift-hero-title {
-                font-size: 45px; /* Increased from 50.6px to 55px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+            main {
+                flex-direction: column;
+                padding: 100px 20px 20px;
             }
 
-            .shift-hero-subtitle {
-                font-size: 20px;
+            .content-wrapper {
+                max-width: 100%;
             }
 
-            /* REDUCED: Reduce section titles to match conflict-title size */
-            .section-title {
-                font-size: 36px; /* Reduced from 45px to match conflict-title */
-            }
-            
-            /* REDUCED: Reduce narrative title to match conflict-title size */
-            .narrative-title {
-                font-size: 36px; /* Reduced from 44px to match conflict-title */
-            }
-
-            .conflict-grid {
+            .priority-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
-            
-            .conflict-title {
-                font-size: 36px; /* Kept the same size */
+
+            .hero-title {
+                font-size: 2.5rem;
             }
-            
-            .conflict-cycle, .shift-solution {
-                padding: 30px 20px;
+
+            .tools-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .strategic-tools-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -971,45 +1467,62 @@
             .footer-newsletter-form {
                 flex-direction: column;
             }
-
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .secondary-cta {
-                margin-left: 0;
-            }
             
-            /* Footer Changes */
-            .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            
-            /* Mobile Logo Adjustments */
             .footer-logo-img {
                 height: 120px; /* Doubled for mobile (was 60px) */
             }
             
-            /* REDUCED: Final statement size for mobile */
-            .final-statement {
-                font-size: 28px; /* Reduced from 40px */
+            .strategic-tool-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
             
-            .bridge-statement {
-                font-size: 18px;
-                padding: 0 20px;
+            .strategic-tool-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
             
-            /* INCREASED: Narrative text size for mobile */
-            .narrative-text {
-                font-size: 20px; /* Increased from 16px */
-                padding: 0 20px;
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .final-cta-section {
+                padding: 40px 20px;
+            }
+            
+            .final-cta-title {
+                font-size: 24px;
+            }
+            
+            .final-cta-text {
+                font-size: 16px;
+            }
+            
+            /* NEW: Chat widget for mobile */
+            .chat-widget {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+            
+            .chat-container {
+                width: calc(100% - 40px);
+                height: 70vh;
+                bottom: 80px;
+                right: 20px;
+                left: 20px;
+            }
+            
+            /* Carousel adjustments for mobile */
+            .review-card {
+                min-width: 100%;
             }
         }
-
+        
         @media (max-width: 480px) {
             .logo-img {
                 height: 100px; /* Adjusted for very small screens */
@@ -1023,30 +1536,51 @@
                 font-size: 18px;
             }
             
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
-            .shift-hero-title {
-                font-size: 45px; /* Increased from 41.4px to 45px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+            .priority-grid {
+                grid-template-columns: 1fr;
             }
             
-            .shift-hero-subtitle {
-                font-size: 18px;
+            .strategic-tools-grid {
+                grid-template-columns: 1fr;
             }
-            
-            /* REDUCED: Further reduce final statement size for very small mobile */
-            .final-statement {
-                font-size: 24px; /* Further reduced for very small screens */
-            }
-            
-            /* INCREASED: Narrative text size for very small mobile */
-            .narrative-text {
-                font-size: 18px; /* Increased from 16px */
-            }
+        }
+        
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
         }
     </style>
 </head>
 
 <body>
+
+<!-- NEW: Chat Widget -->
+<div class="chat-widget" id="chatWidget">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+        <div class="chat-title">
+            <i class="fas fa-robot"></i>
+            <span>Tool Assistant</span>
+        </div>
+        <button class="close-chat" id="closeChat">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+            Hi! I'm here to help you find the right tools for your workplace challenges. What are you dealing with right now?
+        </div>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your question...">
+        <button class="send-button" id="sendButton">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
 
 <!-- Navigation -->
 <nav>
@@ -1064,21 +1598,18 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
-            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
+            <a href="the-toolkit.html" class="nav-link active">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
             </div>
-            <a href="the-shift.html" class="nav-link active">The Shift</a>
+            <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="create-account.html" class="mobile-sign-in">
-                <i class="fas fa-user-plus"></i> Sign up
-            </a>
+            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -1086,248 +1617,376 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="shift-hero">
-    <div class="container shift-hero-content">
-        <h1 class="shift-hero-title">Shift from reacting to leading</h1>
-        <p class="shift-hero-subtitle">The Shift is not about reacting better. It is about becoming harder to destabilise. You will learn how to think, communicate and position yourself like someone who leads the pace, not absorbs it. This is a transformation, not a toolkit</p>
-        <div class="cta-buttons">
-            <a href="create-account.html" class="cta-button">Begin Your Shift</a>
-            <a href="the-coach.html" class="secondary-cta">If your situation feels urgent → go to Coach first</a>
-        </div>
-    </div>
-</section>
-
-
-<!-- Emotional Conflict Section -->
-<section class="conflict-section">
-    <div class="container conflict-content">
-        <h3 class="conflict-title">Why most employees never make the shift</h3>
-        <div class="conflict-grid">
-            <div class="conflict-cycle">
-                <h4 class="cycle-title">The Reactive Cycle</h4>
-                <ul class="cycle-list">
-                    <li class="cycle-item">Constant firefighting becomes normalised</li>
-                    <li class="cycle-item">Urgency overrides strategic thinking</li>
-                    <li class="cycle-item">Internal destabilisation erodes authority</li>
-                    <li class="cycle-item">Reactive patterns become embedded identity</li>
-                    <li class="cycle-item">Decision-making shifts from intentional to protective</li>
-                    <li class="cycle-item">You start managing risk to avoid mistakes rather than leading toward opportunity</li>
-                </ul>
-            </div>
-            <div class="shift-solution">
-                <h4 class="solution-title">The Shift Break</h4>
-                <p class="solution-text">The Shift disrupts the cycle at its core. <br> <br> It's not about trying harder but about changing how you respond when the pressure builds. <br> <br> Instead of focusing on coping, it helps you become someone people listen to and take seriously. <br> <br>Each stage develops calm, confidence and the ability to guide the pace rather than constantly trying to catch up</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stages Narrative -->
-<section class="stages-narrative">
+<!-- Main Content Area -->
+<main>
     <div class="container">
-        <div class="narrative-content">
-            <h3 class="narrative-title">The Architecture of Your Shift</h3>
-            <!-- CHANGED: Increased font size for mobile view -->
-            <p class="narrative-text">This is not sequential training. Each stage addresses a different dimension of strategic leadership. You progress by integrating new operational identities, not by consuming resources. The sequence builds from internal stability to external influence.</p>
+        <div class="content-wrapper">
+            <!-- Tools Header -->
+            <div class="tools-header">
+                <h1 class="hero-title">Your Strategic Advantage</h1>
+                <p class="tools-subtitle">Transform workplace challenges into career-defining opportunities with precision tools</p>
+            </div>
+            
+            <!-- Priority Areas Section -->
+            <div class="full-width-section priority-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Priority Challenge Areas</h2>
+                        <p class="section-subtitle">Focus on what matters most with our most impactful resources</p>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search tools, resources...">
+                        <button class="search-button" id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="priority-grid">
+                    <!-- Priority 1 -->
+                    <div class="priority-card">
+                        <div class="priority-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="priority-title">Workload & Burnout</div>
+                        <div class="priority-description">
+                            Reclaim control over your workload and prevent burnout with strategic frameworks that restore balance and energy.
+                        </div>
+                        <div class="priority-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Identify burnout triggers before they escalate</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Establish unbreakable work boundaries</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Communicate workload concerns with confidence</span>
+                            </div>
+                        </div>
+                        <div class="priority-actions">
+                            <button class="priority-button">Explore Solutions</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Priority 2 -->
+                    <div class="priority-card">
+                        <div class="priority-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="priority-title">Micromanagement</div>
+                        <div class="priority-description">
+                            Transform micromanagement into trust-based collaboration with proven communication strategies.
+                        </div>
+                        <div class="priority-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build credibility and demonstrate competence</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Establish clear expectations and reporting</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Navigate sensitive conversations with precision</span>
+                            </div>
+                        </div>
+                        <div class="priority-actions">
+                            <button class="priority-button">Explore Solutions</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Priority 3 -->
+                    <div class="priority-card">
+                        <div class="priority-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="priority-title">Exclusion & Visibility</div>
+                        <div class="priority-description">
+                            Ensure your contributions are recognised and you're included in key decisions that matter.
+                        </div>
+                        <div class="priority-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Increase visibility with strategic stakeholders</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Secure your seat at critical decision tables</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build influence across the organization</span>
+                            </div>
+                        </div>
+                        <div class="priority-actions">
+                            <button class="priority-button">Explore Solutions</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Priority 4 -->
+                    <div class="priority-card">
+                        <div class="priority-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="priority-title">Promotion & Recognition</div>
+                        <div class="priority-description">
+                            Position yourself for advancement and ensure your achievements receive the recognition they deserve.
+                        </div>
+                        <div class="priority-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Document and showcase your impact effectively</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Navigate promotion processes strategically</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build a compelling case for advancement</span>
+                            </div>
+                        </div>
+                        <div class="priority-actions">
+                            <button class="priority-button">Explore Solutions</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explore-more">
+                    <a href="#" class="explore-button">Explore All Challenge Areas</a>
+                </div>
+            </div>
+            
+            <!-- Strategic Tools Section -->
+            <div class="full-width-section strategic-tools-section">
+                <div class="strategic-tools-header">
+                    <h2 class="section-title">Strategic Power Tools</h2>
+                    <p class="section-subtitle">Our most transformative resources for immediate impact</p>
+                </div>
+                
+                <div class="strategic-tools-grid">
+                    <!-- Strategic Tool 1 -->
+                    <div class="strategic-tool-card">
+                        <div class="strategic-tool-header">
+                            <div class="strategic-tool-icon accountability">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="strategic-tool-title-section">
+                                <h3 class="strategic-tool-title">Burnout Intervention Framework</h3>
+                                <div class="strategic-tool-category">Workload & Burnout</div>
+                            </div>
+                        </div>
+                        <div class="strategic-tool-description">
+                            A comprehensive system to identify, address, and prevent burnout while restoring sustainable work practices.
+                        </div>
+                        <div class="strategic-tool-outcomes">
+                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
+                            <ul class="strategic-tool-outcomes-list">
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Regain control over workload and energy</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish boundaries that protect your wellbeing</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Communicate needs effectively without backlash</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Create sustainable work practices for long-term success</li>
+                            </ul>
+                        </div>
+                        <div class="strategic-tool-actions">
+                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
+                            <div class="upgrade-notice">
+                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Strategic Tool 2 -->
+                    <div class="strategic-tool-card">
+                        <div class="strategic-tool-header">
+                            <div class="strategic-tool-icon script">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <div class="strategic-tool-title-section">
+                                <h3 class="strategic-tool-title">Trust Building Communication System</h3>
+                                <div class="strategic-tool-category">Micromanagement</div>
+                            </div>
+                        </div>
+                        <div class="strategic-tool-description">
+                            Transform micromanagement dynamics into trust-based partnerships with precise communication strategies.
+                        </div>
+                        <div class="strategic-tool-outcomes">
+                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
+                            <ul class="strategic-tool-outcomes-list">
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Convert oversight into autonomy and trust</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Demonstrate competence through strategic reporting</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Navigate sensitive conversations with confidence</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish yourself as a reliable, independent contributor</li>
+                            </ul>
+                        </div>
+                        <div class="strategic-tool-actions">
+                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
+                            <div class="upgrade-notice">
+                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Strategic Tool 3 -->
+                    <div class="strategic-tool-card">
+                        <div class="strategic-tool-header">
+                            <div class="strategic-tool-icon framework">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="strategic-tool-title-section">
+                                <h3 class="strategic-tool-title">Strategic Visibility Framework</h3>
+                                <div class="strategic-tool-category">Exclusion & Visibility</div>
+                            </div>
+                        </div>
+                        <div class="strategic-tool-description">
+                            Ensure your contributions are recognised and you're included in critical decisions that shape your career.
+                        </div>
+                        <div class="strategic-tool-outcomes">
+                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
+                            <ul class="strategic-tool-outcomes-list">
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Increase visibility with key decision-makers</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Secure inclusion in critical meetings and projects</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Build influence across organizational boundaries</li>
+                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Position yourself for advancement opportunities</li>
+                            </ul>
+                        </div>
+                        <div class="strategic-tool-actions">
+                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
+                            <div class="upgrade-notice">
+                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NEW: Reviews Carousel Section -->
+            <div class="full-width-section reviews-section">
+                <div class="reviews-header">
+                    <h2 class="section-title">Real Impact Stories</h2>
+                    <p class="section-subtitle">See how our tools have transformed workplace challenges for professionals</p>
+                </div>
+                
+                <div class="reviews-carousel">
+                    <button class="carousel-arrow prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <div class="reviews-track" id="reviewsTrack">
+                        <!-- Review 1 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                "The Burnout Intervention Framework saved my career. I was on the verge of quitting when I found this tool. Within two weeks, I had clear boundaries and a plan to address my unsustainable workload. My manager actually respected my new approach."
+                            </div>
+                            <div class="review-author">
+                                <div class="review-avatar">SJ</div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">Sarah Johnson</div>
+                                    <div class="review-author-role">Senior Project Manager, Tech</div>
+                                </div>
+                            </div>
+                            <div class="review-tool">Burnout Intervention Framework</div>
+                        </div>
+                        
+                        <!-- Review 2 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                "I went from being micromanaged every day to having complete autonomy in just one month. The Trust Building Communication System gave me the exact scripts I needed to rebuild trust with my manager. Now I'm leading my own projects."
+                            </div>
+                            <div class="review-author">
+                                <div class="review-avatar">MR</div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">Michael Rodriguez</div>
+                                    <div class="review-author-role">Marketing Director</div>
+                                </div>
+                            </div>
+                            <div class="review-tool">Trust Building Communication System</div>
+                        </div>
+                        
+                        <!-- Review 3 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                "The Strategic Visibility Framework helped me get noticed by senior leadership. I used to do great work that went unseen. Now I'm regularly included in strategic meetings and was recently promoted. This tool pays for itself many times over."
+                            </div>
+                            <div class="review-author">
+                                <div class="review-avatar">PT</div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">Priya Thompson</div>
+                                    <div class="review-author-role">Data Analyst</div>
+                                </div>
+                            </div>
+                            <div class="review-tool">Strategic Visibility Framework</div>
+                        </div>
+                        
+                        <!-- Review 4 -->
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                "I was struggling with a difficult colleague who was undermining my work. The Conflict Navigation Scripts gave me the exact words to use in our conversations. The situation improved dramatically, and I now feel confident handling any workplace conflict."
+                            </div>
+                            <div class="review-author">
+                                <div class="review-avatar">DW</div>
+                                <div class="review-author-info">
+                                    <div class="review-author-name">David Wilson</div>
+                                    <div class="review-author-role">Operations Manager</div>
+                                </div>
+                            </div>
+                            <div class="review-tool">Conflict Navigation Scripts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-nav" id="carouselNav">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final CTA Section -->
+            <div class="final-cta-section">
+                <h2 class="final-cta-title">Build Your Strategic Advantage</h2>
+                <p class="final-cta-text">Stop reacting to workplace challenges and start shaping your career with precision. Our tools give you the clarity and confidence to navigate complex situations and emerge stronger.</p>
+                <div class="final-cta-buttons">
+                    <a href="create-account.html" class="final-cta-button">Start Your Journey Today</a>
+                    <a href="the-pricing.html" class="final-cta-button secondary">View Strategic Pricing</a>
+                </div>
+            </div>
         </div>
     </div>
-</section>
-
-<!-- Modules Section -->
-<section class="modules">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Your Framework for Lasting Impact</h2>
-            <p class="section-subtitle">Transform how you operate, lead, and thrive in your organisation</p>
-        </div>
-        
-        <div class="modules-grid">
-            <!-- Module 1 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Resilience & Self-Mastery</h3>
-                        <p class="module-subtitle">Build unshakeable inner stability</p>
-                    </div>
-                </div>
-                <p class="module-description">Develop the mental and emotional resilience to navigate uncertainty with confidence. Learn techniques to maintain clarity under pressure and bounce back from setbacks stronger than before.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Stress management techniques for high-pressure environments</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Emotional regulation strategies</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Mindfulness practices for decision-making clarity</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-            
-            <!-- Module 2 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-compass"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Next 90 Days Strategy</h3>
-                        <p class="module-subtitle">Create career leverage systematically</p>
-                    </div>
-                </div>
-                <p class="module-description">Design a strategic 90-day plan to position yourself for maximum impact and visibility. Identify key projects, relationships, and accomplishments that will accelerate your career trajectory.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Strategic goal-setting framework</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Stakeholder mapping and engagement plan</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Progress tracking and adjustment system</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-            
-            <!-- Module 3 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Identity Before Action</h3>
-                        <p class="module-subtitle">Who do you want to be?</p>
-                    </div>
-                </div>
-                <p class="module-description">Clarify your professional identity and values to ensure your actions align with the leader you aspire to become. Build authentic presence that commands respect and influence.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Values clarification and alignment exercises</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Personal branding development</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Executive presence cultivation</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-            
-            <!-- Module 4 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Conflict Mastery Without Ego</h3>
-                        <p class="module-subtitle">Navigate disagreements with strategic grace</p>
-                    </div>
-                </div>
-                <p class="module-description">Transform conflict from a threat into an opportunity for growth and strengthened relationships. Learn to de-escalate tension while maintaining your position and principles.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>De-escalation techniques for tense situations</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Negotiation frameworks for win-win outcomes</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Difficult conversation scripts and templates</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-            
-            <!-- Module 5 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-battery-three-quarters"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Burnout Reset Path</h3>
-                        <p class="module-subtitle">Recover and rebuild sustainable energy</p>
-                    </div>
-                </div>
-                <p class="module-description">Identify burnout triggers and implement a personalized recovery plan. Develop sustainable work habits that protect your energy while maintaining high performance.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Burnout assessment and recovery roadmap</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Energy management techniques</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Boundary-setting strategies for sustainable performance</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-            
-            <!-- Module 6 -->
-            <div class="module-card">
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Raise Accelerator Module</h3>
-                        <p class="module-subtitle">Position yourself for maximum compensation</p>
-                    </div>
-                </div>
-                <p class="module-description">Systematically prepare for and execute successful compensation negotiations. Build your case, time your approach, and communicate your value with confidence.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Value documentation framework</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Market research and positioning strategies</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Negotiation scripts and objection handling</span>
-                    </li>
-                </ul>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section class="final-cta">
-    <div class="container final-cta-content">
-        <h2 class="final-statement">Your transformation from reactive employee to strategic leader starts here.</h2>
-        <p class="cta-note">Join professionals who've shifted from surviving workplace challenges to thriving through strategic clarity.</p>
-        <a href="create-account.html" class="cta-button">Begin Your Shift Journey Today</a>
-    </div>
-</section>
+</main>
 
 <!-- Footer -->
 <footer>
@@ -1353,6 +2012,7 @@
             </div>
             
             <div class="footer-nav">
+                <!-- UPDATED: Combined Playbook and Company links in a 2-column grid -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -1370,7 +2030,7 @@
                         <ul class="footer-links">
                             <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="#privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="privacy.html">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
                             <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
                         </ul>
@@ -1386,37 +2046,260 @@
 </footer>
 
 <script>
-    // Mark page as loaded to prevent FOUC
+    // JavaScript for The Tools page
     document.addEventListener('DOMContentLoaded', function() {
+        // Mark page as loaded to prevent FOUC
         document.body.classList.add('loaded');
         
-        // Dark mode toggle
-        document.querySelector('.theme-toggle').addEventListener('click', function () {
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+        
+        // Light/Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
             
-            // Update logo for dark mode
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
             if (document.body.classList.contains('dark-mode')) {
-                logo.src = 'assets/img/logo-dark.png';
-                footerLogo.src = 'assets/img/logo-dark.png';
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                
+                // Update logos for dark mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo-dark.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo-dark.png';
             } else {
-                logo.src = 'assets/img/logo.png';
-                footerLogo.src = 'assets/img/logo.png';
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                
+                // Update logos for light mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo.png';
             }
         });
-
-        // Mobile navigation toggle
-        document.querySelector('.mobile-toggle').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        
+        // NEW: Reviews Carousel Functionality
+        const reviewsTrack = document.getElementById('reviewsTrack');
+        const reviewCards = document.querySelectorAll('.review-card');
+        const carouselNav = document.getElementById('carouselNav');
+        const prevButton = document.querySelector('.carousel-arrow.prev');
+        const nextButton = document.querySelector('.carousel-arrow.next');
+        
+        let currentSlide = 0;
+        const totalSlides = reviewCards.length;
+        
+        // Create dots for carousel navigation
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            carouselNav.appendChild(dot);
+        }
+        
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        function updateCarousel() {
+            // Move the track
+            reviewsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Add event listeners for arrows
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
+        }
+        
+        // Auto-advance carousel every 5 seconds
+        let carouselInterval = setInterval(nextSlide, 5000);
+        
+        // Pause auto-advance on hover
+        const carousel = document.querySelector('.reviews-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(carouselInterval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                carouselInterval = setInterval(nextSlide, 5000);
+            });
+        }
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const priorityCards = document.querySelectorAll('.priority-card');
+        
+        function performSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '') {
+                // Reset all cards if search is empty
+                priorityCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+                return;
+            }
+            
+            let foundResults = false;
+            
+            priorityCards.forEach(card => {
+                const title = card.querySelector('.priority-title').textContent.toLowerCase();
+                const description = card.querySelector('.priority-description').textContent.toLowerCase();
+                const impactItems = Array.from(card.querySelectorAll('.impact-item span'))
+                    .map(item => item.textContent.toLowerCase());
+                
+                const matches = title.includes(query) || 
+                               description.includes(query) || 
+                               impactItems.some(item => item.includes(query));
+                
+                if (matches) {
+                    card.style.display = 'flex';
+                    foundResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show message if no results found
+            if (!foundResults) {
+                alert(`No results found for "${query}". Try different keywords.`);
+                // Reset display
+                priorityCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+            }
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
         });
-
+        
+        // Priority card interactions
+        const priorityButtons = document.querySelectorAll('.priority-button');
+        priorityButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const priorityTitle = this.closest('.priority-card').querySelector('.priority-title').textContent;
+                alert(`Exploring solutions for: ${priorityTitle}`);
+                // In a full implementation, this would filter the tools shown
+            });
+        });
+        
+        // Strategic tool button interactions
+        const strategicToolButtons = document.querySelectorAll('.strategic-tool-button');
+        strategicToolButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const toolTitle = this.closest('.strategic-tool-card').querySelector('.strategic-tool-title').textContent;
+                alert(`Accessing strategic tool: ${toolTitle}`);
+                // In a full implementation, this would navigate to the tool page
+            });
+        });
+        
+        // Chat widget functionality
+        const chatWidget = document.getElementById('chatWidget');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        
+        chatWidget.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+        
+        closeChat.addEventListener('click', function() {
+            chatContainer.classList.remove('active');
+        });
+        
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function handleChatInput() {
+            const text = chatInput.value.trim();
+            if (text === '') return;
+            
+            addMessage(text, true);
+            chatInput.value = '';
+            
+            // Simulate bot response
+            setTimeout(() => {
+                let response = '';
+                if (text.toLowerCase().includes('burnout') || text.toLowerCase().includes('workload')) {
+                    response = "For workload and burnout challenges, I recommend the Burnout Intervention Framework. It helps you identify triggers, establish boundaries, and communicate needs effectively.";
+                } else if (text.toLowerCase().includes('micromanag') || text.toLowerCase().includes('trust')) {
+                    response = "For micromanagement issues, the Trust Building Communication System is perfect. It provides scripts and strategies to transform oversight into autonomy.";
+                } else if (text.toLowerCase().includes('visibility') || text.toLowerCase().includes('exclusion')) {
+                    response = "If you're struggling with visibility or exclusion, the Strategic Visibility Framework will help you get noticed by key decision-makers and secure your seat at important tables.";
+                } else if (text.toLowerCase().includes('promotion') || text.toLowerCase().includes('recognition')) {
+                    response = "For promotion and recognition challenges, we have tools that help you document impact, navigate promotion processes, and build a compelling case for advancement.";
+                } else {
+                    response = "I can help you find the right tools for your workplace challenges. Tell me more about what you're dealing with - is it workload, micromanagement, visibility, promotion, or something else?";
+                }
+                
+                addMessage(response, false);
+            }, 1000);
+        }
+        
+        sendButton.addEventListener('click', handleChatInput);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleChatInput();
+            }
+        });
+        
         // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
