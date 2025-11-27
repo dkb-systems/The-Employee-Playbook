@@ -153,22 +153,22 @@
             color: var(--accent-purple);
         }
 
-        /* Active page indicator - Black text for desktop */
+        /* Active page indicator - Black text for desktop with purple underline */
         @media (min-width: 769px) {
             .nav-link.active {
                 color: var(--text-dark);
             }
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-purple);
-            border-radius: 2px;
+            
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--accent-purple);
+                border-radius: 2px;
+            }
         }
 
         .nav-actions {
@@ -904,9 +904,12 @@
                 right: auto;
             }
             
-            /* Make the Sign In button in hamburger menu white */
+            /* Make the Sign Up button in hamburger menu with person-plus icon */
             .mobile-sign-in {
-                display: block !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: white;
