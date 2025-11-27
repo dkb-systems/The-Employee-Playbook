@@ -32,8 +32,6 @@
             --premium-card-shadow: 0 6px 20px rgba(123, 95, 196, 0.12);
             --neutral-bg: #F8F9FA;
             --crisis-red: #FF6B6B;
-            --deep-navy: #0A1428;
-            --soft-blue: #EFF5FF;
         }
 
         .dark-mode {
@@ -58,8 +56,6 @@
             --premium-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
             --neutral-bg: #1E1E1E;
             --crisis-red: #FF5252;
-            --deep-navy: #EFF5FF;
-            --soft-blue: #1A2333;
         }
 
         * {
@@ -96,7 +92,7 @@
             padding: 80px 0;
         }
 
-        /* Navigation - UPDATED to match exactly */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -119,7 +115,7 @@
             height: 100%;
         }
 
-        /* Logo Styles - UPDATED to match exactly */
+        /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
@@ -486,7 +482,7 @@
             padding: 0 20px;
         }
 
-        /* Chat Container - FIXED for mobile scrolling */
+        /* Chat Container */
         .chat-container {
             background: var(--primary-white);
             border-radius: 16px;
@@ -549,7 +545,7 @@
             display: flex;
             height: 100%;
             flex: 1;
-            min-height: 0; /* Critical for flex children */
+            min-height: 0;
         }
 
         .most-popular-sidebar {
@@ -607,10 +603,10 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            min-height: 0; /* Critical for flex children */
+            min-height: 0;
         }
 
-        /* FIXED: Chat messages with proper scrolling */
+        /* Chat messages */
         .chat-messages {
             flex: 1;
             padding: 20px;
@@ -620,7 +616,7 @@
             gap: 15px;
             background-color: var(--light-gray);
             height: auto;
-            min-height: 0; /* Critical for flex children */
+            min-height: 0;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -728,7 +724,7 @@
             position: sticky;
             bottom: 0;
             z-index: 10;
-            flex-shrink: 0; /* Prevent input from shrinking */
+            flex-shrink: 0;
         }
 
         .chat-input {
@@ -1184,7 +1180,7 @@
             right: 0;
         }
 
-        /* Footer - UPDATED to match exactly with 2-column grid */
+        /* Footer */
         footer {
             background-color: var(--primary-white);
             padding: 40px 0 20px;
@@ -1269,7 +1265,7 @@
             margin: 0;
         }
 
-        /* UPDATED: Footer navigation grid to 2 columns */
+        /* Footer navigation grid to 2 columns */
         .footer-nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1324,581 +1320,42 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* MOBILE-ONLY FEATURES FROM THE COACH */
-        
-        /* Coach Tab - Mobile Only */
-        .coach-tab {
-            display: none;
-            position: fixed;
-            left: 0;
-            top: 40%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
-            color: white;
-            padding: 14px 18px;
-            border-radius: 0 12px 12px 0;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 20px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .coach-tab .tab-text {
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .coach-tab .tab-icon {
-            font-size: 18px;
-        }
-
-        .coach-tab:hover {
-            padding-left: 22px;
-            box-shadow: 0 8px 25px rgba(123, 95, 196, 0.5);
-        }
-
-        /* Slide-in Chat UI - Mobile Only */
-        .chat-ui {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--deep-navy);
-            z-index: 1000;
-            flex-direction: column;
-            transition: left 1.2s ease;
-        }
-
-        .chat-ui.open {
-            left: 0;
-        }
-
-        /* Disclaimer Modal - Mobile Only */
-        .disclaimer-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .disclaimer-modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .disclaimer-content {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 30px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .disclaimer-modal.show .disclaimer-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .disclaimer-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--deep-navy);
-            transition: color 0.3s ease;
-        }
-
-        .disclaimer-text {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: var(--text-medium);
-            transition: color 0.3s ease;
-        }
-
-        .disclaimer-text strong {
-            font-weight: 700;
-            color: var(--deep-navy);
-        }
-
-        .disclaimer-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .disclaimer-checkbox input {
-            margin-top: 4px;
-        }
-
-        .disclaimer-checkbox label {
-            font-size: 14px;
-            color: var(--text-medium);
-            line-height: 1.5;
-            transition: color 0.3s ease;
-        }
-
-        .terms-link {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-
-        .terms-link:hover {
-            text-decoration: underline;
-        }
-
-        .disclaimer-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-        }
-
-        .disclaimer-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .disclaimer-btn.accept {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-        }
-
-        .disclaimer-btn.accept:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        .disclaimer-btn.accept:disabled {
-            background: var(--dark-gray);
-            cursor: not-allowed;
-        }
-
-        .disclaimer-btn.decline {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--medium-gray);
-        }
-
-        .disclaimer-btn.decline:hover {
-            background: var(--medium-gray);
-        }
-
-        /* Sign In Prompt - Mobile Only */
-        .signin-prompt {
-            display: none;
-            background: var(--light-gray);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            color: var(--text-dark);
-            border: 1px solid var(--border-light);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .signin-prompt h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .signin-prompt p {
-            margin-bottom: 15px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .signin-btn {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .signin-btn:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            /* Hide the static chat container on mobile */
-            .chat-container {
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .pill-sections {
+                flex-direction: column;
+            }
+            
+            .process-visual {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .challenges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .step-connector {
                 display: none;
             }
-            
-            /* Show the coach tab on mobile */
-            .coach-tab {
-                display: flex;
+
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 30px;
             }
             
-            /* Show the slide-in chat UI on mobile */
-            .chat-ui {
-                display: flex;
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
             }
-            
-            /* Mobile chat container styling */
-            .chat-ui .chat-container {
-                display: flex;
-                background: var(--primary-white);
-                border-radius: 16px;
-                margin: 30px;
-                height: calc(100% - 80px);
-                flex-direction: column;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s ease;
-            }
-            
-            .chat-ui .chat-header {
-                padding: 20px 30px;
-                border-bottom: 1px solid var(--border-light);
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                background: var(--primary-white);
-                border-radius: 16px 16px 0 0;
-                transition: background-color 0.3s ease, border-color 0.3s ease;
-            }
-            
-            .chat-ui .chat-title-section {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .chat-ui .chat-title-section h1 {
-                font-size: 24px;
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 0;
-                transition: color 0.3s ease;
-            }
-            
-            .chat-ui .status-indicator {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 14px;
-                color: var(--dark-gray);
-                transition: color 0.3s ease;
-            }
-            
-            .chat-ui .status-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: #10B981;
-                animation: pulse 2s infinite;
-            }
-            
-            @keyframes pulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-                }
-                70% {
-                    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-                }
-                100% {
-                    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-                }
-            }
-            
-            .chat-ui .chat-actions {
-                display: flex;
-                gap: 12px;
-            }
-            
-            .chat-ui .chat-action-btn {
-                background: none;
-                border: none;
-                color: var(--text-medium);
-                cursor: pointer;
-                font-size: 16px;
-                width: 36px;
-                height: 36px;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.2s ease;
-            }
-            
-            .chat-ui .chat-action-btn:hover {
-                background: var(--light-gray);
-                color: var(--accent-purple);
-            }
-            
-            .chat-ui .chat-messages {
-                flex: 1;
-                padding: 20px 30px;
-                overflow-y: auto;
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                min-height: 0;
-            }
-            
-            .chat-ui .message {
-                max-width: 100%;
-                padding: 0;
-                font-size: 15px;
-                line-height: 1.5;
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .chat-ui .message-coach {
-                align-self: flex-start;
-            }
-            
-            .chat-ui .message-user {
-                align-self: flex-end;
-            }
-            
-            .chat-ui .message-bubble {
-                padding: 12px 18px;
-                border-radius: 18px;
-                position: relative;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-                width: 100%;
-            }
-            
-            .chat-ui .message-coach .message-bubble {
-                background: var(--light-gray);
-                color: var(--text-dark);
-                border-bottom-left-radius: 6px;
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-            
-            .chat-ui .message-user .message-bubble {
-                background: var(--accent-purple);
-                color: white;
-                border-bottom-right-radius: 6px;
-            }
-            
-            .chat-ui .message-meta {
-                font-size: 11px;
-                color: var(--dark-gray);
-                margin-top: 4px;
-                padding: 0 4px;
-                transition: color 0.3s ease;
-            }
-            
-            .chat-ui .message-user .message-meta {
-                text-align: right;
-            }
-            
-            .chat-ui .chat-input-container {
-                padding: 20px 30px;
-                border-top: 1px solid var(--border-light);
-                background: var(--primary-white);
-                border-radius: 0 0 16px 16px;
-                transition: background-color 0.3s ease, border-color 0.3s ease;
-            }
-            
-            .chat-ui .chat-form {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .chat-ui .chat-input-row {
-                display: flex;
-                gap: 12px;
-                align-items: flex-end;
-            }
-            
-            .chat-ui .chat-input {
-                flex: 1;
-                padding: 14px 18px;
-                border: 1px solid var(--medium-gray);
-                border-radius: 16px;
-                font-size: 15px;
-                background: var(--primary-white);
-                color: var(--text-dark);
-                resize: none;
-                transition: all 0.3s ease;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-                min-height: 50px;
-                max-height: 120px;
-            }
-            
-            .chat-ui .chat-input:focus {
-                outline: none;
-                border-color: var(--accent-purple);
-                box-shadow: 0 0 0 3px rgba(123, 95, 196, 0.1);
-            }
-            
-            .chat-ui .chat-input::placeholder {
-                color: var(--dark-gray);
-            }
-            
-            .chat-ui .chat-actions-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .chat-ui .privacy-notice {
-                font-size: 12px;
-                color: var(--dark-gray);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                transition: color 0.3s ease;
-            }
-            
-            .chat-ui .privacy-icon {
-                color: var(--accent-purple);
-            }
-            
-            .chat-ui .chat-send {
-                background: var(--accent-purple);
-                color: white;
-                border: none;
-                padding: 12px 24px;
-                border-radius: 16px;
-                font-weight: 600;
-                cursor: pointer;
-                font-size: 14px;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                height: fit-content;
-            }
-            
-            .chat-ui .chat-send:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 16px rgba(123, 95, 196, 0.4);
-            }
-            
-            .chat-ui .chat-send:disabled {
-                background: var(--dark-gray);
-                cursor: not-allowed;
-                transform: none;
-                box-shadow: none;
-            }
-            
-            /* Thinking Animation */
-            .thinking-animation {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                padding: 8px 0;
-            }
-            
-            .thinking-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background-color: var(--accent-purple);
-                opacity: 0.6;
-                animation: thinkingPulse 1.5s infinite ease-in-out;
-            }
-            
-            .thinking-dot:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-            
-            .thinking-dot:nth-child(3) {
-                animation-delay: 0.4s;
-            }
-            
-            @keyframes thinkingPulse {
-                0%, 100% {
-                    transform: scale(1);
-                    opacity: 0.6;
-                }
-                50% {
-                    transform: scale(1.2);
-                    opacity: 1;
-                }
-            }
-            
-            /* User Typing Animation */
-            .typing-animation {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                padding: 8px 0;
-                align-self: flex-end;
-            }
-            
-            .typing-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background-color: white;
-                opacity: 0.6;
-                animation: typingPulse 1.5s infinite ease-in-out;
-            }
-            
-            .typing-dot:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-            
-            .typing-dot:nth-child(3) {
-                animation-delay: 0.4s;
-            }
-            
-            @keyframes typingPulse {
-                0%, 100% {
-                    transform: scale(1);
-                    opacity: 0.6;
-                }
-                50% {
-                    transform: scale(1.2);
-                    opacity: 1;
-                }
-            }
-            
-            /* Close Button */
-            .close-chat {
-                background: none;
-                border: none;
-                color: var(--text-medium);
-                cursor: pointer;
-                font-size: 20px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.2s ease;
-            }
-            
-            .close-chat:hover {
-                background: var(--light-gray);
-                color: var(--accent-purple);
-            }
-            
-            /* Mobile Navigation Changes - UPDATED to match exactly */
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1913,10 +1370,10 @@
                 height: 100%;
             }
             
-            /* UPDATED: Mobile logo size increased by 25% to match exactly */
+            /* Mobile logo size */
             .logo-img {
-                height: 125px; /* Increased from 100px to 125px (25% increase) */
-                transform: none; /* Remove desktop transform */
+                height: 125px;
+                transform: none;
                 padding: 12px 0;
                 display: flex;
                 align-items: center;
@@ -1942,7 +1399,7 @@
                 display: none;
             }
             
-            /* NEW: Hide the sign-up button in mobile navigation */
+            /* Hide the sign-up button in mobile navigation */
             .nav-actions .header-cta {
                 display: none;
             }
@@ -2002,96 +1459,260 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            /* UPDATED: Mobile chat height increased by 30% */
-            .chat-container {
-                height: 715px; /* 550px * 1.3 = 715px (30% increase) */
-                margin: 20px 0;
-            }
-
+            /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
+            
+            /* Main content padding */
             main {
-                flex-direction: column;
                 padding: 80px 15px 15px;
             }
 
-            .content-wrapper {
-                max-width: 100%;
-            }
-
-            .process-visual {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .challenges-grid {
-                grid-template-columns: 1fr;
+            /* Hero section sizing */
+            .lens-header {
+                padding-top: 100px;
+                margin-bottom: 30px;
             }
 
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 42px; /* Increased from 2.5rem for better mobile readability */
+                line-height: 1.2;
+                margin-bottom: 20px;
             }
 
             .hero-subtitle {
-                font-size: 17px;
+                font-size: 18px; /* Increased for better readability */
+                line-height: 1.5;
             }
 
+            /* Clarity intro block */
+            .clarity-intro {
+                font-size: 16px; /* Increased for better readability */
+                line-height: 1.5;
+                padding: 20px;
+                margin: 0 auto 40px;
+            }
+
+            /* Section titles */
             .how-it-works-title, .challenges-title, .zoom-title {
+                font-size: 32px; /* Increased for better visibility */
+                margin-bottom: 30px;
+            }
+
+            /* Process visual */
+            .process-visual {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .process-step-visual {
+                height: auto;
+                min-height: 250px;
+                padding: 25px 20px;
+            }
+
+            .step-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .step-title-visual {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .step-description-visual {
+                font-size: 16px;
+            }
+
+            /* Pill sections */
+            .pill-sections {
+                gap: 25px;
+            }
+
+            .pill-section {
+                padding: 25px 20px;
+            }
+
+            .pill-icon {
+                width: 60px;
+                height: 60px;
                 font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .pill-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .pill-description {
+                font-size: 16px;
+            }
+
+            /* Challenges grid */
+            .challenges-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .challenge-card {
+                padding: 25px 20px;
+            }
+
+            .challenge-text {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .compact-solutions {
+                gap: 15px;
+            }
+
+            .compact-solution {
+                width: 90px;
+            }
+
+            .compact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .compact-text {
+                font-size: 12px;
+            }
+
+            /* Chat container */
+            .chat-container {
+                height: 600px; /* Increased for better mobile experience */
+                margin: 20px 0;
             }
 
             .chat-header {
-                padding: 12px 15px;
+                padding: 15px;
             }
 
             .chat-title {
                 font-size: 20px;
             }
 
-            /* FIXED: Mobile chat messages with proper scrolling */
             .chat-messages {
                 padding: 15px;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                height: auto;
-                min-height: 0;
-                max-height: none;
-                position: relative;
             }
 
             .message {
                 max-width: 95%;
+                font-size: 15px;
             }
 
             .chat-input-container {
-                padding: 12px 15px;
-                position: sticky;
-                bottom: 0;
-                background: var(--primary-white);
-                z-index: 100;
-                flex-shrink: 0;
+                padding: 15px;
             }
 
+            .chat-input {
+                font-size: 15px;
+                padding: 14px 16px;
+            }
+
+            .send-button {
+                padding: 0 22px;
+                font-size: 15px;
+            }
+
+            /* Micro CTA */
+            .micro-cta {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+
+            .micro-cta p {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .cta-small, .cta-link {
+                display: block;
+                margin: 10px auto;
+                max-width: 220px;
+                font-size: 15px;
+                padding: 12px 24px;
+            }
+
+            /* Closing statement */
+            .closing-statement {
+                padding: 40px 25px;
+                margin: 50px 0 35px;
+            }
+
+            .closing-title {
+                font-size: 32px;
+            }
+
+            .closing-text {
+                font-size: 17px;
+            }
+
+            .closing-quote {
+                font-size: 18px;
+                padding: 0 25px;
+            }
+
+            /* Footer */
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .footer-nav-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                gap: 30px;
             }
 
-            .footer-newsletter-form {
-                flex-direction: column;
-            }
-            
             .footer-logo-img {
                 height: 120px;
             }
 
-            /* Chat Layout for Mobile - Remove Most Popular sidebar */
-            .chat-content-wrapper {
-                flex-direction: column;
+            /* Content wrapper spacing */
+            .content-wrapper {
+                gap: 40px;
             }
-            
+
+            /* Section padding */
+            section {
+                padding: 60px 0;
+            }
+
+            /* Typing indicator */
+            .typing-indicator {
+                padding: 14px 18px;
+            }
+
+            /* Resources grid */
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .resource-card {
+                padding: 20px;
+            }
+
+            .resource-card h3 {
+                font-size: 18px;
+            }
+
+            .resource-card .description {
+                font-size: 15px;
+            }
+
+            .resource-card button {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            /* Chat sidebar hidden on mobile */
             .most-popular-sidebar {
                 display: none;
             }
@@ -2111,89 +1732,6 @@
             .popular-issues.active {
                 transform: translateY(0);
             }
-
-            /* Closing Statement for Mobile */
-            .closing-statement {
-                padding: 40px 20px;
-                margin: 35px 0 25px;
-            }
-
-            .closing-title {
-                font-size: 28px;
-            }
-
-            .closing-text {
-                font-size: 16px;
-            }
-
-            .closing-quote {
-                font-size: 18px;
-                padding: 0 20px;
-            }
-
-            .resources-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .content-wrapper {
-                gap: 20px;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .lens-header {
-                padding-top: 100px;
-            }
-            
-            /* FIXED: Reduce clarity intro font size to fit in 5 lines */
-            .clarity-intro {
-                font-size: 14px;
-                line-height: 1.4;
-                padding: 15px;
-                margin: 0 auto 30px;
-                max-height: 98px;
-                overflow: hidden;
-            }
-            
-            /* Mobile-specific typing indicator */
-            .typing-indicator {
-                display: inline-block;
-                padding: 12px 16px;
-                background-color: var(--bot-msg-bg);
-                border-radius: 18px;
-                border-bottom-left-radius: 5px;
-            }
-            
-            .typing-dots {
-                display: flex;
-            }
-            
-            .typing-dots .bot-avatar {
-                display: none;
-            }
-
-            /* Micro CTA mobile adjustments */
-            .micro-cta {
-                padding: 25px 20px;
-                margin: 30px 0;
-            }
-
-            .micro-cta p {
-                font-size: 18px;
-            }
-
-            .cta-small, .cta-link {
-                display: block;
-                margin: 8px auto;
-                max-width: 200px;
-            }
-            
-            /* FIXED: Add spacing around chat section on mobile */
-            .zoom-in-section {
-                margin: 30px 0;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2206,7 +1744,7 @@
             }
             
             .hero-title {
-                font-size: 2rem;
+                font-size: 36px;
             }
             
             .hero-subtitle {
@@ -2215,16 +1753,27 @@
             
             .footer-nav-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
             
             .chat-messages {
                 padding: 12px;
             }
             
-            /* UPDATED: Smaller mobile chat height increased by 30% */
             .chat-container {
-                height: 650px; /* 500px * 1.3 = 650px (30% increase) */
+                height: 550px;
+            }
+
+            .how-it-works-title, .challenges-title, .zoom-title {
+                font-size: 28px;
+            }
+
+            .micro-cta p {
+                font-size: 18px;
+            }
+
+            .closing-title {
+                font-size: 28px;
             }
         }
         
@@ -2237,13 +1786,13 @@
 
 <body>
 
-<!-- Navigation - UPDATED to match exactly -->
+<!-- Navigation -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile - UPDATED to match exactly -->
+        <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
@@ -2263,7 +1812,6 @@
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" to match exactly -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -2368,7 +1916,7 @@
                     You're not identified here. This space doesn't store personal identifiers – it's between you and The Lens.
                 </p>
                 
-                <!-- Desktop Chat Container - FIXED for both desktop and mobile -->
+                <!-- Chat Container -->
                 <div class="chat-container" id="lensChat">
                     <!-- Popular Issues Panel -->
                     <div class="popular-issues" id="popularIssues">
@@ -2540,95 +2088,7 @@
     </div>
 </main>
 
-<!-- MOBILE-ONLY FEATURES FROM THE COACH -->
-
-<!-- Coach Tab - Mobile Only -->
-<div class="coach-tab" id="coachTab">
-    <div class="tab-icon">
-        <i class="fas fa-search"></i>
-    </div>
-    <div class="tab-text">The Lens</div>
-</div>
-
-<!-- Chat UI - Mobile Only -->
-<div class="chat-ui" id="chatUI">
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="chat-title-section">
-                <h1>The Lens</h1>
-                <div class="status-indicator">
-                    <div class="status-dot"></div>
-                    <span>Available</span>
-                </div>
-            </div>
-            <div class="chat-actions">
-                <button class="chat-action-btn" title="New session" id="newSession">
-                    <i class="fas fa-plus"></i>
-                </button>
-                <button class="close-chat" id="closeChat" title="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="chat-messages" id="mobileChatMessages">
-            <div class="message message-coach">
-                <div class="message-bubble">
-                    Let's get into it. What's been happening at work?<br><br>
-                    No judgement. Just say it how it feels.
-                </div>
-                <div class="message-meta">The Lens • Just now</div>
-            </div>
-        </div>
-        
-        <!-- Sign In Prompt - Mobile Only -->
-        <div class="signin-prompt" id="signinPrompt">
-            <h3>Continue Your Conversation</h3>
-            <p>You've reached the limit for guest messages. Sign in to continue your conversation with The Lens.</p>
-            <button class="signin-btn" id="signinBtn">Sign In to Continue</button>
-        </div>
-        
-        <div class="chat-input-container">
-            <form class="chat-form" id="chatForm">
-                <div class="chat-input-row">
-                    <textarea class="chat-input" id="mobileChatInput" placeholder="Describe your workplace challenge..." rows="2" required></textarea>
-                    <button type="submit" class="chat-send" id="mobileChatSend">
-                        <i class="fas fa-paper-plane"></i>
-                        Send
-                    </button>
-                </div>
-                <div class="chat-actions-row">
-                    <div class="privacy-notice">
-                        <i class="fas fa-lock privacy-icon"></i>
-                        This conversation is private and secure. Your data is never shared.
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Disclaimer Modal - Mobile Only -->
-<div class="disclaimer-modal" id="disclaimerModal">
-    <div class="disclaimer-content">
-        <h2 class="disclaimer-title">Important Guidance Disclaimer</h2>
-        <div class="disclaimer-text">
-            <p><strong>The Lens offers strategic guidance only. It is not legal, financial or psychological advice.</strong></p>
-            <p>Conversations are confidential and not tied to your identity.</p>
-            <p>By using The Lens, you accept this guidance at your own discretion and agree to our <a href="terms-and-conditions.html" class="terms-link">Terms & Conditions</a>. The Employee Playbook is not responsible for decisions made based on its guidance.</p>
-        </div>
-        <div class="disclaimer-checkbox">
-            <input type="checkbox" id="disclaimerCheck">
-            <label for="disclaimerCheck">I have read and understand the disclaimer and agree to the <a href="terms-and-conditions.html" class="terms-link">Terms & Conditions</a></label>
-        </div>
-        <div class="disclaimer-actions">
-            <button class="disclaimer-btn decline" id="declineDisclaimer">Decline</button>
-            <button class="disclaimer-btn accept" id="acceptDisclaimer" disabled>Accept & Continue</button>
-        </div>
-    </div>
-</div>
-
-<!-- Footer - UPDATED to match exactly with 2-column grid -->
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -2650,7 +2110,7 @@
             </div>
             
             <div class="footer-nav">
-                <!-- UPDATED: 2-column grid for The Playbook and The Company -->
+                <!-- 2-column grid for The Playbook and The Company -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -2741,46 +2201,6 @@
         const closeIssues = document.getElementById('closeIssues');
         const popularTopics = document.querySelectorAll('.popular-topics li');
         const clearSessionBtn = document.getElementById('clearSession');
-        const lensChat = document.getElementById('lensChat');
-        
-        // NEW: Chat pinning functionality
-        let isChatPinned = false;
-        
-        function pinChatToBottom() {
-            if (window.innerWidth <= 768 && !isChatPinned) {
-                lensChat.classList.add('pinned');
-                isChatPinned = true;
-                
-                // Scroll to bottom of chat
-                setTimeout(() => {
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 100);
-            }
-        }
-        
-        function unpinChat() {
-            if (isChatPinned) {
-                lensChat.classList.remove('pinned');
-                isChatPinned = false;
-            }
-        }
-        
-        // Listen for user input to pin the chat
-        userInput.addEventListener('focus', pinChatToBottom);
-        userInput.addEventListener('input', pinChatToBottom);
-        
-        // Unpin when user scrolls away manually
-        chatMessages.addEventListener('scroll', function() {
-            if (isChatPinned) {
-                const scrollPosition = chatMessages.scrollTop;
-                const maxScroll = chatMessages.scrollHeight - chatMessages.clientHeight;
-                
-                // If user scrolls up significantly, unpin
-                if (scrollPosition < maxScroll - 100) {
-                    unpinChat();
-                }
-            }
-        });
         
         // Define issues for each category (5 per category)
         const categoryIssues = {
@@ -2887,9 +2307,6 @@
             `;
             chatMessages.appendChild(confirmationMsg);
             chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Unpin chat when clearing session
-            unpinChat();
         });
         
         // Set up popular topic interactions
@@ -2951,7 +2368,7 @@
             popularIssues.classList.remove('active');
         }
         
-        // FIXED: Enhanced function to add messages with proper mobile scrolling
+        // Enhanced function to add messages with proper mobile scrolling
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}-message`;
@@ -2975,7 +2392,7 @@
             
             chatMessages.appendChild(messageDiv);
             
-            // Simple, reliable scroll to bottom - NO overflow toggling hack
+            // Simple, reliable scroll to bottom
             setTimeout(() => {
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }, 50);
@@ -2995,9 +2412,6 @@
             
             // Increment message count
             conversationState.messageCount++;
-            
-            // Pin chat to bottom on mobile
-            pinChatToBottom();
             
             // Simulate bot response after a short delay
             setTimeout(() => {
@@ -3102,7 +2516,7 @@
             }
         }
         
-        // FIXED: Generate exactly 3 tools based on user scenario
+        // Generate exactly 3 tools based on user scenario
         function generateThreeTools(userMessage) {
             let tools = '';
             const msg = userMessage.toLowerCase();
@@ -3204,360 +2618,6 @@
                 sendMessage();
             }
         });
-
-        // MOBILE-ONLY FUNCTIONALITY FROM THE COACH
-        // Only apply these changes for mobile view
-        if (window.innerWidth <= 768) {
-            // State variables for mobile chat
-            let mobileMessageCount = 0;
-            let mobileDisclaimerAccepted = false;
-            let mobileUserContext = {};
-            let mobileIsTyping = false;
-            let mobileTypingTimeout;
-            
-            // Tab functionality
-            document.getElementById('coachTab').addEventListener('click', function() {
-                // Open the chat UI with sliding animation
-                document.getElementById('chatUI').classList.add('open');
-                
-                // Show disclaimer after 2 seconds
-                setTimeout(() => {
-                    if (!mobileDisclaimerAccepted) {
-                        const disclaimerModal = document.getElementById('disclaimerModal');
-                        disclaimerModal.classList.add('show');
-                    }
-                }, 2000);
-            });
-            
-            // Close chat functionality
-            document.getElementById('closeChat').addEventListener('click', function() {
-                document.getElementById('chatUI').classList.remove('open');
-                // Also close disclaimer if open
-                document.getElementById('disclaimerModal').classList.remove('show');
-            });
-            
-            // New session button
-            document.getElementById('newSession').addEventListener('click', function() {
-                // Clear chat messages except the initial bot message
-                document.getElementById('mobileChatMessages').innerHTML = `
-                    <div class="message message-coach">
-                        <div class="message-bubble">
-                            Let's get into it. What's been happening at work?<br><br>
-                            No judgement. Just say it how it feels.
-                        </div>
-                        <div class="message-meta">The Lens • Just now</div>
-                    </div>
-                `;
-                
-                // Reset conversation state
-                mobileMessageCount = 0;
-                mobileUserContext = {};
-                
-                // Hide sign in prompt
-                document.getElementById('signinPrompt').style.display = 'none';
-                
-                // Enable chat
-                document.getElementById('mobileChatSend').disabled = false;
-                
-                // Show confirmation message
-                const confirmationMsg = document.createElement('div');
-                confirmationMsg.className = 'message message-coach';
-                confirmationMsg.innerHTML = `
-                    <div class="message-bubble">
-                        <p>Session cleared. Ready to start fresh.</p>
-                    </div>
-                    <div class="message-meta">The Lens • Just now</div>
-                `;
-                document.getElementById('mobileChatMessages').appendChild(confirmationMsg);
-                document.getElementById('mobileChatMessages').scrollTop = document.getElementById('mobileChatMessages').scrollHeight;
-            });
-            
-            // Disclaimer checkbox
-            document.getElementById('disclaimerCheck').addEventListener('change', function() {
-                document.getElementById('acceptDisclaimer').disabled = !this.checked;
-            });
-            
-            // Accept disclaimer
-            document.getElementById('acceptDisclaimer').addEventListener('click', function() {
-                mobileDisclaimerAccepted = true;
-                document.getElementById('disclaimerModal').classList.remove('show');
-                // Enable the chat input after accepting disclaimer
-                document.getElementById('mobileChatSend').disabled = false;
-            });
-            
-            // Decline disclaimer
-            document.getElementById('declineDisclaimer').addEventListener('click', function() {
-                document.getElementById('chatUI').classList.remove('open');
-                document.getElementById('disclaimerModal').classList.remove('show');
-            });
-            
-            // Sign in button
-            document.getElementById('signinBtn').addEventListener('click', function() {
-                window.location.href = 'sign-in.html';
-            });
-            
-            // Chat functionality for mobile
-            const mobileChatForm = document.getElementById('chatForm');
-            const mobileChatInput = document.getElementById('mobileChatInput');
-            const mobileChatMessages = document.getElementById('mobileChatMessages');
-            const mobileChatSend = document.getElementById('mobileChatSend');
-            const mobileSigninPrompt = document.getElementById('signinPrompt');
-            
-            // Initially disable chat until disclaimer is accepted
-            mobileChatSend.disabled = true;
-            
-            // Auto-resize textarea
-            mobileChatInput.addEventListener('input', function() {
-                this.style.height = 'auto';
-                this.style.height = (this.scrollHeight) + 'px';
-                
-                // Show typing animation
-                if (!mobileIsTyping) {
-                    showMobileTypingAnimation();
-                    mobileIsTyping = true;
-                }
-                
-                // Clear existing timeout
-                clearTimeout(mobileTypingTimeout);
-                
-                // Set new timeout to remove typing animation
-                mobileTypingTimeout = setTimeout(() => {
-                    removeMobileTypingAnimation();
-                    mobileIsTyping = false;
-                }, 1000);
-            });
-            
-            // Handle Enter key to submit (but allow Shift+Enter for new line)
-            mobileChatInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    mobileChatForm.dispatchEvent(new Event('submit'));
-                }
-            });
-            
-            // Chat form submission
-            mobileChatForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Remove typing animation if active
-                if (mobileIsTyping) {
-                    removeMobileTypingAnimation();
-                    mobileIsTyping = false;
-                    clearTimeout(mobileTypingTimeout);
-                }
-                
-                // Check if disclaimer has been accepted
-                if (!mobileDisclaimerAccepted) {
-                    document.getElementById('disclaimerModal').classList.add('show');
-                    return;
-                }
-                
-                // Check message limit
-                if (mobileMessageCount >= 2) {
-                    mobileSigninPrompt.style.display = 'block';
-                    mobileChatSend.disabled = true;
-                    return;
-                }
-                
-                const userMessage = mobileChatInput.value.trim();
-                if (!userMessage) return;
-                
-                // Add user message to chat
-                addMobileMessage(userMessage, 'user');
-                mobileMessageCount++;
-                
-                // Update user context based on message
-                updateMobileUserContext(userMessage);
-                
-                // Clear input and reset height
-                mobileChatInput.value = '';
-                mobileChatInput.style.height = 'auto';
-                
-                // Show thinking animation
-                showMobileThinkingAnimation();
-                
-                // Simulate coach response after delay
-                setTimeout(() => {
-                    removeMobileThinkingAnimation();
-                    
-                    if (mobileMessageCount <= 2) {
-                        // Give personalized response for first two messages
-                        addMobileMessage(getMobilePersonalizedResponse(userMessage), 'coach');
-                    }
-                    
-                    // Check if we've reached the message limit
-                    if (mobileMessageCount >= 2) {
-                        setTimeout(() => {
-                            mobileSigninPrompt.style.display = 'block';
-                            mobileChatSend.disabled = true;
-                        }, 1000);
-                    }
-                }, 1500);
-            });
-            
-            // Update user context based on their message
-            function updateMobileUserContext(message) {
-                const lowerMessage = message.toLowerCase();
-                
-                // Detect topic
-                if (lowerMessage.includes('workload') || lowerMessage.includes('burnout') || lowerMessage.includes('overwhelmed')) {
-                    mobileUserContext.topic = 'workload';
-                } else if (lowerMessage.includes('micromanag')) {
-                    mobileUserContext.topic = 'micromanagement';
-                } else if (lowerMessage.includes('excluded') || lowerMessage.includes('left out')) {
-                    mobileUserContext.topic = 'exclusion';
-                } else if (lowerMessage.includes('promotion') || lowerMessage.includes('recognition')) {
-                    mobileUserContext.topic = 'promotion';
-                } else if (lowerMessage.includes('toxic') || lowerMessage.includes('aggressive')) {
-                    mobileUserContext.topic = 'toxic';
-                } else if (lowerMessage.includes('credit') || lowerMessage.includes('attribution')) {
-                    mobileUserContext.topic = 'credit';
-                }
-                
-                // Detect emotion
-                if (lowerMessage.includes('frustrat') || lowerMessage.includes('angry') || lowerMessage.includes('upset')) {
-                    mobileUserContext.emotion = 'frustrated';
-                } else if (lowerMessage.includes('stress') || lowerMessage.includes('overwhelm') || lowerMessage.includes('anxious')) {
-                    mobileUserContext.emotion = 'stressed';
-                } else if (lowerMessage.includes('confus') || lowerMessage.includes('unsure') || lowerMessage.includes('uncertain')) {
-                    mobileUserContext.emotion = 'confused';
-                } else if (lowerMessage.includes('disappoint') || lowerMessage.includes('let down')) {
-                    mobileUserContext.emotion = 'disappointed';
-                }
-            }
-            
-            // Get personalised response based on user context
-            function getMobilePersonalizedResponse(userMessage) {
-                const responses = [];
-                
-                // First response - acknowledge and ask follow-up
-                if (mobileMessageCount === 1) {
-                    if (mobileUserContext.topic === 'workload') {
-                        responses.push("I hear you. That sounds incredibly draining. Feeling constantly overwhelmed at work can take a real toll. Could you tell me a bit more about how long this has been going on or if you've tried addressing it already?");
-                    } else if (mobileUserContext.topic === 'micromanagement') {
-                        responses.push("That must feel frustrating and limiting. Being micromanaged can undermine your confidence and make it hard to do your best work. What specifically has your manager done that's causing concern?");
-                    } else if (mobileUserContext.topic === 'exclusion') {
-                        responses.push("That sounds isolating and frustrating. Being excluded from important conversations can make you feel undervalued and disconnected from your team. How long has this been happening?");
-                    } else if (mobileUserContext.topic === 'promotion') {
-                        responses.push("That must feel demoralizing and unfair. When recognition and opportunities don't reflect your contributions, it can be deeply frustrating. What have you tried so far to address this?");
-                    } else if (mobileUserContext.topic === 'toxic') {
-                        responses.push("That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace. Could you share more about what specifically is happening?");
-                    } else if (mobileUserContext.topic === 'credit') {
-                        responses.push("That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions. What's been the most recent example of this happening?");
-                    } else {
-                        responses.push("Thank you for sharing. What's the most important aspect of this situation for you right now?");
-                    }
-                } 
-                // Second response - more personalised follow-up
-                else if (mobileMessageCount === 2) {
-                    if (mobileUserContext.emotion === 'frustrated') {
-                        responses.push("I can hear the frustration in your situation. When we feel this way, it's helpful to identify what's within our control. What one action could you take that would move things forward positively?");
-                    } else if (mobileUserContext.emotion === 'stressed') {
-                        responses.push("This sounds stressful. Let's break this down - what's the immediate priority that needs attention right now?");
-                    } else if (mobileUserContext.emotion === 'confused') {
-                        responses.push("When things feel unclear, it helps to focus on what you do know. What aspects of this situation feel most certain to you?");
-                    } else if (mobileUserContext.emotion === 'disappointed') {
-                        responses.push("Disappointment is tough. What would need to happen for you to feel better about this situation?");
-                    } else {
-                        responses.push("Based on what you've shared, let's explore more on what specific action would move you forward. What feels like the most immediate priority right now?");
-                    }
-                }
-                
-                return responses[Math.floor(Math.random() * responses.length)];
-            }
-            
-            // Add message to chat
-            function addMobileMessage(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', `message-${sender}`);
-                
-                const bubbleDiv = document.createElement('div');
-                bubbleDiv.classList.add('message-bubble');
-                bubbleDiv.textContent = text;
-                
-                const metaDiv = document.createElement('div');
-                metaDiv.classList.add('message-meta');
-                
-                const now = new Date();
-                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                
-                if (sender === 'coach') {
-                    metaDiv.textContent = `The Lens • ${timeString}`;
-                } else {
-                    metaDiv.textContent = `You • ${timeString}`;
-                }
-                
-                messageDiv.appendChild(bubbleDiv);
-                messageDiv.appendChild(metaDiv);
-                mobileChatMessages.appendChild(messageDiv);
-                mobileChatMessages.scrollTop = mobileChatMessages.scrollHeight;
-            }
-            
-            // Show thinking animation
-            function showMobileThinkingAnimation() {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', 'message-coach');
-                
-                const bubbleDiv = document.createElement('div');
-                bubbleDiv.classList.add('message-bubble');
-                
-                const thinkingDiv = document.createElement('div');
-                thinkingDiv.classList.add('thinking-animation');
-                
-                for (let i = 0; i < 3; i++) {
-                    const dot = document.createElement('div');
-                    dot.classList.add('thinking-dot');
-                    thinkingDiv.appendChild(dot);
-                }
-                
-                bubbleDiv.appendChild(thinkingDiv);
-                messageDiv.appendChild(bubbleDiv);
-                mobileChatMessages.appendChild(messageDiv);
-                mobileChatMessages.scrollTop = mobileChatMessages.scrollHeight;
-            }
-            
-            // Remove thinking animation
-            function removeMobileThinkingAnimation() {
-                const messages = mobileChatMessages.querySelectorAll('.message');
-                const lastMessage = messages[messages.length - 1];
-                if (lastMessage && lastMessage.querySelector('.thinking-animation')) {
-                    lastMessage.remove();
-                }
-            }
-            
-            // Show typing animation
-            function showMobileTypingAnimation() {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', 'message-user');
-                
-                const bubbleDiv = document.createElement('div');
-                bubbleDiv.classList.add('message-bubble');
-                bubbleDiv.style.background = 'var(--accent-purple)';
-                
-                const typingDiv = document.createElement('div');
-                typingDiv.classList.add('typing-animation');
-                
-                for (let i = 0; i < 3; i++) {
-                    const dot = document.createElement('div');
-                    dot.classList.add('typing-dot');
-                    typingDiv.appendChild(dot);
-                }
-                
-                bubbleDiv.appendChild(typingDiv);
-                messageDiv.appendChild(bubbleDiv);
-                mobileChatMessages.appendChild(messageDiv);
-                mobileChatMessages.scrollTop = mobileChatMessages.scrollHeight;
-            }
-            
-            // Remove typing animation
-            function removeMobileTypingAnimation() {
-                const messages = mobileChatMessages.querySelectorAll('.message');
-                const lastMessage = messages[messages.length - 1];
-                if (lastMessage && lastMessage.querySelector('.typing-animation')) {
-                    lastMessage.remove();
-                }
-            }
-        }
     });
 </script>
 
