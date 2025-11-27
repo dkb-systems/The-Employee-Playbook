@@ -261,8 +261,8 @@
             white-space: nowrap;
         }
 
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
+        /* Mobile Sign Up Button */
+        .mobile-sign-up {
             display: none;
         }
 
@@ -683,7 +683,7 @@
 
         /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 100px; /* Doubled from 100px */
+            height: 100px;
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
@@ -841,7 +841,7 @@
             
             /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 122px; /* Increased from 100px to 125px (25% increase) */
+                height: 122px;
                 transform: none;
                 padding: 12px 0;
             }
@@ -905,7 +905,7 @@
             }
             
             /* Make the Sign Up button in hamburger menu with person-plus icon */
-            .mobile-sign-in {
+            .mobile-sign-up {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
@@ -921,7 +921,7 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            .dark-mode .mobile-sign-in {
+            .dark-mode .mobile-sign-up {
                 background: var(--primary-white);
                 color: var(--accent-purple);
                 border: 2px solid var(--accent-purple);
@@ -929,8 +929,8 @@
 
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero-title {
-                font-size: 45px; /* Increased from 50.6px to 55px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+                font-size: 45px;
+                margin-top: -20px;
             }
 
             .shift-hero-subtitle {
@@ -939,12 +939,12 @@
 
             /* REDUCED: Reduce section titles to match conflict-title size */
             .section-title {
-                font-size: 36px; /* Reduced from 45px to match conflict-title */
+                font-size: 36px;
             }
             
             /* REDUCED: Reduce narrative title to match conflict-title size */
             .narrative-title {
-                font-size: 36px; /* Reduced from 44px to match conflict-title */
+                font-size: 36px;
             }
 
             .conflict-grid {
@@ -953,7 +953,7 @@
             }
             
             .conflict-title {
-                font-size: 36px; /* Kept the same size */
+                font-size: 36px;
             }
             
             .conflict-cycle, .shift-solution {
@@ -990,12 +990,12 @@
             
             /* Mobile Logo Adjustments */
             .footer-logo-img {
-                height: 120px; /* Doubled for mobile (was 60px) */
+                height: 120px;
             }
             
             /* REDUCED: Final statement size for mobile */
             .final-statement {
-                font-size: 28px; /* Reduced from 40px */
+                font-size: 28px;
             }
             
             .bridge-statement {
@@ -1005,18 +1005,18 @@
             
             /* INCREASED: Narrative text size for mobile */
             .narrative-text {
-                font-size: 20px; /* Increased from 16px */
+                font-size: 20px;
                 padding: 0 20px;
             }
         }
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .footer-logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .logo-fallback {
@@ -1025,8 +1025,8 @@
             
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero-title {
-                font-size: 45px; /* Increased from 41.4px to 45px (25% increase) */
-                margin-top: -20px; /* Move the H1 one line higher */
+                font-size: 45px;
+                margin-top: -20px;
             }
             
             .shift-hero-subtitle {
@@ -1035,12 +1035,12 @@
             
             /* REDUCED: Further reduce final statement size for very small mobile */
             .final-statement {
-                font-size: 24px; /* Further reduced for very small screens */
+                font-size: 24px;
             }
             
             /* INCREASED: Narrative text size for very small mobile */
             .narrative-text {
-                font-size: 18px; /* Increased from 16px */
+                font-size: 18px;
             }
         }
     </style>
@@ -1061,7 +1061,7 @@
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
-        <!-- Navigation links with mobile sign-in -->
+        <!-- Navigation links with mobile sign-up -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
@@ -1071,14 +1071,13 @@
             </div>
             <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="create-account.html" class="mobile-sign-in">
+            <a href="create-account.html" class="mobile-sign-up">
                 <i class="fas fa-user-plus"></i> Sign up
             </a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -1097,7 +1096,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Emotional Conflict Section -->
 <section class="conflict-section">
