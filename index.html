@@ -96,7 +96,7 @@
             padding: 100px 0;
         }
 
-        /* NEW: Pinned Sign-up Banner on Right Side */
+        /* NEW: Pinned Sign-up Banner on Right Side with Person + Icon */
         .pinned-signup-banner {
             display: none;
             position: fixed;
@@ -121,6 +121,14 @@
             border: 2px solid white;
         }
 
+        .pinned-signup-banner::before {
+            content: "\f234"; /* Font Awesome user-plus icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
         .dark-mode .pinned-signup-banner {
             border: 2px solid var(--primary-white);
         }
@@ -130,12 +138,6 @@
             transform: translateY(-50%) translateX(-8px);
             box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
             padding-right: 20px;
-        }
-
-        .pinned-signup-banner::before {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
         }
 
         /* Navigation - UPDATED to match The Shift page */
@@ -2251,7 +2253,7 @@
 
 <body>
 
-<!-- NEW: Pinned Sign-up Banner on Right Side -->
+<!-- NEW: Pinned Sign-up Banner on Right Side with Person + Icon -->
 <a href="create-account.html" class="pinned-signup-banner">Sign Up</a>
 
 <!-- Cookie Popup Overlay -->
@@ -2371,7 +2373,7 @@
             <div class="flashing-word">Undervalued?</div>
         </div>
         <p class="hero-subhead">
-            Don’t react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
+            Don't react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
             <span class="hero-note">Not legal advice. Just the clarity you wish you'd had sooner</span>
         </p>
     </div>
@@ -3396,4 +3398,3 @@
 
 </body>
 </html>
-
