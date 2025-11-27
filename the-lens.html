@@ -92,6 +92,78 @@
             padding: 80px 0;
         }
 
+        /* NEW: Pinned Sign-up Banner on Right Side */
+        .pinned-signup-banner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 12px 0 0 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
+            z-index: 997;
+            transition: all 0.3s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            border: 2px solid white;
+        }
+
+        .dark-mode .pinned-signup-banner {
+            border: 2px solid var(--primary-white);
+        }
+
+        .pinned-signup-banner:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-50%) translateX(-8px);
+            box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
+            padding-right: 20px;
+        }
+
+        .pinned-signup-banner::before {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* NEW: Floating CTA for Mobile */
+        .floating-cta {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: var(--accent-purple);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -1320,6 +1392,162 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 60px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 24px;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        .chat-container-widget {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 460px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .chat-container-widget.active {
+            display: flex;
+        }
+
+        .chat-header-widget {
+            background: var(--accent-purple);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title-widget {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages-widget {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message-widget {
+            max-width: 100%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-bot {
+            background: var(--light-gray);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-user {
+            background: var(--accent-purple);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            max-width: 80%;
+        }
+
+        .chat-input-container-widget {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-input-widget {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .chat-send {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .hand-wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1355,6 +1583,11 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Show pinned signup banner on desktop and tablet */
+            .pinned-signup-banner {
+                display: block;
+            }
+
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1732,6 +1965,24 @@
             .popular-issues.active {
                 transform: translateY(0);
             }
+
+            /* NEW: Show floating CTA on mobile */
+            .floating-cta {
+                display: block;
+            }
+
+            /* Chat widget mobile adjustments */
+            .chat-container-widget {
+                width: 90vw;
+                height: 450px;
+                right: 5vw;
+            }
+            
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1775,6 +2026,12 @@
             .closing-title {
                 font-size: 28px;
             }
+
+            /* Adjust pinned banner for very small screens */
+            .pinned-signup-banner {
+                padding: 20px 12px;
+                font-size: 14px;
+            }
         }
         
         /* Mobile Sign In Button */
@@ -1785,6 +2042,12 @@
 </head>
 
 <body>
+
+<!-- NEW: Pinned Sign-up Banner on Right Side -->
+<a href="create-account.html" class="pinned-signup-banner">Sign Up</a>
+
+<!-- NEW: Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign Up</a>
 
 <!-- Navigation -->
 <nav>
@@ -2142,6 +2405,32 @@
         </div>
     </div>
 </footer>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+    <button class="chat-toggle">
+        <i class="fas fa-comment"></i>
+    </button>
+    <div class="chat-container-widget">
+        <div class="chat-header-widget">
+            <div class="chat-title-widget">Send us a message</div>
+            <button class="chat-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages-widget">
+            <div class="message-widget message-bot">👋 Hi there! We'd love to hear from you.</div>
+        </div>
+        <div class="chat-input-container-widget">
+            <form class="chat-form" id="chatForm">
+                <input type="text" class="chat-input-widget" placeholder="Your Name" required>
+                <input type="email" class="chat-input-widget" placeholder="Your Email" required>
+                <textarea class="chat-input-widget" rows="3" required></textarea>
+                <button type="submit" class="chat-send">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     // Mark page as loaded to prevent FOUC
@@ -2617,6 +2906,47 @@
             if (e.key === 'Enter') {
                 sendMessage();
             }
+        });
+
+        // Chat Widget Functionality
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatContainerWidget = document.querySelector('.chat-container-widget');
+        const chatClose = document.querySelector('.chat-close');
+        const chatForm = document.getElementById('chatForm');
+
+        chatToggle.addEventListener('click', function() {
+            chatContainerWidget.classList.toggle('active');
+        });
+
+        chatClose.addEventListener('click', function() {
+            chatContainerWidget.classList.remove('active');
+        });
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: this.querySelector('input[type="text"]').value,
+                email: this.querySelector('input[type="email"]').value,
+                message: this.querySelector('textarea').value
+            };
+            
+            // In a real implementation, you would send this data to a server
+            console.log('Chat form submitted:', formData);
+            
+            // Show success message
+            const chatMessagesWidget = document.querySelector('.chat-messages-widget');
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message-widget', 'message-user');
+            userMessage.textContent = "Thanks! We'll get back to you soon.";
+            chatMessagesWidget.appendChild(userMessage);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to bottom
+            chatMessagesWidget.scrollTop = chatMessagesWidget.scrollHeight;
         });
     });
 </script>
