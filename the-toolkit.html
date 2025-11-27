@@ -313,6 +313,36 @@
             white-space: nowrap;
         }
 
+        /* NEW: Mobile Sign Up Tab */
+        .mobile-signup-tab {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--accent-purple);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 998;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-signup-tab a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mobile-signup-tab i {
+            font-size: 18px;
+        }
+
         /* Main Content */
         main {
             padding: 90px 20px 30px;
@@ -921,158 +951,6 @@
             right: 10px;
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .chat-widget:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: calc(100% - 40px);
-            height: 400px;
-            background: var(--primary-white);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container.active {
-            display: flex;
-        }
-
-        .chat-header {
-            padding: 12px 15px;
-            background: var(--lighter-purple);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-title {
-            font-weight: 600;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-        }
-
-        .chat-title i {
-            color: var(--accent-purple);
-        }
-
-        .close-chat {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background-color: var(--light-gray);
-        }
-
-        .message {
-            max-width: 85%;
-            padding: 10px 14px;
-            border-radius: 16px;
-            position: relative;
-            animation: fadeIn 0.4s ease;
-            line-height: 1.4;
-            font-size: 0.875rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background-color: var(--user-msg-bg);
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background-color: var(--bot-msg-bg);
-            color: var(--text-dark);
-            border-bottom-left-radius: 5px;
-        }
-
-        .chat-input-container {
-            display: flex;
-            padding: 12px;
-            border-top: 1px solid var(--border-light);
-            background-color: var(--primary-white);
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 10px 14px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 20px;
-            outline: none;
-            font-size: 0.875rem;
-            transition: all 0.3s;
-        }
-
-        .chat-input:focus {
-            border-color: var(--accent-purple);
-        }
-
-        .send-button {
-            background-color: var(--accent-purple);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 0 16px;
-            margin-left: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-
-        .send-button:hover {
-            background-color: var(--accent-purple-dark);
-        }
-
         /* Final CTA Section */
         .final-cta-section {
             background: var(--lighter-purple);
@@ -1488,20 +1366,9 @@
                 gap: 40px;
             }
 
-            .chat-container {
-                width: 350px;
-                height: 500px;
-                bottom: 100px;
-                right: 30px;
-                border-radius: 16px;
-            }
-
-            .chat-widget {
-                width: 60px;
-                height: 60px;
-                bottom: 30px;
-                right: 30px;
-                font-size: 24px;
+            /* Hide mobile signup tab on desktop */
+            .mobile-signup-tab {
+                display: none !important;
             }
         }
 
@@ -1560,38 +1427,33 @@
             .nav-actions .sign-in {
                 display: none;
             }
+
+            /* Hide header CTA on mobile */
+            .nav-actions .header-cta {
+                display: none;
+            }
+
+            /* Show mobile signup tab */
+            .mobile-signup-tab {
+                display: block;
+            }
+
+            /* Add padding to main to account for mobile signup tab */
+            main {
+                padding-bottom: 80px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<!-- Chat Widget -->
-<div class="chat-widget" id="chatWidget">
-    <i class="fas fa-comments"></i>
-</div>
-
-<div class="chat-container" id="chatContainer">
-    <div class="chat-header">
-        <div class="chat-title">
-            <i class="fas fa-robot"></i>
-            <span>Tool Assistant</span>
-        </div>
-        <button class="close-chat" id="closeChat">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">
-            Hi! I'm here to help you find the right tools for your workplace challenges. What are you dealing with right now?
-        </div>
-    </div>
-    <div class="chat-input-container">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Type your question...">
-        <button class="send-button" id="sendButton">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
+<!-- NEW: Mobile Sign Up Tab -->
+<div class="mobile-signup-tab">
+    <a href="create-account.html">
+        <i class="fas fa-user-plus"></i>
+        Sign Up for The Toolkit
+    </a>
 </div>
 
 <!-- Navigation -->
@@ -2246,64 +2108,6 @@
                 const toolTitle = this.closest('.strategic-tool-card').querySelector('.strategic-tool-title').textContent;
                 alert(`Accessing strategic tool: ${toolTitle}`);
             });
-        });
-        
-        // Chat widget functionality
-        const chatWidget = document.getElementById('chatWidget');
-        const chatContainer = document.getElementById('chatContainer');
-        const closeChat = document.getElementById('closeChat');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const sendButton = document.getElementById('sendButton');
-        
-        chatWidget.addEventListener('click', function() {
-            chatContainer.classList.toggle('active');
-        });
-        
-        closeChat.addEventListener('click', function() {
-            chatContainer.classList.remove('active');
-        });
-        
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function handleChatInput() {
-            const text = chatInput.value.trim();
-            if (text === '') return;
-            
-            addMessage(text, true);
-            chatInput.value = '';
-            
-            // Simulate bot response
-            setTimeout(() => {
-                let response = '';
-                if (text.toLowerCase().includes('burnout') || text.toLowerCase().includes('workload')) {
-                    response = "For workload and burnout challenges, I recommend the Burnout Intervention Framework. It helps you identify triggers, establish boundaries, and communicate needs effectively.";
-                } else if (text.toLowerCase().includes('micromanag') || text.toLowerCase().includes('trust')) {
-                    response = "For micromanagement issues, the Trust Building Communication System is perfect. It provides scripts and strategies to transform oversight into autonomy.";
-                } else if (text.toLowerCase().includes('visibility') || text.toLowerCase().includes('exclusion')) {
-                    response = "If you're struggling with visibility or exclusion, the Strategic Visibility Framework will help you get noticed by key decision-makers and secure your seat at important tables.";
-                } else if (text.toLowerCase().includes('promotion') || text.toLowerCase().includes('recognition')) {
-                    response = "For promotion and recognition challenges, we have tools that help you document impact, navigate promotion processes, and build a compelling case for advancement.";
-                } else {
-                    response = "I can help you find the right tools for your workplace challenges. Tell me more about what you're dealing with - is it workload, micromanagement, visibility, promotion, or something else?";
-                }
-                
-                addMessage(response, false);
-            }, 1000);
-        }
-        
-        sendButton.addEventListener('click', handleChatInput);
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                handleChatInput();
-            }
         });
         
         // Smooth scrolling with offset for fixed header
