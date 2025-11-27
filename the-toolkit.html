@@ -157,7 +157,7 @@
             padding: 80px 0;
         }
 
-        /* Navigation - UPDATED TO MATCH EXACTLY */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -180,15 +180,11 @@
             height: 100%;
         }
 
-        /* Logo Styles - UPDATED POSITIONING */
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
+        /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
+            transform: translateX(20%);
             padding: 14px 10px;
             transition: all 0.3s ease;
             display: block;
@@ -202,9 +198,6 @@
         .nav-links {
             display: flex;
             gap: 50px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .nav-link {
@@ -239,6 +232,7 @@
             display: flex;
             align-items: center;
             gap: 24px;
+            transform: translateX(-20%);
         }
 
         .sign-in {
@@ -324,34 +318,36 @@
             white-space: nowrap;
         }
 
-        /* NEW: Vertical Floating CTA for Mobile */
-        .vertical-cta {
+        /* NEW: Floating CTA for Mobile */
+        .floating-cta {
             display: none;
             position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            z-index: 999;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+            bottom: 90px;
+            right: 0px;
             background: var(--accent-purple);
             color: white;
-            padding: 20px 10px;
-            border-radius: 10px 0 0 10px;
+            padding: 12px 20px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            box-shadow: -3px 3px 15px rgba(123, 95, 196, 0.3);
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
             transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        .vertical-cta:hover {
-            background: var(--accent-purple-dark);
-            padding-right: 15px;
-            box-shadow: -5px 5px 20px rgba(123, 95, 196, 0.4);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        /* Rest of the CSS remains the same... */
+        .floating-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
         /* Main Content */
         main {
             flex: 1;
@@ -787,6 +783,260 @@
             text-decoration: underline;
         }
 
+        /* NEW: Reviews Section */
+        .reviews-section {
+            margin-bottom: 60px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+            flex-grow: 1;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--lighter-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .review-author-info {
+            flex-grow: 1;
+        }
+
+        .review-author-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .review-author-role {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .review-tool {
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* NEW: Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 15px 20px;
+            background: var(--lighter-purple);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-title i {
+            color: var(--accent-purple);
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: var(--light-gray);
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            position: relative;
+            animation: fadeIn 0.4s ease;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--user-msg-bg);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: var(--bot-msg-bg);
+            color: var(--text-dark);
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+            background-color: var(--primary-white);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-purple);
+        }
+
+        .send-button {
+            background-color: var(--accent-purple);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 0 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .send-button:hover {
+            background-color: var(--accent-purple-dark);
+        }
+
         /* Final CTA Section */
         .final-cta-section {
             background: var(--lighter-purple);
@@ -1015,6 +1265,10 @@
             .strategic-tools-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 992px) {
@@ -1064,9 +1318,11 @@
                 left: 20px;
             }
             
-            /* Hide the Sign Up button in mobile view */
+            /* Show the Sign Up button in mobile view and position it on the right */
             .header-cta {
-                display: none !important;
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
             .nav-actions {
@@ -1165,14 +1421,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
 
-            /* MOBILE: Footer links - The Playbook and The Company side by side */
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
+                grid-template-columns: 1fr;
             }
 
             .footer-newsletter-form {
@@ -1211,9 +1469,26 @@
                 font-size: 16px;
             }
             
-            /* NEW: Vertical Floating CTA for mobile */
-            .vertical-cta {
+            /* NEW: Floating CTA for mobile */
+            .floating-cta {
                 display: block;
+            }
+            
+            /* NEW: Chat widget for mobile */
+            .chat-widget {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+            
+            .chat-container {
+                width: calc(100% - 40px);
+                height: 70vh;
+                bottom: 80px;
+                right: 20px;
+                left: 20px;
             }
         }
         
@@ -1238,16 +1513,16 @@
                 grid-template-columns: 1fr;
             }
             
-            /* MOBILE: Stack footer links on very small screens */
-            .footer-nav-grid {
+            .reviews-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
             
-            /* NEW: Vertical Floating CTA adjustments for small mobile */
-            .vertical-cta {
-                padding: 15px 8px;
-                font-size: 14px;
+            /* NEW: Further floating CTA adjustments for small mobile */
+            .floating-cta {
+                bottom: 80px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 13px;
             }
         }
         
@@ -1260,23 +1535,51 @@
 
 <body>
 
-<!-- NEW: Vertical Floating CTA for Mobile -->
-<a href="create-account.html" class="vertical-cta">Sign Up</a>
+<!-- NEW: Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign up</a>
 
-<!-- Navigation - UPDATED TO MATCH EXACTLY -->
+<!-- NEW: Chat Widget -->
+<div class="chat-widget" id="chatWidget">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+        <div class="chat-title">
+            <i class="fas fa-robot"></i>
+            <span>Tool Assistant</span>
+        </div>
+        <button class="close-chat" id="closeChat">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+            Hi! I'm here to help you find the right tools for your workplace challenges. What are you dealing with right now?
+        </div>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your question...">
+        <button class="send-button" id="sendButton">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Navigation -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo on the left for desktop -->
+        <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
-        <!-- Navigation links centered for desktop -->
+        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link active">The Toolkit</a>
@@ -1289,7 +1592,7 @@
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
         
-        <!-- Desktop actions on the right -->
+        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
@@ -1298,7 +1601,6 @@
     </div>
 </nav>
 
-<!-- Rest of the HTML remains the same... -->
 <!-- Main Content Area -->
 <main>
     <div class="container">
@@ -1388,7 +1690,7 @@
                         </div>
                         <div class="priority-title">Exclusion & Visibility</div>
                         <div class="priority-description">
-                            Ensure your contributions are recognized and you're included in key decisions that matter.
+                            Ensure your contributions are recognised and you're included in key decisions that matter.
                         </div>
                         <div class="priority-impact">
                             <div class="impact-item">
@@ -1525,7 +1827,7 @@
                             </div>
                         </div>
                         <div class="strategic-tool-description">
-                            Ensure your contributions are recognized and you're included in critical decisions that shape your career.
+                            Ensure your contributions are recognised and you're included in critical decisions that shape your career.
                         </div>
                         <div class="strategic-tool-outcomes">
                             <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
@@ -1542,6 +1844,104 @@
                                 <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NEW: Reviews Section -->
+            <div class="full-width-section reviews-section">
+                <div class="reviews-header">
+                    <h2 class="section-title">Real Impact Stories</h2>
+                    <p class="section-subtitle">See how our tools have transformed workplace challenges for professionals</p>
+                </div>
+                
+                <div class="reviews-grid">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "The Burnout Intervention Framework saved my career. I was on the verge of quitting when I found this tool. Within two weeks, I had clear boundaries and a plan to address my unsustainable workload. My manager actually respected my new approach."
+                        </div>
+                        <div class="review-author">
+                            <div class="review-avatar">SJ</div>
+                            <div class="review-author-info">
+                                <div class="review-author-name">Sarah Johnson</div>
+                                <div class="review-author-role">Senior Project Manager, Tech</div>
+                            </div>
+                        </div>
+                        <div class="review-tool">Burnout Intervention Framework</div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "I went from being micromanaged every day to having complete autonomy in just one month. The Trust Building Communication System gave me the exact scripts I needed to rebuild trust with my manager. Now I'm leading my own projects."
+                        </div>
+                        <div class="review-author">
+                            <div class="review-avatar">MR</div>
+                            <div class="review-author-info">
+                                <div class="review-author-name">Michael Rodriguez</div>
+                                <div class="review-author-role">Marketing Director</div>
+                            </div>
+                        </div>
+                        <div class="review-tool">Trust Building Communication System</div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "The Strategic Visibility Framework helped me get noticed by senior leadership. I used to do great work that went unseen. Now I'm regularly included in strategic meetings and was recently promoted. This tool pays for itself many times over."
+                        </div>
+                        <div class="review-author">
+                            <div class="review-avatar">PT</div>
+                            <div class="review-author-info">
+                                <div class="review-author-name">Priya Thompson</div>
+                                <div class="review-author-role">Data Analyst</div>
+                            </div>
+                        </div>
+                        <div class="review-tool">Strategic Visibility Framework</div>
+                    </div>
+                    
+                    <!-- Review 4 -->
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "I was struggling with a difficult colleague who was undermining my work. The Conflict Navigation Scripts gave me the exact words to use in our conversations. The situation improved dramatically, and I now feel confident handling any workplace conflict."
+                        </div>
+                        <div class="review-author">
+                            <div class="review-avatar">DW</div>
+                            <div class="review-author-info">
+                                <div class="review-author-name">David Wilson</div>
+                                <div class="review-author-role">Operations Manager</div>
+                            </div>
+                        </div>
+                        <div class="review-tool">Conflict Navigation Scripts</div>
                     </div>
                 </div>
             </div>
@@ -1596,13 +1996,13 @@
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">The Company</h3>
+                        <h3 class="footer-heading">Company</h3>
                         <ul class="footer-links">
+                            <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="#">Privacy</a></li>
+                            <li class="footer-link"><a href="privacy,html">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
-                            <li class="footer-link"><a href="#">Security</a></li>
-                            <li class="footer-link"><a href="#">Help Centre</a></li>
+                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1610,7 +2010,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2023 The Employee Playbook. All rights reserved.</p>
+            <p>© 2025 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -1743,6 +2143,64 @@
                 alert(`Accessing strategic tool: ${toolTitle}`);
                 // In a full implementation, this would navigate to the tool page
             });
+        });
+        
+        // NEW: Chat widget functionality
+        const chatWidget = document.getElementById('chatWidget');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        
+        chatWidget.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+        
+        closeChat.addEventListener('click', function() {
+            chatContainer.classList.remove('active');
+        });
+        
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function handleChatInput() {
+            const text = chatInput.value.trim();
+            if (text === '') return;
+            
+            addMessage(text, true);
+            chatInput.value = '';
+            
+            // Simulate bot response
+            setTimeout(() => {
+                let response = '';
+                if (text.toLowerCase().includes('burnout') || text.toLowerCase().includes('workload')) {
+                    response = "For workload and burnout challenges, I recommend the Burnout Intervention Framework. It helps you identify triggers, establish boundaries, and communicate needs effectively.";
+                } else if (text.toLowerCase().includes('micromanag') || text.toLowerCase().includes('trust')) {
+                    response = "For micromanagement issues, the Trust Building Communication System is perfect. It provides scripts and strategies to transform oversight into autonomy.";
+                } else if (text.toLowerCase().includes('visibility') || text.toLowerCase().includes('exclusion')) {
+                    response = "If you're struggling with visibility or exclusion, the Strategic Visibility Framework will help you get noticed by key decision-makers and secure your seat at important tables.";
+                } else if (text.toLowerCase().includes('promotion') || text.toLowerCase().includes('recognition')) {
+                    response = "For promotion and recognition challenges, we have tools that help you document impact, navigate promotion processes, and build a compelling case for advancement.";
+                } else {
+                    response = "I can help you find the right tools for your workplace challenges. Tell me more about what you're dealing with - is it workload, micromanagement, visibility, promotion, or something else?";
+                }
+                
+                addMessage(response, false);
+            }, 1000);
+        }
+        
+        sendButton.addEventListener('click', handleChatInput);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleChatInput();
+            }
         });
         
         // Smooth scrolling with offset for fixed header
