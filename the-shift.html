@@ -266,6 +266,11 @@
             display: none;
         }
 
+        /* Mobile Sign Up Button - hidden by default */
+        .mobile-sign-up {
+            display: none;
+        }
+
         /* Hero Section */
         .shift-hero {
             background: var(--soft-blue);
@@ -904,7 +909,7 @@
                 right: auto;
             }
             
-            /* Make the Sign Up button in hamburger menu with person-plus icon */
+            /* Make the Sign In button in hamburger menu */
             .mobile-sign-in {
                 display: flex !important;
                 align-items: center;
@@ -919,11 +924,48 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
+            }
+
+            .mobile-sign-in:hover {
+                background: rgba(123, 95, 196, 0.1);
+                transform: translateY(-1px);
             }
 
             .dark-mode .mobile-sign-in {
                 background: var(--primary-white);
                 color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
+            }
+
+            /* NEW: Mobile Sign Up button styles */
+            .mobile-sign-up {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: var(--accent-purple);
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
+            }
+
+            .mobile-sign-up:hover {
+                background: var(--accent-purple-dark);
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(123, 95, 196, 0.35);
+            }
+
+            .dark-mode .mobile-sign-up {
+                background: var(--accent-purple);
+                color: white;
                 border: 2px solid var(--accent-purple);
             }
 
@@ -1061,7 +1103,7 @@
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
-        <!-- Navigation links with mobile sign-in -->
+        <!-- Navigation links with mobile sign-in and sign-up -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
@@ -1071,8 +1113,11 @@
             </div>
             <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="create-account.html" class="mobile-sign-in">
-                <i class="fas fa-user-plus"></i> Sign up
+            <a href="sign-in.html" class="mobile-sign-in">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+            </a>
+            <a href="create-account.html" class="mobile-sign-up">
+                <i class="fas fa-user-plus"></i> Sign Up
             </a>
         </div>
         
