@@ -153,6 +153,13 @@
             color: var(--accent-purple);
         }
 
+        /* Active page indicator - Black text for desktop */
+        @media (min-width: 769px) {
+            .nav-link.active {
+                color: var(--text-dark);
+            }
+        }
+
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -1061,7 +1068,9 @@
             </div>
             <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
+            <a href="create-account.html" class="mobile-sign-in">
+                <i class="fas fa-user-plus"></i> Sign up
+            </a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
@@ -1356,11 +1365,11 @@
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">Company</h3>
                         <ul class="footer-links">
+                            <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="#">Privacy</a></li>
+                            <li class="footer-link"><a href="#privacy.html">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
-                            <li class="footer-link"><a href="#">Security</a></li>
-                            <li class="footer-link"><a href="#">Help Centre</a></li>
+                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1368,7 +1377,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2023 The Employee Playbook. All rights reserved.</p>
+            <p>© 2025 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
