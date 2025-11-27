@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Toolkit | The Employee Playbook</title>
+    <title>The Tools | The Employee Playbook</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -44,7 +44,7 @@
             --premium-card-shadow: 0 10px 30px rgba(123, 95, 196, 0.15);
             
             /* Updated Tool type colors */
-            --template-color: #FFF2E5;
+            --template-color: #FFF2E5; /* Warm peach */
             --template-text: #CC7A2E;
             --template-icon: #CC7A2E;
             
@@ -52,7 +52,7 @@
             --framework-text: #2E8B57;
             --framework-icon: #2E8B57;
             
-            --script-color: #E6F3FF;
+            --script-color: #E6F3FF; /* Better blue */
             --script-text: #1E6FC6;
             --script-icon: #1E6FC6;
             
@@ -72,7 +72,7 @@
             --accountability-text: #008B8B;
             --accountability-icon: #008B8B;
             
-            --crisis-color: #FFE6E6;
+            --crisis-color: #FFE6E6; /* Crisis navigation color */
             --crisis-text: #C41E3A;
             --crisis-icon: #C41E3A;
         }
@@ -140,6 +140,7 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         body.loaded {
@@ -153,7 +154,7 @@
         }
 
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         /* Navigation */
@@ -168,23 +169,26 @@
             border-bottom: 1px solid var(--border-light);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             transition: background-color 0.3s ease, border-color 0.3s ease;
-            height: 70px;
+            height: 80px;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0;
+            padding: 12px 0;
             height: 100%;
-            position: relative;
         }
 
         /* Logo Styles */
         .logo-img {
-            height: 50px;
+            height: 100px;
             width: auto;
+            transform: translateX(20%);
+            padding: 14px 10px;
             transition: all 0.3s ease;
+            display: block;
+            min-height: 100px;
         }
 
         .dark-mode .logo-img {
@@ -193,7 +197,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 50px;
         }
 
         .nav-link {
@@ -201,7 +205,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            font-size: 16px;
+            font-size: 17px;
             position: relative;
         }
 
@@ -227,20 +231,21 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 24px;
+            transform: translateX(-20%);
         }
 
         .sign-in {
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 17px;
         }
 
         .header-cta {
             background: var(--accent-purple);
             color: white;
-            padding: 8px 16px;
+            padding: 8px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -279,7 +284,7 @@
             border: none;
             color: var(--text-dark);
             cursor: pointer;
-            font-size: 20px;
+            font-size: 24px;
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -300,52 +305,54 @@
         
         .new-tag {
             position: absolute;
-            top: -8px;
-            right: -30px;
+            top: -12px;
+            right: -35px;
             background: linear-gradient(135deg, #FFD700, #FFA500);
             color: #000;
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
-            padding: 2px 5px;
+            padding: 2px 6px;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             z-index: 10;
             white-space: nowrap;
         }
 
-        /* NEW: Mobile Sign Up Tab */
-        .mobile-signup-tab {
+        /* NEW: Floating CTA for Mobile */
+        .floating-cta {
             display: none;
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            bottom: 90px;
+            right: 0px;
             background: var(--accent-purple);
             color: white;
-            padding: 15px 20px;
-            text-align: center;
-            z-index: 998;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-signup-tab a {
-            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
-        .mobile-signup-tab i {
-            font-size: 18px;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
         }
 
         /* Main Content */
         main {
-            padding: 90px 20px 30px;
+            flex: 1;
+            padding: 100px 40px 40px;
+            display: flex;
             min-height: calc(100vh - 160px);
         }
 
@@ -353,31 +360,30 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
         }
 
         /* Tools Header */
         .tools-header {
             text-align: center;
             margin-bottom: 30px;
-            padding-top: 20px;
+            padding-top: 100px;
         }
 
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-dark);
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .tools-subtitle {
-            font-size: 1.125rem;
+            font-size: 22px;
             color: var(--text-medium);
             max-width: 600px;
             margin: 0 auto;
             font-weight: 500;
-            line-height: 1.5;
         }
 
         /* Full Width Section */
@@ -388,36 +394,37 @@
 
         /* Priority Areas Section */
         .priority-section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .section-header {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: flex-end;
             margin-bottom: 30px;
             width: 100%;
         }
 
         .section-title {
-            font-size: 1.75rem;
+            font-size: 28px;
             font-weight: 700;
             color: var(--text-dark);
             text-align: left;
         }
 
         .section-subtitle {
-            font-size: 1rem;
+            font-size: 18px;
             color: var(--text-medium);
             text-align: left;
             margin-top: 5px;
         }
 
         .search-container {
-            width: 100%;
-            max-width: 100%;
+            width: 400px;
+            max-width: 400px;
             position: relative;
             margin-bottom: 10px;
+            margin-left: 0;
         }
 
         .search-input {
@@ -464,14 +471,14 @@
 
         .priority-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
         .priority-card {
             background: var(--primary-white);
-            border-radius: 12px;
-            padding: 25px 20px;
+            border-radius: 16px;
+            padding: 40px 30px;
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
             position: relative;
@@ -493,36 +500,36 @@
         }
 
         .priority-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .priority-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: var(--lighter-purple);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 20px;
+            margin: 0 auto 20px;
+            font-size: 24px;
         }
 
         .priority-title {
             font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-size: 20px;
             color: var(--text-dark);
             text-align: center;
         }
 
         .priority-description {
-            font-size: 0.95rem;
+            font-size: 16px;
             color: var(--text-medium);
-            line-height: 1.5;
-            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
             flex-grow: 1;
         }
 
@@ -530,21 +537,20 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .impact-item {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            font-size: 0.875rem;
+            gap: 10px;
+            font-size: 14px;
             color: var(--text-medium);
-            line-height: 1.4;
         }
 
         .impact-item i {
             color: var(--accent-purple);
-            margin-top: 2px;
+            margin-top: 3px;
             flex-shrink: 0;
         }
 
@@ -566,8 +572,6 @@
             text-align: center;
             text-decoration: none;
             font-size: 14px;
-            width: 100%;
-            max-width: 200px;
         }
 
         .priority-button:hover {
@@ -578,21 +582,20 @@
 
         .explore-more {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .explore-button {
             background: transparent;
             color: var(--accent-purple);
             border: 1px solid var(--accent-purple);
-            padding: 12px 24px;
+            padding: 12px 30px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            font-size: 14px;
         }
 
         .explore-button:hover {
@@ -602,24 +605,24 @@
 
         /* Strategic Tools Section */
         .strategic-tools-section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .strategic-tools-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .strategic-tools-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .strategic-tool-card {
             background: var(--primary-white);
-            border-radius: 12px;
-            padding: 25px 20px;
+            border-radius: 16px;
+            padding: 40px 30px;
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
             position: relative;
@@ -640,27 +643,25 @@
         }
 
         .strategic-tool-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .strategic-tool-header {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
             margin-bottom: 20px;
         }
 
         .strategic-tool-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            font-size: 20px;
+            margin-right: 20px;
+            font-size: 24px;
             flex-shrink: 0;
         }
 
@@ -686,33 +687,33 @@
         .strategic-tool-title {
             font-weight: 600;
             margin-bottom: 5px;
-            font-size: 1.25rem;
+            font-size: 22px;
             color: var(--text-dark);
         }
 
         .strategic-tool-category {
             color: var(--accent-purple);
-            font-size: 0.75rem;
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .strategic-tool-description {
-            font-size: 0.95rem;
+            font-size: 16px;
             color: var(--text-medium);
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
         .strategic-tool-outcomes {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .strategic-tool-outcomes-title {
             font-weight: 600;
             margin-bottom: 10px;
-            font-size: 1rem;
+            font-size: 16px;
             color: var(--text-dark);
         }
 
@@ -724,23 +725,21 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 8px;
-            font-size: 0.875rem;
+            font-size: 14px;
             color: var(--text-medium);
-            line-height: 1.4;
         }
 
         .strategic-tool-outcome i {
             color: var(--accent-purple);
-            margin-right: 8px;
-            margin-top: 2px;
+            margin-right: 10px;
+            margin-top: 3px;
             font-size: 12px;
-            flex-shrink: 0;
         }
 
         .strategic-tool-actions {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             margin-top: auto;
         }
 
@@ -766,10 +765,10 @@
 
         .upgrade-notice {
             text-align: center;
-            padding: 12px;
+            padding: 15px;
             background: var(--lighter-purple);
             border-radius: 8px;
-            font-size: 0.875rem;
+            font-size: 14px;
             color: var(--text-medium);
             margin-top: 10px;
         }
@@ -784,180 +783,13 @@
             text-decoration: underline;
         }
 
-        /* Reviews Carousel */
-        .reviews-section {
-            margin-bottom: 50px;
-        }
-
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .reviews-carousel {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .reviews-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 20px;
-        }
-        
-        .review-card {
-            background: var(--primary-white);
-            border-radius: 12px;
-            padding: 25px 20px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--premium-gradient);
-        }
-        
-        .review-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .review-stars {
-            color: #FFD700;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .review-text {
-            font-size: 0.95rem;
-            color: var(--text-medium);
-            line-height: 1.5;
-            margin-bottom: 15px;
-            font-style: italic;
-            flex-grow: 1;
-        }
-        
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .review-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--lighter-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-purple);
-            font-weight: 600;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-        
-        .review-author-info {
-            flex-grow: 1;
-        }
-        
-        .review-author-name {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 3px;
-            font-size: 0.95rem;
-        }
-        
-        .review-author-role {
-            font-size: 0.8rem;
-            color: var(--text-medium);
-        }
-        
-        .review-tool {
-            background: var(--lighter-purple);
-            color: var(--accent-purple);
-            padding: 4px 10px;
-            border-radius: 16px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 8px;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 25px;
-        }
-        
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--medium-gray);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background: var(--accent-purple);
-            transform: scale(1.2);
-        }
-        
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary-white);
-            border: 1px solid var(--border-light);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .carousel-arrow:hover {
-            background: var(--accent-purple);
-            color: white;
-            border-color: var(--accent-purple);
-        }
-        
-        .carousel-arrow.prev {
-            left: 10px;
-        }
-        
-        .carousel-arrow.next {
-            right: 10px;
-        }
-
         /* Final CTA Section */
         .final-cta-section {
             background: var(--lighter-purple);
-            border-radius: 12px;
-            padding: 40px 25px;
+            border-radius: 16px;
+            padding: 60px 40px;
             text-align: center;
-            margin: 50px 0 30px;
+            margin: 60px 0 40px;
             position: relative;
             overflow: hidden;
         }
@@ -973,43 +805,39 @@
         }
 
         .final-cta-title {
-            font-size: 1.75rem;
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 15px;
             color: var(--text-dark);
+            margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .final-cta-text {
-            font-size: 1rem;
+            font-size: 18px;
             color: var(--text-medium);
             max-width: 700px;
-            margin: 0 auto 25px;
-            line-height: 1.5;
+            margin: 0 auto 30px;
+            line-height: 1.6;
         }
 
         .final-cta-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
         }
 
         .final-cta-button {
             background: var(--accent-purple);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
             transition: all 0.3s ease;
             display: inline-block;
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-            width: 100%;
-            max-width: 250px;
-            text-align: center;
         }
 
         .final-cta-button:hover {
@@ -1037,27 +865,26 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
             margin-bottom: 40px;
             align-items: start;
         }
 
         .footer-about {
-            max-width: 100%;
-            padding-left: 0;
-            text-align: center;
+            max-width: 400px;
+            padding-left: 20px;
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
+        /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 60px;
+            height: 100px; /* Doubled from 100px */
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
@@ -1068,15 +895,14 @@
         }
 
         .footer-description {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.6;
-            font-size: 0.95rem;
         }
 
         .footer-heading {
-            font-size: 1.125rem;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--text-dark);
         }
 
@@ -1085,14 +911,13 @@
         }
 
         .footer-link {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-link a {
             color: var(--text-medium);
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
         }
 
         .footer-link a:hover {
@@ -1101,9 +926,9 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 25px;
+            padding-top: 30px;
             border-top: 1px solid var(--border-light);
-            font-size: 0.875rem;
+            font-size: 14px;
         }
 
         .footer-nav {
@@ -1116,8 +941,8 @@
 
         .footer-nav-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
         .footer-newsletter {
@@ -1128,7 +953,7 @@
         }
 
         .footer-newsletter-title {
-            font-size: 1.125rem;
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
             color: var(--text-dark);
@@ -1171,223 +996,89 @@
         /* Logo Fallback */
         .logo-fallback {
             display: none;
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--text-dark);
             text-decoration: none;
         }
 
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
-            display: none;
-            margin-top: 10px;
-            padding: 12px 20px;
-            background: white;
-            color: var(--accent-purple);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            text-decoration: none;
-            border: 2px solid var(--accent-purple);
-            width: 100%;
-        }
-
-        .dark-mode .mobile-sign-in {
-            background: var(--primary-white);
-            color: var(--accent-purple);
-            border: 2px solid var(--accent-purple);
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 769px) {
-            section {
-                padding: 80px 0;
-            }
-
-            nav {
-                height: 80px;
-            }
-
-            .logo-img {
-                height: 70px;
-            }
-
-            .nav-links {
-                gap: 40px;
-            }
-
-            .nav-link {
-                font-size: 17px;
-            }
-
-            .nav-actions {
-                gap: 20px;
-            }
-
-            .header-cta {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-
-            main {
-                padding: 100px 40px 40px;
-            }
-
-            .hero-title {
-                font-size: 3.5rem;
-            }
-
-            .tools-subtitle {
-                font-size: 1.375rem;
-            }
-
-            .section-header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-end;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.125rem;
-            }
-
-            .search-container {
-                width: 400px;
-                max-width: 400px;
-            }
-
+        /* Responsive */
+        @media (max-width: 1200px) {
             .priority-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
             }
-
-            .priority-card {
-                padding: 40px 30px;
-                border-radius: 16px;
-            }
-
-            .priority-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            .priority-title {
-                font-size: 1.375rem;
-                margin-bottom: 15px;
-            }
-
-            .priority-description {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-
+            
             .strategic-tools-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
                 gap: 30px;
             }
-
-            .strategic-tool-card {
-                padding: 40px 30px;
-                border-radius: 16px;
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
             }
-
-            .strategic-tool-header {
-                flex-direction: row;
+            
+            .section-header {
+                flex-direction: column;
                 align-items: flex-start;
-                text-align: left;
-            }
-
-            .strategic-tool-icon {
-                margin-right: 20px;
-                margin-bottom: 0;
-                width: 70px;
-                height: 70px;
-                font-size: 24px;
-            }
-
-            .review-card {
-                padding: 30px;
-                border-radius: 16px;
-            }
-
-            .carousel-arrow {
-                display: flex;
-            }
-
-            .final-cta-section {
-                padding: 60px 40px;
-                border-radius: 16px;
-                margin: 60px 0 40px;
-            }
-
-            .final-cta-title {
-                font-size: 2rem;
-            }
-
-            .final-cta-text {
-                font-size: 1.125rem;
-            }
-
-            .final-cta-buttons {
-                flex-direction: row;
                 gap: 20px;
             }
-
-            .final-cta-button {
-                width: auto;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 80px;
-            }
-
-            .footer-about {
-                text-align: left;
-                padding-left: 20px;
-            }
-
-            .footer-logo {
-                justify-content: flex-start;
-            }
-
-            .footer-logo-img {
-                height: 100px;
-            }
-
-            .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-
-            /* Hide mobile signup tab on desktop */
-            .mobile-signup-tab {
-                display: none !important;
+            
+            .search-container {
+                width: 100%;
+                max-width: 100%;
             }
         }
 
-        @media (min-width: 992px) {
-            .nav-links {
-                gap: 50px;
-            }
-
-            .nav-actions {
-                transform: translateX(-20%);
-            }
-        }
-
-        /* Mobile Navigation */
         @media (max-width: 768px) {
+            /* Mobile Navigation Changes */
+            .nav-container {
+                justify-content: center;
+                position: relative;
+            }
+            
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* INCREASED: Mobile header logo size by 25% */
+            .logo-img {
+                height: 122px; /* Increased from 100px to 125px (25% increase) */
+                transform: none;
+                padding: 12px 0;
+            }
+            
             .mobile-toggle {
                 display: flex;
+                position: absolute;
+                left: 20px;
             }
-
+            
+            /* Show the Sign Up button in mobile view and position it on the right */
+            .header-cta {
+                display: block !important;
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .nav-actions {
+                transform: none;
+                gap: 16px;
+                position: absolute;
+                right: 20px;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
+                display: none;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1396,77 +1087,188 @@
                 width: 100%;
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
+                -webkit-backface-visibility: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                gap: 15px;
+                gap: 20px;
             }
 
             .nav-links.active {
                 display: flex;
             }
-
+            
+            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 width: 100%;
             }
-
+            
             .new-tag {
                 position: static;
                 margin-left: 8px;
+                top: auto;
+                right: auto;
             }
-
+            
+            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
-                display: block;
+                display: block !important;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: white;
+                color: var(--accent-purple);
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
             }
 
-            .nav-actions .sign-in {
-                display: none;
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
             }
 
-            /* Hide header CTA on mobile */
-            .nav-actions .header-cta {
-                display: none;
-            }
-
-            /* Show mobile signup tab */
-            .mobile-signup-tab {
-                display: block;
-            }
-
-            /* Add padding to main to account for mobile signup tab */
             main {
-                padding-bottom: 80px;
+                flex-direction: column;
+                padding: 100px 20px 20px;
             }
+
+            .content-wrapper {
+                max-width: 100%;
+            }
+
+            .priority-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .tools-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .strategic-tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-logo-img {
+                height: 120px; /* Doubled for mobile (was 60px) */
+            }
+            
+            .strategic-tool-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .strategic-tool-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .final-cta-section {
+                padding: 40px 20px;
+            }
+            
+            .final-cta-title {
+                font-size: 24px;
+            }
+            
+            .final-cta-text {
+                font-size: 16px;
+            }
+            
+            /* NEW: Floating CTA for mobile */
+            .floating-cta {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 100px; /* Adjusted for very small screens */
+            }
+            
+            .footer-logo-img {
+                height: 100px; /* Adjusted for very small screens */
+            }
+            
+            .logo-fallback {
+                font-size: 18px;
+            }
+            
+            .priority-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategic-tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* NEW: Further floating CTA adjustments for small mobile */
+            .floating-cta {
+                bottom: 80px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
         }
     </style>
 </head>
 
 <body>
 
-<!-- NEW: Mobile Sign Up Tab -->
-<div class="mobile-signup-tab">
-    <a href="create-account.html">
-        <i class="fas fa-user-plus"></i>
-        Sign Up for The Toolkit
-    </a>
-</div>
+<!-- NEW: Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign up</a>
 
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
+        <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
+        <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
+        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link active">The Toolkit</a>
@@ -1479,6 +1281,7 @@
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
         
+        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
@@ -1734,117 +1537,6 @@
                 </div>
             </div>
             
-            <!-- Reviews Carousel Section -->
-            <div class="full-width-section reviews-section">
-                <div class="reviews-header">
-                    <h2 class="section-title">Real Impact Stories</h2>
-                    <p class="section-subtitle">See how our tools have transformed workplace challenges for professionals</p>
-                </div>
-                
-                <div class="reviews-carousel">
-                    <button class="carousel-arrow prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-arrow next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    
-                    <div class="reviews-track" id="reviewsTrack">
-                        <!-- Review 1 -->
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="review-text">
-                                "The Burnout Intervention Framework saved my career. I was on the verge of quitting when I found this tool. Within two weeks, I had clear boundaries and a plan to address my unsustainable workload. My manager actually respected my new approach."
-                            </div>
-                            <div class="review-author">
-                                <div class="review-avatar">SJ</div>
-                                <div class="review-author-info">
-                                    <div class="review-author-name">Sarah Johnson</div>
-                                    <div class="review-author-role">Senior Project Manager, Tech</div>
-                                </div>
-                            </div>
-                            <div class="review-tool">Burnout Intervention Framework</div>
-                        </div>
-                        
-                        <!-- Review 2 -->
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="review-text">
-                                "I went from being micromanaged every day to having complete autonomy in just one month. The Trust Building Communication System gave me the exact scripts I needed to rebuild trust with my manager. Now I'm leading my own projects."
-                            </div>
-                            <div class="review-author">
-                                <div class="review-avatar">MR</div>
-                                <div class="review-author-info">
-                                    <div class="review-author-name">Michael Rodriguez</div>
-                                    <div class="review-author-role">Marketing Director</div>
-                                </div>
-                            </div>
-                            <div class="review-tool">Trust Building Communication System</div>
-                        </div>
-                        
-                        <!-- Review 3 -->
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="review-text">
-                                "The Strategic Visibility Framework helped me get noticed by senior leadership. I used to do great work that went unseen. Now I'm regularly included in strategic meetings and was recently promoted. This tool pays for itself many times over."
-                            </div>
-                            <div class="review-author">
-                                <div class="review-avatar">PT</div>
-                                <div class="review-author-info">
-                                    <div class="review-author-name">Priya Thompson</div>
-                                    <div class="review-author-role">Data Analyst</div>
-                                </div>
-                            </div>
-                            <div class="review-tool">Strategic Visibility Framework</div>
-                        </div>
-                        
-                        <!-- Review 4 -->
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="review-text">
-                                "I was struggling with a difficult colleague who was undermining my work. The Conflict Navigation Scripts gave me the exact words to use in our conversations. The situation improved dramatically, and I now feel confident handling any workplace conflict."
-                            </div>
-                            <div class="review-author">
-                                <div class="review-avatar">DW</div>
-                                <div class="review-author-info">
-                                    <div class="review-author-name">David Wilson</div>
-                                    <div class="review-author-role">Operations Manager</div>
-                                </div>
-                            </div>
-                            <div class="review-tool">Conflict Navigation Scripts</div>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-nav" id="carouselNav">
-                        <!-- Dots will be generated by JavaScript -->
-                    </div>
-                </div>
-            </div>
-            
             <!-- Final CTA Section -->
             <div class="final-cta-section">
                 <h2 class="final-cta-title">Build Your Strategic Advantage</h2>
@@ -1882,7 +1574,6 @@
             </div>
             
             <div class="footer-nav">
-                <!-- Combined Playbook and Company links in a 2-column grid -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -1898,10 +1589,10 @@
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">Company</h3>
                         <ul class="footer-links">
-                            <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="privacy,html">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
+                            <li class="footer-link"><a href="security.html">Security</a></li>
                             <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
                         </ul>
                     </div>
@@ -1973,73 +1664,6 @@
             }
         });
         
-        // Reviews Carousel Functionality
-        const reviewsTrack = document.getElementById('reviewsTrack');
-        const reviewCards = document.querySelectorAll('.review-card');
-        const carouselNav = document.getElementById('carouselNav');
-        const prevButton = document.querySelector('.carousel-arrow.prev');
-        const nextButton = document.querySelector('.carousel-arrow.next');
-        
-        let currentSlide = 0;
-        const totalSlides = reviewCards.length;
-        
-        // Create dots for carousel navigation
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            carouselNav.appendChild(dot);
-        }
-        
-        const dots = document.querySelectorAll('.carousel-dot');
-        
-        function updateCarousel() {
-            // Move the track
-            reviewsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update active dot
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            updateCarousel();
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-        
-        // Add event listeners for arrows
-        if (prevButton && nextButton) {
-            prevButton.addEventListener('click', prevSlide);
-            nextButton.addEventListener('click', nextSlide);
-        }
-        
-        // Auto-advance carousel every 5 seconds
-        let carouselInterval = setInterval(nextSlide, 5000);
-        
-        // Pause auto-advance on hover
-        const carousel = document.querySelector('.reviews-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(carouselInterval);
-            });
-            
-            carousel.addEventListener('mouseleave', () => {
-                carouselInterval = setInterval(nextSlide, 5000);
-            });
-        }
-        
         // Search functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
@@ -2098,6 +1722,7 @@
             button.addEventListener('click', function() {
                 const priorityTitle = this.closest('.priority-card').querySelector('.priority-title').textContent;
                 alert(`Exploring solutions for: ${priorityTitle}`);
+                // In a full implementation, this would filter the tools shown
             });
         });
         
@@ -2107,6 +1732,7 @@
             button.addEventListener('click', function() {
                 const toolTitle = this.closest('.strategic-tool-card').querySelector('.strategic-tool-title').textContent;
                 alert(`Accessing strategic tool: ${toolTitle}`);
+                // In a full implementation, this would navigate to the tool page
             });
         });
         
@@ -2116,7 +1742,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 70;
+                    const offset = 96; // 80px header + 16px extra spacing
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
