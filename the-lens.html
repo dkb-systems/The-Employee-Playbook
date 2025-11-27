@@ -92,78 +92,6 @@
             padding: 80px 0;
         }
 
-        /* NEW: Pinned Sign-up Banner on Right Side */
-        .pinned-signup-banner {
-            display: none;
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 25px 15px;
-            border-radius: 12px 0 0 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
-            z-index: 997;
-            transition: all 0.3s ease;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            text-align: center;
-            line-height: 1.3;
-            letter-spacing: 1px;
-            border: 2px solid white;
-        }
-
-        .dark-mode .pinned-signup-banner {
-            border: 2px solid var(--primary-white);
-        }
-
-        .pinned-signup-banner:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-50%) translateX(-8px);
-            box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
-            padding-right: 20px;
-        }
-
-        .pinned-signup-banner::before {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        /* NEW: Floating CTA for Mobile */
-        .floating-cta {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: var(--accent-purple);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .floating-cta:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -199,7 +127,7 @@
         }
 
         .dark-mode .logo-img {
-            content: url("assets/img/logo-dark.png");
+            filter: invert(1) hue-rotate(180deg);
         }
 
         .nav-links {
@@ -554,420 +482,6 @@
             padding: 0 20px;
         }
 
-        /* Chat Container */
-        .chat-container {
-            background: var(--primary-white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--premium-card-shadow);
-            border: 1px solid var(--border-light);
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .chat-header {
-            padding: 12px 20px;
-            text-align: left;
-            background: linear-gradient(135deg, var(--light-purple) 0%, var(--primary-white) 100%);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: relative;
-        }
-
-        /* Clear Session Button */
-        .clear-session {
-            position: absolute;
-            right: 20px;
-            background: none;
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-            padding: 5px 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .clear-session:hover {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        .chat-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-title-icon {
-            color: var(--accent-purple);
-            font-size: 18px;
-        }
-
-        /* Chat Layout */
-        .chat-content-wrapper {
-            display: flex;
-            height: 100%;
-            flex: 1;
-            min-height: 0;
-        }
-
-        .most-popular-sidebar {
-            width: 250px;
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-light);
-            padding: 20px;
-            overflow-y: auto;
-            flex-shrink: 0;
-        }
-
-        .sidebar-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .popular-topics {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .popular-topics li {
-            padding: 12px 15px;
-            background-color: var(--primary-white);
-            border-radius: 8px;
-            font-size: 14px;
-            color: var(--text-medium);
-            cursor: pointer;
-            transition: all 0.2s;
-            border-left: 3px solid transparent;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .popular-topics li:hover {
-            background-color: var(--light-purple);
-            border-left-color: var(--accent-purple);
-            color: var(--accent-purple-dark);
-            transform: translateX(2px);
-        }
-
-        .popular-topics li.active {
-            background-color: var(--light-purple);
-            border-left-color: var(--accent-purple);
-            color: var(--accent-purple-dark);
-        }
-
-        .chat-area {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            min-height: 0;
-        }
-
-        /* Chat messages */
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background-color: var(--light-gray);
-            height: auto;
-            min-height: 0;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .message {
-            max-width: 90%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            position: relative;
-            animation: fadeIn 0.4s ease;
-            line-height: 1.5;
-            font-size: 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background-color: var(--user-msg-bg);
-            color: white;
-            border-bottom-right-radius: 5px;
-            box-shadow: 0 1px 5px rgba(123, 95, 196, 0.15);
-            flex-direction: row-reverse;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background-color: var(--bot-msg-bg);
-            color: var(--text-dark);
-            border-bottom-left-radius: 5px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
-        }
-
-        .bot-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: var(--accent-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 2px solid var(--accent-purple-dark);
-            align-self: flex-start;
-            margin-top: 2px;
-        }
-
-        .message-content {
-            flex: 1;
-        }
-
-        .typing-indicator {
-            display: inline-block;
-            padding: 12px 16px;
-            background-color: var(--bot-msg-bg);
-            border-radius: 18px;
-            border-bottom-left-radius: 5px;
-        }
-
-        .typing-dots {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .typing-dots .bot-avatar {
-            margin-right: 10px;
-            align-self: flex-start;
-            margin-top: 0;
-        }
-
-        .typing-dots span {
-            height: 6px;
-            width: 6px;
-            background-color: var(--dark-gray);
-            border-radius: 50%;
-            display: block;
-            margin: 14px 0px;
-            animation: typing 1.4s infinite ease-in-out;
-            align-self: center;
-        }
-
-        .typing-dots span:nth-child(1) { animation-delay: 0s; }
-        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-2px); }
-        }
-
-        /* Chat input container */
-        .chat-input-container {
-            display: flex;
-            padding: 15px 20px;
-            border-top: 1px solid var(--border-light);
-            background-color: var(--primary-white);
-            position: sticky;
-            bottom: 0;
-            z-index: 10;
-            flex-shrink: 0;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .chat-input:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-        }
-
-        .send-button {
-            background-color: var(--accent-purple);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 0 20px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .send-button:hover {
-            background-color: var(--accent-purple-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .resource-card {
-            background-color: var(--primary-white);
-            border-left: 4px solid var(--accent-purple);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            animation: slideIn 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .resource-card h3 {
-            color: var(--text-dark);
-            margin-bottom: 5px;
-            font-size: 16px;
-        }
-
-        .resource-card .category {
-            color: var(--accent-purple);
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .resource-card .description {
-            font-size: 13px;
-            margin-bottom: 12px;
-            color: var(--text-medium);
-            flex-grow: 1;
-        }
-
-        .resource-card button {
-            background-color: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 12px;
-            margin-top: auto;
-        }
-
-        .resource-card button:hover {
-            background-color: var(--accent-purple-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 3px 6px rgba(123, 95, 196, 0.25);
-        }
-
-        /* Popular Topic Issues */
-        .popular-issues {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 250px;
-            background: var(--light-purple);
-            padding: 20px;
-            z-index: 10;
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-            overflow-y: auto;
-            box-shadow: 3px 0 8px rgba(0,0,0,0.08);
-        }
-
-        .popular-issues.active {
-            transform: translateX(0);
-        }
-
-        .issues-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .issues-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .close-issues {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .issue-pills {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .issue-pill {
-            background: var(--primary-white);
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 13px;
-            font-weight: 500;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .issue-pill:hover {
-            background: var(--accent-purple);
-            color: white;
-            transform: translateY(-1px);
-        }
-
         /* Real-World Challenges Section */
         .challenges-section {
             margin-bottom: 35px;
@@ -1289,7 +803,7 @@
         }
 
         .dark-mode .footer-logo-img {
-            content: url("assets/img/logo-dark.png");
+            filter: invert(1) hue-rotate(180deg);
         }
 
         .footer-description {
@@ -1392,228 +906,122 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 60px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 24px;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container-widget {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 320px;
-            height: 460px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        /* NEW: Mobile Vertical Tabs */
+        .mobile-vertical-tabs {
             display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container-widget.active {
-            display: flex;
-        }
-
-        .chat-header-widget {
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-title-widget {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages-widget {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            width: 60px;
             flex-direction: column;
             gap: 15px;
         }
 
-        .message-widget {
-            max-width: 100%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
+        .mobile-tab-left {
+            left: 0;
         }
 
-        .message-bot {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
+        .mobile-tab-right {
+            right: 0;
         }
 
-        .message-user {
+        .mobile-tab {
+            width: 60px;
+            height: 70px;
+            border-radius: 0 12px 12px 0;
             background: var(--accent-purple);
             color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            max-width: 80%;
-        }
-
-        .chat-input-container-widget {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .chat-form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-input-widget {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .hand-wave {
-            display: inline-block;
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        /* NEW: Lens Vertical Tab for Mobile */
-        .lens-vertical-tab {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px 10px;
-            border-radius: 0 12px 12px 0;
-            z-index: 996;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-            transition: all 0.3s ease;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-weight: 600;
-            font-size: 16px;
-            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            display: none;
-        }
-
-        .lens-vertical-tab:hover {
-            background: var(--accent-purple-dark);
-            padding-left: 15px;
-        }
-
-        .lens-vertical-tab i {
-            transform: rotate(90deg);
             font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 5px;
         }
 
-        .lens-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 300px;
+        .mobile-tab-right .mobile-tab {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .mobile-tab:hover {
+            transform: translateX(5px);
+            width: 65px;
+        }
+
+        .mobile-tab-right .mobile-tab:hover {
+            transform: translateX(-5px);
+        }
+
+        .mobile-tab-text {
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .mobile-tab-label {
+            position: absolute;
+            left: 70px;
             background: var(--primary-white);
-            z-index: 999;
+            color: var(--text-dark);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .mobile-tab-right .mobile-tab-label {
+            left: auto;
+            right: 70px;
+        }
+
+        .mobile-tab:hover .mobile-tab-label {
+            opacity: 1;
+        }
+
+        /* NEW: Mobile Lens Panel */
+        .mobile-lens-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-white);
+            z-index: 1001;
             transform: translateX(-100%);
             transition: transform 0.4s ease;
-            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            display: flex;
             flex-direction: column;
-            display: none;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
         }
 
-        .lens-sidebar.active {
+        .mobile-lens-panel.active {
             transform: translateX(0);
         }
 
-        .lens-sidebar-header {
-            padding: 25px 20px 20px;
+        .mobile-panel-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--primary-white) 100%);
             border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--light-purple);
         }
 
-        .lens-sidebar-title {
+        .mobile-panel-title {
             font-size: 22px;
             font-weight: 700;
             color: var(--text-dark);
@@ -1622,11 +1030,7 @@
             gap: 10px;
         }
 
-        .lens-sidebar-title i {
-            color: var(--accent-purple);
-        }
-
-        .lens-sidebar-close {
+        .mobile-panel-close {
             background: none;
             border: none;
             color: var(--text-dark);
@@ -1641,99 +1045,292 @@
             transition: background-color 0.3s ease;
         }
 
-        .lens-sidebar-close:hover {
+        .mobile-panel-close:hover {
             background-color: var(--light-gray);
         }
 
-        .lens-sidebar-content {
-            padding: 20px;
+        .mobile-panel-content {
             flex: 1;
             overflow-y: auto;
-        }
-
-        .lens-sidebar-section {
-            margin-bottom: 30px;
-        }
-
-        .lens-sidebar-section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-purple);
-        }
-
-        .lens-sidebar-links {
-            list-style: none;
-        }
-
-        .lens-sidebar-link {
-            margin-bottom: 12px;
-        }
-
-        .lens-sidebar-link a {
-            color: var(--text-medium);
-            text-decoration: none;
+            padding: 20px;
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border-radius: 8px;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-lens-intro {
+            text-align: center;
+            padding: 20px;
+            background: var(--neutral-bg);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .mobile-lens-intro h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .mobile-lens-intro p {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        .mobile-lens-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-feature-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
 
-        .lens-sidebar-link a:hover {
-            background: var(--light-purple);
-            color: var(--accent-purple);
+        .mobile-feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .lens-sidebar-link a.active {
-            background: var(--light-purple);
+        .mobile-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--lighter-purple);
             color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .mobile-feature-title {
             font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: var(--text-dark);
         }
 
-        .lens-sidebar-link i {
-            width: 20px;
-            text-align: center;
+        .mobile-feature-description {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
         }
 
-        .lens-sidebar-footer {
+        .mobile-lens-cta {
+            margin-top: auto;
             padding: 20px;
+            background: var(--neutral-bg);
             border-top: 1px solid var(--border-light);
             text-align: center;
         }
 
-        .lens-sidebar-cta {
+        .mobile-lens-button {
             background: var(--accent-purple);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 25px;
             font-weight: 600;
-            display: block;
+            font-size: 16px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
         }
 
-        .lens-sidebar-cta:hover {
+        .mobile-lens-button:hover {
             background: var(--accent-purple-dark);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
         }
 
-        .lens-overlay {
+        /* NEW: Mobile Sign Up Panel */
+        .mobile-signup-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-white);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+            flex-direction: column;
+            box-shadow: -2px 0 15px rgba(0,0,0,0.1);
+        }
+
+        .mobile-signup-panel.active {
+            transform: translateX(0);
+        }
+
+        .mobile-signup-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-signup-intro {
+            text-align: center;
+            padding: 20px;
+            background: var(--neutral-bg);
+            border-radius: 12px;
+        }
+
+        .mobile-signup-intro h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .mobile-signup-intro p {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        .mobile-signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-form-label {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .mobile-form-input {
+            padding: 14px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .mobile-form-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
+            outline: none;
+        }
+
+        .mobile-signup-benefits {
+            margin-top: 20px;
+        }
+
+        .mobile-benefits-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .mobile-benefits-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mobile-benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .mobile-benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--lighter-purple);
+            color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .mobile-signup-cta {
+            margin-top: auto;
+            padding: 20px;
+            background: var(--neutral-bg);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .mobile-signup-button {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
+        }
+
+        .mobile-signup-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
+        }
+
+        .mobile-signup-terms {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: var(--dark-gray);
+        }
+
+        .mobile-signup-terms a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        /* Panel overlay */
+        .mobile-panel-overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            display: none;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .lens-overlay.active {
-            display: block;
+        .mobile-panel-overlay.active {
+            opacity: 1;
         }
 
         /* Responsive */
@@ -1754,10 +1351,6 @@
             .step-connector {
                 display: none;
             }
-
-            .resources-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 992px) {
@@ -1771,11 +1364,6 @@
         }
 
         @media (max-width: 768px) {
-            /* NEW: Show pinned signup banner on desktop and tablet */
-            .pinned-signup-banner {
-                display: block;
-            }
-
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -2005,43 +1593,6 @@
                 font-size: 12px;
             }
 
-            /* Chat container */
-            .chat-container {
-                height: 600px; /* Increased for better mobile experience */
-                margin: 20px 0;
-            }
-
-            .chat-header {
-                padding: 15px;
-            }
-
-            .chat-title {
-                font-size: 20px;
-            }
-
-            .chat-messages {
-                padding: 15px;
-            }
-
-            .message {
-                max-width: 95%;
-                font-size: 15px;
-            }
-
-            .chat-input-container {
-                padding: 15px;
-            }
-
-            .chat-input {
-                font-size: 15px;
-                padding: 14px 16px;
-            }
-
-            .send-button {
-                padding: 0 22px;
-                font-size: 15px;
-            }
-
             /* Micro CTA */
             .micro-cta {
                 padding: 30px 20px;
@@ -2086,9 +1637,10 @@
                 gap: 40px;
             }
 
+            /* CHANGE 2: Move footer links for The Company next to The Playbook */
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 40px !important;
             }
 
             .footer-logo-img {
@@ -2105,85 +1657,25 @@
                 padding: 60px 0;
             }
 
-            /* Typing indicator */
-            .typing-indicator {
-                padding: 14px 18px;
-            }
-
-            /* Resources grid */
-            .resources-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .resource-card {
-                padding: 20px;
-            }
-
-            .resource-card h3 {
-                font-size: 18px;
-            }
-
-            .resource-card .description {
-                font-size: 15px;
-            }
-
-            .resource-card button {
-                padding: 10px 18px;
-                font-size: 14px;
-            }
-
-            /* Chat sidebar hidden on mobile */
-            .most-popular-sidebar {
-                display: none;
-            }
-            
-            .chat-area {
-                width: 100%;
-            }
-
-            /* Popular issues for mobile */
-            .popular-issues {
-                width: 100%;
-                height: auto;
-                position: relative;
-                transform: translateY(-100%);
-            }
-            
-            .popular-issues.active {
-                transform: translateY(0);
-            }
-
-            /* NEW: Show floating CTA on mobile */
-            .floating-cta {
-                display: block;
-            }
-
-            /* NEW: Hide the sign-up button near the chat widget on mobile */
-            .pinned-signup-banner {
-                display: none;
-            }
-
-            /* NEW: Show Lens Vertical Tab on Mobile */
-            .lens-vertical-tab {
+            /* NEW: Show mobile vertical tabs on mobile */
+            .mobile-vertical-tabs {
                 display: flex;
             }
 
-            .lens-sidebar {
+            /* NEW: Show mobile panels on mobile */
+            .mobile-lens-panel,
+            .mobile-signup-panel {
                 display: flex;
             }
 
-            /* Chat widget mobile adjustments */
-            .chat-container-widget {
-                width: 90vw;
-                height: 450px;
-                right: 5vw;
+            /* Hide the contact form on mobile since we have the Lens panel */
+            .contact-form-container {
+                display: none;
             }
-            
-            .chat-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+
+            /* Adjust the zoom section to account for removed contact form */
+            .zoom-in-section {
+                margin-bottom: 20px;
             }
         }
 
@@ -2208,14 +1700,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
-            .chat-messages {
-                padding: 12px;
-            }
-            
-            .chat-container {
-                height: 550px;
-            }
 
             .how-it-works-title, .challenges-title, .zoom-title {
                 font-size: 28px;
@@ -2229,14 +1713,18 @@
                 font-size: 28px;
             }
 
-            /* Adjust pinned banner for very small screens */
-            .pinned-signup-banner {
-                display: none;
+            .mobile-tab {
+                width: 55px;
+                height: 65px;
             }
 
-            /* Lens sidebar adjustments for very small screens */
-            .lens-sidebar {
-                width: 280px;
+            .mobile-tab-text {
+                font-size: 9px;
+            }
+
+            .mobile-tab-label {
+                font-size: 12px;
+                padding: 6px 10px;
             }
         }
         
@@ -2249,126 +1737,6 @@
 
 <body>
 
-<!-- NEW: Pinned Sign-up Banner on Right Side -->
-<a href="create-account.html" class="pinned-signup-banner">Sign Up</a>
-
-<!-- NEW: Floating CTA for Mobile -->
-<a href="create-account.html" class="floating-cta">Sign Up</a>
-
-<!-- NEW: Lens Vertical Tab for Mobile -->
-<div class="lens-vertical-tab" id="lensTab">
-    <i class="fas fa-search"></i> The Lens
-</div>
-
-<!-- NEW: Lens Sidebar for Mobile -->
-<div class="lens-sidebar" id="lensSidebar">
-    <div class="lens-sidebar-header">
-        <h2 class="lens-sidebar-title"><i class="fas fa-search"></i> The Lens</h2>
-        <button class="lens-sidebar-close" id="lensSidebarClose">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <div class="lens-sidebar-content">
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">How It Works</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#unfilter" class="active">
-                        <i class="fas fa-comment-alt"></i>
-                        <span>Unfilter</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#diagnose">
-                        <i class="fas fa-search"></i>
-                        <span>Diagnose</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#strategy">
-                        <i class="fas fa-map-signs"></i>
-                        <span>Strategy</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#action">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Action</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">Popular Challenges</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#workload">
-                        <i class="fas fa-tasks"></i>
-                        <span>Workload & Burnout</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#micromanagement">
-                        <i class="fas fa-user-check"></i>
-                        <span>Micromanagement</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#exclusion">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Exclusion & Visibility</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#promotion">
-                        <i class="fas fa-trophy"></i>
-                        <span>Promotion & Recognition</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#toxic">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>Toxic Behaviour</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">Resources</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#tools">
-                        <i class="fas fa-toolbox"></i>
-                        <span>Tools & Templates</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#scripts">
-                        <i class="fas fa-scroll"></i>
-                        <span>Response Scripts</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#frameworks">
-                        <i class="fas fa-compass"></i>
-                        <span>Strategy Frameworks</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="lens-sidebar-footer">
-        <a href="create-account.html" class="lens-sidebar-cta">Start with The Lens</a>
-    </div>
-</div>
-
-<!-- NEW: Overlay for Lens Sidebar -->
-<div class="lens-overlay" id="lensOverlay"></div>
-
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
@@ -2377,7 +1745,7 @@
         
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
+            <img src="https://placehold.co/200x80/7B5FC4/FFFFFF?text=Employee+Playbook" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
         
         <!-- Navigation links with mobile sign-in -->
@@ -2401,6 +1769,144 @@
         </div>
     </div>
 </nav>
+
+<!-- CHANGE 1: Mobile Vertical Tab with "The Lens" text -->
+<div class="mobile-vertical-tabs mobile-tab-left">
+    <div class="mobile-tab" id="mobile-lens-tab">
+        <i class="fas fa-search"></i>
+        <span class="mobile-tab-text">The Lens</span>
+        <span class="mobile-tab-label">The Lens</span>
+    </div>
+</div>
+
+<div class="mobile-vertical-tabs mobile-tab-right">
+    <div class="mobile-tab" id="mobile-signup-tab">
+        <i class="fas fa-user-plus"></i>
+        <span class="mobile-tab-text">Sign Up</span>
+        <span class="mobile-tab-label">Sign Up</span>
+    </div>
+</div>
+
+<!-- Mobile Lens Panel -->
+<div class="mobile-lens-panel" id="mobile-lens-panel">
+    <div class="mobile-panel-header">
+        <div class="mobile-panel-title">
+            <i class="fas fa-search"></i>
+            The Lens
+        </div>
+        <button class="mobile-panel-close" id="close-lens-panel">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-panel-content">
+        <div class="mobile-lens-intro">
+            <h3>Whatever's happening at work right now, let's get clear on it</h3>
+            <p>The Lens helps you step back, see the dynamics at play, and find your best next move</p>
+        </div>
+        
+        <div class="mobile-lens-features">
+            <div class="mobile-feature-card">
+                <div class="mobile-feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="mobile-feature-title">Your Strategic Advisor</div>
+                <div class="mobile-feature-description">Personal guidance for workplace challenges. Turn confusion into clarity, pinpoint what's really going on, and access focused tools</div>
+            </div>
+            
+            <div class="mobile-feature-card">
+                <div class="mobile-feature-icon">
+                    <i class="fas fa-chess-knight"></i>
+                </div>
+                <div class="mobile-feature-title">Your Workplace Strategist</div>
+                <div class="mobile-feature-description">See situations from different angles, understand dynamics, and develop clear paths forward with strategic insight</div>
+            </div>
+            
+            <div class="mobile-feature-card">
+                <div class="mobile-feature-icon">
+                    <i class="fas fa-crosshairs"></i>
+                </div>
+                <div class="mobile-feature-title">Clarity & Confidence</div>
+                <div class="mobile-feature-description">Whether dealing with difficult conversations, career progression, or workplace stress, get the clarity and tools you need</div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-lens-cta">
+        <button class="mobile-lens-button">Start Using The Lens</button>
+    </div>
+</div>
+
+<!-- Mobile Sign Up Panel -->
+<div class="mobile-signup-panel" id="mobile-signup-panel">
+    <div class="mobile-panel-header">
+        <div class="mobile-panel-title">
+            <i class="fas fa-user-plus"></i>
+            Create Account
+        </div>
+        <button class="mobile-panel-close" id="close-signup-panel">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-panel-content">
+        <div class="mobile-signup-intro">
+            <h3>Join The Employee Playbook</h3>
+            <p>Get access to all our tools and resources to navigate workplace challenges with confidence</p>
+        </div>
+        
+        <form class="mobile-signup-form">
+            <div class="mobile-form-group">
+                <label class="mobile-form-label">Full Name</label>
+                <input type="text" class="mobile-form-input" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="mobile-form-group">
+                <label class="mobile-form-label">Email Address</label>
+                <input type="email" class="mobile-form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="mobile-form-group">
+                <label class="mobile-form-label">Password</label>
+                <input type="password" class="mobile-form-input" placeholder="Create a password" required>
+            </div>
+            
+            <div class="mobile-signup-benefits">
+                <h4 class="mobile-benefits-title">What You'll Get</h4>
+                <ul class="mobile-benefits-list">
+                    <li class="mobile-benefit-item">
+                        <div class="mobile-benefit-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Access to The Lens for workplace clarity</span>
+                    </li>
+                    <li class="mobile-benefit-item">
+                        <div class="mobile-benefit-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Full Toolkit with scripts and templates</span>
+                    </li>
+                    <li class="mobile-benefit-item">
+                        <div class="mobile-benefit-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Personalized guidance from The Coach</span>
+                    </li>
+                    <li class="mobile-benefit-item">
+                        <div class="mobile-benefit-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Strategies for career advancement</span>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="mobile-signup-cta">
+        <button class="mobile-signup-button">Create Account</button>
+        <p class="mobile-signup-terms">By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+    </div>
+</div>
+
+<!-- Mobile Panel Overlay -->
+<div class="mobile-panel-overlay" id="mobile-panel-overlay"></div>
 
 <!-- Main Content Area -->
 <main>
@@ -2499,63 +2005,24 @@
                     You're not identified here. This space doesn't store personal identifiers – it's between you and The Lens.
                 </p>
                 
-                <!-- Chat Container -->
-                <div class="chat-container" id="lensChat">
-                    <!-- Popular Issues Panel -->
-                    <div class="popular-issues" id="popularIssues">
-                        <div class="issues-header">
-                            <h4 class="issues-title" id="issuesTitle">Common Issues</h4>
-                            <button class="close-issues" id="closeIssues">
-                                <i class="fas fa-times"></i>
-                            </button>
+                <!-- Contact Form Container -->
+                <div class="contact-form-container">
+                    <h3 class="contact-form-title">Send us a message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-input" placeholder="Enter your name" required>
                         </div>
-                        <div class="issue-pills" id="issuePills">
-                            <!-- Issue pills will be dynamically inserted here -->
+                        <div class="form-group">
+                            <label class="form-label">Your Email</label>
+                            <input type="email" class="form-input" placeholder="Enter your email" required>
                         </div>
-                    </div>
-                    
-                    <div class="chat-header">
-                        <h3 class="chat-title"><i class="fas fa-search chat-title-icon"></i> The Lens</h3>
-                        <!-- Clear Session Button -->
-                        <button class="clear-session" id="clearSession">Clear Session</button>
-                    </div>
-                    
-                    <div class="chat-content-wrapper">
-                        <!-- Most Popular Sidebar - Hidden on mobile -->
-                        <div class="most-popular-sidebar">
-                            <h4 class="sidebar-title">Most Popular</h4>
-                            <ul class="popular-topics">
-                                <li data-category="workload">Workload & Burnout</li>
-                                <li data-category="micromanagement">Micromanagement</li>
-                                <li data-category="exclusion">Exclusion & Visibility</li>
-                                <li data-category="promotion">Promotion & Recognition</li>
-                                <li data-category="toxic">Toxic Behaviour</li>
-                                <li data-category="credit">Credit & Attribution</li>
-                                <li data-category="conversations">Difficult Conversations</li>
-                                <li data-category="conflict">Conflict Resolution</li>
-                            </ul>
+                        <div class="form-group">
+                            <label class="form-label">Your Message</label>
+                            <textarea class="form-textarea" placeholder="Describe your workplace challenge or question..." required></textarea>
                         </div>
-                        
-                        <!-- Chat Area -->
-                        <div class="chat-area">
-                            <div class="chat-messages" id="chatMessages">
-                                <div class="message bot-message">
-                                    <div class="bot-avatar">
-                                        TL
-                                    </div>
-                                    <div class="message-content">
-                                        <p>Let's get into it. What's been happening at work?</p>
-                                        <p>No judgement. Just say it how it feels.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chat-input-container">
-                                <input type="text" class="chat-input" id="userInput" placeholder="Describe your workplace challenge...">
-                                <button class="send-button" id="sendButton">Send</button>
-                            </div>
-                        </div>
-                    </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
                 </div>
             </div>
 
@@ -2678,7 +2145,7 @@
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
+                        <img src="https://placehold.co/200x80/7B5FC4/FFFFFF?text=Employee+Playbook" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
                     </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
@@ -2693,7 +2160,7 @@
             </div>
             
             <div class="footer-nav">
-                <!-- 2-column grid for The Playbook and The Company -->
+                <!-- CHANGE 2: The Company links now next to The Playbook in mobile view -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -2726,32 +2193,6 @@
     </div>
 </footer>
 
-<!-- Chat Widget -->
-<div class="chat-widget">
-    <button class="chat-toggle">
-        <i class="fas fa-comment"></i>
-    </button>
-    <div class="chat-container-widget">
-        <div class="chat-header-widget">
-            <div class="chat-title-widget">Send us a message</div>
-            <button class="chat-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-messages-widget">
-            <div class="message-widget message-bot">👋 Hi there! We'd love to hear from you.</div>
-        </div>
-        <div class="chat-input-container-widget">
-            <form class="chat-form" id="chatForm">
-                <input type="text" class="chat-input-widget" placeholder="Your Name" required>
-                <input type="email" class="chat-input-widget" placeholder="Your Email" required>
-                <textarea class="chat-input-widget" rows="3" required></textarea>
-                <button type="submit" class="chat-send">Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
-
 <script>
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
@@ -2779,17 +2220,6 @@
             
             // Save theme preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            
-            // Update logo for dark mode
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
-            if (isDarkMode) {
-                logo.src = 'assets/img/logo-dark.png';
-                footerLogo.src = 'assets/img/logo-dark.png';
-            } else {
-                logo.src = 'assets/img/logo.png';
-                footerLogo.src = 'assets/img/logo.png';
-            }
         });
 
         // Mobile navigation toggle
@@ -2800,485 +2230,9 @@
             icon.classList.toggle('fa-times');
         });
 
-        // NEW: Lens Vertical Tab Functionality
-        const lensTab = document.getElementById('lensTab');
-        const lensSidebar = document.getElementById('lensSidebar');
-        const lensSidebarClose = document.getElementById('lensSidebarClose');
-        const lensOverlay = document.getElementById('lensOverlay');
-
-        // Show Lens sidebar
-        lensTab.addEventListener('click', function() {
-            lensSidebar.classList.add('active');
-            lensOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-
-        // Hide Lens sidebar
-        function hideLensSidebar() {
-            lensSidebar.classList.remove('active');
-            lensOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-
-        lensSidebarClose.addEventListener('click', hideLensSidebar);
-        lensOverlay.addEventListener('click', hideLensSidebar);
-
-        // Close sidebar when clicking on a link
-        const lensSidebarLinks = document.querySelectorAll('.lens-sidebar-link a');
-        lensSidebarLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Update active state
-                lensSidebarLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Close sidebar after a short delay
-                setTimeout(hideLensSidebar, 300);
-            });
-        });
-
-        // JavaScript for The Lens chat functionality
-        const chatMessages = document.getElementById('chatMessages');
-        const userInput = document.getElementById('userInput');
-        const sendButton = document.getElementById('sendButton');
-        const popularIssues = document.getElementById('popularIssues');
-        const issuePills = document.getElementById('issuePills');
-        const issuesTitle = document.getElementById('issuesTitle');
-        const closeIssues = document.getElementById('closeIssues');
-        const popularTopics = document.querySelectorAll('.popular-topics li');
-        const clearSessionBtn = document.getElementById('clearSession');
-        
-        // Define issues for each category (5 per category)
-        const categoryIssues = {
-            workload: [
-                "My workload keeps escalating but no one acknowledges it",
-                "I'm working overtime consistently with no relief in sight",
-                "My manager keeps adding tasks without removing others",
-                "I'm experiencing physical symptoms of stress and exhaustion",
-                "I feel overwhelmed and unable to keep up with demands"
-            ],
-            micromanagement: [
-                "My manager checks in on me multiple times a day",
-                "I'm not trusted to complete tasks without approval at every step",
-                "My confidence is suffering due to constant oversight",
-                "I feel like I can't make any decisions independently",
-                "My manager questions every detail of my work"
-            ],
-            exclusion: [
-                "I'm left out of meetings where decisions about my work are made",
-                "Important information is shared with others but not with me",
-                "My contributions are overlooked in team discussions",
-                "I'm not included in social or networking opportunities",
-                "My ideas are dismissed without proper consideration"
-            ],
-            promotion: [
-                "Less experienced colleagues are being promoted over me",
-                "My achievements aren't recognised during performance reviews",
-                "I'm consistently given vague feedback about promotion criteria",
-                "Opportunities for advancement aren't transparently communicated",
-                "I feel stuck in my current role with no clear path forward"
-            ],
-            toxic: [
-                "My manager's mood changes unpredictably affecting the team",
-                "I feel anxious about speaking up in meetings",
-                "There's a culture of blame rather than problem-solving",
-                "I've witnessed bullying behaviour that goes unaddressed",
-                "The work environment feels hostile and unsupportive"
-            ],
-            credit: [
-                "My ideas are presented as someone else's in meetings",
-                "My manager takes credit for my successful projects",
-                "My contributions are minimised when reporting to leadership",
-                "Colleagues receive praise for work I primarily completed",
-                "My work is consistently undervalued and overlooked"
-            ],
-            conversations: [
-                "I need to address a performance issue with a team member",
-                "I have to deliver negative feedback to a colleague",
-                "I need to negotiate for more resources or support",
-                "I have to say no to additional work without sounding uncooperative",
-                "I need to address a sensitive topic with my manager"
-            ],
-            conflict: [
-                "Team members have different working styles causing tension",
-                "There's disagreement about project priorities and direction",
-                "Personality clashes are affecting team productivity",
-                "Communication breakdowns are causing repeated misunderstandings",
-                "I'm caught in the middle of a conflict between colleagues"
-            ]
-        };
-        
-        // Track conversation state
-        let conversationState = {
-            firstMessage: true,
-            userScenario: '',
-            messageCount: 0
-        };
-        
-        // Clear session functionality
-        clearSessionBtn.addEventListener('click', function() {
-            // Clear chat messages except the initial bot message
-            chatMessages.innerHTML = `
-                <div class="message bot-message">
-                    <div class="bot-avatar">
-                        TL
-                    </div>
-                    <div class="message-content">
-                        <p>Let's get into it. What's been happening at work?</p>
-                        <p>No judgement. Just say it how it feels.</p>
-                    </div>
-                </div>
-            `;
-            
-            // Reset conversation state
-            conversationState = {
-                firstMessage: true,
-                userScenario: '',
-                messageCount: 0
-            };
-            
-            // Clear input field
-            userInput.value = '';
-            
-            // Show confirmation message
-            const confirmationMsg = document.createElement('div');
-            confirmationMsg.className = 'message bot-message';
-            confirmationMsg.innerHTML = `
-                <div class="bot-avatar">
-                    TL
-                </div>
-                <div class="message-content">
-                    <p>Session cleared. Ready to start fresh.</p>
-                </div>
-            `;
-            chatMessages.appendChild(confirmationMsg);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-        
-        // Set up popular topic interactions
-        popularTopics.forEach(topic => {
-            topic.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const category = this.getAttribute('data-category');
-                const categoryName = this.textContent;
-                
-                // Update issues panel title
-                issuesTitle.textContent = `Common ${categoryName} Issues`;
-                
-                // Clear previous pills
-                issuePills.innerHTML = '';
-                
-                // Add new pills for this category
-                categoryIssues[category].forEach(issue => {
-                    const pill = document.createElement('div');
-                    pill.className = 'issue-pill';
-                    pill.textContent = issue;
-                    pill.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        userInput.value = `"${issue}"`;
-                        sendMessage();
-                        hideIssues();
-                    });
-                    issuePills.appendChild(pill);
-                });
-                
-                // Show issues panel
-                showIssues();
-                
-                // Set timeout to hide after 7 seconds
-                setTimeout(() => {
-                    if (popularIssues.classList.contains('active')) {
-                        hideIssues();
-                    }
-                }, 7000);
-            });
-        });
-        
-        // Close issues panel when clicking anywhere else
-        document.addEventListener('click', function(e) {
-            if (popularIssues.classList.contains('active') && !popularIssues.contains(e.target)) {
-                hideIssues();
-            }
-        });
-        
-        // Close issues panel
-        closeIssues.addEventListener('click', hideIssues);
-        
-        // Show issues panel
-        function showIssues() {
-            popularIssues.classList.add('active');
-        }
-        
-        // Hide issues panel
-        function hideIssues() {
-            popularIssues.classList.remove('active');
-        }
-        
-        // Enhanced function to add messages with proper mobile scrolling
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            
-            if (sender === 'user') {
-                messageDiv.innerHTML = `
-                    <div class="message-content">
-                        ${text}
-                    </div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="bot-avatar">
-                        TL
-                    </div>
-                    <div class="message-content">
-                        ${text}
-                    </div>
-                `;
-            }
-            
-            chatMessages.appendChild(messageDiv);
-            
-            // Simple, reliable scroll to bottom
-            setTimeout(() => {
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 50);
-        }
-        
-        // Send message function
-        function sendMessage() {
-            const message = userInput.value.trim();
-            if (message === '') return;
-            
-            // Add user message
-            addMessage(message, 'user');
-            userInput.value = '';
-            
-            // Hide issues panel if open
-            hideIssues();
-            
-            // Increment message count
-            conversationState.messageCount++;
-            
-            // Simulate bot response after a short delay
-            setTimeout(() => {
-                // Show typing indicator
-                const typingIndicator = document.createElement('div');
-                typingIndicator.className = 'message bot-message typing-indicator';
-                
-                // Create the typing indicator with TL avatar on desktop
-                if (window.innerWidth > 768) {
-                    typingIndicator.innerHTML = `
-                        <div class="bot-avatar">
-                            TL
-                        </div>
-                        <div class="message-content">
-                            <div class="typing-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    // Mobile version without avatar
-                    typingIndicator.innerHTML = `
-                        <div class="message-content">
-                            <div class="typing-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    `;
-                }
-                
-                chatMessages.appendChild(typingIndicator);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // After a delay, replace with actual response
-                setTimeout(() => {
-                    chatMessages.removeChild(typingIndicator);
-                    generateBotResponse(message);
-                }, 1500);
-            }, 500);
-        }
-        
-        // Generate bot response based on user message
-        function generateBotResponse(userMessage) {
-            let response = '';
-            
-            if (conversationState.messageCount === 1) {
-                // First interaction - use empathy and ask for more information
-                conversationState.userScenario = userMessage;
-                
-                response = `
-                    <p>I hear you. ${getEmpatheticResponse(userMessage)}</p>
-                    <p>To help you better, could you tell me a bit more about the situation? For example, how long has this been going on or if you've tried addressing it already?</p>
-                `;
-            } else if (conversationState.messageCount === 2) {
-                // Second interaction - provide 3 specific tools with closing statement
-                response = `
-                    <p>Thank you for sharing that. Based on what you've described, here are 3 specific tools that could help right now:</p>
-                    <div class="resources-grid">
-                        ${generateThreeTools(conversationState.userScenario + ' ' + userMessage)}
-                    </div>
-                    <br>
-                    <p style="font-size: 16px; line-height: 2;">These tools are designed to give you immediate clarity and actionable steps.</p>
-                    <p style="font-size: 16px; line-height: 1.5;">If you still need help, please check The Toolkit or have a chat with The Coach.</p>
-                `;
-            } else {
-                // Third+ interaction - suggest The Coach
-                response = `
-                    <p>For deeper, personalised guidance on implementing these strategies, I'd recommend exploring <strong>The Coach</strong> - our one-on-one support system for complex workplace situations.</p>
-                `;
-            }
-            
-            addMessage(response, 'bot');
-            
-            // Keep chat pinned after bot response on mobile
-            if (window.innerWidth <= 768) {
-                setTimeout(() => {
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 100);
-            }
-        }
-        
-        // Generate empathetic response based on user message
-        function getEmpatheticResponse(message) {
-            if (message.includes('workload') || message.includes('burnout') || message.includes('overwhelmed')) {
-                return "That sounds incredibly draining. Feeling constantly overwhelmed at work can take a real toll on both your professional effectiveness and personal wellbeing.";
-            } else if (message.includes('micromanag')) {
-                return "That must feel frustrating and limiting. Being micromanaged can undermine your confidence and make it hard to do your best work.";
-            } else if (message.includes('excluded') || message.includes('left out')) {
-                return "That sounds isolating and frustrating. Being excluded from important conversations can make you feel undervalued and disconnected from your team.";
-            } else if (message.includes('favouritism') || message.includes('promotion') || message.includes('overlooked')) {
-                return "That must feel demoralizing and unfair. When recognition and opportunities don't reflect your contributions, it can be deeply frustrating.";
-            } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
-                return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
-            } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
-                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
-            } else {
-                return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
-            }
-        }
-        
-        // Generate exactly 3 tools based on user scenario
-        function generateThreeTools(userMessage) {
-            let tools = '';
-            const msg = userMessage.toLowerCase();
-            
-            if (msg.includes('workload') || msg.includes('burnout') || msg.includes('overwhelmed')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Immediate Relief</div>
-                        <h3>Burnout Intervention Checklist</h3>
-                        <p class="description">Identify and address burnout symptoms before they escalate with this step-by-step guide.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Workload Escalation Script</h3>
-                        <p class="description">Professional ways to communicate your capacity concerns and negotiate priorities effectively.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Capacity Assessment</h3>
-                        <p class="description">Evaluate your current workload against organizational priorities to build your case.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else if (msg.includes('micromanag')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Micromanagement Response Script</h3>
-                        <p class="description">Professional ways to address micromanagement while building trust with your manager.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Proactive Updates Framework</h3>
-                        <p class="description">Structure your communication to preemptively address your manager's concerns.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Action Plan</div>
-                        <h3>Autonomy Building Plan</h3>
-                        <p class="description">Gradually increase your independence while demonstrating reliability and competence.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else if (msg.includes('excluded') || msg.includes('conversation')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Inclusion Request Script</h3>
-                        <p class="description">Professional ways to request inclusion in key meetings and decisions that impact your work.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Visibility & Influence Plan</h3>
-                        <p class="description">Systematically build your presence and impact within the organization.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Relationship Building</div>
-                        <h3>Stakeholder Connection Guide</h3>
-                        <p class="description">Develop strategic relationships with key decision-makers in your organization.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else {
-                // Default tools for unspecified scenarios
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Assessment</div>
-                        <h3>Situation Analysis Framework</h3>
-                        <p class="description">A structured approach to understand the dynamics and stakeholders in your situation.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Difficult Conversation Guide</h3>
-                        <p class="description">Prepare for and navigate challenging workplace discussions effectively.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Personal Action Plan</h3>
-                        <p class="description">Develop a step-by-step approach to address your specific workplace challenge.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            }
-            
-            return tools;
-        }
-        
-        // Event listeners
-        sendButton.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Chat Widget Functionality
-        const chatToggle = document.querySelector('.chat-toggle');
-        const chatContainerWidget = document.querySelector('.chat-container-widget');
-        const chatClose = document.querySelector('.chat-close');
-        const chatForm = document.getElementById('chatForm');
-
-        chatToggle.addEventListener('click', function() {
-            chatContainerWidget.classList.toggle('active');
-        });
-
-        chatClose.addEventListener('click', function() {
-            chatContainerWidget.classList.remove('active');
-        });
-
-        chatForm.addEventListener('submit', function(e) {
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
@@ -3289,20 +2243,65 @@
             };
             
             // In a real implementation, you would send this data to a server
-            console.log('Chat form submitted:', formData);
+            console.log('Contact form submitted:', formData);
             
             // Show success message
-            const chatMessagesWidget = document.querySelector('.chat-messages-widget');
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message-widget', 'message-user');
-            userMessage.textContent = "Thanks! We'll get back to you soon.";
-            chatMessagesWidget.appendChild(userMessage);
+            alert('Thank you for your message! We\'ll get back to you soon.');
             
             // Reset form
             this.reset();
-            
-            // Scroll to bottom
-            chatMessagesWidget.scrollTop = chatMessagesWidget.scrollHeight;
+        });
+
+        // Mobile Panel Functionality
+        // Get mobile panel elements
+        const mobileLensTab = document.getElementById('mobile-lens-tab');
+        const mobileSignupTab = document.getElementById('mobile-signup-tab');
+        const mobileLensPanel = document.getElementById('mobile-lens-panel');
+        const mobileSignupPanel = document.getElementById('mobile-signup-panel');
+        const closeLensPanel = document.getElementById('close-lens-panel');
+        const closeSignupPanel = document.getElementById('close-signup-panel');
+        const mobilePanelOverlay = document.getElementById('mobile-panel-overlay');
+        
+        // Function to open a panel
+        function openPanel(panel) {
+            panel.classList.add('active');
+            mobilePanelOverlay.style.display = 'block';
+            setTimeout(() => {
+                mobilePanelOverlay.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Function to close all panels
+        function closeAllPanels() {
+            mobileLensPanel.classList.remove('active');
+            mobileSignupPanel.classList.remove('active');
+            mobilePanelOverlay.classList.remove('active');
+            setTimeout(() => {
+                mobilePanelOverlay.style.display = 'none';
+            }, 400);
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+        
+        // Event listeners for opening panels
+        mobileLensTab.addEventListener('click', function() {
+            openPanel(mobileLensPanel);
+        });
+        
+        mobileSignupTab.addEventListener('click', function() {
+            openPanel(mobileSignupPanel);
+        });
+        
+        // Event listeners for closing panels
+        closeLensPanel.addEventListener('click', closeAllPanels);
+        closeSignupPanel.addEventListener('click', closeAllPanels);
+        mobilePanelOverlay.addEventListener('click', closeAllPanels);
+        
+        // Close panels with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAllPanels();
+            }
         });
     });
 </script>
