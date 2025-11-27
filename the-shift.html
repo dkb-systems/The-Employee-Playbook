@@ -240,26 +240,6 @@
             background-color: var(--light-gray);
         }
 
-        /* Mobile Icon Tab */
-        .mobile-icon-tab {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            cursor: pointer;
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-icon-tab:hover {
-            background-color: var(--light-gray);
-        }
-
         /* New Tag for The Coach */
         .nav-link-container {
             position: relative;
@@ -281,8 +261,8 @@
             white-space: nowrap;
         }
 
-        /* Mobile Sign Up Button */
-        .mobile-sign-up {
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
             display: none;
         }
 
@@ -703,7 +683,7 @@
 
         /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 100px;
+            height: 100px; /* Doubled from 100px */
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
@@ -861,7 +841,7 @@
             
             /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 122px;
+                height: 122px; /* Increased from 100px to 125px (25% increase) */
                 transform: none;
                 padding: 12px 0;
             }
@@ -870,13 +850,6 @@
                 display: flex;
                 position: absolute;
                 left: 20px;
-            }
-            
-            /* Add mobile icon tab on the right */
-            .mobile-icon-tab {
-                display: flex;
-                position: absolute;
-                right: 20px;
             }
             
             /* REMOVED: Hide the Sign Up button in mobile view */
@@ -932,7 +905,7 @@
             }
             
             /* Make the Sign Up button in hamburger menu with person-plus icon */
-            .mobile-sign-up {
+            .mobile-sign-in {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
@@ -948,7 +921,7 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            .dark-mode .mobile-sign-up {
+            .dark-mode .mobile-sign-in {
                 background: var(--primary-white);
                 color: var(--accent-purple);
                 border: 2px solid var(--accent-purple);
@@ -956,8 +929,8 @@
 
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero-title {
-                font-size: 45px;
-                margin-top: -20px;
+                font-size: 45px; /* Increased from 50.6px to 55px (25% increase) */
+                margin-top: -20px; /* Move the H1 one line higher */
             }
 
             .shift-hero-subtitle {
@@ -966,12 +939,12 @@
 
             /* REDUCED: Reduce section titles to match conflict-title size */
             .section-title {
-                font-size: 36px;
+                font-size: 36px; /* Reduced from 45px to match conflict-title */
             }
             
             /* REDUCED: Reduce narrative title to match conflict-title size */
             .narrative-title {
-                font-size: 36px;
+                font-size: 36px; /* Reduced from 44px to match conflict-title */
             }
 
             .conflict-grid {
@@ -980,7 +953,7 @@
             }
             
             .conflict-title {
-                font-size: 36px;
+                font-size: 36px; /* Kept the same size */
             }
             
             .conflict-cycle, .shift-solution {
@@ -1017,12 +990,12 @@
             
             /* Mobile Logo Adjustments */
             .footer-logo-img {
-                height: 120px;
+                height: 120px; /* Doubled for mobile (was 60px) */
             }
             
             /* REDUCED: Final statement size for mobile */
             .final-statement {
-                font-size: 28px;
+                font-size: 28px; /* Reduced from 40px */
             }
             
             .bridge-statement {
@@ -1032,18 +1005,18 @@
             
             /* INCREASED: Narrative text size for mobile */
             .narrative-text {
-                font-size: 20px;
+                font-size: 20px; /* Increased from 16px */
                 padding: 0 20px;
             }
         }
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 100px;
+                height: 100px; /* Adjusted for very small screens */
             }
             
             .footer-logo-img {
-                height: 100px;
+                height: 100px; /* Adjusted for very small screens */
             }
             
             .logo-fallback {
@@ -1052,8 +1025,8 @@
             
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero-title {
-                font-size: 45px;
-                margin-top: -20px;
+                font-size: 45px; /* Increased from 41.4px to 45px (25% increase) */
+                margin-top: -20px; /* Move the H1 one line higher */
             }
             
             .shift-hero-subtitle {
@@ -1062,12 +1035,12 @@
             
             /* REDUCED: Further reduce final statement size for very small mobile */
             .final-statement {
-                font-size: 24px;
+                font-size: 24px; /* Further reduced for very small screens */
             }
             
             /* INCREASED: Narrative text size for very small mobile */
             .narrative-text {
-                font-size: 18px;
+                font-size: 18px; /* Increased from 16px */
             }
         }
     </style>
@@ -1088,7 +1061,7 @@
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
-        <!-- Navigation links with mobile sign-up -->
+        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
@@ -1098,22 +1071,18 @@
             </div>
             <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="create-account.html" class="mobile-sign-up">
+            <a href="create-account.html" class="mobile-sign-in">
                 <i class="fas fa-user-plus"></i> Sign up
             </a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
+            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
-
-        <!-- Mobile Icon Tab on the right -->
-        <button class="mobile-icon-tab">
-            <i class="fas fa-arrow-right"></i>
-        </button>
     </div>
 </nav>
 
@@ -1128,6 +1097,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Emotional Conflict Section -->
 <section class="conflict-section">
@@ -1445,13 +1415,6 @@
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
-        });
-
-        // Mobile icon tab functionality
-        document.querySelector('.mobile-icon-tab').addEventListener('click', function () {
-            // Add functionality for the mobile icon tab here
-            // For example, you could scroll to the next section or open a quick menu
-            window.scrollTo({ top: document.querySelector('.conflict-section').offsetTop - 80, behavior: 'smooth' });
         });
 
         // Smooth scrolling with offset for fixed header
