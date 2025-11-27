@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tools | The Employee Playbook</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="description" content="About The Employee Playbook. Strategic guidance for workplace decisions. Not legal advice.">
+    <title>About Us | The Employee Playbook</title>
     
     <!-- Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --primary-white: #FFFFFF;
@@ -39,87 +39,39 @@
             --hero-purple: #5A4496;
             --user-msg-bg: #7B5FC4;
             --bot-msg-bg: #F1F3F9;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
             --premium-gradient: linear-gradient(135deg, #7B5FC4 0%, #5A4496 100%);
-            --premium-card-shadow: 0 10px 30px rgba(123, 95, 196, 0.15);
+            --premium-card-shadow: 0 6px 20px rgba(123, 95, 196, 0.12);
             
-            /* Updated Tool type colors */
-            --template-color: #FFF2E5; /* Warm peach */
-            --template-text: #CC7A2E;
-            --template-icon: #CC7A2E;
-            
-            --framework-color: #DFF6EC;
-            --framework-text: #2E8B57;
-            --framework-icon: #2E8B57;
-            
-            --script-color: #E6F3FF; /* Better blue */
-            --script-text: #1E6FC6;
-            --script-icon: #1E6FC6;
-            
-            --decision-color: #E9F7D7;
-            --decision-text: #6B8E23;
-            --decision-icon: #6B8E23;
-            
-            --communication-color: #DDE8FF;
-            --communication-text: #4A6FC8;
-            --communication-icon: #4A6FC8;
-            
-            --calculator-color: #FFF9D9;
-            --calculator-text: #B8860B;
-            --calculator-icon: #B8860B;
-            
-            --accountability-color: #DFF6F5;
-            --accountability-text: #008B8B;
-            --accountability-icon: #008B8B;
-            
-            --crisis-color: #FFE6E6; /* Crisis navigation color */
-            --crisis-text: #C41E3A;
-            --crisis-icon: #C41E3A;
+            /* Simplified Color Scheme */
+            --neutral-bg: #F8F9FA;
+            --crisis-red: #FF6B6B;
         }
 
-        /* Dark mode variables */
         .dark-mode {
             --primary-white: #121212;
             --light-gray: #1E1E1E;
             --medium-gray: #2D2D2D;
-            --dark-gray: #A0A0A0;
-            --text-dark: #E0E0E0;
-            --text-medium: #B0B0B0;
-            --accent-purple: #9D86E9;
-            --accent-purple-dark: #7B5FC4;
-            --light-purple: #2A2540;
+            --dark-gray: #8A8A8A;
+            --text-dark: #F5F5F5;
+            --text-medium: #CCCCCC;
+            --accent-purple: #8B6CE6;
+            --accent-purple-dark: #6A4FC4;
+            --light-purple: #2A1E4A;
             --lighter-purple: #1E1A2E;
             --border-light: rgba(255, 255, 255, 0.08);
-            --hero-gray: #1A1A1A;
+            --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
-            --sidebar-bg: #1A1A1A;
-            --chat-bg: #252525;
-            --premium-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --sidebar-bg: #1a1a1a;
+            --chat-bg: #1e1e1e;
+            --user-msg-bg: #8B6CE6;
+            --bot-msg-bg: #2D2D2D;
+            --shadow: 0 2px 8px rgba(0,0,0,0.2);
+            --premium-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
             
-            /* Tool colors adjusted for dark mode */
-            --template-color: #3A2A1A;
-            --template-text: #E6A85C;
-            
-            --framework-color: #1A3A2A;
-            --framework-text: #5CD85C;
-            
-            --script-color: #1A2A3A;
-            --script-text: #5C9AE6;
-            
-            --decision-color: #2A3A1A;
-            --decision-text: #9AE65C;
-            
-            --communication-color: #1A2A3A;
-            --communication-text: #5C9AE6;
-            
-            --calculator-color: #3A3A1A;
-            --calculator-text: #E6D85C;
-            
-            --accountability-color: #1A3A3A;
-            --accountability-text: #5CD8D8;
-            
-            --crisis-color: #3A1A1A;
-            --crisis-text: #E65C5C;
+            /* Simplified Dark Mode Colors */
+            --neutral-bg: #1E1E1E;
+            --crisis-red: #FF5252;
         }
 
         * {
@@ -148,7 +100,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -220,7 +172,7 @@
         .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -7px;
             left: 0;
             width: 100%;
             height: 3px;
@@ -251,12 +203,12 @@
             font-weight: 600;
             font-size: 14px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
         }
 
         .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
         }
 
         .theme-toggle {
@@ -318,40 +270,35 @@
             white-space: nowrap;
         }
 
-        /* NEW: Floating CTA for Mobile */
-        .floating-cta {
+        /* NEW: Mobile CTA Tab */
+        .mobile-cta-tab {
             display: none;
             position: fixed;
-            bottom: 90px;
-            right: 0px;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right bottom;
             background: var(--accent-purple);
             color: white;
             padding: 12px 20px;
-            border-radius: 50px;
+            border-radius: 8px 8px 0 0;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 999;
+            z-index: 998;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            white-space: nowrap;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .floating-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        .mobile-cta-tab:hover {
+            background: var(--accent-purple-dark);
         }
 
         /* Main Content */
         main {
             flex: 1;
-            padding: 100px 40px 40px;
+            padding: 80px 30px 30px;
             display: flex;
             min-height: calc(100vh - 160px);
         }
@@ -360,759 +307,414 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* Tools Header */
-        .tools-header {
+        /* About Hero Section */
+        .about-hero {
+            background: var(--light-purple);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 30px;
-            padding-top: 100px;
+            padding: 100px 0 0 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(123, 95, 196, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(123, 95, 196, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .about-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero-title {
+            font-size: 3.7rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-dark);
             line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .tools-subtitle {
-            font-size: 22px;
+        .about-hero-subtitle {
+            font-size: 20px;
             color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 700px;
+            margin: 0 auto 20px;
             font-weight: 500;
         }
 
-        /* Full Width Section */
-        .full-width-section {
-            width: 100%;
-            margin-bottom: 40px;
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: white;
+            padding: 18px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(123, 95, 196, 0.3);
         }
 
-        /* Priority Areas Section */
-        .priority-section {
-            margin-bottom: 60px;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(123, 95, 196, 0.4);
         }
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 30px;
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
             width: 100%;
+            height: 4px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-purple);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.5s ease;
+        }
+
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* About Content Sections */
+        .about-content {
+            padding: 100px 0;
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 42px;
             font-weight: 700;
-            color: var(--text-dark);
-            text-align: left;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-align: center;
+            width: 100%;
         }
 
         .section-subtitle {
-            font-size: 18px;
-            color: var(--text-medium);
-            text-align: left;
-            margin-top: 5px;
-        }
-
-        .search-container {
-            width: 400px;
-            max-width: 400px;
-            position: relative;
-            margin-bottom: 10px;
-            margin-left: 0;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 45px 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 50px;
-            font-size: 15px;
-            background: var(--primary-white);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            color: var(--text-dark);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
-        }
-
-        .search-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .search-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .priority-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .priority-card {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 40px 30px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .priority-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--premium-gradient);
-        }
-
-        .priority-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .priority-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--lighter-purple);
-            color: var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-        }
-
-        .priority-title {
-            font-weight: 600;
-            margin-bottom: 15px;
             font-size: 20px;
-            color: var(--text-dark);
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto 40px;
             text-align: center;
         }
 
-        .priority-description {
-            font-size: 16px;
-            color: var(--text-medium);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .priority-impact {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-
-        .impact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 14px;
+        .text-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.7;
             color: var(--text-medium);
         }
 
-        .impact-item i {
-            color: var(--accent-purple);
-            margin-top: 3px;
-            flex-shrink: 0;
+        .text-content p {
+            margin-bottom: 24px;
         }
 
-        .priority-actions {
-            display: flex;
-            justify-content: center;
-            margin-top: auto;
-        }
-
-        .priority-button {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .priority-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
-        }
-
-        .explore-more {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .explore-button {
-            background: transparent;
-            color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .explore-button:hover {
+        .highlight-box {
             background: var(--light-purple);
-            transform: translateY(-2px);
-        }
-
-        /* Strategic Tools Section */
-        .strategic-tools-section {
-            margin-bottom: 60px;
-        }
-
-        .strategic-tools-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .strategic-tools-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .strategic-tool-card {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 40px 30px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .strategic-tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--premium-gradient);
-        }
-
-        .strategic-tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .strategic-tool-header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .strategic-tool-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .strategic-tool-icon.accountability {
-            background: var(--accountability-color);
-            color: var(--accountability-icon);
-        }
-        
-        .strategic-tool-icon.script {
-            background: var(--script-color);
-            color: var(--script-icon);
-        }
-        
-        .strategic-tool-icon.framework {
-            background: var(--framework-color);
-            color: var(--framework-icon);
-        }
-
-        .strategic-tool-title-section {
-            flex-grow: 1;
-        }
-
-        .strategic-tool-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 22px;
-            color: var(--text-dark);
-        }
-
-        .strategic-tool-category {
-            color: var(--accent-purple);
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .strategic-tool-description {
-            font-size: 16px;
-            color: var(--text-medium);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .strategic-tool-outcomes {
-            margin-bottom: 25px;
-        }
-
-        .strategic-tool-outcomes-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: var(--text-dark);
-        }
-
-        .strategic-tool-outcomes-list {
-            list-style-type: none;
-        }
-
-        .strategic-tool-outcome {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--text-medium);
-        }
-
-        .strategic-tool-outcome i {
-            color: var(--accent-purple);
-            margin-right: 10px;
-            margin-top: 3px;
-            font-size: 12px;
-        }
-
-        .strategic-tool-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        .strategic-tool-button {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .strategic-tool-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
-        }
-
-        .upgrade-notice {
-            text-align: center;
-            padding: 15px;
-            background: var(--lighter-purple);
-            border-radius: 8px;
-            font-size: 14px;
-            color: var(--text-medium);
-            margin-top: 10px;
-        }
-
-        .upgrade-link {
-            color: var(--accent-purple);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .upgrade-link:hover {
-            text-decoration: underline;
-        }
-
-        /* NEW: Reviews Section */
-        .reviews-section {
-            margin-bottom: 60px;
-        }
-
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .review-card {
-            background: var(--primary-white);
-            border-radius: 16px;
+            border-left: 4px solid var(--accent-purple);
             padding: 30px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--premium-gradient);
-        }
-
-        .review-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .review-stars {
-            color: #FFD700;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        .review-text {
-            font-size: 16px;
-            color: var(--text-medium);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-            flex-grow: 1;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--lighter-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-purple);
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .review-author-info {
-            flex-grow: 1;
-        }
-
-        .review-author-name {
+            border-radius: 8px;
+            margin: 40px 0;
+            font-size: 20px;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 5px;
+            text-align: center;
         }
 
-        .review-author-role {
-            font-size: 14px;
-            color: var(--text-medium);
-        }
-
-        .review-tool {
-            background: var(--lighter-purple);
-            color: var(--accent-purple);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        /* NEW: Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .chat-widget:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container.active {
-            display: flex;
-        }
-
-        .chat-header {
-            padding: 15px 20px;
-            background: var(--lighter-purple);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-title {
-            font-weight: 600;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-title i {
-            color: var(--accent-purple);
-        }
-
-        .close-chat {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        /* Why We Exist Section */
+        .why-section {
             background-color: var(--light-gray);
         }
 
-        .message {
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            position: relative;
-            animation: fadeIn 0.4s ease;
-            line-height: 1.5;
-            font-size: 14px;
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        .problem-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .user-message {
-            align-self: flex-end;
-            background-color: var(--user-msg-bg);
-            color: white;
-            border-bottom-right-radius: 5px;
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .bot-message {
-            align-self: flex-start;
-            background-color: var(--bot-msg-bg);
+        .problem-icon {
+            font-size: 42px;
+            margin-bottom: 24px;
+            color: var(--accent-purple);
+        }
+
+        .problem-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
             color: var(--text-dark);
-            border-bottom-left-radius: 5px;
+            text-align: center;
         }
 
-        .chat-input-container {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
+        .problem-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Story Section */
+        .story-section {
             background-color: var(--primary-white);
         }
 
-        .chat-input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-            transition: all 0.3s;
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .chat-input:focus {
-            border-color: var(--accent-purple);
+        .story-content {
+            padding-right: 40px;
         }
 
-        .send-button {
-            background-color: var(--accent-purple);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 0 20px;
-            margin-left: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
+        .story-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .send-button:hover {
-            background-color: var(--accent-purple-dark);
-        }
-
-        /* Final CTA Section */
-        .final-cta-section {
-            background: var(--lighter-purple);
+        .strategy-visual {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: var(--light-purple);
             border-radius: 16px;
-            padding: 60px 40px;
-            text-align: center;
-            margin: 60px 0 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .final-cta-section::before {
+        .strategy-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                var(--accent-purple),
+                rgba(123, 95, 196, 0.7),
+                rgba(123, 95, 196, 0.5),
+                rgba(123, 95, 196, 0.3),
+                var(--accent-purple)
+            );
+            animation: rotate 10s linear infinite;
+            z-index: 1;
+        }
+
+        .strategy-visual-content {
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Approach Section */
+        .approach-section {
+            background-color: var(--light-gray);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .approach-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .approach-icon {
+            background: var(--accent-purple);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .approach-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .approach-content p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* What We're Not Section */
+        .not-section {
+            background-color: var(--primary-white);
+        }
+
+        .not-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .not-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .not-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .not-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--accent-purple);
+        }
+
+        .not-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .not-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Safety Section */
+        .safety-section {
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .safety-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--primary-white);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+        }
+
+        .safety-icon {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: var(--accent-purple);
+        }
+
+        /* CTA Section */
+        .about-cta {
+            background: var(--light-purple);
+            text-align: center;
+            padding: 100px 0 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-cta::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--premium-gradient);
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(123, 95, 196, 0.2) 0%, transparent 50%);
+            z-index: 1;
         }
 
-        .final-cta-title {
-            font-size: 32px;
+        .about-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 36px;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        .final-cta-text {
-            font-size: 18px;
-            color: var(--text-medium);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-
-        .final-cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .final-cta-button {
-            background: var(--accent-purple);
-            color: white;
-            padding: 14px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .final-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
-        }
-
-        .final-cta-button.secondary {
-            background: transparent;
-            color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
-        }
-
-        .final-cta-button.secondary:hover {
-            background: var(--light-purple);
-        }
-
-        /* Footer */
+        /* Footer - UPDATED with The Company next to The Playbook */
         footer {
             background-color: var(--primary-white);
-            padding: 40px 0 20px;
+            padding: 35px 0 20px;
             color: var(--text-medium);
             border-top: 1px solid var(--border-light);
         }
@@ -1120,8 +722,8 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 40px;
+            gap: 70px;
+            margin-bottom: 35px;
             align-items: start;
         }
 
@@ -1136,9 +738,8 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 100px; /* Doubled from 100px */
+            height: 100px;
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
@@ -1156,7 +757,7 @@
         .footer-heading {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: var(--text-dark);
         }
 
@@ -1165,7 +766,7 @@
         }
 
         .footer-link {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .footer-link a {
@@ -1180,7 +781,7 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid var(--border-light);
             font-size: 14px;
         }
@@ -1196,7 +797,7 @@
         .footer-nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 35px;
         }
 
         .footer-newsletter {
@@ -1243,8 +844,8 @@
         }
 
         .footer-newsletter-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.25);
         }
 
         /* Logo Fallback */
@@ -1256,18 +857,15 @@
             text-decoration: none;
         }
 
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
-            .priority-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .strategic-tools-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .problem-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1279,20 +877,46 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
-            
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
+
+            .about-hero-title {
+                font-size: 48px;
             }
-            
-            .search-container {
-                width: 100%;
-                max-width: 100%;
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-content {
+                padding-right: 0;
+            }
+
+            .approach-grid, .not-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
+            .about-hero {
+                padding: 160px 0 0 0;
+            }
+            
+            .about-hero-title {
+                font-size: 36px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+            
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1307,7 +931,7 @@
             
             /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 122px; /* Increased from 100px to 125px (25% increase) */
+                height: 122px;
                 transform: none;
                 padding: 12px 0;
             }
@@ -1318,11 +942,8 @@
                 left: 20px;
             }
             
-            /* Show the Sign Up button in mobile view and position it on the right */
             .header-cta {
-                display: block !important;
-                padding: 8px 16px;
-                font-size: 14px;
+                display: none;
             }
             
             .nav-actions {
@@ -1330,11 +951,6 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
-            }
-            
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: none;
             }
             
             .nav-links {
@@ -1349,7 +965,7 @@
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
                 gap: 20px;
             }
 
@@ -1372,57 +988,21 @@
                 right: auto;
             }
             
-            /* Make the Sign In button in hamburger menu white */
+            /* Move sign-in button to mobile menu */
+            .nav-actions .sign-in {
+                display: none;
+            }
+            
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
                 padding: 12px 20px;
-                background: white;
-                color: var(--accent-purple);
+                background: var(--accent-purple);
+                color: white;
                 border-radius: 8px;
                 text-align: center;
                 font-weight: 600;
                 text-decoration: none;
-                border: 2px solid var(--accent-purple);
-            }
-
-            .dark-mode .mobile-sign-in {
-                background: var(--primary-white);
-                color: var(--accent-purple);
-                border: 2px solid var(--accent-purple);
-            }
-
-            main {
-                flex-direction: column;
-                padding: 100px 20px 20px;
-            }
-
-            .content-wrapper {
-                max-width: 100%;
-            }
-
-            .priority-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .tools-subtitle {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .strategic-tools-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -1430,7 +1010,8 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
             }
 
             .footer-newsletter-form {
@@ -1438,133 +1019,57 @@
             }
             
             .footer-logo-img {
-                height: 120px; /* Doubled for mobile (was 60px) */
+                height: 120px;
             }
             
-            .strategic-tool-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .strategic-tool-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .final-cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .final-cta-section {
-                padding: 40px 20px;
-            }
-            
-            .final-cta-title {
-                font-size: 24px;
-            }
-            
-            .final-cta-text {
-                font-size: 16px;
-            }
-            
-            /* NEW: Floating CTA for mobile */
-            .floating-cta {
+            /* NEW: Mobile CTA Tab */
+            .mobile-cta-tab {
                 display: block;
             }
             
-            /* NEW: Chat widget for mobile */
-            .chat-widget {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 20px;
+            /* Adjust section padding for mobile */
+            section {
+                padding: 60px 0;
             }
             
-            .chat-container {
-                width: calc(100% - 40px);
-                height: 70vh;
-                bottom: 80px;
-                right: 20px;
-                left: 20px;
+            /* Adjust hero padding */
+            .about-hero {
+                padding-top: 100px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .footer-logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .logo-fallback {
                 font-size: 18px;
             }
             
-            .priority-grid {
-                grid-template-columns: 1fr;
+            .about-hero-title {
+                font-size: 2rem;
             }
             
-            .strategic-tools-grid {
-                grid-template-columns: 1fr;
+            .about-hero-subtitle {
+                font-size: 16px;
             }
             
-            .reviews-grid {
+            .footer-nav-grid {
                 grid-template-columns: 1fr;
             }
-            
-            /* NEW: Further floating CTA adjustments for small mobile */
-            .floating-cta {
-                bottom: 80px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-        }
-        
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
-            display: none;
         }
     </style>
 </head>
 
 <body>
 
-<!-- NEW: Floating CTA for Mobile -->
-<a href="create-account.html" class="floating-cta">Sign up</a>
-
-<!-- NEW: Chat Widget -->
-<div class="chat-widget" id="chatWidget">
-    <i class="fas fa-comments"></i>
-</div>
-
-<div class="chat-container" id="chatContainer">
-    <div class="chat-header">
-        <div class="chat-title">
-            <i class="fas fa-robot"></i>
-            <span>Tool Assistant</span>
-        </div>
-        <button class="close-chat" id="closeChat">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">
-            Hi! I'm here to help you find the right tools for your workplace challenges. What are you dealing with right now?
-        </div>
-    </div>
-    <div class="chat-input-container">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Type your question...">
-        <button class="send-button" id="sendButton">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
-</div>
+<!-- NEW: Mobile CTA Tab -->
+<a href="create-account.html" class="mobile-cta-tab">Sign Up</a>
 
 <!-- Navigation -->
 <nav>
@@ -1582,7 +1087,7 @@
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
-            <a href="the-toolkit.html" class="nav-link active">The Toolkit</a>
+            <a href="the-tools.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
@@ -1601,365 +1106,206 @@
     </div>
 </nav>
 
-<!-- Main Content Area -->
-<main>
+<!-- About Hero Section -->
+<section class="about-hero">
+    <div class="about-hero-content">
+        <h1 class="about-hero-title">Built from real workplace <span class="animated-underline">battlefields</span></h1>
+        <p class="about-hero-subtitle">We've seen too many talented professionals lose leverage because they didn't have access to strategic clarity when it mattered most.</p>
+        <a href="#why" class="cta-button">Discover Our Story</a>
+    </div>
+</section>
+
+<!-- Why We Exist Section -->
+<section class="about-content why-section" id="why">
     <div class="container">
-        <div class="content-wrapper">
-            <!-- Tools Header -->
-            <div class="tools-header">
-                <h1 class="hero-title">Your Strategic Advantage</h1>
-                <p class="tools-subtitle">Transform workplace challenges into career-defining opportunities with precision tools</p>
+        <h2 class="section-title">Why we exist</h2>
+        <div class="text-content">
+            <p>The modern workplace is fundamentally broken. While organizations invest in HR departments, legal teams, and strategic advisors, employees are left navigating complex situations with Google searches and well-meaning but unqualified advice.</p>
+            
+            <div class="highlight-box">
+                We exist because the system is stacked against employees who lack strategic insight into how decisions are really made.
             </div>
             
-            <!-- Priority Areas Section -->
-            <div class="full-width-section priority-section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Priority Challenge Areas</h2>
-                        <p class="section-subtitle">Focus on what matters most with our most impactful resources</p>
-                    </div>
-                    <div class="search-container">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search tools, resources...">
-                        <button class="search-button" id="searchButton">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+            <p>This imbalance costs careers, mental health, and financial security. We've watched talented professionals lose promotions, accept unfair terms, and burn bridges—not because they lacked skill, but because they lacked strategy in critical moments.</p>
+        </div>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-user-shield"></i>
                 </div>
-                
-                <div class="priority-grid">
-                    <!-- Priority 1 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <div class="priority-title">Workload & Burnout</div>
-                        <div class="priority-description">
-                            Reclaim control over your workload and prevent burnout with strategic frameworks that restore balance and energy.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Identify burnout triggers before they escalate</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Establish unbreakable work boundaries</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Communicate workload concerns with confidence</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Priority 2 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <div class="priority-title">Micromanagement</div>
-                        <div class="priority-description">
-                            Transform micromanagement into trust-based collaboration with proven communication strategies.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build credibility and demonstrate competence</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Establish clear expectations and reporting</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Navigate sensitive conversations with precision</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Priority 3 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="priority-title">Exclusion & Visibility</div>
-                        <div class="priority-description">
-                            Ensure your contributions are recognised and you're included in key decisions that matter.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Increase visibility with strategic stakeholders</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Secure your seat at critical decision tables</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build influence across the organization</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Priority 4 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="priority-title">Promotion & Recognition</div>
-                        <div class="priority-description">
-                            Position yourself for advancement and ensure your achievements receive the recognition they deserve.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Document and showcase your impact effectively</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Navigate promotion processes strategically</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build a compelling case for advancement</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="explore-more">
-                    <a href="#" class="explore-button">Explore All Challenge Areas</a>
-                </div>
+                <h3 class="problem-title">Distrust of HR</h3>
+                <p class="problem-description">57% of UK workers don't trust HR to handle their concerns fairly. HR's primary responsibility is to protect the organization, not individual employees.</p>
             </div>
             
-            <!-- Strategic Tools Section -->
-            <div class="full-width-section strategic-tools-section">
-                <div class="strategic-tools-header">
-                    <h2 class="section-title">Strategic Power Tools</h2>
-                    <p class="section-subtitle">Our most transformative resources for immediate impact</p>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-eye-slash"></i>
                 </div>
-                
-                <div class="strategic-tools-grid">
-                    <!-- Strategic Tool 1 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon accountability">
-                                <i class="fas fa-clipboard-check"></i>
-                            </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Burnout Intervention Framework</h3>
-                                <div class="strategic-tool-category">Workload & Burnout</div>
-                            </div>
-                        </div>
-                        <div class="strategic-tool-description">
-                            A comprehensive system to identify, address, and prevent burnout while restoring sustainable work practices.
-                        </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Regain control over workload and energy</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish boundaries that protect your wellbeing</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Communicate needs effectively without backlash</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Create sustainable work practices for long-term success</li>
-                            </ul>
-                        </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Strategic Tool 2 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon script">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Trust Building Communication System</h3>
-                                <div class="strategic-tool-category">Micromanagement</div>
-                            </div>
-                        </div>
-                        <div class="strategic-tool-description">
-                            Transform micromanagement dynamics into trust-based partnerships with precise communication strategies.
-                        </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Convert oversight into autonomy and trust</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Demonstrate competence through strategic reporting</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Navigate sensitive conversations with confidence</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish yourself as a reliable, independent contributor</li>
-                            </ul>
-                        </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Strategic Tool 3 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon framework">
-                                <i class="fas fa-cube"></i>
-                            </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Strategic Visibility Framework</h3>
-                                <div class="strategic-tool-category">Exclusion & Visibility</div>
-                            </div>
-                        </div>
-                        <div class="strategic-tool-description">
-                            Ensure your contributions are recognised and you're included in critical decisions that shape your career.
-                        </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Increase visibility with key decision-makers</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Secure inclusion in critical meetings and projects</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Build influence across organizational boundaries</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Position yourself for advancement opportunities</li>
-                            </ul>
-                        </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="problem-title">Lack of Transparency</h3>
+                <p class="problem-description">Critical decisions about careers happen behind closed doors. Employees rarely understand the real criteria for promotions, pay rises, or role changes.</p>
             </div>
             
-            <!-- NEW: Reviews Section -->
-            <div class="full-width-section reviews-section">
-                <div class="reviews-header">
-                    <h2 class="section-title">Real Impact Stories</h2>
-                    <p class="section-subtitle">See how our tools have transformed workplace challenges for professionals</p>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
-                
-                <div class="reviews-grid">
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            "The Burnout Intervention Framework saved my career. I was on the verge of quitting when I found this tool. Within two weeks, I had clear boundaries and a plan to address my unsustainable workload. My manager actually respected my new approach."
-                        </div>
-                        <div class="review-author">
-                            <div class="review-avatar">SJ</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Sarah Johnson</div>
-                                <div class="review-author-role">Senior Project Manager, Tech</div>
-                            </div>
-                        </div>
-                        <div class="review-tool">Burnout Intervention Framework</div>
-                    </div>
-                    
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            "I went from being micromanaged every day to having complete autonomy in just one month. The Trust Building Communication System gave me the exact scripts I needed to rebuild trust with my manager. Now I'm leading my own projects."
-                        </div>
-                        <div class="review-author">
-                            <div class="review-avatar">MR</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Michael Rodriguez</div>
-                                <div class="review-author-role">Marketing Director</div>
-                            </div>
-                        </div>
-                        <div class="review-tool">Trust Building Communication System</div>
-                    </div>
-                    
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            "The Strategic Visibility Framework helped me get noticed by senior leadership. I used to do great work that went unseen. Now I'm regularly included in strategic meetings and was recently promoted. This tool pays for itself many times over."
-                        </div>
-                        <div class="review-author">
-                            <div class="review-avatar">PT</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">Priya Thompson</div>
-                                <div class="review-author-role">Data Analyst</div>
-                            </div>
-                        </div>
-                        <div class="review-tool">Strategic Visibility Framework</div>
-                    </div>
-                    
-                    <!-- Review 4 -->
-                    <div class="review-card">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="review-text">
-                            "I was struggling with a difficult colleague who was undermining my work. The Conflict Navigation Scripts gave me the exact words to use in our conversations. The situation improved dramatically, and I now feel confident handling any workplace conflict."
-                        </div>
-                        <div class="review-author">
-                            <div class="review-avatar">DW</div>
-                            <div class="review-author-info">
-                                <div class="review-author-name">David Wilson</div>
-                                <div class="review-author-role">Operations Manager</div>
-                            </div>
-                        </div>
-                        <div class="review-tool">Conflict Navigation Scripts</div>
-                    </div>
+                <h3 class="problem-title">Knowledge Gap</h3>
+                <p class="problem-description">No one teaches workplace strategy. Schools prepare you for technical skills, but leave you unprepared for the politics and dynamics that determine success.</p>
+            </div>
+        </div>
+        
+        <div class="text-content" style="margin-top: 60px;">
+            <p>The Employee Playbook exists to level the playing field. We provide the strategic clarity that organizations reserve for themselves, giving you the insight to navigate workplace challenges with confidence and precision.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section class="about-content story-section">
+    <div class="container">
+        <h2 class="section-title">Our founding story</h2>
+        <div class="story-grid">
+            <div class="story-content">
+                <div class="text-content">
+                    <p>We're people who have lived through workplace challenges firsthand. We've been in the rooms where careers were decided based on perception, politics, and positioning—not just performance.</p>
+                    <p>We've watched talented people lose opportunities because they didn't understand the unwritten rules of organizational dynamics. We've seen how the system works when the doors close.</p>
+                    <p>That hard-won insight—what really happens when the door closes—became the foundation of The Employee Playbook. Not to game the system, but to ensure the system doesn't game you.</p>
+                    <p>We've distilled years of behind-the-scenes knowledge into frameworks, scripts, and strategies that give you the clarity to navigate any workplace challenge with confidence.</p>
                 </div>
             </div>
-            
-            <!-- Final CTA Section -->
-            <div class="final-cta-section">
-                <h2 class="final-cta-title">Build Your Strategic Advantage</h2>
-                <p class="final-cta-text">Stop reacting to workplace challenges and start shaping your career with precision. Our tools give you the clarity and confidence to navigate complex situations and emerge stronger.</p>
-                <div class="final-cta-buttons">
-                    <a href="create-account.html" class="final-cta-button">Start Your Journey Today</a>
-                    <a href="the-pricing.html" class="final-cta-button secondary">View Strategic Pricing</a>
+            <div class="story-visual">
+                <div class="strategy-visual">
+                    <div class="strategy-visual-content">
+                        <i class="fas fa-chess-knight" style="font-size: 48px; color: #7B5FC4; margin-bottom: 20px;"></i>
+                        <h3>Strategic Advantage</h3>
+                        <p>When moments matter most</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</section>
 
-<!-- Footer -->
+<!-- Our Approach Section -->
+<section class="about-content approach-section">
+    <div class="container">
+        <h2 class="section-title">Our approach</h2>
+        <p class="section-subtitle">We believe in strategy that works when emotions run high</p>
+        
+        <div class="approach-grid">
+            <div class="approach-item">
+                <div class="approach-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="approach-content">
+                    <h3>ACAS-aligned insight, not legal advice</h3>
+                    <p>We translate employment frameworks into actionable strategy without pretending to be lawyers. Our guidance respects established workplace protocols while giving you strategic advantage.</p>
+                </div>
+            </div>
+            
+            <div class="approach-item">
+                <div class="approach-icon">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <div class="approach-content">
+                    <h3>Strategy before emotion</h3>
+                    <p>High-stakes moments trigger fight-or-flight responses. We provide the clarity to override panic with precision, turning emotional reactions into strategic actions.</p>
+                </div>
+            </div>
+            
+            <div class="approach-item">
+                <div class="approach-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="approach-content">
+                    <h3>Privacy before performance</h3>
+                    <p>Your strategic moves stay between us. No employer access, no stored conversations, no digital footprint. Your privacy enables your strategic freedom.</p>
+                </div>
+            </div>
+            
+            <div class="approach-item">
+                <div class="approach-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="approach-content">
+                    <h3>One smart move beats 10 reactive ones</h3>
+                    <p>We focus on the single most strategic action that changes the entire dynamic, not a checklist of generic advice. Precision over volume.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We're Not Section -->
+<section class="about-content not-section">
+    <div class="container">
+        <h2 class="section-title">What we're not</h2>
+        <p class="section-subtitle">Clarity about our boundaries creates trust in our guidance</p>
+        
+        <div class="not-grid">
+            <div class="not-card">
+                <div class="not-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="not-title">Not legal representatives</h3>
+                <p class="not-description">We don't provide legal advice or representation. We provide strategic clarity within employment frameworks.</p>
+            </div>
+            
+            <div class="not-card">
+                <div class="not-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="not-title">Not a union</h3>
+                <p class="not-description">We don't collectively bargain or represent groups. We focus on your individual strategic advantage.</p>
+            </div>
+            
+            <div class="not-card">
+                <div class="not-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3 class="not-title">Not emotional ventilation</h3>
+                <p class="not-description">We're not here to just listen. We're here to transform frustration into strategic action.</p>
+            </div>
+            
+            <div class="not-card">
+                <div class="not-icon">
+                    <i class="fas fa-chess-queen"></i>
+                </div>
+                <h3 class="not-title">Not about winning battles</h3>
+                <p class="not-description">We help you respond strategically—because what you say next still matters, regardless of the outcome.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Safety & Privacy Section -->
+<section class="about-content safety-section">
+    <div class="container">
+        <div class="safety-content">
+            <div class="safety-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2 class="section-title">Your privacy is non-negotiable</h2>
+            <div class="text-content">
+                <p>We believe strategic guidance requires absolute confidentiality. Nothing you share with us is stored long-term. No employer has access to our conversations. No data is sold or shared.</p>
+                <p>Your strategic moves stay between us—because leverage disappears when strategy becomes public. We're your private strategic partner, not another corporate database.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="about-cta">
+    <div class="container about-cta-content">
+        <h2 class="cta-title">Take back your power</h2>
+        <p class="section-subtitle">Stop reacting. Start strategizing.</p>
+        
+        <!-- Removed the two CTA buttons -->
+    </div>
+</section>
+
+<!-- Footer - UPDATED with The Company next to The Playbook -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -1988,21 +1334,22 @@
                         <h3 class="footer-heading">The Playbook</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
-                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-tools.html">The Toolkit</a></li>
                             <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
                             <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
                             <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
                         </ul>
                     </div>
                     
+                    <!-- UPDATED: The Company next to The Playbook -->
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">Company</h3>
+                        <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="privacy,html">Privacy</a></li>
+                            <li class="footer-link"><a href="#">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
-                            <li class="footer-link"><a href="security.html">Security</a></li>
-                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
+                            <li class="footer-link"><a href="#">Security</a></li>
+                            <li class="footer-link"><a href="#">Help Centre</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2010,206 +1357,66 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 The Employee Playbook. All rights reserved.</p>
+            <p>© 2023 The Employee Playbook. All rights reserved.</p>
         </div>
     </div>
 </footer>
 
 <script>
-    // JavaScript for The Tools page
+    // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
-        // Mark page as loaded to prevent FOUC
         document.body.classList.add('loaded');
         
-        // Mobile menu toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                const icon = this.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-        }
-        
-        // Light/Dark mode toggle
+        // Dark mode toggle
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
         // Check for saved theme preference or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
-        
         if (currentTheme === 'dark') {
             document.body.classList.add('dark-mode');
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
         }
         
-        themeToggle.addEventListener('click', function() {
+        themeToggle.addEventListener('click', function () {
             document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
             
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                
-                // Update logos for dark mode
-                const logo = document.getElementById('logo');
-                const footerLogo = document.getElementById('footer-logo');
-                if (logo) logo.src = 'assets/img/logo-dark.png';
-                if (footerLogo) footerLogo.src = 'assets/img/logo-dark.png';
+            // Update icon
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+            
+            // Save theme preference
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            
+            // Update logo for dark mode
+            const logo = document.getElementById('logo');
+            const footerLogo = document.getElementById('footer-logo');
+            if (isDarkMode) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
             } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                
-                // Update logos for light mode
-                const logo = document.getElementById('logo');
-                const footerLogo = document.getElementById('footer-logo');
-                if (logo) logo.src = 'assets/img/logo.png';
-                if (footerLogo) footerLogo.src = 'assets/img/logo.png';
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
             }
         });
-        
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const searchButton = document.getElementById('searchButton');
-        const priorityCards = document.querySelectorAll('.priority-card');
-        
-        function performSearch() {
-            const query = searchInput.value.trim().toLowerCase();
-            if (query === '') {
-                // Reset all cards if search is empty
-                priorityCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-                return;
-            }
-            
-            let foundResults = false;
-            
-            priorityCards.forEach(card => {
-                const title = card.querySelector('.priority-title').textContent.toLowerCase();
-                const description = card.querySelector('.priority-description').textContent.toLowerCase();
-                const impactItems = Array.from(card.querySelectorAll('.impact-item span'))
-                    .map(item => item.textContent.toLowerCase());
-                
-                const matches = title.includes(query) || 
-                               description.includes(query) || 
-                               impactItems.some(item => item.includes(query));
-                
-                if (matches) {
-                    card.style.display = 'flex';
-                    foundResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Show message if no results found
-            if (!foundResults) {
-                alert(`No results found for "${query}". Try different keywords.`);
-                // Reset display
-                priorityCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-            }
-        }
-        
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+
+        // Mobile navigation toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
-        
-        // Priority card interactions
-        const priorityButtons = document.querySelectorAll('.priority-button');
-        priorityButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const priorityTitle = this.closest('.priority-card').querySelector('.priority-title').textContent;
-                alert(`Exploring solutions for: ${priorityTitle}`);
-                // In a full implementation, this would filter the tools shown
-            });
-        });
-        
-        // Strategic tool button interactions
-        const strategicToolButtons = document.querySelectorAll('.strategic-tool-button');
-        strategicToolButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const toolTitle = this.closest('.strategic-tool-card').querySelector('.strategic-tool-title').textContent;
-                alert(`Accessing strategic tool: ${toolTitle}`);
-                // In a full implementation, this would navigate to the tool page
-            });
-        });
-        
-        // NEW: Chat widget functionality
-        const chatWidget = document.getElementById('chatWidget');
-        const chatContainer = document.getElementById('chatContainer');
-        const closeChat = document.getElementById('closeChat');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const sendButton = document.getElementById('sendButton');
-        
-        chatWidget.addEventListener('click', function() {
-            chatContainer.classList.toggle('active');
-        });
-        
-        closeChat.addEventListener('click', function() {
-            chatContainer.classList.remove('active');
-        });
-        
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function handleChatInput() {
-            const text = chatInput.value.trim();
-            if (text === '') return;
-            
-            addMessage(text, true);
-            chatInput.value = '';
-            
-            // Simulate bot response
-            setTimeout(() => {
-                let response = '';
-                if (text.toLowerCase().includes('burnout') || text.toLowerCase().includes('workload')) {
-                    response = "For workload and burnout challenges, I recommend the Burnout Intervention Framework. It helps you identify triggers, establish boundaries, and communicate needs effectively.";
-                } else if (text.toLowerCase().includes('micromanag') || text.toLowerCase().includes('trust')) {
-                    response = "For micromanagement issues, the Trust Building Communication System is perfect. It provides scripts and strategies to transform oversight into autonomy.";
-                } else if (text.toLowerCase().includes('visibility') || text.toLowerCase().includes('exclusion')) {
-                    response = "If you're struggling with visibility or exclusion, the Strategic Visibility Framework will help you get noticed by key decision-makers and secure your seat at important tables.";
-                } else if (text.toLowerCase().includes('promotion') || text.toLowerCase().includes('recognition')) {
-                    response = "For promotion and recognition challenges, we have tools that help you document impact, navigate promotion processes, and build a compelling case for advancement.";
-                } else {
-                    response = "I can help you find the right tools for your workplace challenges. Tell me more about what you're dealing with - is it workload, micromanagement, visibility, promotion, or something else?";
-                }
-                
-                addMessage(response, false);
-            }, 1000);
-        }
-        
-        sendButton.addEventListener('click', handleChatInput);
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                handleChatInput();
-            }
-        });
-        
+
         // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 96; // 80px header + 16px extra spacing
+                    const offset = 96;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
@@ -2220,6 +1427,24 @@
                 }
             });
         });
+
+        // Simple animation for the strategy visual
+        const strategyVisual = document.querySelector('.strategy-visual');
+        
+        // Add intersection observer for animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    strategyVisual.style.animationPlayState = 'running';
+                } else {
+                    strategyVisual.style.animationPlayState = 'paused';
+                }
+            });
+        });
+        
+        if (strategyVisual) {
+            observer.observe(strategyVisual);
+        }
     });
 </script>
 
