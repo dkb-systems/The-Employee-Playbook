@@ -141,14 +141,27 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
+            position: relative;
         }
 
         .nav-link:hover {
             color: var(--accent-purple);
         }
 
+        /* Active navigation link with purple underline */
         .nav-link.active {
             color: var(--text-dark);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-purple);
+            border-radius: 2px;
         }
 
         .nav-actions {
@@ -243,6 +256,11 @@
 
         /* Mobile Sign In Button */
         .mobile-sign-in {
+            display: none;
+        }
+
+        /* Mobile Create Account Button */
+        .mobile-create-account {
             display: none;
         }
 
@@ -1320,6 +1338,213 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
+        /* Create Account Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .create-account-modal {
+            background-color: var(--primary-white);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: var(--light-gray);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-purple);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
+        }
+
+        .modal-submit {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .modal-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        /* Mobile Lens Overlay */
+        .mobile-lens-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-white);
+            z-index: 1500;
+            flex-direction: column;
+        }
+
+        .mobile-lens-overlay.active {
+            display: flex;
+        }
+
+        .mobile-lens-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--primary-white);
+        }
+
+        .mobile-lens-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-mobile-lens {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-mobile-lens:hover {
+            background-color: var(--light-gray);
+        }
+
+        .mobile-lens-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .mobile-lens-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: var(--light-gray);
+        }
+
+        .mobile-lens-input-container {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+            background-color: var(--primary-white);
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .mobile-lens-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .mobile-lens-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1451,6 +1676,20 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
+            }
+
+            .mobile-create-account {
+                display: block !important;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: var(--accent-purple);
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
+                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
             .dark-mode .mobile-sign-in {
@@ -1732,6 +1971,21 @@
             .popular-issues.active {
                 transform: translateY(0);
             }
+
+            /* Mobile Lens Overlay */
+            .mobile-lens-input-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 15px;
+                background-color: var(--primary-white);
+                border-top: 1px solid var(--border-light);
+            }
+
+            .mobile-lens-messages {
+                padding-bottom: 80px; /* Space for input */
+            }
         }
 
         @media (max-width: 480px) {
@@ -1781,6 +2035,11 @@
         .mobile-sign-in {
             display: none;
         }
+
+        /* Mobile Create Account Button */
+        .mobile-create-account {
+            display: none;
+        }
     </style>
 </head>
 
@@ -1808,6 +2067,7 @@
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
+            <a href="create-account.html" class="mobile-create-account">Create Account</a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
@@ -2143,6 +2403,56 @@
     </div>
 </footer>
 
+<!-- Create Account Modal -->
+<div class="modal-overlay" id="createAccountModal">
+    <div class="create-account-modal">
+        <div class="modal-header">
+            <h2 class="modal-title">Create Account</h2>
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form class="modal-form">
+            <div class="form-group">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" id="fullName" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+            </div>
+            <button type="submit" class="modal-submit">Create Account</button>
+        </form>
+    </div>
+</div>
+
+<!-- Mobile Lens Overlay -->
+<div class="mobile-lens-overlay" id="mobileLensOverlay">
+    <div class="mobile-lens-header">
+        <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
+        <button class="close-mobile-lens" id="closeMobileLens">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-lens-content">
+        <div class="mobile-lens-messages" id="mobileLensMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Let's get into it. What's been happening at work?</p>
+                    <p>No judgement. Just say it how it feels.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-lens-input-container">
+            <input type="text" class="mobile-lens-input" id="mobileLensInput" placeholder="Describe your workplace challenge...">
+        </div>
+    </div>
+</div>
+
 <script>
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
@@ -2189,6 +2499,82 @@
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
+        });
+
+        // Create Account Modal
+        const createAccountModal = document.getElementById('createAccountModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Open modal when clicking Create Account in mobile nav
+        document.querySelector('.mobile-create-account').addEventListener('click', function(e) {
+            e.preventDefault();
+            createAccountModal.classList.add('active');
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            createAccountModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        createAccountModal.addEventListener('click', function(e) {
+            if (e.target === createAccountModal) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+
+        // Mobile Lens Overlay
+        const mobileLensOverlay = document.getElementById('mobileLensOverlay');
+        const closeMobileLens = document.getElementById('closeMobileLens');
+        const mobileLensMessages = document.getElementById('mobileLensMessages');
+        const mobileLensInput = document.getElementById('mobileLensInput');
+        
+        // Open mobile lens when clicking The Lens in mobile nav
+        document.querySelector('.nav-link.active').addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                mobileLensOverlay.classList.add('active');
+            }
+        });
+        
+        // Close mobile lens
+        closeMobileLens.addEventListener('click', function() {
+            mobileLensOverlay.classList.remove('active');
+        });
+        
+        // Mobile lens input functionality
+        mobileLensInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const message = mobileLensInput.value.trim();
+                if (message === '') return;
+                
+                // Add user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'message user-message';
+                userMessageDiv.innerHTML = `
+                    <div class="message-content">
+                        ${message}
+                    </div>
+                `;
+                mobileLensMessages.appendChild(userMessageDiv);
+                mobileLensInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const botMessageDiv = document.createElement('div');
+                    botMessageDiv.className = 'message bot-message';
+                    botMessageDiv.innerHTML = `
+                        <div class="message-content">
+                            <p>Thank you for sharing that. I understand how challenging that situation can be.</p>
+                            <p>Based on what you've described, I recommend checking out the "Difficult Conversations" section in The Toolkit for specific strategies and scripts.</p>
+                        </div>
+                    `;
+                    mobileLensMessages.appendChild(botMessageDiv);
+                    mobileLensMessages.scrollTop = mobileLensMessages.scrollHeight;
+                }, 1000);
+                
+                mobileLensMessages.scrollTop = mobileLensMessages.scrollHeight;
+            }
         });
 
         // JavaScript for The Lens chat functionality
