@@ -806,30 +806,195 @@
             text-decoration: none;
         }
 
-        /* NEW: Create Account Floating Button for Mobile */
-        .mobile-create-account-btn {
+        /* NEW: Create Account Tab for Mobile */
+        .mobile-create-account-tab {
             display: none;
             position: fixed;
             top: 20%;
-            right: 15px;
+            right: 0;
             background: var(--gradient-primary);
             color: white;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
+            border-radius: 12px 0 0 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 24px;
             z-index: 999;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.4);
+            box-shadow: -2px 4px 12px rgba(123, 95, 196, 0.4);
             transition: all 0.3s ease;
             align-items: center;
             justify-content: center;
         }
 
-        .mobile-create-account-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.5);
+        .mobile-create-account-tab:hover {
+            transform: translateX(-3px);
+            box-shadow: -3px 6px 16px rgba(123, 95, 196, 0.5);
+        }
+
+        /* NEW: Create Account Modal */
+        .create-account-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .create-account-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--primary-white);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--deep-navy);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: var(--light-gray);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .modal-footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Close Options Examples */
+        .close-options {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .close-options-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .close-options-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .close-option {
+            background: var(--light-gray);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: var(--text-medium);
         }
 
         /* Responsive */
@@ -1099,8 +1264,8 @@
                 padding: 0 20px;
             }
             
-            /* NEW: Show the Create Account Floating Button on mobile */
-            .mobile-create-account-btn {
+            /* NEW: Show the Create Account Tab on mobile */
+            .mobile-create-account-tab {
                 display: flex;
             }
             
@@ -1152,10 +1317,56 @@
 
 <body>
 
-<!-- NEW: Create Account Floating Button for Mobile -->
-<a href="create-account.html" class="mobile-create-account-btn">
+<!-- NEW: Create Account Tab for Mobile -->
+<a href="#" class="mobile-create-account-tab" id="createAccountTab">
     <i class="fas fa-user-plus"></i>
 </a>
+
+<!-- NEW: Create Account Modal -->
+<div class="create-account-modal" id="createAccountModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Create Account</h2>
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form class="modal-form">
+            <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+        
+        <div class="modal-footer">
+            <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+        </div>
+        
+        <!-- Close Options Examples -->
+        <div class="close-options">
+            <h3 class="close-options-title">Ways to close this form:</h3>
+            <ul class="close-options-list">
+                <li class="close-option">X button (top-right)</li>
+                <li class="close-option">Tap outside form</li>
+                <li class="close-option">ESC key</li>
+                <li class="close-option">Swipe down</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!-- Navigation -->
 <nav>
@@ -1541,6 +1752,45 @@
                     document.querySelector('.mobile-toggle i').classList.remove('fa-times');
                 }
             });
+        });
+        
+        // Create Account Modal Functionality
+        const createAccountTab = document.getElementById('createAccountTab');
+        const createAccountModal = document.getElementById('createAccountModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Open modal when tab is clicked
+        createAccountTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            createAccountModal.classList.add('active');
+        });
+        
+        // Close modal when X button is clicked
+        closeModal.addEventListener('click', function() {
+            createAccountModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside the form
+        createAccountModal.addEventListener('click', function(e) {
+            if (e.target === createAccountModal) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && createAccountModal.classList.contains('active')) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+        
+        // Handle form submission
+        const modalForm = document.querySelector('.modal-form');
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would handle form submission here
+            alert('Account creation would be processed here in a real implementation');
+            createAccountModal.classList.remove('active');
         });
     });
 </script>
