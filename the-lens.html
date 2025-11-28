@@ -148,7 +148,7 @@
             color: var(--accent-purple);
         }
 
-        /* Active navigation link with purple underline */
+        /* Active navigation link with purple underline (desktop only) */
         .nav-link.active {
             color: var(--text-dark);
         }
@@ -261,6 +261,11 @@
 
         /* Mobile Create Account Button */
         .mobile-create-account {
+            display: none;
+        }
+
+        /* Mobile Create Account Tab */
+        .mobile-create-tab {
             display: none;
         }
 
@@ -1525,8 +1530,10 @@
             padding: 15px;
             border-top: 1px solid var(--border-light);
             background-color: var(--primary-white);
-            position: sticky;
+            position: fixed;
             bottom: 0;
+            left: 0;
+            width: 100%;
             z-index: 10;
         }
 
@@ -1649,6 +1656,11 @@
                 display: flex;
             }
             
+            /* Remove purple underline from active nav link on mobile */
+            .nav-link.active::after {
+                display: none;
+            }
+            
             /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
@@ -1690,6 +1702,29 @@
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
+            }
+
+            /* Mobile Create Account Tab */
+            .mobile-create-tab {
+                display: flex;
+                position: absolute;
+                right: 70px;
+                background: var(--accent-purple);
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-create-tab:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(123, 95, 196, 0.4);
             }
 
             .dark-mode .mobile-sign-in {
@@ -2040,6 +2075,11 @@
         .mobile-create-account {
             display: none;
         }
+
+        /* Mobile Create Account Tab */
+        .mobile-create-tab {
+            display: none;
+        }
     </style>
 </head>
 
@@ -2055,6 +2095,11 @@
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
+        
+        <!-- Mobile Create Account Tab -->
+        <div class="mobile-create-tab" id="mobileCreateTab">
+            <i class="fas fa-user-plus"></i>
+        </div>
         
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
@@ -2501,12 +2546,13 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Create Account Modal
+        // Mobile Create Account Tab
+        const mobileCreateTab = document.getElementById('mobileCreateTab');
         const createAccountModal = document.getElementById('createAccountModal');
         const closeModal = document.getElementById('closeModal');
         
-        // Open modal when clicking Create Account in mobile nav
-        document.querySelector('.mobile-create-account').addEventListener('click', function(e) {
+        // Open modal when clicking Create Account tab
+        mobileCreateTab.addEventListener('click', function(e) {
             e.preventDefault();
             createAccountModal.classList.add('active');
         });
