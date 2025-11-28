@@ -6,11 +6,20 @@
     <meta name="description" content="Private strategic clarity for workplace decisions. Smart scripts, frameworks and guidance for when moments matter. Not legal advice.">
     <title>The Employee Playbook | Strategic Clarity for Critical Moments</title>
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -78,7 +87,7 @@
             padding: 100px 0;
         }
 
-        /* Pinned Sign-up Banner - FIXED: Centered icon and moved up */
+        /* Pinned Sign-up Banner */
         .pinned-signup-banner {
             display: none;
             position: fixed;
@@ -101,10 +110,6 @@
             line-height: 1.3;
             letter-spacing: 1px;
             border: 2px solid white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
         }
 
         .pinned-signup-banner::before {
@@ -127,118 +132,6 @@
             transform: translateY(-50%) translateX(-8px);
             box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
             padding-right: 20px;
-        }
-
-        /* Login Page */
-        .login-page {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2002;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-page.active {
-            display: flex;
-        }
-
-        .login-container {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 40px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .login-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--text-medium);
-            cursor: pointer;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .login-close:hover {
-            background-color: var(--light-gray);
-        }
-
-        .login-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-align: center;
-            color: var(--text-dark);
-        }
-
-        .login-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .login-input {
-            padding: 14px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 16px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .login-input:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-        }
-
-        .login-button {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .login-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-        }
-
-        .login-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .login-link {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-
-        .login-link:hover {
-            text-decoration: underline;
         }
 
         /* Navigation */
@@ -289,7 +182,6 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
-            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -308,10 +200,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 17px;
-            cursor: pointer;
         }
-
-        /* REMOVED: .header-cta (Sign me up button) */
 
         .theme-toggle {
             background: none;
@@ -372,176 +261,18 @@
             white-space: nowrap;
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 24px;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 320px;
-            height: 460px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container.active {
-            display: flex;
-        }
-
-        .chat-header {
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-title {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 100%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .message-bot {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .message-user {
-            background: var(--accent-purple);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            max-width: 80%;
-        }
-
-        .chat-input-container {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .chat-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-input {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .hand-wave {
-            display: inline-block;
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-
         /* Mobile Sign In Button */
         .mobile-sign-in {
             display: none;
-            cursor: pointer;
         }
 
-        /* Hero Section - FIXED: Properly centered for mobile */
+        /* Hero Section */
         .hero {
             background: var(--hero-gray);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
             text-align: center;
             padding-top: 0;
             width: 100%;
@@ -550,7 +281,6 @@
             padding-right: 0;
             min-height: calc(100vh - 80px);
             margin-top: 80px;
-            overflow: hidden;
         }
 
         .hero-content {
@@ -560,10 +290,6 @@
             padding-top: 60px;
             text-align: center;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero-headline {
@@ -575,7 +301,6 @@
             margin: 20px auto 28px;
             letter-spacing: -1px;
             min-height: 1.25em;
-            width: 100%;
         }
 
         .hero-subhead {
@@ -586,7 +311,6 @@
             max-width: 1200px;
             margin: 0 auto 44px;
             min-height: 1.5em;
-            width: 100%;
         }
 
         .hero-note {
@@ -595,7 +319,7 @@
             margin-top: 20px;
         }
 
-        /* Flashing words styling - FIXED: Proper centering */
+        /* Flashing words styling */
         .flashing-words {
             font-size: 84px;
             font-weight: 700;
@@ -607,10 +331,6 @@
             min-height: 1.25em;
             position: relative;
             height: 105px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
         }
 
         .flashing-word {
@@ -620,7 +340,6 @@
             width: 100%;
             opacity: 0;
             animation: flashWords 21s infinite;
-            text-align: center;
         }
 
         .flashing-word:nth-child(1) { animation-delay: 0s; }
@@ -654,7 +373,7 @@
             box-shadow: 0 15px 35px rgba(123, 95, 196, 0.4);
         }
 
-        /* Banner - REMOVED: CTA above banner */
+        /* Banner */
         .search-banner {
             background: var(--light-purple);
             padding: 16px 0;
@@ -1861,6 +1580,162 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 24px;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        .chat-container {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 460px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--accent-purple);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 100%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-bot {
+            background: var(--light-gray);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-user {
+            background: var(--accent-purple);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            max-width: 80%;
+        }
+
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .chat-send {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .hand-wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
         /* Logo Fallback */
         .logo-fallback {
             display: none;
@@ -2287,23 +2162,6 @@
     </div>
 </div>
 
-<!-- Login Page -->
-<div class="login-page" id="loginPage">
-    <div class="login-container">
-        <button class="login-close" id="loginClose">&times;</button>
-        <h2 class="login-title">Sign In</h2>
-        <form class="login-form">
-            <input type="email" class="login-input" placeholder="Email" required>
-            <input type="password" class="login-input" placeholder="Password" required>
-            <button type="submit" class="login-button">Sign In</button>
-            <div class="login-links">
-                <a href="#" class="login-link">Forgot Password?</a>
-                <a href="create-account.html" class="login-link">Create Account</a>
-            </div>
-        </form>
-    </div>
-</div>
-
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
@@ -2328,7 +2186,6 @@
         </div>
         
         <div class="nav-actions">
-            <!-- REMOVED: Sign me up CTA button -->
             <a href="#" class="sign-in" id="desktopSignIn">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -2352,10 +2209,9 @@
             Don't react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
             <span class="hero-note">Not legal advice. Just the clarity you wish you'd had sooner</span>
         </p>
-        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
     </div>
 
-    <!-- Banner - REMOVED: CTA above banner -->
+    <!-- Banner -->
     <div class="search-banner">
         <div class="search-banner-content">
             "How do I ask for a promotion without sounding entitled?" &nbsp; &nbsp; • &nbsp; &nbsp; 
@@ -2385,47 +2241,652 @@
     </div>
 </section>
 
-<!-- Rest of the HTML content remains the same -->
-<!-- Statistics Section, Pillars Section, Usage Section, Trusted Section, Final CTA, Footer, Chat Widget -->
+<!-- Statistics Section -->
+<section class="statistics" id="statistics">
+    <div class="container">
+        <div class="stats-container">
+            <!-- Duplicate header stats -->
+            <div class="stats-content">
+                <h2 class="stats-title">The hidden costs of workplace stress</h2>
+                <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
+            </div>
+            
+            <!-- Desktop Layout -->
+            <div class="stats-interactive-container">
+                <div class="stats-cards-column">
+                    <!-- Personal Impact Card -->
+                    <div class="stat-card" id="personal-impact" data-target="personal-expansion">
+                        <div class="stat-card-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-content">
+                                <div class="stat-title">Personal Impact</div>
+                                <div class="stat-subtitle">How work affects health, sleep and wellbeing</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Impact Card -->
+                    <div class="stat-card" id="career-impact" data-target="career-expansion">
+                        <div class="stat-card-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-content">
+                                <div class="stat-title">Career Impact</div>
+                                <div class="stat-subtitle">Barriers to progression and professional growth</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Knowledge Impact Card -->
+                    <div class="stat-card" id="knowledge-impact" data-target="knowledge-expansion">
+                        <div class="stat-card-header">
+                            <div class="icon-container">
+                                <div class="icon-circle">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="stat-card-content">
+                                <div class="stat-title">Knowledge Gaps</div>
+                                <div class="stat-subtitle">Understanding policies, rights and expectations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-display-area">
+                    <!-- Default Placeholder Content -->
+                    <div class="stats-placeholder" id="stats-placeholder">
+                        <div class="stats-placeholder-title">The Ripple Effect of Workplace Stress</div>
+                        <div class="stats-placeholder-text">
+                            <p>When work starts to take over, it doesn't just drain us during office hours — it seeps into everything.</p>
+                            <p>It unsettles our sleep, shortens our patience with the people we care about, and slowly erodes how capable we believe we are.</p>
+                            <p>Stress doesn't clock out when we do. It comes home with us, sits at the dinner table, and whispers at night when we should be resting.</p>
+                            <p>But it doesn't have to stay that way. The moment we recognise the true impact is the moment we start taking back control.</p>
+                        </div>
+                        <div class="stats-placeholder-cta">← Click on a category to explore the impact</div>
+                    </div>
+                    
+                    <!-- Personal Impact Expansion Bar -->
+                    <div class="stats-expansion-bar" id="personal-expansion">
+                        <button class="close-expansion">&times;</button>
+                        <div class="stats-expansion-header">
+                            <h3 class="stats-expansion-title">Personal Impact</h3>
+                            <p class="stats-expansion-subtitle">How work stress affects your health and wellbeing</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">43%</div>
+                                <div class="stat-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
+                                <div class="stat-source">CIPD – Health & Well-being at Work Report (2024)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">79%</div>
+                                <div class="stat-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
+                                <div class="stat-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">63%</div>
+                                <div class="stat-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
+                                <div class="stat-source">MHFA England (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Impact Expansion Bar -->
+                    <div class="stats-expansion-bar" id="career-expansion">
+                        <button class="close-expansion">&times;</button>
+                        <div class="stats-expansion-header">
+                            <h3 class="stats-expansion-title">Career Impact</h3>
+                            <p class="stats-expansion-subtitle">How workplace barriers hold back your professional growth</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">33%</div>
+                                <div class="stat-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
+                                <div class="stat-source">Workplace Insight (UK)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">48%</div>
+                                <div class="stat-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
+                                <div class="stat-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">50%</div>
+                                <div class="stat-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
+                                <div class="stat-source">O.C. Tanner – HRReview, 2021</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Knowledge Impact Expansion Bar -->
+                    <div class="stats-expansion-bar" id="knowledge-expansion">
+                        <button class="close-expansion">&times;</button>
+                        <div class="stats-expansion-header">
+                            <h3 class="stats-expansion-title">Knowledge & Clarity Gaps</h3>
+                            <p class="stats-expansion-subtitle">How lack of information creates workplace uncertainty</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">21%</div>
+                                <div class="stat-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
+                                <div class="stat-source">Personnel Today – Lattice Survey (2024)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">53%</div>
+                                <div class="stat-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
+                                <div class="stat-source">People Management (2024)</div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-value">25%</div>
+                                <div class="stat-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
+                                <div class="stat-source">CIPHR Research (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Stats Layout -->
+            <div class="stats-mobile-container">
+                <!-- Personal Impact Mobile -->
+                <div class="stats-mobile-category">
+                    <div class="stats-mobile-header">
+                        <div class="icon-container">
+                            <div class="icon-circle">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                        </div>
+                        <h3 class="stats-mobile-title">Personal Impact</h3>
+                    </div>
+                    <div class="stats-mobile-grid">
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">43%</div>
+                            <div class="stats-mobile-explanation">of UK employees reported experiencing sleep problems in the past year, with work being a contributing factor.</div>
+                            <div class="stats-mobile-source">CIPD – Health & Well-being at Work Report (2024)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">79%</div>
+                            <div class="stats-mobile-explanation">of UK workers are experiencing moderate-to-high stress levels in the workplace.</div>
+                            <div class="stats-mobile-source">MHFA England – Workplace Mental Health Statistics (2024)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">63%</div>
+                            <div class="stats-mobile-explanation">of UK employees are now showing signs of burnout (exhaustion, disengagement, mental fatigue), up from 51% two years earlier.</div>
+                            <div class="stats-mobile-source">MHFA England (2024)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Impact Mobile -->
+                <div class="stats-mobile-category">
+                    <div class="stats-mobile-header">
+                        <div class="icon-container">
+                            <div class="icon-circle">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="stats-mobile-title">Career Impact</h3>
+                    </div>
+                    <div class="stats-mobile-grid">
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">33%</div>
+                            <div class="stats-mobile-explanation">of UK employees say their career progression has not met expectations, and 39% attribute this to poor line management.</div>
+                            <div class="stats-mobile-source">Workplace Insight (UK)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">48%</div>
+                            <div class="stats-mobile-explanation">of UK employees say being micromanaged is one of the main reasons they feel unhappy at work.</div>
+                            <div class="stats-mobile-source">Drewberry Workplace Satisfaction Survey (2024)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">50%</div>
+                            <div class="stats-mobile-explanation">of UK employees feel workplace favouritism is holding back their career development, and 47% say not everyone is given a fair opportunity to grow.</div>
+                            <div class="stats-mobile-source">O.C. Tanner – HRReview, 2021</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Knowledge Gaps Mobile -->
+                <div class="stats-mobile-category">
+                    <div class="stats-mobile-header">
+                        <div class="icon-container">
+                            <div class="icon-circle">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
+                        <h3 class="stats-mobile-title">Knowledge Gaps</h3>
+                    </div>
+                    <div class="stats-mobile-grid">
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">21%</div>
+                            <div class="stats-mobile-explanation">of UK employees fully understand how their performance is evaluated by their employer.</div>
+                            <div class="stats-mobile-source">Personnel Today – Lattice Survey (2024)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">53%</div>
+                            <div class="stats-mobile-explanation">of UK workers know their employer's HR policies, and just 43% understand their procedural rights.</div>
+                            <div class="stats-mobile-source">People Management (2024)</div>
+                        </div>
+                        <div class="stats-mobile-item">
+                            <div class="stats-mobile-value">25%</div>
+                            <div class="stats-mobile-explanation">of UK employees feel they do not have a voice in their organisation – they do not believe feedback is genuinely listened to or acted upon.</div>
+                            <div class="stats-mobile-source">CIPHR Research (2024)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pillars Section -->
+<section class="pillars">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Your framework for decisive action</h2>
+            <p class="section-subtitle">Stop guessing in high-stakes moments. Start executing with precision. <strong>Select to see more</strong></p>
+        </div>
+        
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-card-inner">
+                    <div class="pillar-card-front">
+                        <div class="pillar-icon">
+                            <i class="fas fa-binoculars"></i>
+                        </div>
+                        <h3 class="pillar-title">The Lens</h3>
+                        <p class="pillar-description">See beyond surface dynamics to understand what's truly happening in any situation.</p>
+                    </div>
+                    <div class="pillar-card-back">
+                        <div class="pillar-back-content">
+                            <div class="pillar-back-heading">
+                                <span>Before reacting, run it through The Lens.</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-search"></i></span>
+                                <span>What's really happening?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-question-circle"></i></span>
+                                <span>What's actually being challenged on?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span>What response strengthens your position?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pillar-card">
+                <div class="pillar-card-inner">
+                    <div class="pillar-card-front">
+                        <div class="pillar-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="pillar-title">The Toolkit</h3>
+                        <p class="pillar-description">Precision instruments for communication, negotiation, and strategic positioning.</p>
+                    </div>
+                    <div class="pillar-card-back">
+                        <div class="pillar-back-content">
+                            <div class="pillar-back-heading">
+                                Before speaking, run it through The Toolkit.
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-bullseye"></i></span>
+                                <span>What outcome do you want?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-comments"></i></span>
+                                <span>Which words shift the dynamic?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-balance-scale"></i></span>
+                                <span>How do you say it without weakening your position?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pillar-card">
+                <div class="pillar-card-inner">
+                    <div class="pillar-card-front">
+                        <div class="pillar-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="pillar-title">The Coach</h3>
+                        <p class="pillar-description">Strategic guidance translated into actionable language for your specific situation.</p>
+                    </div>
+                    <div class="pillar-card-back">
+                        <div class="pillar-back-content">
+                            <div class="pillar-back-heading">
+                                Before deciding, run it past The Coach.
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-lightbulb"></i></span>
+                                <span>What would a mentor or friend advise?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                                <span>What risk are you not seeing?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-user-shield"></i></span>
+                                <span>What action preserves credibility?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pillar-card">
+                <div class="pillar-card-inner">
+                    <div class="pillar-card-front">
+                        <div class="pillar-icon">
+                            <i class="fas fa-arrow-trend-up"></i>
+                        </div>
+                        <h3 class="pillar-title">The Shift</h3>
+                        <p class="pillar-description">Transform how you're perceived and how you operate in your organization.</p>
+                    </div>
+                    <div class="pillar-card-back">
+                        <div class="pillar-back-content">
+                            <div class="pillar-back-heading">
+                                Before moving forward, run it through The Shift.
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-user"></i></span>
+                                <span>Who do you need to be in this moment?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-bolt"></i></span>
+                                <span>What would signal confidence, not reaction?</span>
+                            </div>
+                            <div class="pillar-back-point">
+                                <span class="pillar-back-icon"><i class="fas fa-arrows-alt"></i></span>
+                                <span>How do you move so others shift around you?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Usage Section with Impact Metrics -->
+<section class="usage">
+    <div class="container">
+        <h2 class="usage-statement">This isn't about working harder.<br>It's about making every move count.</h2>
+        <p class="usage-subtitle">We're proud to share with you the impact we've made together with our community</p>
+        
+        <div class="impact-metrics">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon-container">
+                        <i class="fas fa-book-open metric-icon policy-icon"></i>
+                    </div>
+                    <div class="metric-value">83%</div>
+                    <div class="metric-label">Understanding Policies<br>& Rights</div>
+                    <div class="metric-description">Employees gain clarity on workplace guidelines and their entitlements with our AI-powered guidance</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon-container">
+                        <i class="fas fa-comments metric-icon confidence-icon"></i>
+                    </div>
+                    <div class="metric-value">76%</div>
+                    <div class="metric-label">Confidence in Difficult Conversations</div>
+                    <div class="metric-description">Feel more prepared to handle challenging workplace discussions with our frameworks and scripts</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon-container">
+                        <i class="fas fa-shield-alt metric-icon boundaries-icon"></i>
+                    </div>
+                    <div class="metric-value">68%</div>
+                    <div class="metric-label">Equipped to Set Boundaries</div>
+                    <div class="metric-description">Better able to establish work-life boundaries to prevent burnout with personalised coaching</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon-container">
+                        <i class="fas fa-hands-helping metric-icon support-icon"></i>
+                    </div>
+                    <div class="metric-value">72%</div>
+                    <div class="metric-label">Feel Supported & Less Alone</div>
+                    <div class="metric-description">Access to 24/7 AI support means you're never alone in tough moments. Our AI coach is always there when you need backup.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trusted Section -->
+<section class="trusted">
+    <div class="container">
+        <div class="trusted-header">
+            <h2 class="trusted-title">Trusted by professionals seeking clarity</h2>
+        </div>
+        
+        <div class="testimonials-carousel">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The free tier gave me exactly what I needed to navigate my first promotion conversation. I used the 'Words That Change the Outcome' tool and got a 15% raise. I've since upgraded to Core and it's been worth every penny."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <div class="author-name">Jamie Sullivan</div>
+                                <div class="author-role">Marketing Coordinator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"As someone who's always avoided difficult conversations, The Employee Playbook has been transformative. The Core tier gives me the confidence to handle situations I would have previously panicked about. The 30-second strategy resets are genius."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <div class="author-name">Maya Rodriguez</div>
+                                <div class="author-role">Content Writer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"I started with the free version to test the waters, and within a month I knew I needed Core Strategy. The unlimited plays and priority coaching have helped me navigate three major organizational changes without losing my footing."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TC</div>
+                            <div class="author-info">
+                                <div class="author-name">Thomas Chen</div>
+                                <div class="author-role">Software Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The free tier's Conversation Matrix helped me prepare for a crucial meeting with my director. I felt so prepared that the conversation went better than I could have imagined. I'm now using Core and it's become my secret weapon."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SP</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Patel</div>
+                                <div class="author-role">Customer Support Specialist</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Core Strategy has paid for itself ten times over. The advanced frameworks helped me negotiate a package that was 30% higher than their initial offer. The Follow-up Dynamics tool alone is worth the subscription."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DW</div>
+                            <div class="author-info">
+                                <div class="author-name">David Wilson</div>
+                                <div class="author-role">Account Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"I was skeptical about paying for something like this, but the free tier convinced me. The two monthly coach queries helped me navigate office politics that had been stressing me out for months. Upgraded to Core and haven't looked back."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EG</div>
+                            <div class="author-info">
+                                <div class="author-name">Elena Gomez</div>
+                                <div class="author-role">Project Coordinator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The Core tier has been invaluable for my professional development. I use the tools to prepare for client negotiations and internal strategy sessions. The Immediate Action Plays have saved me in last-minute meeting prep more times than I can count."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div class="author-info">
+                                <div class="author-name">Ryan Kim</div>
+                                <div class="author-role">Team Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-nav" id="carouselNav">
+                <div class="carousel-dot active" data-index="0"></div>
+                <div class="carousel-dot" data-index="1"></div>
+                <div class="carousel-dot" data-index="2"></div>
+                <div class="carousel-dot" data-index="3"></div>
+                <div class="carousel-dot" data-index="4"></div>
+                <div class="carousel-dot" data-index="5"></div>
+                <div class="carousel-dot" data-index="6"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2 class="final-statement">Your career shouldn't be left to chance. <br>Shape it by the choices you make deliberately.</h2>
+        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
+                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
+                    </a>
+                </div>
+                <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-nav-grid">
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">The Playbook</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
+                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
+                            <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
+                            <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">The Company</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="profile.html">Profile</a></li>
+                            <li class="footer-link"><a href="about-us.html">About</a></li>
+                            <li class="footer-link"><a href="#privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
+                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 The Employee Playbook. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+    <button class="chat-toggle">
+        <i class="fas fa-comment"></i>
+    </button>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-title">Send us a message</div>
+            <button class="chat-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages">
+            <div class="message message-bot">👋 Hi there! We'd love to hear from you.</div>
+        </div>
+        <div class="chat-input-container">
+            <form class="chat-form" id="chatForm">
+                <input type="text" class="chat-input" placeholder="Your Name" required>
+                <input type="email" class="chat-input" placeholder="Your Email" required>
+                <textarea class="chat-input" rows="3" required></textarea>
+                <button type="submit" class="chat-send">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
-    // JavaScript remains the same as in the previous version
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
-        
-        // Login Page Functionality
-        const loginPage = document.getElementById('loginPage');
-        const loginClose = document.getElementById('loginClose');
-        const desktopSignIn = document.getElementById('desktopSignIn');
-        const mobileSignIn = document.getElementById('mobileSignIn');
-        
-        // Open login page when sign in is clicked
-        desktopSignIn.addEventListener('click', function(e) {
-            e.preventDefault();
-            loginPage.classList.add('active');
-        });
-        
-        mobileSignIn.addEventListener('click', function(e) {
-            e.preventDefault();
-            loginPage.classList.add('active');
-            // Close mobile menu if open
-            document.querySelector('.nav-links').classList.remove('active');
-            document.querySelector('.mobile-toggle i').classList.add('fa-bars');
-            document.querySelector('.mobile-toggle i').classList.remove('fa-times');
-        });
-        
-        // Close login page
-        loginClose.addEventListener('click', function() {
-            loginPage.classList.remove('active');
-        });
-        
-        // Close login page when clicking outside
-        loginPage.addEventListener('click', function(e) {
-            if (e.target === loginPage) {
-                loginPage.classList.remove('active');
-            }
-        });
         
         // Cookie popup functionality
         const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
@@ -2608,11 +3069,11 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         });
 
-        // Testimonials Carousel - UPDATED: 5 testimonials
+        // Testimonials Carousel
         const testimonialsTrack = document.getElementById('testimonialsTrack');
         const carouselDots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 7;
 
         function updateCarousel() {
             testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
