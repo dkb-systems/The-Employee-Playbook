@@ -2388,8 +2388,8 @@
         </div>
         
         <div class="nav-actions">
+             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
-            <a href="create-account.html" class="header-cta">Sign up</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
     </div>
@@ -2435,7 +2435,6 @@
             Don't react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
             <span class="hero-note">Not legal advice. Just the clarity you wish you'd had sooner</span>
         </p>
-        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
     </div>
 
     <!-- Banner -->
@@ -3253,7 +3252,7 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Form close functionality
+        // Form close functionality - FIXED VERSION
         const formClose = document.getElementById('formClose');
         const createAccountForm = document.getElementById('createAccountForm');
 
@@ -3262,14 +3261,14 @@
         });
 
         // Show create account form (for demonstration)
-        // In a real implementation, this would be on the create-account.html page
-        document.querySelectorAll('.header-cta, .mobile-sign-up, .cta-button').forEach(button => {
+        document.querySelectorAll('.header-cta, .mobile-sign-up, .cta-button, .pinned-signup-banner').forEach(button => {
             button.addEventListener('click', function(e) {
                 if (this.getAttribute('href') === 'create-account.html') {
                     e.preventDefault();
-                    // In a real implementation, you would navigate to create-account.html
-                    // For demo purposes, we'll show the form
+                    // Show the form instead of navigating
                     createAccountForm.style.display = 'block';
+        // Scroll to the form
+        createAccountForm.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
