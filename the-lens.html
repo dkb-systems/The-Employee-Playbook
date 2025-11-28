@@ -113,13 +113,13 @@
             align-items: center;
             padding: 12px 0;
             height: 100%;
+            position: relative;
         }
 
         /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
-            transform: translateX(20%);
             padding: 14px 10px;
             transition: all 0.3s ease;
             display: block;
@@ -130,9 +130,50 @@
             content: url("assets/img/logo-dark.png");
         }
 
+        /* The Lens Link - Center Left Position */
+        .lens-link-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lens-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lens-link.active {
+            color: var(--text-dark);
+        }
+
+        .lens-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-purple);
+            border-radius: 2px;
+        }
+
+        .lens-link:hover {
+            color: var(--accent-purple);
+        }
+
         .nav-links {
             display: flex;
             gap: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .nav-link {
@@ -168,7 +209,8 @@
             display: flex;
             align-items: center;
             gap: 24px;
-            transform: translateX(-20%);
+            position: absolute;
+            right: 7px;
         }
 
         .sign-in {
@@ -1627,7 +1669,7 @@
                 transform: none;
                 gap: 16px;
                 position: absolute;
-                right: 20px;
+                right: 7px;
                 align-items: center;
             }
             
@@ -1655,6 +1697,7 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
+                transform: none;
             }
 
             .nav-links.active {
@@ -1759,6 +1802,11 @@
                 background: var(--primary-white);
                 color: var(--accent-purple);
                 border: 2px solid var(--accent-purple);
+            }
+
+            /* Hide The Lens link on mobile */
+            .lens-link-container {
+                display: none;
             }
 
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
@@ -2112,6 +2160,14 @@
         <!-- Mobile Lens Tab -->
         <div class="mobile-lens-tab" id="mobileLensTab">
             <i class="fas fa-search"></i>
+        </div>
+        
+        <!-- The Lens Link - Center Left Position -->
+        <div class="lens-link-container">
+            <a href="the-lens.html" class="lens-link active">
+                <i class="fas fa-search"></i>
+                The Lens
+            </a>
         </div>
         
         <!-- Logo centered for mobile -->
