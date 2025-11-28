@@ -155,7 +155,7 @@
             padding-right: 20px;
         }
 
-        /* Navigation */
+        /* Navigation - Copied from The Lens */
         nav {
             position: fixed;
             top: 0;
@@ -1936,7 +1936,7 @@
                 top: 30%; /* Moved higher by 70% */
             }
 
-            /* Mobile Navigation */
+            /* Mobile Navigation - Copied from The Lens */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -2066,14 +2066,30 @@
             .create-account-form {
                 margin: 80px 20px;
                 padding: 30px 20px;
+                position: relative;
             }
 
             .form-close {
+                position: absolute;
                 top: 15px;
                 right: 15px;
+                background: none;
+                border: none;
+                color: var(--text-medium);
+                cursor: pointer;
+                font-size: 20px;
                 width: 35px;
                 height: 35px;
-                font-size: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.3s ease;
+                z-index: 10;
+            }
+
+            .form-close:hover {
+                background-color: var(--light-gray);
             }
 
             /* FIXED: Mobile Hero Header Proper Centering */
@@ -2346,7 +2362,7 @@
     </div>
 </div>
 
-<!-- Navigation -->
+<!-- Navigation - Copied from The Lens -->
 <nav>
     <div class="container nav-container">
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
@@ -2368,12 +2384,11 @@
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <!-- NEW: Mobile Sign Up Button in Hamburger Menu -->
             <a href="create-account.html" class="mobile-sign-up">Sign Up</a>
-            <a href="#" class="mobile-sign-in" id="mobileSignIn">Sign In</a>
+            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
         </div>
         
         <div class="nav-actions">
-            <a href="#" class="sign-in" id="desktopSignIn">Sign in</a>
-            <!-- ADDED: Sign Up button in desktop header -->
+            <a href="sign-in.html" class="sign-in">Sign in</a>
             <a href="create-account.html" class="header-cta">Sign up</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -2381,7 +2396,6 @@
 </nav>
 
 <!-- Create Account Form (Example) -->
-<!-- This would typically be on create-account.html page -->
 <div class="create-account-form" id="createAccountForm" style="display: none;">
     <button class="form-close" id="formClose">
         <i class="fas fa-times"></i>
