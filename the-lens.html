@@ -141,6 +141,7 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
+            position: relative;
         }
 
         .nav-link:hover {
@@ -149,6 +150,20 @@
 
         .nav-link.active {
             color: var(--text-dark);
+        }
+
+        /* Purple underline for active page - WEB ONLY */
+        @media (min-width: 769px) {
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--accent-purple);
+                border-radius: 2px;
+            }
         }
 
         .nav-actions {
@@ -246,12 +261,80 @@
             display: none;
         }
 
+        /* NEW: Mobile Tabs - Positioned under header */
+        .mobile-tabs {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 999;
+            padding: 0;
+            height: 50px;
+        }
+
+        .mobile-tabs-container {
+            display: flex;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .mobile-tab {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0 20px;
+            height: 100%;
+            border-bottom: 2px solid transparent;
+        }
+
+        .mobile-tab.active {
+            color: var(--accent-purple);
+            border-bottom-color: var(--accent-purple);
+            background: var(--light-purple);
+        }
+
+        .mobile-tab:first-child {
+            /* The Lens tab on left */
+            margin-right: auto;
+        }
+
+        .mobile-tab:last-child {
+            /* Other tab fixed on right */
+            margin-left: auto;
+        }
+
+        .mobile-tab i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .mobile-tab:hover {
+            color: var(--accent-purple);
+            background: var(--light-gray);
+        }
+
         /* Main Content */
         main {
             flex: 1;
             padding: 80px 30px 30px;
             display: flex;
             min-height: calc(100vh - 160px);
+        }
+
+        /* Adjust main content padding for mobile tabs */
+        @media (max-width: 768px) {
+            main {
+                padding-top: 140px; /* 80px (nav) + 50px (tabs) + 10px (spacing) */
+            }
         }
 
         .content-wrapper {
@@ -266,6 +349,12 @@
             text-align: center;
             margin-bottom: 25px;
             padding-top: 110px;
+        }
+
+        @media (max-width: 768px) {
+            .lens-header {
+                padding-top: 0; /* Remove extra padding since tabs are fixed */
+            }
         }
 
         .hero-title {
@@ -1438,131 +1527,6 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* NEW: Lens Chat UI */
-        .lens-chat-ui {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-white);
-            z-index: 2000;
-            flex-direction: column;
-        }
-
-        .lens-chat-header {
-            padding: 15px 20px;
-            background: var(--nav-bg);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .lens-chat-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .close-lens-chat {
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 20px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-
-        .close-lens-chat:hover {
-            background-color: var(--light-gray);
-        }
-
-        .lens-chat-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: calc(100% - 70px);
-        }
-
-        /* NEW: Compressed Create Account Form Styles */
-        .create-account-compressed {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--premium-card-shadow);
-            border: 1px solid var(--border-light);
-            margin-top: 20px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .create-account-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .create-account-subtitle {
-            font-size: 14px;
-            color: var(--text-medium);
-            margin-bottom: 25px;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        .create-account-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        .form-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 10px 0;
-        }
-
-        .form-checkbox input {
-            margin-top: 3px;
-        }
-
-        .form-checkbox label {
-            font-size: 13px;
-            color: var(--text-medium);
-            line-height: 1.4;
-        }
-
-        .form-checkbox a {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-
-        .form-checkbox a:hover {
-            text-decoration: underline;
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1598,6 +1562,11 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Show mobile tabs */
+            .mobile-tabs {
+                display: block;
+            }
+
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1706,30 +1675,29 @@
             
             /* Main content padding */
             main {
-                padding: 80px 15px 15px;
+                padding: 140px 15px 30px;
             }
 
-            /* Hero section sizing - UPDATED FOR 4 LINES */
+            /* Hero section sizing */
             .lens-header {
-                padding-top: 100px;
+                padding-top: 0;
                 margin-bottom: 30px;
             }
 
             .hero-title {
-                font-size: 36px; /* Adjusted to fit on 4 lines */
+                font-size: 42px;
                 line-height: 1.2;
                 margin-bottom: 20px;
-                max-width: 100%;
             }
 
             .hero-subtitle {
-                font-size: 18px; /* Increased for better readability */
+                font-size: 18px;
                 line-height: 1.5;
             }
 
             /* Clarity intro block */
             .clarity-intro {
-                font-size: 16px; /* Increased for better readability */
+                font-size: 16px;
                 line-height: 1.5;
                 padding: 20px;
                 margin: 0 auto 40px;
@@ -1737,7 +1705,7 @@
 
             /* Section titles */
             .how-it-works-title, .challenges-title, .zoom-title {
-                font-size: 32px; /* Increased for better visibility */
+                font-size: 32px;
                 margin-bottom: 30px;
             }
 
@@ -1830,7 +1798,7 @@
 
             /* Chat container */
             .chat-container {
-                height: 600px; /* Increased for better mobile experience */
+                height: 600px;
                 margin: 20px 0;
             }
 
@@ -1986,41 +1954,6 @@
             .micro-cta .cta-small:nth-child(2) {
                 display: none;
             }
-
-            /* NEW: Position sign-up form higher */
-            .create-account-compressed {
-                margin-top: 10px;
-            }
-
-            /* NEW: Compressed form elements */
-            .create-account-title {
-                font-size: 20px;
-                margin-bottom: 10px;
-            }
-
-            .create-account-subtitle {
-                font-size: 13px;
-                margin-bottom: 20px;
-            }
-
-            .create-account-form {
-                gap: 12px;
-            }
-
-            .form-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .form-input, .form-textarea {
-                padding: 10px 14px;
-                font-size: 14px;
-            }
-
-            .form-submit {
-                padding: 12px 18px;
-                font-size: 15px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2033,7 +1966,7 @@
             }
             
             .hero-title {
-                font-size: 32px; /* Further adjusted for very small screens */
+                font-size: 36px;
             }
             
             .hero-subtitle {
@@ -2088,7 +2021,7 @@
         
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
-            <a href="the-lens.html" class="nav-link active" id="lens-link">The Lens</a>
+            <a href="the-lens.html" class="nav-link active">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link">The Coach</a>
@@ -2108,52 +2041,19 @@
     </div>
 </nav>
 
-<!-- NEW: Lens Chat UI (Hidden by default) -->
-<div class="lens-chat-ui" id="lensChatUI">
-    <div class="lens-chat-header">
-        <div class="lens-chat-title">The Lens - Your Workplace Advisor</div>
-        <button class="close-lens-chat" id="closeLensChat"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="lens-chat-container">
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="chat-title">
-                    <i class="fas fa-search chat-title-icon"></i>
-                    The Lens
-                </div>
-                <button class="clear-session" id="clearChat">Clear Session</button>
-            </div>
-            
-            <div class="chat-content-wrapper">
-                <div class="most-popular-sidebar">
-                    <h3 class="sidebar-title">Most Popular Topics</h3>
-                    <ul class="popular-topics">
-                        <li>Workload & Burnout</li>
-                        <li>Difficult Conversations</li>
-                        <li>Career Progression</li>
-                        <li>Team Dynamics</li>
-                        <li>Work-Life Balance</li>
-                        <li>Conflict Resolution</li>
-                    </ul>
-                </div>
-                
-                <div class="chat-area">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message bot-message">
-                            <div class="bot-avatar">L</div>
-                            <div class="message-content">
-                                <p>Hi there! I'm The Lens, your workplace advisor. I'm here to help you gain clarity on any workplace challenge you're facing. What's on your mind today?</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="chat-input-container">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Describe your workplace challenge...">
-                        <button class="send-button" id="sendMessage">Send</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- NEW: Mobile Tabs - Positioned under header -->
+<div class="mobile-tabs">
+    <div class="mobile-tabs-container">
+        <!-- The Lens tab on left -->
+        <a href="#lens-chat" class="mobile-tab active">
+            <i class="fas fa-search"></i>
+            <span>Lens Chat</span>
+        </a>
+        <!-- Other tab fixed on right -->
+        <a href="#resources" class="mobile-tab">
+            <i class="fas fa-tools"></i>
+            <span>Resources</span>
+        </a>
     </div>
 </div>
 
@@ -2249,42 +2149,6 @@
                 <h3>Need personalized guidance?</h3>
                 <p>Get one-on-one support from The Coach for your specific workplace situation</p>
                 <a href="the-coach.html" class="mobile-coach-button">TRY THE COACH NOW</a>
-            </div>
-            
-            <!-- NEW: Compressed Create Account Form (Positioned higher on mobile) -->
-            <div class="create-account-compressed">
-                <h3 class="create-account-title">Create Your Account</h3>
-                <p class="create-account-subtitle">Get access to The Lens and all our workplace tools</p>
-                
-                <form class="create-account-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">First Name</label>
-                            <input type="text" class="form-input" placeholder="Enter your first name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" class="form-input" placeholder="Enter your last name" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="Enter your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-input" placeholder="Create a password" required>
-                    </div>
-                    
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="terms" required>
-                        <label for="terms">I agree to the <a href="terms-and-conditions.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">Create Account</button>
-                </form>
             </div>
             
             <!-- Zoom In Section -->
@@ -2555,111 +2419,31 @@
             this.reset();
         });
 
-        // NEW: Lens Chat UI functionality
-        const lensLink = document.getElementById('lens-link');
-        const lensChatUI = document.getElementById('lensChatUI');
-        const closeLensChat = document.getElementById('closeLensChat');
-        const clearChat = document.getElementById('clearChat');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const sendMessage = document.getElementById('sendMessage');
-
-        // Check if on mobile
-        function isMobile() {
-            return window.innerWidth <= 768;
-        }
-
-        // Open Lens Chat UI when clicking on The Lens link on mobile
-        lensLink.addEventListener('click', function(e) {
-            if (isMobile()) {
+        // NEW: Mobile tabs functionality
+        const mobileTabs = document.querySelectorAll('.mobile-tab');
+        
+        mobileTabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
                 e.preventDefault();
-                lensChatUI.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent body scrolling
-            }
-        });
-
-        // Close Lens Chat UI
-        closeLensChat.addEventListener('click', function() {
-            lensChatUI.style.display = 'none';
-            document.body.style.overflow = ''; // Restore body scrolling
-        });
-
-        // Clear chat session
-        clearChat.addEventListener('click', function() {
-            chatMessages.innerHTML = `
-                <div class="message bot-message">
-                    <div class="bot-avatar">L</div>
-                    <div class="message-content">
-                        <p>Hi there! I'm The Lens, your workplace advisor. I'm here to help you gain clarity on any workplace challenge you're facing. What's on your mind today?</p>
-                    </div>
-                </div>
-            `;
-        });
-
-        // Send message functionality
-        function sendChatMessage() {
-            const message = chatInput.value.trim();
-            if (message) {
-                // Add user message
-                const userMessage = document.createElement('div');
-                userMessage.className = 'message user-message';
-                userMessage.innerHTML = `
-                    <div class="message-content">
-                        <p>${message}</p>
-                    </div>
-                `;
-                chatMessages.appendChild(userMessage);
                 
-                // Clear input
-                chatInput.value = '';
+                // Remove active class from all tabs
+                mobileTabs.forEach(t => t.classList.remove('active'));
                 
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+                // Add active class to clicked tab
+                this.classList.add('active');
                 
-                // Show typing indicator
-                const typingIndicator = document.createElement('div');
-                typingIndicator.className = 'typing-indicator';
-                typingIndicator.innerHTML = `
-                    <div class="typing-dots">
-                        <div class="bot-avatar">L</div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                `;
-                chatMessages.appendChild(typingIndicator);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+                // Get the target section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
                 
-                // Simulate bot response after delay
-                setTimeout(function() {
-                    // Remove typing indicator
-                    typingIndicator.remove();
-                    
-                    // Add bot response
-                    const botMessage = document.createElement('div');
-                    botMessage.className = 'message bot-message';
-                    botMessage.innerHTML = `
-                        <div class="bot-avatar">L</div>
-                        <div class="message-content">
-                            <p>I understand you're dealing with "${message}". Let me help you break this down. Could you tell me more about the specific context or people involved?</p>
-                        </div>
-                    `;
-                    chatMessages.appendChild(botMessage);
-                    
-                    // Scroll to bottom
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1500);
-            }
-        }
-
-        // Send message on button click
-        sendMessage.addEventListener('click', sendChatMessage);
-
-        // Send message on Enter key
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendChatMessage();
-            }
+                if (targetSection) {
+                    // Scroll to target section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     });
 </script>
