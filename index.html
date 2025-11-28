@@ -6,20 +6,11 @@
     <meta name="description" content="Private strategic clarity for workplace decisions. Smart scripts, frameworks and guidance for when moments matter. Not legal advice.">
     <title>The Employee Playbook | Strategic Clarity for Critical Moments</title>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
-    
-    <!-- Font Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -36,10 +27,6 @@
             --border-light: rgba(0, 0, 0, 0.08);
             --hero-gray: #f5f7fa;
             --nav-bg: rgba(255, 255, 255, 0.95);
-            --deep-navy: #0A1428;
-            --soft-blue: #EFF5FF;
-            --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
-            --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
         }
 
         .dark-mode {
@@ -55,10 +42,6 @@
             --border-light: rgba(255, 255, 255, 0.08);
             --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
-            --deep-navy: #EFF5FF;
-            --soft-blue: #1A2333;
-            --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
-            --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
         }
 
         * {
@@ -79,7 +62,6 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         body.loaded {
@@ -96,7 +78,7 @@
             padding: 100px 0;
         }
 
-        /* NEW: Pinned Sign-up Banner on Right Side */
+        /* Pinned Sign-up Banner */
         .pinned-signup-banner {
             display: none;
             position: fixed;
@@ -119,6 +101,21 @@
             line-height: 1.3;
             letter-spacing: 1px;
             border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+        }
+
+        .pinned-signup-banner::before {
+            content: "\f234";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 20px;
+            margin-bottom: 10px;
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+            display: block;
         }
 
         .dark-mode .pinned-signup-banner {
@@ -132,13 +129,119 @@
             padding-right: 20px;
         }
 
-        .pinned-signup-banner::before {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
+        /* Login Page */
+        .login-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2002;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Navigation - UPDATED to match The Shift page */
+        .login-page.active {
+            display: flex;
+        }
+
+        .login-container {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .login-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-medium);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-close:hover {
+            background-color: var(--light-gray);
+        }
+
+        .login-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .login-input {
+            padding: 14px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        .login-button {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-button:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+        }
+
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -161,7 +264,6 @@
             height: 100%;
         }
 
-        /* Logo Styles - UPDATED to match The Shift page */
         .logo-img {
             height: 100px;
             width: auto;
@@ -187,6 +289,7 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -205,6 +308,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 17px;
+            cursor: pointer;
         }
 
         .header-cta {
@@ -218,7 +322,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
-
 
         .theme-toggle {
             background: none;
@@ -279,7 +382,7 @@
             white-space: nowrap;
         }
 
-        /* NEW: Floating CTA for Mobile */
+        /* Floating CTA for Mobile */
         .floating-cta {
             display: none;
             position: fixed;
@@ -312,6 +415,7 @@
         /* Mobile Sign In Button */
         .mobile-sign-in {
             display: none;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -367,7 +471,7 @@
             margin-top: 20px;
         }
 
-        /* NEW: Flashing words styling */
+        /* Flashing words styling */
         .flashing-words {
             font-size: 84px;
             font-weight: 700;
@@ -421,28 +525,6 @@
             box-shadow: 0 15px 35px rgba(123, 95, 196, 0.4);
         }
 
-        .hidden {
-            display: none !important;
-        }
-
-        /* Responsive adjustments for flashing words */
-        @media (max-width: 768px) {
-            .flashing-words {
-                font-size: 59.8px;
-                margin-top: -30px;
-                line-height: 1.2;
-                height: 75px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .flashing-words {
-                font-size: 48.3px;
-                margin-top: -25px;
-                height: 60px;
-            }
-        }
-
         /* Banner */
         .search-banner {
             background: var(--light-purple);
@@ -485,7 +567,6 @@
         .statistics {
             background-color: var(--light-gray);
             padding: 100px 0;
-            contain: layout style paint;
         }
 
         .stats-container {
@@ -747,7 +828,7 @@
             background-color: var(--light-gray);
         }
 
-        /* NEW: Mobile Stats Layout */
+        /* Mobile Stats Layout */
         .stats-mobile-container {
             display: none;
             flex-direction: column;
@@ -808,314 +889,10 @@
             font-style: italic;
         }
 
-        /* Cookie Message */
-        .cookie-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .cookie-popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .cookie-popup {
-            background: var(--primary-white);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
-            width: 90%;
-            border: 1px solid var(--border-light);
-            transform: translateY(20px);
-            transition: transform 0.5s ease;
-        }
-
-        .cookie-popup-overlay.active .cookie-popup {
-            transform: translateY(0);
-        }
-
-        .cookie-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .cookie-text {
-            font-size: 16px;
-            color: var(--text-medium);
-            line-height: 1.5;
-        }
-
-        .cookie-text a {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-
-        .cookie-text a:hover {
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .cookie-button {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cookie-accept {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-        }
-
-        .cookie-accept:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        .cookie-settings {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--border-light);
-        }
-
-        /* Cookie Settings Modal */
-        .cookie-settings-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2001;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .cookie-settings-modal.active {
-            opacity: 1;
-            visibility: visible;
-            display: flex;
-        }
-
-        .cookie-settings-content {
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            border: 1px solid var(--border-light);
-            transform: translateY(20px);
-            transition: transform 0.5s ease;
-        }
-
-        .cookie-settings-modal.active .cookie-settings-content {
-            transform: translateY(0);
-        }
-
-        .cookie-settings-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 30px 15px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .cookie-settings-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .cookie-settings-close {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 24px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .cookie-settings-close:hover {
-            background-color: var(--light-gray);
-        }
-
-        .cookie-settings-body {
-            padding: 25px 30px 30px;
-        }
-
-        .cookie-category {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .cookie-category:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .cookie-category-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .cookie-category-header h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        /* Cookie Toggle Switch */
-        .cookie-toggle {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-
-        .cookie-toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .cookie-toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--medium-gray);
-            transition: .4s;
-            border-radius: 24px;
-        }
-
-        .cookie-toggle-slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .cookie-toggle-slider {
-            background-color: var(--accent-purple);
-        }
-
-        input:checked + .cookie-toggle-slider:before {
-            transform: translateX(26px);
-        }
-
-        input:disabled + .cookie-toggle-slider {
-            background-color: var(--dark-gray);
-            cursor: not-allowed;
-        }
-
-        .cookie-category-description {
-            color: var(--text-medium);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .cookie-settings-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-            justify-content: space-between;
-        }
-
-        .cookie-settings-buttons button {
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .cookie-settings-accept-all {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-        }
-
-        .cookie-settings-accept-all:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        .cookie-settings-save {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--border-light);
-        }
-
-        .cookie-settings-save:hover {
-            background: var(--medium-gray);
-        }
-
-        .cookie-settings-reject-all {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--border-light);
-        }
-
-        .cookie-settings-reject-all:hover {
-            background: var(--medium-gray);
-        }
-
         /* Pillars Section */
         .pillars {
             background-color: var(--primary-white);
             padding: 80px 0;
-            contain: layout style paint;
         }
 
         .section-header {
@@ -1254,7 +1031,6 @@
             background: var(--light-gray);
             text-align: center;
             padding: 100px 0;
-            contain: layout style paint;
         }
 
         .usage-statement {
@@ -1396,7 +1172,6 @@
         .trusted {
             background-color: var(--primary-white);
             padding: 80px 0;
-            contain: layout style paint;
         }
 
         .trusted-header {
@@ -1502,7 +1277,6 @@
             background: var(--primary-white);
             text-align: center;
             padding: 100px 0;
-            contain: layout style paint;
         }
 
         .final-statement {
@@ -1655,236 +1429,6 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 60px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 24px;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 320px;
-            height: 460px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container.active {
-            display: flex;
-        }
-
-        .chat-header {
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-title {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 100%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .message-bot {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .message-user {
-            background: var(--accent-purple);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            max-width: 80%;
-        }
-
-        .chat-input-container {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .chat-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-input {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .hand-wave {
-            display: inline-block;
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        /* Coach Popup Styles */
-        .coach-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2001;
-        }
-
-        .coach-popup-content {
-            background: var(--primary-white);
-            padding: 30px;
-            border-radius: 16px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-            text-align: center;
-        }
-
-        .coach-popup-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: var(--text-medium);
-        }
-
-        .coach-popup-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .coach-popup-description {
-            color: var(--text-medium);
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .coach-popup-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .coach-popup-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .coach-popup-primary {
-            background: var(--accent-purple);
-            color: white;
-        }
-
-        .coach-popup-secondary {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--border-light);
-        }
-
         /* Logo Fallback */
         .logo-fallback {
             display: none;
@@ -1939,12 +1483,14 @@
         }
 
         @media (max-width: 768px) {
-            /* NEW: Show pinned signup banner on desktop and tablet */
+            /* Pinned signup banner - reduced height by 70% and moved higher */
             .pinned-signup-banner {
-                display: block;
+                display: flex;
+                height: 60px; /* Reduced by 70% from 200px */
+                top: 30%; /* Moved higher by 70% */
             }
 
-            /* Mobile Navigation Changes - UPDATED to match The Shift page */
+            /* Mobile Navigation */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1959,10 +1505,9 @@
                 height: 100%;
             }
             
-            /* UPDATED: Mobile logo size increased by 25% to match Lens page */
             .logo-img {
-                height: 125px; /* Increased from 100px to 125px (25% increase) */
-                transform: none; /* Remove desktop transform */
+                height: 125px;
+                transform: none;
                 padding: 12px 0;
                 display: flex;
                 align-items: center;
@@ -1983,12 +1528,10 @@
                 align-items: center;
             }
             
-            /* Hide the desktop Sign In button in mobile view */
             .nav-actions .sign-in {
                 display: none;
             }
             
-            /* NEW: Hide the sign-up button in mobile navigation */
             .nav-actions .header-cta {
                 display: none;
             }
@@ -2013,7 +1556,6 @@
                 display: flex;
             }
             
-            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -2028,7 +1570,6 @@
                 right: auto;
             }
             
-            /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
@@ -2048,10 +1589,9 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            /* NEW: Increase mobile hero h1 font size by 15% and move it up */
             .hero-headline {
-                font-size: 59.8px; /* 52px * 1.15 = 59.8px (15% increase) */
-                margin-top: -30px; /* Move up by one line */
+                font-size: 59.8px;
+                margin-top: -30px;
                 line-height: 1.2;
             }
 
@@ -2083,18 +1623,6 @@
                 flex-direction: column;
             }
             
-            .chat-container {
-                width: 90vw;
-                height: 450px;
-                right: 5vw;
-            }
-            
-            .chat-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-            
             .pillar-card {
                 height: 350px;
             }
@@ -2113,10 +1641,6 @@
             
             .usage-subtitle {
                 font-size: 18px;
-            }
-            
-            .cookie-buttons {
-                flex-direction: column;
             }
             
             .footer-nav-grid {
@@ -2159,27 +1683,6 @@
             .final-statement {
                 font-size: 28px;
             }
-            
-            .cookie-settings-content {
-                width: 95%;
-                max-height: 85vh;
-            }
-            
-            .cookie-settings-header {
-                padding: 20px 20px 15px;
-            }
-            
-            .cookie-settings-body {
-                padding: 20px 20px 25px;
-            }
-            
-            .cookie-settings-buttons {
-                flex-direction: column;
-            }
-            
-            .cookie-settings-buttons button {
-                width: 100%;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2195,10 +1698,9 @@
                 font-size: 18px;
             }
             
-            /* NEW: Adjust mobile hero h1 for very small screens */
             .hero-headline {
-                font-size: 48.3px; /* 42px * 1.15 = 48.3px (15% increase) */
-                margin-top: -25px; /* Move up by one line */
+                font-size: 48.3px;
+                margin-top: -25px;
             }
             
             .hero-subhead {
@@ -2230,7 +1732,7 @@
             }
             
             .floating-cta {
-                bottom: 80px;
+                bottom: 88px;
                 right: 15px;
                 padding: 10px 16px;
                 font-size: 13px;
@@ -2240,10 +1742,12 @@
                 font-size: 24px;
             }
 
-            /* Adjust pinned banner for very small screens */
+            /* Further adjust pinned banner for very small screens */
             .pinned-signup-banner {
-                padding: 20px 12px;
-                font-size: 14px;
+                padding: 7px 12px;
+                font-size: 10px;
+                height: 50px;
+                top: 25%;
             }
         }
     </style>
@@ -2251,90 +1755,37 @@
 
 <body>
 
-<!-- NEW: Pinned Sign-up Banner on Right Side -->
-<a href="create-account.html" class="pinned-signup-banner">Sign Up</a>
+<!-- Pinned Sign-up Banner -->
+<a href="create-account.html" class="pinned-signup-banner"></a>
 
-<!-- Cookie Popup Overlay -->
-<div class="cookie-popup-overlay" id="cookiePopupOverlay">
-    <div class="cookie-popup">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                We use cookies to enhance your experience and analyse site traffic. By clicking "Accept", you consent to our use of cookies. 
-                <a href="#">Learn more</a>
+<!-- Login Page -->
+<div class="login-page" id="loginPage">
+    <div class="login-container">
+        <button class="login-close" id="loginClose">&times;</button>
+        <h2 class="login-title">Sign In</h2>
+        <form class="login-form">
+            <input type="email" class="login-input" placeholder="Email" required>
+            <input type="password" class="login-input" placeholder="Password" required>
+            <button type="submit" class="login-button">Sign In</button>
+            <div class="login-links">
+                <a href="#" class="login-link">Forgot Password?</a>
+                <a href="create-account.html" class="login-link">Create Account</a>
             </div>
-            <div class="cookie-buttons">
-                <button class="cookie-button cookie-settings">Settings</button>
-                <button class="cookie-button cookie-accept">Accept</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
-<!-- Cookie Settings Modal -->
-<div class="cookie-settings-modal" id="cookieSettingsModal">
-    <div class="cookie-settings-content">
-        <div class="cookie-settings-header">
-            <h2>Cookie Settings</h2>
-            <button class="cookie-settings-close">&times;</button>
-        </div>
-        <div class="cookie-settings-body">
-            <div class="cookie-category">
-                <div class="cookie-category-header">
-                    <h3>Essential Cookies</h3>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" checked disabled>
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-category-description">These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you such as setting your privacy preferences, logging in or filling in forms.</p>
-            </div>
-            
-            <div class="cookie-category">
-                <div class="cookie-category-header">
-                    <h3>Analytics Cookies</h3>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="analyticsCookies" checked>
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-category-description">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
-            </div>
-            
-            <div class="cookie-category">
-                <div class="cookie-category-header">
-                    <h3>Marketing Cookies</h3>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="marketingCookies">
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <p class="cookie-category-description">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.</p>
-            </div>
-            
-            <div class="cookie-settings-buttons">
-                <button class="cookie-settings-accept-all">Accept All</button>
-                <button class="cookie-settings-save">Save Preferences</button>
-                <button class="cookie-settings-reject-all">Reject All</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Navigation - UPDATED to match The Shift page -->
+<!-- Navigation -->
 <nav>
     <div class="container nav-container">
-        <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile - UPDATED to match The Shift page -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
-        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
@@ -2344,14 +1795,12 @@
             </div>
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
+            <a href="#" class="mobile-sign-in" id="mobileSignIn">Sign In</a>
         </div>
         
-        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" to match The Shift page -->
             <a href="create-account.html" class="header-cta">Sign up</a>
-            <a href="sign-in.html" class="sign-in">Sign in</a>
+            <a href="#" class="sign-in" id="desktopSignIn">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
     </div>
@@ -2371,9 +1820,10 @@
             <div class="flashing-word">Undervalued?</div>
         </div>
         <p class="hero-subhead">
-            Don’t react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
+            Don't react. Respond with intent, using guidance, tools and <br>real-time support from The Coach to put you back in control
             <span class="hero-note">Not legal advice. Just the clarity you wish you'd had sooner</span>
         </p>
+        <a href="create-account.html" class="cta-button">Start making intentional moves today</a>
     </div>
 
     <!-- Banner -->
@@ -2410,7 +1860,6 @@
 <section class="statistics" id="statistics">
     <div class="container">
         <div class="stats-container">
-            <!-- Duplicate header stats -->
             <div class="stats-content">
                 <h2 class="stats-title">The hidden costs of workplace stress</h2>
                 <p class="stats-description">Data reveals the silent toll that workplace dynamics take on professionals' wellbeing, performance, and career trajectory</p>
@@ -2567,7 +2016,7 @@
                 </div>
             </div>
             
-            <!-- NEW: Mobile Stats Layout -->
+            <!-- Mobile Stats Layout -->
             <div class="stats-mobile-container">
                 <!-- Personal Impact Mobile -->
                 <div class="stats-mobile-category">
@@ -2891,68 +2340,12 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The free tier's Conversation Matrix helped me prepare for a crucial meeting with my director. I felt so prepared that the conversation went better than I could have imagined. I'm now using Core and it's become my secret weapon."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">SP</div>
-                            <div class="author-info">
-                                <div class="author-name">Sarah Patel</div>
-                                <div class="author-role">Customer Support Specialist</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Core Strategy has paid for itself ten times over. The advanced frameworks helped me negotiate a package that was 30% higher than their initial offer. The Follow-up Dynamics tool alone is worth the subscription."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">DW</div>
-                            <div class="author-info">
-                                <div class="author-name">David Wilson</div>
-                                <div class="author-role">Account Manager</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"I was skeptical about paying for something like this, but the free tier convinced me. The two monthly coach queries helped me navigate office politics that had been stressing me out for months. Upgraded to Core and haven't looked back."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">EG</div>
-                            <div class="author-info">
-                                <div class="author-name">Elena Gomez</div>
-                                <div class="author-role">Project Coordinator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"The Core tier has been invaluable for my professional development. I use the tools to prepare for client negotiations and internal strategy sessions. The Immediate Action Plays have saved me in last-minute meeting prep more times than I can count."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RK</div>
-                            <div class="author-info">
-                                <div class="author-name">Ryan Kim</div>
-                                <div class="author-role">Team Lead</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             
             <div class="carousel-nav" id="carouselNav">
                 <div class="carousel-dot active" data-index="0"></div>
                 <div class="carousel-dot" data-index="1"></div>
                 <div class="carousel-dot" data-index="2"></div>
-                <div class="carousel-dot" data-index="3"></div>
-                <div class="carousel-dot" data-index="4"></div>
-                <div class="carousel-dot" data-index="5"></div>
-                <div class="carousel-dot" data-index="6"></div>
             </div>
         </div>
     </div>
@@ -3022,156 +2415,45 @@
     </div>
 </footer>
 
-<!-- Chat Widget -->
-<div class="chat-widget">
-    <button class="chat-toggle">
-        <i class="fas fa-comment"></i>
-    </button>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="chat-title">Send us a message</div>
-            <button class="chat-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-messages">
-            <div class="message message-bot">👋 Hi there! We'd love to hear from you.</div>
-        </div>
-        <div class="chat-input-container">
-            <form class="chat-form" id="chatForm">
-                <input type="text" class="chat-input" placeholder="Your Name" required>
-                <input type="email" class="chat-input" placeholder="Your Email" required>
-                <textarea class="chat-input" rows="3" required></textarea>
-                <button type="submit" class="chat-send">Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Coach Popup -->
-<div class="coach-popup" id="coach-popup">
-    <div class="coach-popup-content">
-        <button class="coach-popup-close">&times;</button>
-        <h3 class="coach-popup-title">Do you have a query?</h3>
-        <p class="coach-popup-description">Get personalised guidance from The Lens for your specific workplace situation.</p>
-        <div class="coach-popup-buttons">
-            <button class="coach-popup-btn coach-popup-primary" onclick="window.location.href='the-lens.html'">Try The Lens</button>
-            <button class="coach-popup-btn coach-popup-secondary" onclick="document.getElementById('coach-popup').style.display='none'">Maybe later</button>
-        </div>
-    </div>
-</div>
+<!-- Floating CTA for Mobile -->
+<a href="create-account.html" class="floating-cta">Sign Up Free</a>
 
 <script>
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
         
-        // Cookie popup functionality
-        const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
-        const cookieAccept = document.querySelector('.cookie-accept');
-        const cookieSettings = document.querySelector('.cookie-settings');
+        // Login Page Functionality
+        const loginPage = document.getElementById('loginPage');
+        const loginClose = document.getElementById('loginClose');
+        const desktopSignIn = document.getElementById('desktopSignIn');
+        const mobileSignIn = document.getElementById('mobileSignIn');
         
-        // Show cookie popup after 3 seconds
-        setTimeout(() => {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                cookiePopupOverlay.classList.add('active');
+        // Open login page when sign in is clicked
+        desktopSignIn.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginPage.classList.add('active');
+        });
+        
+        mobileSignIn.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginPage.classList.add('active');
+            // Close mobile menu if open
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.mobile-toggle i').classList.add('fa-bars');
+            document.querySelector('.mobile-toggle i').classList.remove('fa-times');
+        });
+        
+        // Close login page
+        loginClose.addEventListener('click', function() {
+            loginPage.classList.remove('active');
+        });
+        
+        // Close login page when clicking outside
+        loginPage.addEventListener('click', function(e) {
+            if (e.target === loginPage) {
+                loginPage.classList.remove('active');
             }
-        }, 3000);
-        
-        // Accept cookies
-        cookieAccept.addEventListener('click', function() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookiePopupOverlay.classList.remove('active');
-        });
-        
-        // Cookie settings functionality
-        const cookieSettingsButton = document.querySelector('.cookie-settings');
-        const cookieSettingsModal = document.getElementById('cookieSettingsModal');
-        const cookieSettingsClose = document.querySelector('.cookie-settings-close');
-        const cookieSettingsSave = document.querySelector('.cookie-settings-save');
-        const cookieAcceptAll = document.querySelector('.cookie-settings-accept-all');
-        const cookieRejectAll = document.querySelector('.cookie-settings-reject-all');
-        const analyticsCookies = document.getElementById('analyticsCookies');
-        const marketingCookies = document.getElementById('marketingCookies');
-
-        // Open cookie settings
-        cookieSettingsButton.addEventListener('click', function() {
-            cookiePopupOverlay.classList.remove('active');
-            cookieSettingsModal.classList.add('active');
-            
-            // Load current preferences
-            const currentPreferences = getCookiePreferences();
-            analyticsCookies.checked = currentPreferences.analytics;
-            marketingCookies.checked = currentPreferences.marketing;
-        });
-
-        // Close cookie settings
-        cookieSettingsClose.addEventListener('click', function() {
-            cookieSettingsModal.classList.remove('active');
-        });
-
-        // Save cookie preferences
-        cookieSettingsSave.addEventListener('click', function() {
-            saveCookiePreferences();
-            cookieSettingsModal.classList.remove('active');
-            alert('Your cookie preferences have been saved.');
-        });
-
-        // Accept all cookies
-        cookieAcceptAll.addEventListener('click', function() {
-            analyticsCookies.checked = true;
-            marketingCookies.checked = true;
-            saveCookiePreferences();
-            cookieSettingsModal.classList.remove('active');
-            alert('All cookies have been accepted.');
-        });
-
-        // Reject all non-essential cookies
-        cookieRejectAll.addEventListener('click', function() {
-            analyticsCookies.checked = false;
-            marketingCookies.checked = false;
-            saveCookiePreferences();
-            cookieSettingsModal.classList.remove('active');
-            alert('Non-essential cookies have been rejected.');
-        });
-
-        // Get current cookie preferences from localStorage
-        function getCookiePreferences() {
-            const preferences = localStorage.getItem('cookiePreferences');
-            if (preferences) {
-                return JSON.parse(preferences);
-            }
-            // Default preferences if none exist
-            return {
-                analytics: true,
-                marketing: false
-            };
-        }
-
-        // Save cookie preferences to localStorage
-        function saveCookiePreferences() {
-            const preferences = {
-                analytics: analyticsCookies.checked,
-                marketing: marketingCookies.checked
-            };
-            localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-            localStorage.setItem('cookiesAccepted', 'true');
-            
-            // In a real implementation, you would update the actual cookies here
-            // based on the user's preferences
-        }
-        
-        // Coach popup after 20 seconds
-        setTimeout(() => {
-            if (!localStorage.getItem('coachPopupShown')) {
-                document.getElementById('coach-popup').style.display = 'flex';
-                localStorage.setItem('coachPopupShown', 'true');
-            }
-        }, 20000);
-        
-        // Close coach popup
-        document.querySelector('.coach-popup-close').addEventListener('click', function() {
-            document.getElementById('coach-popup').style.display = 'none';
         });
         
         // Dark mode toggle
@@ -3219,52 +2501,11 @@
             });
         });
 
-        // Chat Widget Functionality
-        const chatToggle = document.querySelector('.chat-toggle');
-        const chatContainer = document.querySelector('.chat-container');
-        const chatClose = document.querySelector('.chat-close');
-        const chatForm = document.getElementById('chatForm');
-
-        chatToggle.addEventListener('click', function() {
-            chatContainer.classList.toggle('active');
-        });
-
-        chatClose.addEventListener('click', function() {
-            chatContainer.classList.remove('active');
-        });
-
-        chatForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: this.querySelector('input[type="text"]').value,
-                email: this.querySelector('input[type="email"]').value,
-                message: this.querySelector('textarea').value
-            };
-            
-            // In a real implementation, you would send this data to a server
-            console.log('Chat form submitted:', formData);
-            
-            // Show success message
-            const chatMessages = document.querySelector('.chat-messages');
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'message-user');
-            userMessage.textContent = "Thanks! We'll get back to you soon.";
-            chatMessages.appendChild(userMessage);
-            
-            // Reset form
-            this.reset();
-            
-            // Scroll to bottom
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        });
-
         // Testimonials Carousel
         const testimonialsTrack = document.getElementById('testimonialsTrack');
         const carouselDots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
-        const totalSlides = 7;
+        const totalSlides = 3;
 
         function updateCarousel() {
             testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
