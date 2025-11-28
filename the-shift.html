@@ -806,26 +806,30 @@
             text-decoration: none;
         }
 
-        /* NEW: Create Account Tab for Mobile */
-        .mobile-create-account-tab {
+        /* NEW: Create Account Floating Button for Mobile */
+        .mobile-create-account-btn {
             display: none;
             position: fixed;
-            bottom: 0;
-            right: 0;
+            top: 20%;
+            right: 15px;
             background: var(--gradient-primary);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px 0 0 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 24px;
             z-index: 999;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.4);
             transition: all 0.3s ease;
+            align-items: center;
+            justify-content: center;
         }
 
-        .mobile-create-account-tab:hover {
-            background: var(--accent-purple-dark);
+        .mobile-create-account-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.5);
         }
 
         /* Responsive */
@@ -907,16 +911,16 @@
                 display: none !important;
             }
             
+            /* CHANGED: Remove Sign In from header bar on mobile */
+            .nav-actions .sign-in {
+                display: none !important;
+            }
+            
             .nav-actions {
                 transform: none;
                 gap: 16px;
                 position: absolute;
                 right: 20px;
-            }
-            
-            /* Show the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: block;
             }
             
             .nav-links {
@@ -933,6 +937,7 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
+                text-align: left; /* CHANGED: Left justify the menu items */
             }
 
             .nav-links.active {
@@ -1094,9 +1099,9 @@
                 padding: 0 20px;
             }
             
-            /* NEW: Show the Create Account Tab on mobile */
-            .mobile-create-account-tab {
-                display: block;
+            /* NEW: Show the Create Account Floating Button on mobile */
+            .mobile-create-account-btn {
+                display: flex;
             }
             
             /* REMOVED: Purple line for active page indicator on mobile */
@@ -1147,8 +1152,10 @@
 
 <body>
 
-<!-- NEW: Create Account Tab for Mobile -->
-<a href="create-account.html" class="mobile-create-account-tab">Create Account</a>
+<!-- NEW: Create Account Floating Button for Mobile -->
+<a href="create-account.html" class="mobile-create-account-btn">
+    <i class="fas fa-user-plus"></i>
+</a>
 
 <!-- Navigation -->
 <nav>
