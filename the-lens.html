@@ -92,48 +92,6 @@
             padding: 80px 0;
         }
 
-        /* NEW: Pinned Sign-up Banner on Right Side */
-        .pinned-signup-banner {
-            display: none;
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 25px 15px;
-            border-radius: 12px 0 0 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
-            z-index: 997;
-            transition: all 0.3s ease;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            text-align: center;
-            line-height: 1.3;
-            letter-spacing: 1px;
-            border: 2px solid white;
-        }
-
-        .dark-mode .pinned-signup-banner {
-            border: 2px solid var(--primary-white);
-        }
-
-        .pinned-signup-banner:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-50%) translateX(-8px);
-            box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
-            padding-right: 20px;
-        }
-
-        .pinned-signup-banner::before {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -183,8 +141,6 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
-            position: relative;
-            padding: 8px 0;
         }
 
         .nav-link:hover {
@@ -193,19 +149,6 @@
 
         .nav-link.active {
             color: var(--text-dark);
-            position: relative;
-        }
-
-        /* NEW: Purple underline for active page */
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-purple);
-            border-radius: 2px;
         }
 
         .nav-actions {
@@ -300,11 +243,6 @@
 
         /* Mobile Sign In Button */
         .mobile-sign-in {
-            display: none;
-        }
-
-        /* NEW: Mobile Sign Up Button */
-        .mobile-sign-up {
             display: none;
         }
 
@@ -1382,507 +1320,6 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 60px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 24px;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
-        }
-
-        .chat-container-widget {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 320px;
-            height: 460px;
-            background: var(--primary-white);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
-
-        .chat-container-widget.active {
-            display: flex;
-        }
-
-        .chat-header-widget {
-            background: var(--accent-purple);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-title-widget {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .chat-messages-widget {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message-widget {
-            max-width: 100%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .message-bot {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .message-user {
-            background: var(--accent-purple);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            max-width: 80%;
-        }
-
-        .chat-input-container-widget {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .chat-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-input-widget {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .hand-wave {
-            display: inline-block;
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        /* NEW: Lens Vertical Tab for Mobile */
-        .lens-vertical-tab {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            padding: 15px 8px;
-            border-radius: 0 12px 12px 0;
-            z-index: 996;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-            transition: all 0.3s ease;
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            font-weight: 600;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            display: none;
-            height: 120px;
-        }
-
-        .lens-vertical-tab:hover {
-            background: var(--accent-purple-dark);
-            padding-left: 12px;
-        }
-
-        .lens-vertical-tab .tab-text {
-            transform: rotate(180deg);
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .lens-vertical-tab i {
-            font-size: 16px;
-        }
-
-        .lens-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 300px;
-            background: var(--primary-white);
-            z-index: 999;
-            transform: translateX(-100%);
-            transition: transform 0.4s ease;
-            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            display: none;
-        }
-
-        .lens-sidebar.active {
-            transform: translateX(0);
-        }
-
-        .lens-sidebar-header {
-            padding: 25px 20px 20px;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--light-purple);
-        }
-
-        .lens-sidebar-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .lens-sidebar-title i {
-            color: var(--accent-purple);
-        }
-
-        .lens-sidebar-close {
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 20px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .lens-sidebar-close:hover {
-            background-color: var(--light-gray);
-        }
-
-        .lens-sidebar-content {
-            padding: 20px;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .lens-sidebar-section {
-            margin-bottom: 30px;
-        }
-
-        .lens-sidebar-section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-purple);
-        }
-
-        .lens-sidebar-links {
-            list-style: none;
-        }
-
-        .lens-sidebar-link {
-            margin-bottom: 12px;
-        }
-
-        .lens-sidebar-link a {
-            color: var(--text-medium);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .lens-sidebar-link a:hover {
-            background: var(--light-purple);
-            color: var(--accent-purple);
-        }
-
-        .lens-sidebar-link a.active {
-            background: var(--light-purple);
-            color: var(--accent-purple);
-            font-weight: 600;
-        }
-
-        .lens-sidebar-link i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .lens-sidebar-footer {
-            padding: 20px;
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-        }
-
-        .lens-sidebar-cta {
-            background: var(--accent-purple);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .lens-sidebar-cta:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-        }
-
-        .lens-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            display: none;
-        }
-
-        .lens-overlay.active {
-            display: block;
-        }
-
-        /* NEW: Mobile Create Account Form */
-        .mobile-create-account {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-white);
-            z-index: 1001;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .mobile-create-account.active {
-            display: block;
-        }
-
-        .mobile-create-account-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .mobile-create-account-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .mobile-create-account-close {
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 24px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-create-account-close:hover {
-            background-color: var(--light-gray);
-        }
-
-        .mobile-create-account-form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 16px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus {
-            border-color: var(--accent-purple);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-        }
-
-        .form-submit {
-            width: 100%;
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .form-submit:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        /* NEW: Icon-only sign up button */
-        .icon-signup {
-            background: var(--accent-purple);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(123, 95, 196, 0.3);
-        }
-
-        .icon-signup:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-        }
-
-        /* NEW: Fix for keyboard positioning */
-        @media (max-width: 768px) {
-            .chat-container {
-                height: calc(100vh - 200px);
-            }
-            
-            .chat-messages {
-                padding-bottom: 80px;
-            }
-            
-            .chat-input-container {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: var(--primary-white);
-                z-index: 100;
-                padding: 15px;
-                border-top: 1px solid var(--border-light);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1918,11 +1355,6 @@
         }
 
         @media (max-width: 768px) {
-            /* NEW: Show pinned signup banner on desktop and tablet */
-            .pinned-signup-banner {
-                display: block;
-            }
-
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1962,17 +1394,13 @@
                 align-items: center;
             }
             
-            /* NEW: Replace text sign up with icon-only version */
-            .nav-actions .header-cta {
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
                 display: none;
             }
             
-            .nav-actions .icon-signup {
-                display: flex;
-            }
-            
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
+            /* Hide the sign-up button in mobile navigation */
+            .nav-actions .header-cta {
                 display: none;
             }
             
@@ -2029,25 +1457,6 @@
                 background: var(--primary-white);
                 color: var(--accent-purple);
                 border: 2px solid var(--accent-purple);
-            }
-
-            /* NEW: Mobile Sign Up button in hamburger menu */
-            .mobile-sign-up {
-                display: block !important;
-                margin-top: 10px;
-                padding: 12px 20px;
-                background: var(--accent-purple);
-                color: white;
-                border-radius: 8px;
-                text-align: center;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            .mobile-sign-up:hover {
-                background: var(--accent-purple-dark);
-                transform: translateY(-2px);
             }
 
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
@@ -2177,7 +1586,7 @@
 
             /* Chat container */
             .chat-container {
-                height: calc(100vh - 200px); /* Increased for better mobile experience */
+                height: 600px; /* Increased for better mobile experience */
                 margin: 20px 0;
             }
 
@@ -2323,29 +1732,6 @@
             .popular-issues.active {
                 transform: translateY(0);
             }
-
-            /* NEW: Show Lens Vertical Tab on Mobile */
-            .lens-vertical-tab {
-                display: flex;
-                top: 140px; /* Positioned higher to align with h1 top line */
-            }
-
-            .lens-sidebar {
-                display: flex;
-            }
-
-            /* Chat widget mobile adjustments */
-            .chat-container-widget {
-                width: 90vw;
-                height: 450px;
-                right: 5vw;
-            }
-            
-            .chat-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2389,180 +1775,16 @@
             .closing-title {
                 font-size: 28px;
             }
-
-            /* Lens sidebar adjustments for very small screens */
-            .lens-sidebar {
-                width: 280px;
-            }
-            
-            /* NEW: Adjust Lens tab position for very small screens */
-            .lens-vertical-tab {
-                top: 120px;
-            }
         }
         
         /* Mobile Sign In Button */
         .mobile-sign-in {
             display: none;
         }
-        
-        /* NEW: Icon-only sign up button - hidden by default */
-        .icon-signup {
-            display: none;
-        }
     </style>
 </head>
 
 <body>
-
-<!-- NEW: Pinned Sign-up Banner on Right Side -->
-<a href="create-account.html" class="pinned-signup-banner">
-    <i class="fas fa-user-plus"></i> Sign Up
-</a>
-
-<!-- NEW: Lens Vertical Tab for Mobile -->
-<div class="lens-vertical-tab" id="lensTab">
-    <i class="fas fa-search"></i>
-    <span class="tab-text">The Lens</span>
-</div>
-
-<!-- NEW: Lens Sidebar for Mobile -->
-<div class="lens-sidebar" id="lensSidebar">
-    <div class="lens-sidebar-header">
-        <h2 class="lens-sidebar-title"><i class="fas fa-search"></i> The Lens</h2>
-        <button class="lens-sidebar-close" id="lensSidebarClose">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <div class="lens-sidebar-content">
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">How It Works</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#unfilter" class="active">
-                        <i class="fas fa-comment-alt"></i>
-                        <span>Unfilter</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#diagnose">
-                        <i class="fas fa-search"></i>
-                        <span>Diagnose</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#strategy">
-                        <i class="fas fa-map-signs"></i>
-                        <span>Strategy</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#action">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Action</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">Popular Challenges</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#workload">
-                        <i class="fas fa-tasks"></i>
-                        <span>Workload & Burnout</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#micromanagement">
-                        <i class="fas fa-user-check"></i>
-                        <span>Micromanagement</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#exclusion">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Exclusion & Visibility</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#promotion">
-                        <i class="fas fa-trophy"></i>
-                        <span>Promotion & Recognition</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#toxic">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>Toxic Behaviour</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="lens-sidebar-section">
-            <h3 class="lens-sidebar-section-title">Resources</h3>
-            <ul class="lens-sidebar-links">
-                <li class="lens-sidebar-link">
-                    <a href="#tools">
-                        <i class="fas fa-toolbox"></i>
-                        <span>Tools & Templates</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#scripts">
-                        <i class="fas fa-scroll"></i>
-                        <span>Response Scripts</span>
-                    </a>
-                </li>
-                <li class="lens-sidebar-link">
-                    <a href="#frameworks">
-                        <i class="fas fa-compass"></i>
-                        <span>Strategy Frameworks</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="lens-sidebar-footer">
-        <a href="#" class="lens-sidebar-cta" id="mobileSignUpTrigger">Start with The Lens</a>
-    </div>
-</div>
-
-<!-- NEW: Mobile Create Account Form -->
-<div class="mobile-create-account" id="mobileCreateAccount">
-    <div class="mobile-create-account-header">
-        <h2 class="mobile-create-account-title">Create Account</h2>
-        <button class="mobile-create-account-close" id="mobileCreateAccountClose">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <form class="mobile-create-account-form">
-        <div class="form-group">
-            <label class="form-label" for="name">Full Name</label>
-            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
-        </div>
-        
-        <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
-        </div>
-        
-        <div class="form-group">
-            <label class="form-label" for="password">Password</label>
-            <input type="password" id="password" class="form-input" placeholder="Create a password" required>
-        </div>
-        
-        <button type="submit" class="form-submit">Create Account</button>
-    </form>
-</div>
-
-<!-- NEW: Overlay for Lens Sidebar -->
-<div class="lens-overlay" id="lensOverlay"></div>
 
 <!-- Navigation -->
 <nav>
@@ -2586,13 +1808,11 @@
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
-            <a href="#" class="mobile-sign-up" id="mobileNavSignUp">Sign Up</a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign up</a>
-            <a href="#" class="icon-signup"><i class="fas fa-user-plus"></i></a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -2923,32 +2143,6 @@
     </div>
 </footer>
 
-<!-- Chat Widget -->
-<div class="chat-widget">
-    <button class="chat-toggle">
-        <i class="fas fa-comment"></i>
-    </button>
-    <div class="chat-container-widget">
-        <div class="chat-header-widget">
-            <div class="chat-title-widget">Send us a message</div>
-            <button class="chat-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="chat-messages-widget">
-            <div class="message-widget message-bot">👋 Hi there! We'd love to hear from you.</div>
-        </div>
-        <div class="chat-input-container-widget">
-            <form class="chat-form" id="chatForm">
-                <input type="text" class="chat-input-widget" placeholder="Your Name" required>
-                <input type="email" class="chat-input-widget" placeholder="Your Email" required>
-                <textarea class="chat-input-widget" rows="3" required></textarea>
-                <button type="submit" class="chat-send">Send Message</button>
-            </form>
-        </div>
-    </div>
-</div>
-
 <script>
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
@@ -2996,75 +2190,6 @@
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         });
-
-        // NEW: Lens Vertical Tab Functionality
-        const lensTab = document.getElementById('lensTab');
-        const lensSidebar = document.getElementById('lensSidebar');
-        const lensSidebarClose = document.getElementById('lensSidebarClose');
-        const lensOverlay = document.getElementById('lensOverlay');
-
-        // Show Lens sidebar
-        lensTab.addEventListener('click', function() {
-            lensSidebar.classList.add('active');
-            lensOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-
-        // Hide Lens sidebar
-        function hideLensSidebar() {
-            lensSidebar.classList.remove('active');
-            lensOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-
-        lensSidebarClose.addEventListener('click', hideLensSidebar);
-        lensOverlay.addEventListener('click', hideLensSidebar);
-
-        // Close sidebar when clicking on a link
-        const lensSidebarLinks = document.querySelectorAll('.lens-sidebar-link a');
-        lensSidebarLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Update active state
-                lensSidebarLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Close sidebar after a short delay
-                setTimeout(hideLensSidebar, 300);
-            });
-        });
-
-        // NEW: Mobile Create Account Form Functionality
-        const mobileCreateAccount = document.getElementById('mobileCreateAccount');
-        const mobileCreateAccountClose = document.getElementById('mobileCreateAccountClose');
-        const mobileSignUpTrigger = document.getElementById('mobileSignUpTrigger');
-        const mobileNavSignUp = document.getElementById('mobileNavSignUp');
-
-        // Show mobile create account form
-        function showMobileCreateAccount() {
-            mobileCreateAccount.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
-
-        // Hide mobile create account form
-        function hideMobileCreateAccount() {
-            mobileCreateAccount.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        }
-
-        // Event listeners for mobile create account form
-        mobileSignUpTrigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            hideLensSidebar();
-            setTimeout(showMobileCreateAccount, 300);
-        });
-
-        mobileNavSignUp.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('.nav-links').classList.remove('active');
-            setTimeout(showMobileCreateAccount, 300);
-        });
-
-        mobileCreateAccountClose.addEventListener('click', hideMobileCreateAccount);
 
         // JavaScript for The Lens chat functionality
         const chatMessages = document.getElementById('chatMessages');
@@ -3492,47 +2617,6 @@
             if (e.key === 'Enter') {
                 sendMessage();
             }
-        });
-
-        // Chat Widget Functionality
-        const chatToggle = document.querySelector('.chat-toggle');
-        const chatContainerWidget = document.querySelector('.chat-container-widget');
-        const chatClose = document.querySelector('.chat-close');
-        const chatForm = document.getElementById('chatForm');
-
-        chatToggle.addEventListener('click', function() {
-            chatContainerWidget.classList.toggle('active');
-        });
-
-        chatClose.addEventListener('click', function() {
-            chatContainerWidget.classList.remove('active');
-        });
-
-        chatForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: this.querySelector('input[type="text"]').value,
-                email: this.querySelector('input[type="email"]').value,
-                message: this.querySelector('textarea').value
-            };
-            
-            // In a real implementation, you would send this data to a server
-            console.log('Chat form submitted:', formData);
-            
-            // Show success message
-            const chatMessagesWidget = document.querySelector('.chat-messages-widget');
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message-widget', 'message-user');
-            userMessage.textContent = "Thanks! We'll get back to you soon.";
-            chatMessagesWidget.appendChild(userMessage);
-            
-            // Reset form
-            this.reset();
-            
-            // Scroll to bottom
-            chatMessagesWidget.scrollTop = chatMessagesWidget.scrollHeight;
         });
     });
 </script>
