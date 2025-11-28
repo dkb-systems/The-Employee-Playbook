@@ -92,6 +92,48 @@
             padding: 80px 0;
         }
 
+        /* NEW: Pinned Sign-up Banner on Right Side */
+        .pinned-signup-banner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 12px 0 0 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 5px 25px rgba(123, 95, 196, 0.5);
+            z-index: 997;
+            transition: all 0.3s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            border: 2px solid white;
+        }
+
+        .dark-mode .pinned-signup-banner {
+            border: 2px solid var(--primary-white);
+        }
+
+        .pinned-signup-banner:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-50%) translateX(-8px);
+            box-shadow: 0 8px 30px rgba(123, 95, 196, 0.6);
+            padding-right: 20px;
+        }
+
+        .pinned-signup-banner::before {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -141,6 +183,8 @@
             font-weight: 500;
             transition: color 0.3s ease;
             font-size: 17px;
+            position: relative;
+            padding: 8px 0;
         }
 
         .nav-link:hover {
@@ -1320,122 +1364,353 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* NEW: Mobile Coach CTA Section */
-        .mobile-coach-cta {
-            display: none;
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 60px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
             background: var(--accent-purple);
             color: white;
-            text-align: center;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .mobile-coach-cta h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .mobile-coach-cta p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .mobile-coach-button {
-            background: white;
-            color: var(--accent-purple);
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
             transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border: none;
+            font-size: 24px;
         }
 
-        .mobile-coach-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
         }
 
-        /* NEW: Contact Form Styles */
-        .contact-form-container {
+        .chat-container-widget {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 460px;
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 30px;
-            box-shadow: var(--premium-card-shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
             border: 1px solid var(--border-light);
-            margin-top: 20px;
         }
 
-        .contact-form-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            text-align: center;
+        .chat-container-widget.active {
+            display: flex;
         }
 
-        .contact-form {
+        .chat-header-widget {
+            background: var(--accent-purple);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title-widget {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages-widget {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-label {
-            font-weight: 500;
-            color: var(--text-dark);
+        .message-widget {
+            max-width: 100%;
+            padding: 12px 16px;
+            border-radius: 18px;
             font-size: 14px;
+            line-height: 1.4;
         }
 
-        .form-input, .form-textarea {
+        .message-bot {
+            background: var(--light-gray);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-user {
+            background: var(--accent-purple);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            max-width: 80%;
+        }
+
+        .chat-input-container-widget {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-input-widget {
             padding: 12px 16px;
             border: 1px solid var(--medium-gray);
             border-radius: 8px;
             font-size: 14px;
             background: var(--primary-white);
             color: var(--text-dark);
-            transition: all 0.3s;
         }
 
-        .form-input:focus, .form-textarea:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-            outline: none;
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-submit {
+        .chat-send {
             background: var(--accent-purple);
             color: white;
             border: none;
-            padding: 14px 20px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.3s ease;
-            margin-top: 10px;
         }
 
-        .form-submit:hover {
-            background: var(--accent-purple-dark);
+        .chat-send:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .hand-wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* NEW: Lens Vertical Tab for Mobile */
+        .lens-vertical-tab {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-purple);
+            color: white;
+            padding: 20px 10px;
+            border-radius: 0 12px 12px 0;
+            z-index: 996;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+            transition: all 0.3s ease;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            display: none;
+        }
+
+        .lens-vertical-tab:hover {
+            background: var(--accent-purple-dark);
+            padding-left: 15px;
+        }
+
+        .lens-vertical-tab .tab-text {
+            transform: rotate(180deg);
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+
+        .lens-vertical-tab i {
+            font-size: 18px;
+        }
+
+        .lens-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 300px;
+            background: var(--primary-white);
+            z-index: 999;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            display: none;
+        }
+
+        .lens-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .lens-sidebar-header {
+            padding: 25px 20px 20px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--light-purple);
+        }
+
+        .lens-sidebar-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lens-sidebar-title i {
+            color: var(--accent-purple);
+        }
+
+        .lens-sidebar-close {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .lens-sidebar-close:hover {
+            background-color: var(--light-gray);
+        }
+
+        .lens-sidebar-content {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .lens-sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .lens-sidebar-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-purple);
+        }
+
+        .lens-sidebar-links {
+            list-style: none;
+        }
+
+        .lens-sidebar-link {
+            margin-bottom: 12px;
+        }
+
+        .lens-sidebar-link a {
+            color: var(--text-medium);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .lens-sidebar-link a:hover {
+            background: var(--light-purple);
+            color: var(--accent-purple);
+        }
+
+        .lens-sidebar-link a.active {
+            background: var(--light-purple);
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .lens-sidebar-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .lens-sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .lens-sidebar-cta {
+            background: var(--accent-purple);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .lens-sidebar-cta:hover {
+            background: var(--accent-purple-dark);
+            transform: translateY(-2px);
+        }
+
+        .lens-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+        }
+
+        .lens-overlay.active {
+            display: block;
         }
 
         /* Responsive */
@@ -1473,6 +1748,11 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Show pinned signup banner on desktop and tablet */
+            .pinned-signup-banner {
+                display: block;
+            }
+
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1851,14 +2131,26 @@
                 transform: translateY(0);
             }
 
-            /* NEW: Show mobile coach CTA */
-            .mobile-coach-cta {
-                display: block;
+            /* NEW: Show Lens Vertical Tab on Mobile */
+            .lens-vertical-tab {
+                display: flex;
             }
 
-            /* NEW: Hide the "Learn How It Works" button on mobile */
-            .micro-cta .cta-small:nth-child(2) {
-                display: none;
+            .lens-sidebar {
+                display: flex;
+            }
+
+            /* Chat widget mobile adjustments */
+            .chat-container-widget {
+                width: 90vw;
+                height: 450px;
+                right: 5vw;
+            }
+            
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
         }
 
@@ -1903,6 +2195,11 @@
             .closing-title {
                 font-size: 28px;
             }
+
+            /* Lens sidebar adjustments for very small screens */
+            .lens-sidebar {
+                width: 280px;
+            }
         }
         
         /* Mobile Sign In Button */
@@ -1913,6 +2210,126 @@
 </head>
 
 <body>
+
+<!-- NEW: Pinned Sign-up Banner on Right Side -->
+<a href="create-account.html" class="pinned-signup-banner">
+    <i class="fas fa-user-plus"></i> Sign Up
+</a>
+
+<!-- NEW: Lens Vertical Tab for Mobile -->
+<div class="lens-vertical-tab" id="lensTab">
+    <i class="fas fa-search"></i>
+    <span class="tab-text">The Lens</span>
+</div>
+
+<!-- NEW: Lens Sidebar for Mobile -->
+<div class="lens-sidebar" id="lensSidebar">
+    <div class="lens-sidebar-header">
+        <h2 class="lens-sidebar-title"><i class="fas fa-search"></i> The Lens</h2>
+        <button class="lens-sidebar-close" id="lensSidebarClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="lens-sidebar-content">
+        <div class="lens-sidebar-section">
+            <h3 class="lens-sidebar-section-title">How It Works</h3>
+            <ul class="lens-sidebar-links">
+                <li class="lens-sidebar-link">
+                    <a href="#unfilter" class="active">
+                        <i class="fas fa-comment-alt"></i>
+                        <span>Unfilter</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#diagnose">
+                        <i class="fas fa-search"></i>
+                        <span>Diagnose</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#strategy">
+                        <i class="fas fa-map-signs"></i>
+                        <span>Strategy</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#action">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Action</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="lens-sidebar-section">
+            <h3 class="lens-sidebar-section-title">Popular Challenges</h3>
+            <ul class="lens-sidebar-links">
+                <li class="lens-sidebar-link">
+                    <a href="#workload">
+                        <i class="fas fa-tasks"></i>
+                        <span>Workload & Burnout</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#micromanagement">
+                        <i class="fas fa-user-check"></i>
+                        <span>Micromanagement</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#exclusion">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Exclusion & Visibility</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#promotion">
+                        <i class="fas fa-trophy"></i>
+                        <span>Promotion & Recognition</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#toxic">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Toxic Behaviour</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="lens-sidebar-section">
+            <h3 class="lens-sidebar-section-title">Resources</h3>
+            <ul class="lens-sidebar-links">
+                <li class="lens-sidebar-link">
+                    <a href="#tools">
+                        <i class="fas fa-toolbox"></i>
+                        <span>Tools & Templates</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#scripts">
+                        <i class="fas fa-scroll"></i>
+                        <span>Response Scripts</span>
+                    </a>
+                </li>
+                <li class="lens-sidebar-link">
+                    <a href="#frameworks">
+                        <i class="fas fa-compass"></i>
+                        <span>Strategy Frameworks</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="lens-sidebar-footer">
+        <a href="create-account.html" class="lens-sidebar-cta">Start with The Lens</a>
+    </div>
+</div>
+
+<!-- NEW: Overlay for Lens Sidebar -->
+<div class="lens-overlay" id="lensOverlay"></div>
 
 <!-- Navigation -->
 <nav>
@@ -2034,13 +2451,6 @@
                 </div>
             </div>
             
-            <!-- NEW: Mobile Coach CTA Section -->
-            <div class="mobile-coach-cta">
-                <h3>Need personalized guidance?</h3>
-                <p>Get one-on-one support from The Coach for your specific workplace situation</p>
-                <a href="the-coach.html" class="mobile-coach-button">TRY THE COACH NOW</a>
-            </div>
-            
             <!-- Zoom In Section -->
             <div class="full-width-section zoom-in-section">
                 <h2 class="zoom-title">Find Your Solution Path</h2>
@@ -2051,24 +2461,63 @@
                     You're not identified here. This space doesn't store personal identifiers – it's between you and The Lens.
                 </p>
                 
-                <!-- NEW: Contact Form Container -->
-                <div class="contact-form-container">
-                    <h3 class="contact-form-title">Send us a message</h3>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label class="form-label">Your Name</label>
-                            <input type="text" class="form-input" placeholder="Enter your name" required>
+                <!-- Chat Container -->
+                <div class="chat-container" id="lensChat">
+                    <!-- Popular Issues Panel -->
+                    <div class="popular-issues" id="popularIssues">
+                        <div class="issues-header">
+                            <h4 class="issues-title" id="issuesTitle">Common Issues</h4>
+                            <button class="close-issues" id="closeIssues">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Your Email</label>
-                            <input type="email" class="form-input" placeholder="Enter your email" required>
+                        <div class="issue-pills" id="issuePills">
+                            <!-- Issue pills will be dynamically inserted here -->
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Your Message</label>
-                            <textarea class="form-textarea" placeholder="Describe your workplace challenge or question..." required></textarea>
+                    </div>
+                    
+                    <div class="chat-header">
+                        <h3 class="chat-title"><i class="fas fa-search chat-title-icon"></i> The Lens</h3>
+                        <!-- Clear Session Button -->
+                        <button class="clear-session" id="clearSession">Clear Session</button>
+                    </div>
+                    
+                    <div class="chat-content-wrapper">
+                        <!-- Most Popular Sidebar - Hidden on mobile -->
+                        <div class="most-popular-sidebar">
+                            <h4 class="sidebar-title">Most Popular</h4>
+                            <ul class="popular-topics">
+                                <li data-category="workload">Workload & Burnout</li>
+                                <li data-category="micromanagement">Micromanagement</li>
+                                <li data-category="exclusion">Exclusion & Visibility</li>
+                                <li data-category="promotion">Promotion & Recognition</li>
+                                <li data-category="toxic">Toxic Behaviour</li>
+                                <li data-category="credit">Credit & Attribution</li>
+                                <li data-category="conversations">Difficult Conversations</li>
+                                <li data-category="conflict">Conflict Resolution</li>
+                            </ul>
                         </div>
-                        <button type="submit" class="form-submit">Send Message</button>
-                    </form>
+                        
+                        <!-- Chat Area -->
+                        <div class="chat-area">
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="message bot-message">
+                                    <div class="bot-avatar">
+                                        TL
+                                    </div>
+                                    <div class="message-content">
+                                        <p>Let's get into it. What's been happening at work?</p>
+                                        <p>No judgement. Just say it how it feels.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input-container">
+                                <input type="text" class="chat-input" id="userInput" placeholder="Describe your workplace challenge...">
+                                <button class="send-button" id="sendButton">Send</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -2222,11 +2671,11 @@
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
-                             <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="#">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
-                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
+                            <li class="footer-link"><a href="#">Security</a></li>
+                            <li class="footer-link"><a href="#">Help Centre</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2238,6 +2687,32 @@
         </div>
     </div>
 </footer>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+    <button class="chat-toggle">
+        <i class="fas fa-comment"></i>
+    </button>
+    <div class="chat-container-widget">
+        <div class="chat-header-widget">
+            <div class="chat-title-widget">Send us a message</div>
+            <button class="chat-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages-widget">
+            <div class="message-widget message-bot">👋 Hi there! We'd love to hear from you.</div>
+        </div>
+        <div class="chat-input-container-widget">
+            <form class="chat-form" id="chatForm">
+                <input type="text" class="chat-input-widget" placeholder="Your Name" required>
+                <input type="email" class="chat-input-widget" placeholder="Your Email" required>
+                <textarea class="chat-input-widget" rows="3" required></textarea>
+                <button type="submit" class="chat-send">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     // Mark page as loaded to prevent FOUC
@@ -2287,9 +2762,485 @@
             icon.classList.toggle('fa-times');
         });
 
-        // NEW: Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        // NEW: Lens Vertical Tab Functionality
+        const lensTab = document.getElementById('lensTab');
+        const lensSidebar = document.getElementById('lensSidebar');
+        const lensSidebarClose = document.getElementById('lensSidebarClose');
+        const lensOverlay = document.getElementById('lensOverlay');
+
+        // Show Lens sidebar
+        lensTab.addEventListener('click', function() {
+            lensSidebar.classList.add('active');
+            lensOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Hide Lens sidebar
+        function hideLensSidebar() {
+            lensSidebar.classList.remove('active');
+            lensOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        lensSidebarClose.addEventListener('click', hideLensSidebar);
+        lensOverlay.addEventListener('click', hideLensSidebar);
+
+        // Close sidebar when clicking on a link
+        const lensSidebarLinks = document.querySelectorAll('.lens-sidebar-link a');
+        lensSidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Update active state
+                lensSidebarLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Close sidebar after a short delay
+                setTimeout(hideLensSidebar, 300);
+            });
+        });
+
+        // JavaScript for The Lens chat functionality
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+        const popularIssues = document.getElementById('popularIssues');
+        const issuePills = document.getElementById('issuePills');
+        const issuesTitle = document.getElementById('issuesTitle');
+        const closeIssues = document.getElementById('closeIssues');
+        const popularTopics = document.querySelectorAll('.popular-topics li');
+        const clearSessionBtn = document.getElementById('clearSession');
+        
+        // Define issues for each category (5 per category)
+        const categoryIssues = {
+            workload: [
+                "My workload keeps escalating but no one acknowledges it",
+                "I'm working overtime consistently with no relief in sight",
+                "My manager keeps adding tasks without removing others",
+                "I'm experiencing physical symptoms of stress and exhaustion",
+                "I feel overwhelmed and unable to keep up with demands"
+            ],
+            micromanagement: [
+                "My manager checks in on me multiple times a day",
+                "I'm not trusted to complete tasks without approval at every step",
+                "My confidence is suffering due to constant oversight",
+                "I feel like I can't make any decisions independently",
+                "My manager questions every detail of my work"
+            ],
+            exclusion: [
+                "I'm left out of meetings where decisions about my work are made",
+                "Important information is shared with others but not with me",
+                "My contributions are overlooked in team discussions",
+                "I'm not included in social or networking opportunities",
+                "My ideas are dismissed without proper consideration"
+            ],
+            promotion: [
+                "Less experienced colleagues are being promoted over me",
+                "My achievements aren't recognised during performance reviews",
+                "I'm consistently given vague feedback about promotion criteria",
+                "Opportunities for advancement aren't transparently communicated",
+                "I feel stuck in my current role with no clear path forward"
+            ],
+            toxic: [
+                "My manager's mood changes unpredictably affecting the team",
+                "I feel anxious about speaking up in meetings",
+                "There's a culture of blame rather than problem-solving",
+                "I've witnessed bullying behaviour that goes unaddressed",
+                "The work environment feels hostile and unsupportive"
+            ],
+            credit: [
+                "My ideas are presented as someone else's in meetings",
+                "My manager takes credit for my successful projects",
+                "My contributions are minimised when reporting to leadership",
+                "Colleagues receive praise for work I primarily completed",
+                "My work is consistently undervalued and overlooked"
+            ],
+            conversations: [
+                "I need to address a performance issue with a team member",
+                "I have to deliver negative feedback to a colleague",
+                "I need to negotiate for more resources or support",
+                "I have to say no to additional work without sounding uncooperative",
+                "I need to address a sensitive topic with my manager"
+            ],
+            conflict: [
+                "Team members have different working styles causing tension",
+                "There's disagreement about project priorities and direction",
+                "Personality clashes are affecting team productivity",
+                "Communication breakdowns are causing repeated misunderstandings",
+                "I'm caught in the middle of a conflict between colleagues"
+            ]
+        };
+        
+        // Track conversation state
+        let conversationState = {
+            firstMessage: true,
+            userScenario: '',
+            messageCount: 0
+        };
+        
+        // Clear session functionality
+        clearSessionBtn.addEventListener('click', function() {
+            // Clear chat messages except the initial bot message
+            chatMessages.innerHTML = `
+                <div class="message bot-message">
+                    <div class="bot-avatar">
+                        TL
+                    </div>
+                    <div class="message-content">
+                        <p>Let's get into it. What's been happening at work?</p>
+                        <p>No judgement. Just say it how it feels.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Reset conversation state
+            conversationState = {
+                firstMessage: true,
+                userScenario: '',
+                messageCount: 0
+            };
+            
+            // Clear input field
+            userInput.value = '';
+            
+            // Show confirmation message
+            const confirmationMsg = document.createElement('div');
+            confirmationMsg.className = 'message bot-message';
+            confirmationMsg.innerHTML = `
+                <div class="bot-avatar">
+                    TL
+                </div>
+                <div class="message-content">
+                    <p>Session cleared. Ready to start fresh.</p>
+                </div>
+            `;
+            chatMessages.appendChild(confirmationMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+        
+        // Set up popular topic interactions
+        popularTopics.forEach(topic => {
+            topic.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const category = this.getAttribute('data-category');
+                const categoryName = this.textContent;
+                
+                // Update issues panel title
+                issuesTitle.textContent = `Common ${categoryName} Issues`;
+                
+                // Clear previous pills
+                issuePills.innerHTML = '';
+                
+                // Add new pills for this category
+                categoryIssues[category].forEach(issue => {
+                    const pill = document.createElement('div');
+                    pill.className = 'issue-pill';
+                    pill.textContent = issue;
+                    pill.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        userInput.value = `"${issue}"`;
+                        sendMessage();
+                        hideIssues();
+                    });
+                    issuePills.appendChild(pill);
+                });
+                
+                // Show issues panel
+                showIssues();
+                
+                // Set timeout to hide after 7 seconds
+                setTimeout(() => {
+                    if (popularIssues.classList.contains('active')) {
+                        hideIssues();
+                    }
+                }, 7000);
+            });
+        });
+        
+        // Close issues panel when clicking anywhere else
+        document.addEventListener('click', function(e) {
+            if (popularIssues.classList.contains('active') && !popularIssues.contains(e.target)) {
+                hideIssues();
+            }
+        });
+        
+        // Close issues panel
+        closeIssues.addEventListener('click', hideIssues);
+        
+        // Show issues panel
+        function showIssues() {
+            popularIssues.classList.add('active');
+        }
+        
+        // Hide issues panel
+        function hideIssues() {
+            popularIssues.classList.remove('active');
+        }
+        
+        // Enhanced function to add messages with proper mobile scrolling
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="bot-avatar">
+                        TL
+                    </div>
+                    <div class="message-content">
+                        ${text}
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            
+            // Simple, reliable scroll to bottom
+            setTimeout(() => {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 50);
+        }
+        
+        // Send message function
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            userInput.value = '';
+            
+            // Hide issues panel if open
+            hideIssues();
+            
+            // Increment message count
+            conversationState.messageCount++;
+            
+            // Simulate bot response after a short delay
+            setTimeout(() => {
+                // Show typing indicator
+                const typingIndicator = document.createElement('div');
+                typingIndicator.className = 'message bot-message typing-indicator';
+                
+                // Create the typing indicator with TL avatar on desktop
+                if (window.innerWidth > 768) {
+                    typingIndicator.innerHTML = `
+                        <div class="bot-avatar">
+                            TL
+                        </div>
+                        <div class="message-content">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Mobile version without avatar
+                    typingIndicator.innerHTML = `
+                        <div class="message-content">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                chatMessages.appendChild(typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // After a delay, replace with actual response
+                setTimeout(() => {
+                    chatMessages.removeChild(typingIndicator);
+                    generateBotResponse(message);
+                }, 1500);
+            }, 500);
+        }
+        
+        // Generate bot response based on user message
+        function generateBotResponse(userMessage) {
+            let response = '';
+            
+            if (conversationState.messageCount === 1) {
+                // First interaction - use empathy and ask for more information
+                conversationState.userScenario = userMessage;
+                
+                response = `
+                    <p>I hear you. ${getEmpatheticResponse(userMessage)}</p>
+                    <p>To help you better, could you tell me a bit more about the situation? For example, how long has this been going on or if you've tried addressing it already?</p>
+                `;
+            } else if (conversationState.messageCount === 2) {
+                // Second interaction - provide 3 specific tools with closing statement
+                response = `
+                    <p>Thank you for sharing that. Based on what you've described, here are 3 specific tools that could help right now:</p>
+                    <div class="resources-grid">
+                        ${generateThreeTools(conversationState.userScenario + ' ' + userMessage)}
+                    </div>
+                    <br>
+                    <p style="font-size: 16px; line-height: 2;">These tools are designed to give you immediate clarity and actionable steps.</p>
+                    <p style="font-size: 16px; line-height: 1.5;">If you still need help, please check The Toolkit or have a chat with The Coach.</p>
+                `;
+            } else {
+                // Third+ interaction - suggest The Coach
+                response = `
+                    <p>For deeper, personalised guidance on implementing these strategies, I'd recommend exploring <strong>The Coach</strong> - our one-on-one support system for complex workplace situations.</p>
+                `;
+            }
+            
+            addMessage(response, 'bot');
+            
+            // Keep chat pinned after bot response on mobile
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 100);
+            }
+        }
+        
+        // Generate empathetic response based on user message
+        function getEmpatheticResponse(message) {
+            if (message.includes('workload') || message.includes('burnout') || message.includes('overwhelmed')) {
+                return "That sounds incredibly draining. Feeling constantly overwhelmed at work can take a real toll on both your professional effectiveness and personal wellbeing.";
+            } else if (message.includes('micromanag')) {
+                return "That must feel frustrating and limiting. Being micromanaged can undermine your confidence and make it hard to do your best work.";
+            } else if (message.includes('excluded') || message.includes('left out')) {
+                return "That sounds isolating and frustrating. Being excluded from important conversations can make you feel undervalued and disconnected from your team.";
+            } else if (message.includes('favouritism') || message.includes('promotion') || message.includes('overlooked')) {
+                return "That must feel demoralizing and unfair. When recognition and opportunities don't reflect your contributions, it can be deeply frustrating.";
+            } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
+                return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
+            } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
+                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
+            } else {
+                return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
+            }
+        }
+        
+        // Generate exactly 3 tools based on user scenario
+        function generateThreeTools(userMessage) {
+            let tools = '';
+            const msg = userMessage.toLowerCase();
+            
+            if (msg.includes('workload') || msg.includes('burnout') || msg.includes('overwhelmed')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Immediate Relief</div>
+                        <h3>Burnout Intervention Checklist</h3>
+                        <p class="description">Identify and address burnout symptoms before they escalate with this step-by-step guide.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Workload Escalation Script</h3>
+                        <p class="description">Professional ways to communicate your capacity concerns and negotiate priorities effectively.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Capacity Assessment</h3>
+                        <p class="description">Evaluate your current workload against organizational priorities to build your case.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else if (msg.includes('micromanag')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Micromanagement Response Script</h3>
+                        <p class="description">Professional ways to address micromanagement while building trust with your manager.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Proactive Updates Framework</h3>
+                        <p class="description">Structure your communication to preemptively address your manager's concerns.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Action Plan</div>
+                        <h3>Autonomy Building Plan</h3>
+                        <p class="description">Gradually increase your independence while demonstrating reliability and competence.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else if (msg.includes('excluded') || msg.includes('conversation')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Inclusion Request Script</h3>
+                        <p class="description">Professional ways to request inclusion in key meetings and decisions that impact your work.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Visibility & Influence Plan</h3>
+                        <p class="description">Systematically build your presence and impact within the organization.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Relationship Building</div>
+                        <h3>Stakeholder Connection Guide</h3>
+                        <p class="description">Develop strategic relationships with key decision-makers in your organization.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else {
+                // Default tools for unspecified scenarios
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Assessment</div>
+                        <h3>Situation Analysis Framework</h3>
+                        <p class="description">A structured approach to understand the dynamics and stakeholders in your situation.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Difficult Conversation Guide</h3>
+                        <p class="description">Prepare for and navigate challenging workplace discussions effectively.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Personal Action Plan</h3>
+                        <p class="description">Develop a step-by-step approach to address your specific workplace challenge.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            }
+            
+            return tools;
+        }
+        
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Chat Widget Functionality
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatContainerWidget = document.querySelector('.chat-container-widget');
+        const chatClose = document.querySelector('.chat-close');
+        const chatForm = document.getElementById('chatForm');
+
+        chatToggle.addEventListener('click', function() {
+            chatContainerWidget.classList.toggle('active');
+        });
+
+        chatClose.addEventListener('click', function() {
+            chatContainerWidget.classList.remove('active');
+        });
+
+        chatForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
@@ -2300,13 +3251,20 @@
             };
             
             // In a real implementation, you would send this data to a server
-            console.log('Contact form submitted:', formData);
+            console.log('Chat form submitted:', formData);
             
             // Show success message
-            alert('Thank you for your message! We\'ll get back to you soon.');
+            const chatMessagesWidget = document.querySelector('.chat-messages-widget');
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message-widget', 'message-user');
+            userMessage.textContent = "Thanks! We'll get back to you soon.";
+            chatMessagesWidget.appendChild(userMessage);
             
             // Reset form
             this.reset();
+            
+            // Scroll to bottom
+            chatMessagesWidget.scrollTop = chatMessagesWidget.scrollHeight;
         });
     });
 </script>
