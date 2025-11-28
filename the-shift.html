@@ -806,6 +806,28 @@
             text-decoration: none;
         }
 
+        /* NEW: Create Account Tab for Mobile */
+        .mobile-create-account-tab {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px 0 0 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-create-account-tab:hover {
+            background: var(--accent-purple-dark);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .modules-grid {
@@ -832,6 +854,29 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Center content for mobile view */
+            .container {
+                text-align: center;
+            }
+            
+            .module-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .module-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .module-cta {
+                align-self: center;
+            }
+            
+            .conflict-grid {
+                text-align: left;
+            }
+            
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1048,6 +1093,20 @@
                 font-size: 20px; /* Increased from 16px */
                 padding: 0 20px;
             }
+            
+            /* NEW: Show the Create Account Tab on mobile */
+            .mobile-create-account-tab {
+                display: block;
+            }
+            
+            /* REMOVED: Purple line for active page indicator on mobile */
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .nav-link.active {
+                color: var(--accent-purple);
+            }
         }
 
         @media (max-width: 480px) {
@@ -1087,6 +1146,9 @@
 </head>
 
 <body>
+
+<!-- NEW: Create Account Tab for Mobile -->
+<a href="create-account.html" class="mobile-create-account-tab">Create Account</a>
 
 <!-- Navigation -->
 <nav>
