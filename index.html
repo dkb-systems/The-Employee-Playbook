@@ -78,7 +78,7 @@
             padding: 100px 0;
         }
 
-        /* Pinned Sign-up Banner */
+        /* Pinned Sign-up Banner - FIXED: Centered icon and moved up */
         .pinned-signup-banner {
             display: none;
             position: fixed;
@@ -112,10 +112,10 @@
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             font-size: 20px;
-            margin-bottom: 10px;
             writing-mode: horizontal-tb;
             text-orientation: mixed;
             display: block;
+            margin-bottom: 10px;
         }
 
         .dark-mode .pinned-signup-banner {
@@ -311,17 +311,7 @@
             cursor: pointer;
         }
 
-        .header-cta {
-            background: var(--accent-purple);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
+        /* REMOVED: .header-cta (Sign me up button) */
 
         .theme-toggle {
             background: none;
@@ -382,34 +372,160 @@
             white-space: nowrap;
         }
 
-        /* Floating CTA for Mobile */
-        .floating-cta {
-            display: none;
+        /* Chat Widget */
+        .chat-widget {
             position: fixed;
-            bottom: 90px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
             background: var(--accent-purple);
             color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.4);
-            z-index: 999;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            border: none;
+            font-size: 24px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .floating-cta:hover {
-            transform: translateY(-2px) scale(1.05);
+        .chat-toggle:hover {
+            transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(123, 95, 196, 0.5);
+        }
+
+        .chat-container {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            height: 460px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--accent-purple);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 100%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-bot {
+            background: var(--light-gray);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-user {
+            background: var(--accent-purple);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            max-width: 80%;
+        }
+
+        .chat-input-container {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .chat-send {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .hand-wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
         }
 
         /* Mobile Sign In Button */
@@ -418,13 +534,14 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED: Centered content */
         .hero {
             background: var(--hero-gray);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
             padding-top: 0;
             width: 100%;
@@ -433,6 +550,7 @@
             padding-right: 0;
             min-height: calc(100vh - 80px);
             margin-top: 80px;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -442,6 +560,10 @@
             padding-top: 60px;
             text-align: center;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-headline {
@@ -483,6 +605,9 @@
             min-height: 1.25em;
             position: relative;
             height: 105px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .flashing-word {
@@ -492,6 +617,7 @@
             width: 100%;
             opacity: 0;
             animation: flashWords 21s infinite;
+            text-align: center;
         }
 
         .flashing-word:nth-child(1) { animation-delay: 0s; }
@@ -887,6 +1013,309 @@
             font-size: 13px;
             color: var(--dark-gray);
             font-style: italic;
+        }
+
+        /* Cookie Message */
+        .cookie-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .cookie-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cookie-popup {
+            background: var(--primary-white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid var(--border-light);
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-popup-overlay.active .cookie-popup {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .cookie-text {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cookie-button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-accept {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+        }
+
+        .cookie-accept:hover {
+            background: var(--accent-purple-dark);
+        }
+
+        .cookie-settings {
+            background: var(--light-gray);
+            color: var(--text-medium);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Cookie Settings Modal */
+        .cookie-settings-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .cookie-settings-modal.active {
+            opacity: 1;
+            visibility: visible;
+            display: flex;
+        }
+
+        .cookie-settings-content {
+            background: var(--primary-white);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid var(--border-light);
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-settings-modal.active .cookie-settings-content {
+            transform: translateY(0);
+        }
+
+        .cookie-settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px 15px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cookie-settings-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .cookie-settings-close {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 24px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .cookie-settings-close:hover {
+            background-color: var(--light-gray);
+        }
+
+        .cookie-settings-body {
+            padding: 25px 30px 30px;
+        }
+
+        .cookie-category {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cookie-category:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cookie-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cookie-category-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Cookie Toggle Switch */
+        .cookie-toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .cookie-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--medium-gray);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .cookie-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .cookie-toggle-slider {
+            background-color: var(--accent-purple);
+        }
+
+        input:checked + .cookie-toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        input:disabled + .cookie-toggle-slider {
+            background-color: var(--dark-gray);
+            cursor: not-allowed;
+        }
+
+        .cookie-category-description {
+            color: var(--text-medium);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .cookie-settings-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: space-between;
+        }
+
+        .cookie-settings-buttons button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .cookie-settings-accept-all {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+        }
+
+        .cookie-settings-accept-all:hover {
+            background: var(--accent-purple-dark);
+        }
+
+        .cookie-settings-save {
+            background: var(--light-gray);
+            color: var(--text-medium);
+            border: 1px solid var(--border-light);
+        }
+
+        .cookie-settings-save:hover {
+            background: var(--medium-gray);
+        }
+
+        .cookie-settings-reject-all {
+            background: var(--light-gray);
+            color: var(--text-medium);
+            border: 1px solid var(--border-light);
+        }
+
+        .cookie-settings-reject-all:hover {
+            background: var(--medium-gray);
         }
 
         /* Pillars Section */
@@ -1532,10 +1961,6 @@
                 display: none;
             }
             
-            .nav-actions .header-cta {
-                display: none;
-            }
-            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1676,12 +2101,21 @@
                 font-size: 18px;
             }
             
-            .floating-cta {
-                display: block;
-            }
-            
             .final-statement {
                 font-size: 28px;
+            }
+
+            /* Chat Widget Mobile */
+            .chat-container {
+                width: 90vw;
+                height: 450px;
+                right: 5vw;
+            }
+            
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
         }
 
@@ -1731,13 +2165,6 @@
                 font-size: 20px;
             }
             
-            .floating-cta {
-                bottom: 88px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-            
             .final-statement {
                 font-size: 24px;
             }
@@ -1757,6 +2184,72 @@
 
 <!-- Pinned Sign-up Banner -->
 <a href="create-account.html" class="pinned-signup-banner"></a>
+
+<!-- Cookie Popup Overlay -->
+<div class="cookie-popup-overlay" id="cookiePopupOverlay">
+    <div class="cookie-popup">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                We use cookies to enhance your experience and analyse site traffic. By clicking "Accept", you consent to our use of cookies. 
+                <a href="#">Learn more</a>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-button cookie-settings">Settings</button>
+                <button class="cookie-button cookie-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div class="cookie-settings-modal" id="cookieSettingsModal">
+    <div class="cookie-settings-content">
+        <div class="cookie-settings-header">
+            <h2>Cookie Settings</h2>
+            <button class="cookie-settings-close">&times;</button>
+        </div>
+        <div class="cookie-settings-body">
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h3>Essential Cookies</h3>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-description">These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you such as setting your privacy preferences, logging in or filling in forms.</p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h3>Analytics Cookies</h3>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="analyticsCookies" checked>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-description">These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h3>Marketing Cookies</h3>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="marketingCookies">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="cookie-category-description">These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.</p>
+            </div>
+            
+            <div class="cookie-settings-buttons">
+                <button class="cookie-settings-accept-all">Accept All</button>
+                <button class="cookie-settings-save">Save Preferences</button>
+                <button class="cookie-settings-reject-all">Reject All</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Login Page -->
 <div class="login-page" id="loginPage">
@@ -1799,7 +2292,7 @@
         </div>
         
         <div class="nav-actions">
-            <a href="create-account.html" class="header-cta">Sign up</a>
+            <!-- REMOVED: Sign me up CTA button -->
             <a href="#" class="sign-in" id="desktopSignIn">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -2293,7 +2786,7 @@
     </div>
 </section>
 
-<!-- Trusted Section -->
+<!-- Trusted Section - UPDATED: 5 testimonials -->
 <section class="trusted">
     <div class="container">
         <div class="trusted-header">
@@ -2340,12 +2833,40 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The free tier's Conversation Matrix helped me prepare for a crucial meeting with my director. I felt so prepared that the conversation went better than I could have imagined. I'm now using Core and it's become my secret weapon."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SP</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Patel</div>
+                                <div class="author-role">Customer Support Specialist</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Core Strategy has paid for itself ten times over. The advanced frameworks helped me negotiate a package that was 30% higher than their initial offer. The Follow-up Dynamics tool alone is worth the subscription."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DW</div>
+                            <div class="author-info">
+                                <div class="author-name">David Wilson</div>
+                                <div class="author-role">Account Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="carousel-nav" id="carouselNav">
                 <div class="carousel-dot active" data-index="0"></div>
                 <div class="carousel-dot" data-index="1"></div>
                 <div class="carousel-dot" data-index="2"></div>
+                <div class="carousel-dot" data-index="3"></div>
+                <div class="carousel-dot" data-index="4"></div>
             </div>
         </div>
     </div>
@@ -2415,8 +2936,31 @@
     </div>
 </footer>
 
-<!-- Floating CTA for Mobile -->
-<a href="create-account.html" class="floating-cta">Sign Up Free</a>
+<!-- Chat Widget -->
+<div class="chat-widget">
+    <button class="chat-toggle">
+        <i class="fas fa-comment"></i>
+    </button>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="chat-title">Send us a message</div>
+            <button class="chat-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages">
+            <div class="message message-bot">👋 <span class="hand-wave">Hi there!</span> We'd love to hear from you. How can we help you today?</div>
+        </div>
+        <div class="chat-input-container">
+            <form class="chat-form" id="chatForm">
+                <input type="text" class="chat-input" placeholder="Your Name" required>
+                <input type="email" class="chat-input" placeholder="Your Email" required>
+                <textarea class="chat-input" rows="3" placeholder="Your Message" required></textarea>
+                <button type="submit" class="chat-send">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     // Mark page as loaded to prevent FOUC
@@ -2455,6 +2999,101 @@
                 loginPage.classList.remove('active');
             }
         });
+        
+        // Cookie popup functionality
+        const cookiePopupOverlay = document.getElementById('cookiePopupOverlay');
+        const cookieAccept = document.querySelector('.cookie-accept');
+        const cookieSettings = document.querySelector('.cookie-settings');
+        
+        // Show cookie popup after 3 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookiePopupOverlay.classList.add('active');
+            }
+        }, 3000);
+        
+        // Accept cookies
+        cookieAccept.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookiePopupOverlay.classList.remove('active');
+        });
+        
+        // Cookie settings functionality
+        const cookieSettingsButton = document.querySelector('.cookie-settings');
+        const cookieSettingsModal = document.getElementById('cookieSettingsModal');
+        const cookieSettingsClose = document.querySelector('.cookie-settings-close');
+        const cookieSettingsSave = document.querySelector('.cookie-settings-save');
+        const cookieAcceptAll = document.querySelector('.cookie-settings-accept-all');
+        const cookieRejectAll = document.querySelector('.cookie-settings-reject-all');
+        const analyticsCookies = document.getElementById('analyticsCookies');
+        const marketingCookies = document.getElementById('marketingCookies');
+
+        // Open cookie settings
+        cookieSettingsButton.addEventListener('click', function() {
+            cookiePopupOverlay.classList.remove('active');
+            cookieSettingsModal.classList.add('active');
+            
+            // Load current preferences
+            const currentPreferences = getCookiePreferences();
+            analyticsCookies.checked = currentPreferences.analytics;
+            marketingCookies.checked = currentPreferences.marketing;
+        });
+
+        // Close cookie settings
+        cookieSettingsClose.addEventListener('click', function() {
+            cookieSettingsModal.classList.remove('active');
+        });
+
+        // Save cookie preferences
+        cookieSettingsSave.addEventListener('click', function() {
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('Your cookie preferences have been saved.');
+        });
+
+        // Accept all cookies
+        cookieAcceptAll.addEventListener('click', function() {
+            analyticsCookies.checked = true;
+            marketingCookies.checked = true;
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('All cookies have been accepted.');
+        });
+
+        // Reject all non-essential cookies
+        cookieRejectAll.addEventListener('click', function() {
+            analyticsCookies.checked = false;
+            marketingCookies.checked = false;
+            saveCookiePreferences();
+            cookieSettingsModal.classList.remove('active');
+            alert('Non-essential cookies have been rejected.');
+        });
+
+        // Get current cookie preferences from localStorage
+        function getCookiePreferences() {
+            const preferences = localStorage.getItem('cookiePreferences');
+            if (preferences) {
+                return JSON.parse(preferences);
+            }
+            // Default preferences if none exist
+            return {
+                analytics: true,
+                marketing: false
+            };
+        }
+
+        // Save cookie preferences to localStorage
+        function saveCookiePreferences() {
+            const preferences = {
+                analytics: analyticsCookies.checked,
+                marketing: marketingCookies.checked
+            };
+            localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+            localStorage.setItem('cookiesAccepted', 'true');
+            
+            // In a real implementation, you would update the actual cookies here
+            // based on the user's preferences
+        }
         
         // Dark mode toggle
         document.querySelector('.theme-toggle').addEventListener('click', function () {
@@ -2501,11 +3140,52 @@
             });
         });
 
-        // Testimonials Carousel
+        // Chat Widget Functionality
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatContainer = document.querySelector('.chat-container');
+        const chatClose = document.querySelector('.chat-close');
+        const chatForm = document.getElementById('chatForm');
+
+        chatToggle.addEventListener('click', function() {
+            chatContainer.classList.toggle('active');
+        });
+
+        chatClose.addEventListener('click', function() {
+            chatContainer.classList.remove('active');
+        });
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: this.querySelector('input[type="text"]').value,
+                email: this.querySelector('input[type="email"]').value,
+                message: this.querySelector('textarea').value
+            };
+            
+            // In a real implementation, you would send this data to a server
+            console.log('Chat form submitted:', formData);
+            
+            // Show success message
+            const chatMessages = document.querySelector('.chat-messages');
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'message-user');
+            userMessage.textContent = "Thanks! We'll get back to you soon.";
+            chatMessages.appendChild(userMessage);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+
+        // Testimonials Carousel - UPDATED: 5 testimonials
         const testimonialsTrack = document.getElementById('testimonialsTrack');
         const carouselDots = document.querySelectorAll('.carousel-dot');
         let currentSlide = 0;
-        const totalSlides = 3;
+        const totalSlides = 5;
 
         function updateCarousel() {
             testimonialsTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
