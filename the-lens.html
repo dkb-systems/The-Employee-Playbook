@@ -113,13 +113,13 @@
             align-items: center;
             padding: 12px 0;
             height: 100%;
-            position: relative;
         }
 
         /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
+            transform: translateX(20%);
             padding: 14px 10px;
             transition: all 0.3s ease;
             display: block;
@@ -130,50 +130,9 @@
             content: url("assets/img/logo-dark.png");
         }
 
-        /* The Lens Link - Center Left Position */
-        .lens-link-container {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .lens-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 17px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .lens-link.active {
-            color: var(--text-dark);
-        }
-
-        .lens-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-purple);
-            border-radius: 2px;
-        }
-
-        .lens-link:hover {
-            color: var(--accent-purple);
-        }
-
         .nav-links {
             display: flex;
             gap: 50px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .nav-link {
@@ -209,8 +168,7 @@
             display: flex;
             align-items: center;
             gap: 24px;
-            position: absolute;
-            right: 7px;
+            transform: translateX(-20%);
         }
 
         .sign-in {
@@ -306,14 +264,50 @@
             display: none;
         }
 
-        /* Mobile Create Account Tab */
+        /* Mobile Create Account Tab - Updated Position */
         .mobile-create-tab {
             display: none;
+            position: absolute;
+            left: 70px; /* Positioned to the left */
+            top: 7px; /* 7px down from header */
+            background: var(--accent-purple);
+            color: white;
+            width: 80px; /* Changed to tab width */
+            height: 30px; /* Changed to tab height */
+            border-radius: 6px 6px 0 0; /* Rounded top corners only for tab appearance */
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
         }
 
-        /* Mobile Lens Tab */
+        /* Mobile Lens Tab - Updated Position */
         .mobile-lens-tab {
             display: none;
+            position: absolute;
+            left: 10px; /* Positioned to the left */
+            top: 7px; /* 7px down from header */
+            background: var(--accent-purple);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .dark-mode .mobile-sign-in {
+            background: var(--primary-white);
+            color: var(--accent-purple);
+            border: 2px solid var(--accent-purple);
         }
 
         /* Main Content */
@@ -1669,7 +1663,7 @@
                 transform: none;
                 gap: 16px;
                 position: absolute;
-                right: 7px;
+                right: 20px;
                 align-items: center;
             }
             
@@ -1697,7 +1691,6 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
-                transform: none;
             }
 
             .nav-links.active {
@@ -1752,61 +1745,14 @@
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            /* Mobile Create Account Tab */
+            /* Mobile Create Account Tab - Show on mobile */
             .mobile-create-tab {
                 display: flex;
-                position: absolute;
-                right: 70px;
-                background: var(--accent-purple);
-                color: white;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                font-size: 18px;
-                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
-                cursor: pointer;
-                transition: all 0.3s ease;
             }
 
-            .mobile-create-tab:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(123, 95, 196, 0.4);
-            }
-
-            /* Mobile Lens Tab */
+            /* Mobile Lens Tab - Show on mobile */
             .mobile-lens-tab {
                 display: flex;
-                position: absolute;
-                left: 70px;
-                background: var(--accent-purple);
-                color: white;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                font-size: 18px;
-                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .mobile-lens-tab:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(123, 95, 196, 0.4);
-            }
-
-            .dark-mode .mobile-sign-in {
-                background: var(--primary-white);
-                color: var(--accent-purple);
-                border: 2px solid var(--accent-purple);
-            }
-
-            /* Hide The Lens link on mobile */
-            .lens-link-container {
-                display: none;
             }
 
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
@@ -2162,23 +2108,15 @@
             <i class="fas fa-search"></i>
         </div>
         
-        <!-- The Lens Link - Center Left Position -->
-        <div class="lens-link-container">
-            <a href="the-lens.html" class="lens-link active">
-                <i class="fas fa-search"></i>
-                The Lens
-            </a>
+        <!-- Mobile Create Account Tab -->
+        <div class="mobile-create-tab" id="mobileCreateTab">
+            Create Account
         </div>
         
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
-        
-        <!-- Mobile Create Account Tab -->
-        <div class="mobile-create-tab" id="mobileCreateTab">
-            <i class="fas fa-user-plus"></i>
-        </div>
         
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
