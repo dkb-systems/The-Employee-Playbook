@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pricing | The Employee Playbook</title>
+    
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --medium-gray: #E9ECEF;
+            --dark-gray: #6C757D;
+            --text-dark: #212529;
+            --text-medium: #495057;
+            --accent-purple: #7B5FC4;
+            --accent-purple-dark: #5A4496;
+            --light-purple: #E6E0F5;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --hero-gray: #f5f7fa;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --deep-navy: #0A1428;
+            --soft-blue: #EFF5FF;
+            --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
+            --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
+        }
+
+        .dark-mode {
+            --primary-white: #121212;
+            --light-gray: #1E1E1E;
+            --medium-gray: #2D2D2D;
+            --dark-gray: #8A8A8A;
+            --text-dark: #F5F5F5;
+            --text-medium: #CCCCCC;
+            --accent-purple: #8B6CE6;
+            --accent-purple-dark: #6A4FC4;
+            --light-purple: #E6E0F5;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --hero-gray: #1a1a1a;
+            --nav-bg: rgba(18, 18, 18, 0.95);
+            --deep-navy: #EFF5FF;
+            --soft-blue: #1A2333;
+            --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
+            --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            opacity: 0;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            height: 80px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            height: 100%;
+        }
+
+        .logo-img {
+            height: 100px;
+            width: auto;
+            transform: translateX(20%);
+            padding: 14px 10px;
+            transition: all 0.3s ease;
+            display: block;
+            min-height: 100px;
+        }
+
+        .dark-mode .logo-img {
+            content: url('assets/img/logo-dark.png');
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 17px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-purple);
+        }
+
+        .nav-link.active {
+            color: var(--accent-purple);
+        }
+
+        @media (min-width: 769px) {
+            .nav-link.active {
+                color: var(--text-dark);
+            }
+            
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--accent-purple);
+                border-radius: 2px;
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transform: translateX(-20%);
+        }
+
+        .sign-in {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        .header-cta {
+            background: var(--accent-purple);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        .nav-link-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .new-tag {
+            position: absolute;
+            top: -12px;
+            right: -35px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .mobile-sign-in {
+            display: none;
+        }
+
+        .mobile-sign-up {
+            display: none;
+        }
+
+        .mobile-create-account-tab {
+            display: none;
+            position: fixed;
+            top: 15%;
+            right: 0;
+            background: var(--accent-purple);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px 0 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 24px;
+            z-index: 999;
+            box-shadow: -2px 4px 12px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        .mobile-create-account-tab:hover {
+            transform: translateX(-3px);
+            box-shadow: -3px 6px 16px rgba(123, 95, 196, 0.5);
+            background: var(--accent-purple-dark);
+        }
+
+        .dark-mode .mobile-create-account-tab {
+            border: 2px solid var(--primary-white);
+        }
+
+        .create-account-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .create-account-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--primary-white);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--deep-navy);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: var(--light-gray);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        .submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .modal-footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 80px 0 40px; /* Removed horizontal padding to allow full-width sections */
+            display: flex;
+            min-height: calc(100vh - 160px);
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            background: var(--primary-white);
+            height: 100%;
+            width: 100%; /* Ensure full width */
+        }
+
+        /* Pricing Header - Made full width */
+        .pricing-header {
+            padding: 150px 0 100px; /* Increased top padding by 25% (from 150px to 187.5px) and bottom padding by 20% (from 100px to 120px) */
+            text-align: center;
+            background: var(--gradient-secondary);
+            width: 100vw; /* Full viewport width */
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .pricing-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pricing-title {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .pricing-subtitle {
+            font-size: 22px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 48px; /* Increased margin-bottom by 20% (from 40px to 48px) */
+        }
+
+        /* Pricing Plans */
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 0 40px 60px;
+            margin-top: 60px; /* Added space between hero and pricing cards */
+        }
+
+        .pricing-plan {
+            background: var(--primary-white);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            flex: 1;
+            max-width: 380px;
+            min-height: 750px;
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-plan.featured {
+            border: 2px solid var(--accent-purple);
+            transform: scale(1.05);
+        }
+
+        .pricing-plan.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-purple);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .plan-description {
+            color: var(--text-medium);
+            margin-bottom: 24px;
+            min-height: 60px;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: var(--text-medium);
+            margin-left: 8px;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin-bottom: 32px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon {
+            margin-right: 12px;
+            margin-top: 2px;
+            font-size: 14px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .feature-icon.check {
+            color: var(--accent-purple);
+        }
+
+        .feature-icon.xmark {
+            color: var(--dark-gray);
+        }
+
+        .feature-text {
+            color: var(--text-medium);
+        }
+
+        .plan-cta {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
+            width: 100%;
+        }
+
+        .plan-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.4);
+        }
+
+        .plan-cta.secondary {
+            background: transparent;
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+            box-shadow: none;
+        }
+
+        .plan-cta.secondary:hover {
+            background: rgba(123, 95, 196, 0.05);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 40px;
+            background: var(--light-gray);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--primary-white);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-icon {
+            color: var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-white);
+            padding: 40px 0 20px;
+            color: var(--text-medium);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .footer-about {
+            max-width: 400px;
+            padding-left: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo-img {
+            height: 100px;
+            width: auto;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .footer-logo-img {
+            content: url('assets/img/logo-dark.png');
+        }
+
+        .footer-description {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--accent-purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+
+        .footer-nav {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        .footer-nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-newsletter {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            text-align: center;
+        }
+
+        .footer-newsletter-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .footer-newsletter-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .footer-newsletter-button {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-newsletter-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .logo-fallback {
+            display: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .pricing-plans {
+                flex-wrap: wrap;
+            }
+            
+            .pricing-plan {
+                max-width: 100%;
+                flex: 0 0 calc(50% - 12px);
+            }
+            
+            .pricing-plan.featured {
+                transform: none;
+            }
+            
+            .pricing-plan.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-create-account-tab {
+                display: flex;
+            }
+
+            .container {
+                text-align: center;
+            }
+            
+            .nav-container {
+                justify-content: center;
+                position: relative;
+            }
+            
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .logo-img {
+                height: 122px;
+                transform: none;
+                padding: 12px 0;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                left: 20px;
+            }
+            
+            .header-cta {
+                display: none !important;
+            }
+            
+            .nav-actions .sign-in {
+                display: none !important;
+            }
+            
+            .nav-actions {
+                transform: none;
+                gap: 16px;
+                position: absolute;
+                right: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid var(--border-light);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+                text-align: left;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-link-container {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+            }
+            
+            .new-tag {
+                position: static;
+                margin-left: 8px;
+                top: auto;
+                right: auto;
+            }
+            
+            .mobile-sign-in {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: white;
+                color: var(--accent-purple);
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
+            }
+
+            .mobile-sign-in:hover {
+                background: rgba(123, 95, 196, 0.1);
+                transform: translateY(-1px);
+            }
+
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
+            }
+
+            .mobile-sign-up {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: var(--accent-purple);
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
+            }
+
+            .mobile-sign-up:hover {
+                background: var(--accent-purple-dark);
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(123, 95, 196, 0.35);
+            }
+
+            .dark-mode .mobile-sign-up {
+                background: var(--accent-purple);
+                color: white;
+                border: 2px solid var(--accent-purple);
+            }
+
+            main {
+                flex-direction: column;
+                padding: 100px 0 20px; /* Removed horizontal padding */
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .pricing-header {
+                padding: 100px 0 40px; /* Adjusted for mobile */
+            }
+
+            .pricing-header-content {
+                padding: 0 20px;
+            }
+
+            .pricing-title {
+                font-size: 28px;
+            }
+
+            .pricing-plans {
+                flex-direction: column;
+                padding: 0 20px 40px;
+                margin-top: 40px; /* Adjusted for mobile */
+            }
+
+            .pricing-plan {
+                flex: 0 0 100%;
+                max-width: 100%;
+                min-height: auto;
+            }
+
+            .pricing-plan.featured {
+                transform: none;
+            }
+
+            .pricing-plan.featured:hover {
+                transform: translateY(-5px);
+            }
+
+            .faq-section {
+                padding: 40px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-logo-img {
+                height: 120px;
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .nav-link.active {
+                color: var(--accent-purple);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 100px;
+            }
+            
+            .footer-logo-img {
+                height: 100px;
+            }
+            
+            .logo-fallback {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Create Account Tab for Mobile -->
+<a href="#" class="mobile-create-account-tab" id="createAccountTab">
+    <i class="fas fa-user-plus"></i>
+</a>
+
+<!-- Create Account Modal -->
+<div class="create-account-modal" id="createAccountModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Create Account</h2>
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form class="modal-form">
+            <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+        
+        <div class="modal-footer">
+            <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="container nav-container">
+        <!-- Hamburger menu on the left for mobile -->
+        <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+        
+        <!-- Logo centered for mobile -->
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
+                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
+        </a>
+        
+        <!-- Navigation links with mobile sign-in and sign-up -->
+        <div class="nav-links">
+            <a href="the-lens.html" class="nav-link">The Lens</a>
+            <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
+            <div class="nav-link-container">
+                <a href="the-coach.html" class="nav-link">The Coach</a>
+                <span class="new-tag">NEW</span>
+            </div>
+            <a href="the-shift.html" class="nav-link">The Shift</a>
+            <a href="the-pricing.html" class="nav-link active">The Pricing</a>
+            <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
+            <a href="create-account.html" class="mobile-sign-up">Sign Up</a>
+        </div>
+        
+        <!-- Desktop actions (hidden on mobile) -->
+        <div class="nav-actions">
+            <a href="create-account.html" class="header-cta">Sign up</a>
+            <a href="sign-in.html" class="sign-in">Sign in</a>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main>
+    <div class="content-wrapper">
+        <!-- Pricing Header - Now full width -->
+        <div class="pricing-header">
+            <div class="pricing-header-content">
+                <h1 class="pricing-title">Simple, Transparent Pricing</h1>
+                <p class="pricing-subtitle">Choose the plan that works best for your needs.</p>
+            </div>
+        </div>
+        
+        <!-- Pricing Plans -->
+        <div class="pricing-plans">
+            <!-- Free Plan -->
+            <div class="pricing-plan">
+                <h3 class="plan-name">The Free One</h3>
+                <p class="plan-description">Perfect for employees who need quick guidance in critical moments.</p>
+                
+                <div class="plan-price">
+                    <span class="price-amount">£0</span>
+                    <span class="price-period">/month</span>
+                </div>
+                
+                <ul class="plan-features">
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Access to The Lens (Lite version)</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">2 x previews of The Coach per month</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Starter Script Pack (key crisis scenarios only)</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">"The Update" – Monthly insight email</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-xmark feature-icon xmark"></i>
+                        <span class="feature-text">No saved strategies</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-xmark feature-icon xmark"></i>
+                        <span class="feature-text">Limited tools</span>
+                    </li>
+                </ul>
+                
+                <button class="plan-cta secondary">Get Started Free</button>
+            </div>
+            
+            <!-- Core Plan (Featured) -->
+            <div class="pricing-plan featured">
+                <div class="plan-badge">Most Popular</div>
+                <h3 class="plan-name">The Core</h3>
+                <p class="plan-description">For professionals who want to handle situations confidently without second-guessing.</p>
+                
+                <div class="plan-price">
+                    <span class="price-amount">£9</span>
+                    <span class="price-period">/month</span>
+                </div>
+                
+                <ul class="plan-features">
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Full access to The Lens</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Unlimited use of The Coach</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Full Script Library</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Tools & Calculators</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Save up to 5 strategic frameworks</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">"The Update" – Monthly email</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-xmark feature-icon xmark"></i>
+                        <span class="feature-text">No escalation-level guides</span>
+                    </li>
+                </ul>
+                
+                <button class="plan-cta">Get Started</button>
+            </div>
+            
+            <!-- Strategic Edge Plan -->
+            <div class="pricing-plan">
+                <h3 class="plan-name">The Strategic Edge</h3>
+                <p class="plan-description">For employees who see problems early and want to act strategically.</p>
+                
+                <div class="plan-price">
+                    <span class="price-amount">£16</span>
+                    <span class="price-period">/month</span>
+                </div>
+                
+                <ul class="plan-features">
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">Everything in Core, plus:</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-fire feature-icon" style="color: #FF6B6B;"></i>
+                        <span class="feature-text">Advanced Follow-On Scripts</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-brain feature-icon" style="color: #7B5FC4;"></i>
+                        <span class="feature-text">High-Stakes Roadmaps</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-paperclip feature-icon" style="color: #495057;"></i>
+                        <span class="feature-text">Strategy prompts for positioning</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-folder-open feature-icon" style="color: #10B981;"></i>
+                        <span class="feature-text">Unlimited strategy saves</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-search feature-icon" style="color: #3B82F6;"></i>
+                        <span class="feature-text">Deep workplace pattern detection</span>
+                    </li>
+                    <li class="plan-feature">
+                        <i class="fas fa-check feature-icon check"></i>
+                        <span class="feature-text">"The Update" – Monthly insight email</span>
+                    </li>
+                </ul>
+                
+                <button class="plan-cta secondary">Get Started</button>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my plan later?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can upgrade or downgrade your plan at any time. When upgrading, you'll be charged the prorated difference for the remainder of your billing cycle. When downgrading, the changes will take effect at the start of your next billing cycle.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and for Enterprise plans we also support bank transfers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How secure is my data?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We take data security seriously with a privacy-first approach. All data is encrypted in transit and at rest. We only store your sign-up information and never share your personal information or strategy sessions with third parties. For more details, please review our Privacy Policy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I cancel my subscription anytime?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can cancel your subscription at any time. If you cancel, you'll continue to have access to your account until the end of your current billing period. Changes take effect at the end of your billing cycle. We don't charge cancellation fees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
+                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
+                    </a>
+                </div>
+                <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="footer-nav-grid">
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">The Playbook</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="the-lens.html">The Lens</a></li>
+                            <li class="footer-link"><a href="the-toolkit.html">The Toolkit</a></li>
+                            <li class="footer-link"><a href="the-coach.html">The Coach</a></li>
+                            <li class="footer-link"><a href="the-shift.html">The Shift</a></li>
+                            <li class="footer-link"><a href="the-pricing.html">The Pricing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h3 class="footer-heading">Company</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="profile.html">Profile</a></li>
+                            <li class="footer-link"><a href="about-us.html">About</a></li>
+                            <li class="footer-link"><a href="#privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
+                            <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 The Employee Playbook. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mark page as loaded to prevent FOUC
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+        
+        // Dark mode toggle
+        document.querySelector('.theme-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            
+            // Update logo for dark mode
+            const logo = document.getElementById('logo');
+            const footerLogo = document.getElementById('footer-logo');
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
+            } else {
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
+            }
+        });
+
+        // Mobile navigation toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Create Account Modal Functionality
+        const createAccountTab = document.getElementById('createAccountTab');
+        const createAccountModal = document.getElementById('createAccountModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Open modal when tab is clicked
+        createAccountTab.addEventListener('click', function(e) {
+            e.preventDefault();
+            createAccountModal.classList.add('active');
+        });
+        
+        // Close modal when X button is clicked
+        closeModal.addEventListener('click', function() {
+            createAccountModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside the form
+        createAccountModal.addEventListener('click', function(e) {
+            if (e.target === createAccountModal) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && createAccountModal.classList.contains('active')) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+        
+        // Handle form submission
+        const modalForm = document.querySelector('.modal-form');
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would handle form submission here
+            alert('Account creation would be processed here in a real implementation');
+            createAccountModal.classList.remove('active');
+        });
+
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Plan selection functionality
+        const planCtas = document.querySelectorAll('.plan-cta');
+        
+        planCtas.forEach(cta => {
+            cta.addEventListener('click', function() {
+                const planName = this.closest('.pricing-plan').querySelector('.plan-name').textContent;
+                
+                if (planName === 'The Free One') {
+                    window.location.href = 'create-account.html?plan=free';
+                } else if (planName === 'The Core') {
+                    window.location.href = 'create-account.html?plan=core';
+                } else if (planName === 'The Strategic Edge') {
+                    window.location.href = 'create-account.html?plan=strategic';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
