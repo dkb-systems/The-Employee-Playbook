@@ -268,28 +268,36 @@
         .mobile-create-tab {
             display: none;
             position: absolute;
-            left: 70px; /* Positioned to the left */
-            top: 7px; /* 7px down from header */
+            right: 20px; /* Positioned to the right */
+            top: 50%; /* Vertically centered */
+            transform: translateY(-50%);
             background: var(--accent-purple);
             color: white;
-            width: 80px; /* Changed to tab width */
-            height: 30px; /* Changed to tab height */
+            width: 120px; /* Tab width */
+            height: 36px; /* Tab height */
             border-radius: 6px 6px 0 0; /* Rounded top corners only for tab appearance */
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            padding: 0 12px;
             font-size: 14px;
+            font-weight: 600;
             box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 10;
         }
 
+        .mobile-create-tab i {
+            font-size: 12px;
+        }
+
         /* Mobile Lens Tab - Updated Position */
         .mobile-lens-tab {
             display: none;
             position: absolute;
-            left: 10px; /* Positioned to the left */
-            top: 7px; /* 7px down from header */
+            left: 20px; /* Positioned to the left */
+            top: 50%; /* Vertically centered */
+            transform: translateY(-50%);
             background: var(--accent-purple);
             color: white;
             width: 40px;
@@ -2108,15 +2116,16 @@
             <i class="fas fa-search"></i>
         </div>
         
-        <!-- Mobile Create Account Tab -->
-        <div class="mobile-create-tab" id="mobileCreateTab">
-            Create Account
-        </div>
-        
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
+        
+        <!-- Mobile Create Account Tab -->
+        <div class="mobile-create-tab" id="mobileCreateTab">
+            <span>Create Account</span>
+            <i class="fas fa-user-plus"></i>
+        </div>
         
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
