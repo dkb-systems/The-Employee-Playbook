@@ -435,7 +435,7 @@
         .mobile-lens-tab {
             display: none;
             position: fixed;
-            top: 70%; /* Positioned lower by 3x its height */
+            top: 75%; /* Positioned lower by 5% */
             left: 0;
             background: var(--accent-purple);
             color: white;
@@ -1711,7 +1711,7 @@
             /* NEW: Show the Lens Tab on mobile - POSITIONED LOWER */
             .mobile-lens-tab {
                 display: flex;
-                top: 70%; /* Positioned lower by 3x its height */
+                top: 75%; /* Positioned lower by 5% */
             }
 
             /* Mobile Navigation Changes */
@@ -2814,7 +2814,7 @@
                         <button>Access Tool</button>
                     </div>
                 `;
-            } else if (msg.includes('excluded') || message.includes('conversation')) {
+            } else if (msg.includes('excluded') || msg.includes('conversation')) {
                 tools = `
                     <div class="resource-card">
                         <div class="category">Communication</div>
