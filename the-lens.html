@@ -264,69 +264,315 @@
             display: none;
         }
 
-        /* Mobile Tabs Container */
-        .mobile-tabs {
+        /* NEW: Create Account Tab for Mobile */
+        .mobile-create-account-tab {
             display: none;
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--primary-white);
-            border-top: 1px solid var(--border-light);
-            z-index: 1000;
-            padding: 10px 0;
-        }
-
-        .mobile-tabs-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .mobile-tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-            color: var(--text-medium);
-            transition: all 0.3s ease;
-            flex: 1;
-            padding: 8px 0;
-        }
-
-        .mobile-tab.active {
-            color: var(--accent-purple);
-        }
-
-        .mobile-tab-icon {
-            font-size: 20px;
-            margin-bottom: 2px;
-        }
-
-        .mobile-tab-text {
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .mobile-tab-lens {
+            top: 15%;
+            right: 0;
             background: var(--accent-purple);
             color: white;
-            border-radius: 50%;
             width: 50px;
             height: 50px;
+            border-radius: 12px 0 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 24px;
+            z-index: 999;
+            box-shadow: -2px 4px 12px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        .mobile-create-account-tab:hover {
+            transform: translateX(-3px);
+            box-shadow: -3px 6px 16px rgba(123, 95, 196, 0.5);
+            background: var(--accent-purple-dark);
+        }
+
+        .dark-mode .mobile-create-account-tab {
+            border: 2px solid var(--primary-white);
+        }
+
+        /* NEW: Create Account Modal */
+        .create-account-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .create-account-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--primary-white);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-gray);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: -20px;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
+            transition: background-color 0.3s ease;
         }
 
-        .mobile-tab-lens .mobile-tab-icon {
-            font-size: 22px;
+        .close-modal:hover {
+            background-color: var(--light-gray);
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 16px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        .submit-btn {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .modal-footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* NEW: Lens Tab for Mobile */
+        .mobile-lens-tab {
+            display: none;
+            position: fixed;
+            top: 25%;
+            left: 0;
+            background: var(--accent-purple);
+            color: white;
+            width: 60px;
+            height: 70px;
+            border-radius: 0 12px 12px 0;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 999;
+            box-shadow: 2px 4px 12px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            padding: 8px 0;
+        }
+
+        .mobile-lens-tab:hover {
+            transform: translateX(3px);
+            box-shadow: 3px 6px 16px rgba(123, 95, 196, 0.5);
+            background: var(--accent-purple-dark);
+        }
+
+        .dark-mode .mobile-lens-tab {
+            border: 2px solid var(--primary-white);
+        }
+
+        .mobile-lens-tab-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .mobile-lens-tab-text {
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        /* NEW: Lens Slide Panel for Mobile */
+        .mobile-lens-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-white);
+            z-index: 1500;
+            flex-direction: column;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-lens-panel.active {
+            transform: translateX(0);
+        }
+
+        .mobile-lens-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--primary-white);
+        }
+
+        .mobile-lens-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-mobile-lens {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-mobile-lens:hover {
+            background-color: var(--light-gray);
+        }
+
+        .mobile-lens-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .mobile-lens-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: var(--light-gray);
+        }
+
+        .mobile-lens-input-container {
+            padding: 15px;
+            border-top: 1px solid var(--border-light);
+            background-color: var(--primary-white);
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .mobile-lens-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .mobile-lens-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
         }
 
         /* Main Content */
@@ -348,13 +594,13 @@
         .lens-header {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 110px;
+            padding-top: 90px;
         }
 
         .hero-title {
-            font-size: 72px;
+            font-size: 80px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 17px;
             color: var(--text-dark);
             line-height: 1.1;
             max-width: 900px;
@@ -1403,215 +1649,6 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Create Account Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .create-account-modal {
-            background-color: var(--primary-white);
-            border-radius: 16px;
-            width: 90%;
-            max-width: 450px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .modal-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .close-modal:hover {
-            background-color: var(--light-gray);
-        }
-
-        .modal-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-input {
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 14px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus {
-            border-color: var(--accent-purple);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-        }
-
-        .modal-submit {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .modal-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        /* Mobile Lens Overlay */
-        .mobile-lens-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-white);
-            z-index: 1500;
-            flex-direction: column;
-        }
-
-        .mobile-lens-overlay.active {
-            display: flex;
-        }
-
-        .mobile-lens-header {
-            padding: 20px;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--primary-white);
-        }
-
-        .mobile-lens-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .close-mobile-lens {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .close-mobile-lens:hover {
-            background-color: var(--light-gray);
-        }
-
-        .mobile-lens-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .mobile-lens-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background-color: var(--light-gray);
-        }
-
-        .mobile-lens-input-container {
-            padding: 15px;
-            border-top: 1px solid var(--border-light);
-            background-color: var(--primary-white);
-            position: fixed;
-            bottom: 80px; /* Account for mobile tabs */
-            left: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
-        .mobile-lens-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 25px;
-            outline: none;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .mobile-lens-input:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .pill-sections {
@@ -1647,6 +1684,16 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Show the Create Account Tab on mobile */
+            .mobile-create-account-tab {
+                display: flex;
+            }
+            
+            /* NEW: Show the Lens Tab on mobile */
+            .mobile-lens-tab {
+                display: flex;
+            }
+
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1764,16 +1811,11 @@
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            /* Mobile Tabs - Show on mobile */
-            .mobile-tabs {
-                display: block;
-            }
-
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
             
             /* Main content padding */
             main {
-                padding: 80px 15px 80px; /* Extra bottom padding for mobile tabs */
+                padding: 80px 15px 30px; /* Reduced bottom padding for removed mobile tabs */
             }
 
             /* Hero section sizing */
@@ -2096,6 +2138,75 @@
 
 <body>
 
+<!-- NEW: Create Account Tab for Mobile -->
+<a href="#" class="mobile-create-account-tab" id="createAccountTab">
+    <i class="fas fa-user-plus"></i>
+</a>
+
+<!-- NEW: Lens Tab for Mobile -->
+<a href="#" class="mobile-lens-tab" id="mobileLensTab">
+    <div class="mobile-lens-tab-icon"><i class="fas fa-search"></i></div>
+    <div class="mobile-lens-tab-text">The Lens</div>
+</a>
+
+<!-- NEW: Create Account Modal -->
+<div class="create-account-modal" id="createAccountModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Create Account</h2>
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form class="modal-form">
+            <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+        
+        <div class="modal-footer">
+            <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- NEW: Lens Slide Panel for Mobile -->
+<div class="mobile-lens-panel" id="mobileLensPanel">
+    <div class="mobile-lens-header">
+        <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
+        <button class="close-mobile-lens" id="closeMobileLens">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-lens-content">
+        <div class="mobile-lens-messages" id="mobileLensMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Let's get into it. What's been happening at work?</p>
+                    <p>No judgement. Just say it how it feels.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-lens-input-container">
+            <input type="text" class="mobile-lens-input" id="mobileLensInput" placeholder="Describe your workplace challenge...">
+        </div>
+    </div>
+</div>
+
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
@@ -2130,38 +2241,13 @@
     </div>
 </nav>
 
-<!-- Mobile Tabs -->
-<div class="mobile-tabs">
-    <div class="mobile-tabs-container">
-        <a href="index.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-home"></i></div>
-            <div class="mobile-tab-text">Home</div>
-        </a>
-        <a href="the-toolkit.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-toolbox"></i></div>
-            <div class="mobile-tab-text">Toolkit</div>
-        </a>
-        <a href="#" class="mobile-tab mobile-tab-lens" id="mobileLensTab">
-            <div class="mobile-tab-icon"><i class="fas fa-search"></i></div>
-        </a>
-        <a href="the-coach.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-comments"></i></div>
-            <div class="mobile-tab-text">Coach</div>
-        </a>
-        <a href="#" class="mobile-tab" id="mobileCreateTab">
-            <div class="mobile-tab-icon"><i class="fas fa-user-plus"></i></div>
-            <div class="mobile-tab-text">Sign Up</div>
-        </a>
-    </div>
-</div>
-
 <!-- Main Content Area -->
 <main>
     <div class="container">
         <div class="content-wrapper">
             <!-- Lens Header -->
             <div class="lens-header">
-                <h1 class="hero-title">Whatever's happening at work right now, let's get clear on it</h1>
+                <h1 class="hero-title">When the moment feels noisy, clarity is power.</h1>
                 <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, <br> and find your best next move</p>
             </div>
             
@@ -2479,56 +2565,6 @@
     </div>
 </footer>
 
-<!-- Create Account Modal -->
-<div class="modal-overlay" id="createAccountModal">
-    <div class="create-account-modal">
-        <div class="modal-header">
-            <h2 class="modal-title">Create Account</h2>
-            <button class="close-modal" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <form class="modal-form">
-            <div class="form-group">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" id="fullName" class="form-input" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" class="form-input" placeholder="Create a password" required>
-            </div>
-            <button type="submit" class="modal-submit">Create Account</button>
-        </form>
-    </div>
-</div>
-
-<!-- Mobile Lens Overlay -->
-<div class="mobile-lens-overlay" id="mobileLensOverlay">
-    <div class="mobile-lens-header">
-        <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
-        <button class="close-mobile-lens" id="closeMobileLens">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="mobile-lens-content">
-        <div class="mobile-lens-messages" id="mobileLensMessages">
-            <div class="message bot-message">
-                <div class="message-content">
-                    <p>Let's get into it. What's been happening at work?</p>
-                    <p>No judgement. Just say it how it feels.</p>
-                </div>
-            </div>
-        </div>
-        <div class="mobile-lens-input-container">
-            <input type="text" class="mobile-lens-input" id="mobileLensInput" placeholder="Describe your workplace challenge...">
-        </div>
-    </div>
-</div>
-
 <script>
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
@@ -2580,9 +2616,10 @@
         // Create Account Modal
         const createAccountModal = document.getElementById('createAccountModal');
         const closeModal = document.getElementById('closeModal');
+        const createAccountTab = document.getElementById('createAccountTab');
         
         // Open modal when clicking Create Account tab
-        document.getElementById('mobileCreateTab').addEventListener('click', function(e) {
+        createAccountTab.addEventListener('click', function(e) {
             e.preventDefault();
             createAccountModal.classList.add('active');
         });
@@ -2599,9 +2636,9 @@
             }
         });
 
-        // Mobile Lens Overlay
+        // Mobile Lens Panel
         const mobileLensTab = document.getElementById('mobileLensTab');
-        const mobileLensOverlay = document.getElementById('mobileLensOverlay');
+        const mobileLensPanel = document.getElementById('mobileLensPanel');
         const closeMobileLens = document.getElementById('closeMobileLens');
         const mobileLensMessages = document.getElementById('mobileLensMessages');
         const mobileLensInput = document.getElementById('mobileLensInput');
@@ -2609,12 +2646,12 @@
         // Open mobile lens when clicking the Lens tab
         mobileLensTab.addEventListener('click', function(e) {
             e.preventDefault();
-            mobileLensOverlay.classList.add('active');
+            mobileLensPanel.classList.add('active');
         });
         
         // Close mobile lens
         closeMobileLens.addEventListener('click', function() {
-            mobileLensOverlay.classList.remove('active');
+            mobileLensPanel.classList.remove('active');
         });
         
         // Mobile lens input functionality
