@@ -264,71 +264,6 @@
             display: none;
         }
 
-        /* Mobile Tabs Container */
-        .mobile-tabs {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--primary-white);
-            border-top: 1px solid var(--border-light);
-            z-index: 1000;
-            padding: 10px 0;
-        }
-
-        .mobile-tabs-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .mobile-tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-            color: var(--text-medium);
-            transition: all 0.3s ease;
-            flex: 1;
-            padding: 8px 0;
-        }
-
-        .mobile-tab.active {
-            color: var(--accent-purple);
-        }
-
-        .mobile-tab-icon {
-            font-size: 20px;
-            margin-bottom: 2px;
-        }
-
-        .mobile-tab-text {
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .mobile-tab-lens {
-            background: var(--accent-purple);
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: -20px;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
-        }
-
-        .mobile-tab-lens .mobile-tab-icon {
-            font-size: 22px;
-        }
-
         /* Main Content */
         main {
             flex: 1;
@@ -1591,7 +1526,7 @@
             border-top: 1px solid var(--border-light);
             background-color: var(--primary-white);
             position: fixed;
-            bottom: 80px; /* Account for mobile tabs */
+            bottom: 0;
             left: 0;
             width: 100%;
             z-index: 10;
@@ -1649,53 +1584,42 @@
         @media (max-width: 768px) {
             /* Mobile Navigation Changes */
             .nav-container {
-                justify-content: center;
-                position: relative;
+                justify-content: space-between;
+                padding: 0 20px;
             }
             
             .logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+                position: static;
+                transform: none;
+                flex: 1;
                 display: flex;
-                align-items: center;
-                height: 100%;
+                justify-content: center;
             }
             
             /* Mobile logo size */
             .logo-img {
-                height: 125px;
+                height: 80px;
                 transform: none;
-                padding: 12px 0;
-                display: flex;
-                align-items: center;
+                padding: 8px 0;
             }
             
             .mobile-toggle {
                 display: flex;
-                position: absolute;
-                left: 20px;
-                align-items: center;
+                position: static;
+                order: 1;
+                margin-right: 10px;
             }
             
             .nav-actions {
+                position: static;
                 transform: none;
-                gap: 16px;
-                position: absolute;
-                right: 20px;
+                gap: 12px;
+                order: 3;
+                display: flex;
                 align-items: center;
             }
             
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: none;
-            }
-            
-            /* Hide the sign-up button in mobile navigation */
-            .nav-actions .header-cta {
-                display: none;
-            }
-            
+            /* Show only The Lens in mobile nav */
             .nav-links {
                 display: none;
                 position: absolute;
@@ -1716,24 +1640,26 @@
                 display: flex;
             }
             
+            /* Show only The Lens link in mobile nav */
+            .nav-links .nav-link:not(.active) {
+                display: none;
+            }
+            
+            .nav-links .nav-link.active {
+                display: block;
+                font-size: 18px;
+                font-weight: 600;
+                padding: 10px 0;
+            }
+            
             /* Remove purple underline from active nav link on mobile */
             .nav-link.active::after {
                 display: none;
             }
             
-            /* Move The Coach to the left and New tag next to it */
-            .nav-link-container {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                width: 100%;
-            }
-            
-            .new-tag {
-                position: static;
-                margin-left: 8px;
-                top: auto;
-                right: auto;
+            /* Hide The Coach new tag in mobile nav */
+            .nav-link-container .new-tag {
+                display: none;
             }
             
             /* Make the Sign In button in hamburger menu white */
@@ -1764,16 +1690,11 @@
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            /* Mobile Tabs - Show on mobile */
-            .mobile-tabs {
-                display: block;
-            }
-
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
             
             /* Main content padding */
             main {
-                padding: 80px 15px 80px; /* Extra bottom padding for mobile tabs */
+                padding: 80px 15px 30px;
             }
 
             /* Hero section sizing */
@@ -1783,19 +1704,19 @@
             }
 
             .hero-title {
-                font-size: 42px; /* Increased from 2.5rem for better mobile readability */
+                font-size: 42px;
                 line-height: 1.2;
                 margin-bottom: 20px;
             }
 
             .hero-subtitle {
-                font-size: 18px; /* Increased for better readability */
+                font-size: 18px;
                 line-height: 1.5;
             }
 
             /* Clarity intro block */
             .clarity-intro {
-                font-size: 16px; /* Increased for better readability */
+                font-size: 16px;
                 line-height: 1.5;
                 padding: 20px;
                 margin: 0 auto 40px;
@@ -1803,7 +1724,7 @@
 
             /* Section titles */
             .how-it-works-title, .challenges-title, .zoom-title {
-                font-size: 32px; /* Increased for better visibility */
+                font-size: 32px;
                 margin-bottom: 30px;
             }
 
@@ -1896,7 +1817,7 @@
 
             /* Chat container */
             .chat-container {
-                height: 600px; /* Increased for better mobile experience */
+                height: 600px;
                 margin: 20px 0;
             }
 
@@ -2051,7 +1972,7 @@
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 100px;
+                height: 70px;
             }
             
             .footer-logo-img {
@@ -2129,31 +2050,6 @@
         </div>
     </div>
 </nav>
-
-<!-- Mobile Tabs -->
-<div class="mobile-tabs">
-    <div class="mobile-tabs-container">
-        <a href="index.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-home"></i></div>
-            <div class="mobile-tab-text">Home</div>
-        </a>
-        <a href="the-toolkit.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-toolbox"></i></div>
-            <div class="mobile-tab-text">Toolkit</div>
-        </a>
-        <a href="#" class="mobile-tab mobile-tab-lens" id="mobileLensTab">
-            <div class="mobile-tab-icon"><i class="fas fa-search"></i></div>
-        </a>
-        <a href="the-coach.html" class="mobile-tab">
-            <div class="mobile-tab-icon"><i class="fas fa-comments"></i></div>
-            <div class="mobile-tab-text">Coach</div>
-        </a>
-        <a href="#" class="mobile-tab" id="mobileCreateTab">
-            <div class="mobile-tab-icon"><i class="fas fa-user-plus"></i></div>
-            <div class="mobile-tab-text">Sign Up</div>
-        </a>
-    </div>
-</div>
 
 <!-- Main Content Area -->
 <main>
@@ -2582,7 +2478,7 @@
         const closeModal = document.getElementById('closeModal');
         
         // Open modal when clicking Create Account tab
-        document.getElementById('mobileCreateTab').addEventListener('click', function(e) {
+        document.querySelector('.header-cta').addEventListener('click', function(e) {
             e.preventDefault();
             createAccountModal.classList.add('active');
         });
@@ -2600,16 +2496,17 @@
         });
 
         // Mobile Lens Overlay
-        const mobileLensTab = document.getElementById('mobileLensTab');
         const mobileLensOverlay = document.getElementById('mobileLensOverlay');
         const closeMobileLens = document.getElementById('closeMobileLens');
         const mobileLensMessages = document.getElementById('mobileLensMessages');
         const mobileLensInput = document.getElementById('mobileLensInput');
         
-        // Open mobile lens when clicking the Lens tab
-        mobileLensTab.addEventListener('click', function(e) {
-            e.preventDefault();
-            mobileLensOverlay.classList.add('active');
+        // Open mobile lens when clicking The Lens link in mobile nav
+        document.querySelector('.nav-links .nav-link.active').addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                mobileLensOverlay.classList.add('active');
+            }
         });
         
         // Close mobile lens
