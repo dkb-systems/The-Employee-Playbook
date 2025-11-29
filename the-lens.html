@@ -259,6 +259,11 @@
             display: none;
         }
 
+        /* Mobile Sign Up Button */
+        .mobile-sign-up {
+            display: none;
+        }
+
         /* Hero Section */
         .coach-hero {
             background: var(--soft-blue);
@@ -346,6 +351,30 @@
         .secondary-cta:hover {
             background: rgba(123, 95, 196, 0.1);
             transform: translateY(-2px);
+        }
+
+        /* Mobile Coach Tab */
+        .mobile-coach-tab {
+            display: none;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px auto 0;
+            max-width: 200px;
+        }
+
+        .mobile-coach-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(123, 95, 196, 0.5);
         }
 
         /* Benefits Grid */
@@ -1314,6 +1343,24 @@
                 border: 2px solid var(--accent-purple);
             }
 
+            /* ADDED: Sign Up button in hamburger menu */
+            .mobile-sign-up {
+                display: block !important;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: var(--accent-purple);
+                color: white;
+                border-radius: 8px;
+                text-align: center;
+                font-weight: 600;
+                text-decoration: none;
+                border: 2px solid var(--accent-purple);
+            }
+
+            .mobile-sign-up:hover {
+                background: var(--accent-purple-dark);
+            }
+
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .coach-hero-title {
                 font-size: 45px;
@@ -1322,6 +1369,16 @@
 
             .coach-hero-subtitle {
                 font-size: 20px;
+            }
+
+            /* ADDED: Show mobile coach tab */
+            .mobile-coach-tab {
+                display: flex;
+            }
+
+            /* HIDE: Desktop coach tab on mobile */
+            .coach-tab {
+                display: none;
             }
 
             /* REDUCED: Reduce section titles to match benefits-title size */
@@ -1400,11 +1457,6 @@
                 width: 100%;
                 justify-content: center;
             }
-            
-            .coach-tab {
-                top: 50%;
-                padding: 12px 15px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1470,6 +1522,8 @@
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
+            <!-- ADDED: Sign Up button in hamburger menu -->
+            <a href="create-account.html" class="mobile-sign-up">Sign Up</a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
@@ -1488,14 +1542,15 @@
         <h1 class="coach-hero-title">When the pressure spikes, clarity is power</h1>
         <p class="coach-hero-subtitle">The Coach is your private space to untangle complex situations and find your way forward with confidence</p>
         <div class="cta-buttons">
-            <!-- REMOVED: Learn How It Works and Try The Coach buttons -->
-            <!-- ADDED: The Coach Tab moved here for mobile view -->
-            <div class="coach-tab" id="coachTab">
-                <div class="tab-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <div class="tab-text">The Coach</div>
+            <a href="#benefits" class="cta-button">Learn How It Works</a>
+            <a href="#" class="secondary-cta" id="openChatCta">Try The Coach Now →</a>
+        </div>
+        <!-- ADDED: Mobile Coach Tab -->
+        <div class="mobile-coach-tab" id="mobileCoachTab">
+            <div class="tab-icon">
+                <i class="fas fa-comments"></i>
             </div>
+            <div class="tab-text">The Coach</div>
         </div>
     </div>
 </section>
@@ -1561,8 +1616,8 @@
     </div>
 </section>
 
-<!-- Coach Tab (Desktop - keep original position for desktop) -->
-<div class="coach-tab" id="coachTabDesktop">
+<!-- Coach Tab (Desktop - hidden on mobile) -->
+<div class="coach-tab" id="coachTab">
     <div class="tab-icon">
         <i class="fas fa-comments"></i>
     </div>
@@ -1581,7 +1636,7 @@
                 </div>
             </div>
             <div class="chat-actions">
-                <button class="chat-action-btn" title="New session">
+                <button class="chat-action-btn" title="New session" id="newSessionBtn">
                     <i class="fas fa-plus"></i>
                 </button>
                 <button class="close-chat" id="closeChat" title="Close">
@@ -1770,8 +1825,8 @@
         let isTyping = false;
         let typingTimeout;
 
-        // Tab functionality - Handle both desktop and mobile tabs
-        document.getElementById('coachTabDesktop').addEventListener('click', function() {
+        // Tab functionality - Desktop
+        document.getElementById('coachTab').addEventListener('click', function() {
             // Open the chat UI with sliding animation
             document.getElementById('chatUI').classList.add('open');
             
@@ -1784,9 +1839,23 @@
             }, 2000);
         });
 
-        // Mobile tab functionality
-        document.getElementById('coachTab').addEventListener('click', function() {
+        // Tab functionality - Mobile
+        document.getElementById('mobileCoachTab').addEventListener('click', function() {
             // Open the chat UI with sliding animation
+            document.getElementById('chatUI').classList.add('open');
+            
+            // Show disclaimer after 2 seconds
+            setTimeout(() => {
+                if (!disclaimerAccepted) {
+                    const disclaimerModal = document.getElementById('disclaimerModal');
+                    disclaimerModal.classList.add('show');
+                }
+            }, 2000);
+        });
+
+        // Open chat from CTA
+        document.getElementById('openChatCta').addEventListener('click', function(e) {
+            e.preventDefault();
             document.getElementById('chatUI').classList.add('open');
             
             // Show disclaimer after 2 seconds
@@ -1803,6 +1872,25 @@
             document.getElementById('chatUI').classList.remove('open');
             // Also close disclaimer if open
             document.getElementById('disclaimerModal').classList.remove('show');
+        });
+
+        // New session button functionality - clear chat
+        document.getElementById('newSessionBtn').addEventListener('click', function() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = `
+                <div class="message message-coach">
+                    <div class="message-bubble">
+                        Hey there! <span class="hand-wave">👋</span>I'm here to be your confidential sounding board for those workplace situations. The ones you can't discuss with colleagues or HR.<br><br>
+                        What's on your mind today? You can ask me anything about difficult conversations, office politics, career strategy, or anything else that's weighing on you.
+                    </div>
+                    <div class="message-meta">The Coach • Just now</div>
+                </div>
+            `;
+            
+            // Reset message count and enable chat
+            messageCount = 0;
+            document.getElementById('chatSend').disabled = false;
+            document.getElementById('signinPrompt').style.display = 'none';
         });
 
         // Disclaimer checkbox
