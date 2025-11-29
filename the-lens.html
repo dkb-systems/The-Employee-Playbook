@@ -2093,6 +2093,7 @@
     <div class="mobile-lens-content">
         <div class="mobile-lens-messages" id="mobileLensMessages">
             <div class="message bot-message">
+                <div class="bot-avatar">TL</div>
                 <div class="message-content">
                     <p>Let's get into it. What's been happening at work?</p>
                     <p>No judgement. Just say it how it feels.</p>
@@ -2517,7 +2518,7 @@
             }
         });
 
-        // Mobile Lens Panel
+        // Mobile Lens Panel - FIXED FUNCTIONALITY
         const mobileLensTab = document.getElementById('mobileLensTab');
         const mobileLensPanel = document.getElementById('mobileLensPanel');
         const closeMobileLens = document.getElementById('closeMobileLens');
@@ -2532,15 +2533,31 @@
             messageCount: 0
         };
         
-        // Open mobile lens when clicking the Lens tab
+        // FIX: Proper mobile lens panel display
         mobileLensTab.addEventListener('click', function(e) {
             e.preventDefault();
-            mobileLensPanel.classList.add('active');
+            mobileLensPanel.style.display = 'flex';
+            setTimeout(() => {
+                mobileLensPanel.classList.add('active');
+            }, 10);
         });
         
         // Close mobile lens
         closeMobileLens.addEventListener('click', function() {
             mobileLensPanel.classList.remove('active');
+            setTimeout(() => {
+                mobileLensPanel.style.display = 'none';
+            }, 300);
+        });
+        
+        // Close when clicking outside content
+        mobileLensPanel.addEventListener('click', function(e) {
+            if (e.target === mobileLensPanel) {
+                mobileLensPanel.classList.remove('active');
+                setTimeout(() => {
+                    mobileLensPanel.style.display = 'none';
+                }, 300);
+            }
         });
         
         // Clear session for mobile
@@ -2548,6 +2565,7 @@
             // Clear mobile chat messages except the initial bot message
             mobileLensMessages.innerHTML = `
                 <div class="message bot-message">
+                    <div class="bot-avatar">TL</div>
                     <div class="message-content">
                         <p>Let's get into it. What's been happening at work?</p>
                         <p>No judgement. Just say it how it feels.</p>
@@ -2569,6 +2587,7 @@
             const confirmationMsg = document.createElement('div');
             confirmationMsg.className = 'message bot-message';
             confirmationMsg.innerHTML = `
+                <div class="bot-avatar">TL</div>
                 <div class="message-content">
                     <p>Session cleared. Ready to start fresh.</p>
                 </div>
@@ -2601,6 +2620,7 @@
                 const typingIndicator = document.createElement('div');
                 typingIndicator.className = 'message bot-message typing-indicator';
                 typingIndicator.innerHTML = `
+                    <div class="bot-avatar">TL</div>
                     <div class="message-content">
                         <div class="typing-dots">
                             <span></span>
@@ -2647,6 +2667,7 @@
                     const botMessageDiv = document.createElement('div');
                     botMessageDiv.className = 'message bot-message';
                     botMessageDiv.innerHTML = `
+                        <div class="bot-avatar">TL</div>
                         <div class="message-content">
                             ${response}
                         </div>
