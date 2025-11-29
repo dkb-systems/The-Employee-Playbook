@@ -1224,9 +1224,10 @@
         }
 
         @media (max-width: 768px) {
-            /* ADDED: Move hero content up by one line */
+            /* ADDED: Move hero content up significantly for mobile */
             .coach-hero {
                 padding-top: 120px; /* Reduced from 160px to move content up */
+                min-height: 90vh; /* Reduced min-height to make content appear higher */
             }
             
             .coach-hero-content {
@@ -1439,13 +1440,14 @@
         }
 
         @media (max-width: 480px) {
-            /* ADDED: Move hero content up by one line for small screens */
+            /* ADDED: Move hero content up even more for small screens */
             .coach-hero {
-                padding-top: 130px; /* Further reduced for small screens */
+                padding-top: 110px; /* Further reduced for small screens */
+                min-height: 85vh; /* Further reduced min-height */
             }
             
             .coach-hero-content {
-                margin-top: -15px; /* Slightly less adjustment for small screens */
+                margin-top: -25px; /* Slightly less adjustment for small screens */
             }
 
             .logo-img {
