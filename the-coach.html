@@ -1488,8 +1488,14 @@
         <h1 class="coach-hero-title">When the pressure spikes, clarity is power</h1>
         <p class="coach-hero-subtitle">The Coach is your private space to untangle complex situations and find your way forward with confidence</p>
         <div class="cta-buttons">
-            <a href="#benefits" class="cta-button">Learn How It Works</a>
-            <a href="#" class="secondary-cta" id="openChatCta">Try The Coach Now →</a>
+            <!-- REMOVED: Learn How It Works and Try The Coach buttons -->
+            <!-- ADDED: The Coach Tab moved here for mobile view -->
+            <div class="coach-tab" id="coachTab">
+                <div class="tab-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="tab-text">The Coach</div>
+            </div>
         </div>
     </div>
 </section>
@@ -1555,8 +1561,8 @@
     </div>
 </section>
 
-<!-- Coach Tab -->
-<div class="coach-tab" id="coachTab">
+<!-- Coach Tab (Desktop - keep original position for desktop) -->
+<div class="coach-tab" id="coachTabDesktop">
     <div class="tab-icon">
         <i class="fas fa-comments"></i>
     </div>
@@ -1764,8 +1770,8 @@
         let isTyping = false;
         let typingTimeout;
 
-        // Tab functionality
-        document.getElementById('coachTab').addEventListener('click', function() {
+        // Tab functionality - Handle both desktop and mobile tabs
+        document.getElementById('coachTabDesktop').addEventListener('click', function() {
             // Open the chat UI with sliding animation
             document.getElementById('chatUI').classList.add('open');
             
@@ -1778,9 +1784,9 @@
             }, 2000);
         });
 
-        // Open chat from CTA
-        document.getElementById('openChatCta').addEventListener('click', function(e) {
-            e.preventDefault();
+        // Mobile tab functionality
+        document.getElementById('coachTab').addEventListener('click', function() {
+            // Open the chat UI with sliding animation
             document.getElementById('chatUI').classList.add('open');
             
             // Show disclaimer after 2 seconds
