@@ -1351,10 +1351,10 @@
                 margin-bottom: 20px; /* ADDED: Blank line between subtitle and tab */
             }
 
-            /* ADDED: Show mobile coach tab ONLY on mobile */
+            /* ADDED: Show mobile coach tab ONLY on mobile - MOVED 20% LOWER */
             .mobile-coach-tab {
                 display: flex;
-                top: 60%; /* Positioned below the hero subheading */
+                top: 80%; /* MOVED 20% LOWER: Changed from 60% to 80% */
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1453,6 +1453,11 @@
                 font-size: 18px;
                 margin-top: 20px; /* ADDED: Blank line between H1 and subtitle */
                 margin-bottom: 20px; /* ADDED: Blank line between subtitle and tab */
+            }
+            
+            /* ADDED: Mobile coach tab position for very small screens */
+            .mobile-coach-tab {
+                top: 80%; /* MOVED 20% LOWER: Changed from 60% to 80% */
             }
             
             /* REDUCED: Further reduce final statement size for very small mobile */
