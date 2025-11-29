@@ -1164,9 +1164,38 @@
             text-decoration: none;
         }
 
-        /* Mobile Coach Tab - REMOVED: Completely removed the floating tab */
+        /* Mobile Coach Tab - HIDDEN on desktop, VISIBLE on mobile only */
         .mobile-coach-tab {
-            display: none;
+            display: none; /* Hidden by default for desktop */
+            position: fixed;
+            left: 0;
+            top: 75%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 0 12px 12px 0;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(123, 95, 196, 0.4);
+            transition: all 0.3s ease;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .mobile-coach-tab:hover {
+            padding-left: 22px;
+            box-shadow: 0 8px 25px rgba(123, 95, 196, 0.5);
+        }
+
+        .tab-text {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .tab-icon {
+            font-size: 18px;
         }
 
         /* Responsive */
@@ -1322,9 +1351,10 @@
                 margin-bottom: 20px; /* ADDED: Blank line between subtitle and tab */
             }
 
-            /* REMOVED: Completely removed the mobile coach tab */
+            /* ADDED: Show mobile coach tab ONLY on mobile */
             .mobile-coach-tab {
-                display: none;
+                display: flex;
+                top: 60%; /* Positioned below the hero subheading */
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1458,7 +1488,7 @@
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
-            <!-- CHANGED: Hide The Coach in desktop view -->
+            <!-- The Coach is BACK in the navigation -->
             <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link active">The Coach</a>
                 <span class="new-tag">NEW</span>
@@ -1555,7 +1585,13 @@
     </div>
 </section>
 
-<!-- REMOVED: Completely removed the Mobile Coach Tab floating on left side -->
+<!-- Mobile Coach Tab (only visible on mobile) -->
+<div class="mobile-coach-tab" id="mobileCoachTab">
+    <div class="tab-icon">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div class="tab-text">The Coach</div>
+</div>
 
 <!-- Chat UI -->
 <div class="chat-ui" id="chatUI">
@@ -1758,7 +1794,19 @@
         let isTyping = false;
         let typingTimeout;
 
-        // REMOVED: Mobile Coach Tab functionality since the tab is removed
+        // Tab functionality - Mobile ONLY
+        document.getElementById('mobileCoachTab').addEventListener('click', function() {
+            // Open the chat UI with sliding animation
+            document.getElementById('chatUI').classList.add('open');
+            
+            // Show disclaimer after 2 seconds
+            setTimeout(() => {
+                if (!disclaimerAccepted) {
+                    const disclaimerModal = document.getElementById('disclaimerModal');
+                    disclaimerModal.classList.add('show');
+                }
+            }, 2000);
+        });
 
         // Open chat from CTA
         document.getElementById('openChatCta').addEventListener('click', function(e) {
