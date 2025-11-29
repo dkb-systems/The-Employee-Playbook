@@ -1169,7 +1169,7 @@
             display: none; /* Hidden by default for desktop */
             position: fixed;
             left: 0;
-            top: 95%;
+            top: 75%;
             transform: translateY(-50%);
             background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
             color: white;
@@ -1224,6 +1224,15 @@
         }
 
         @media (max-width: 768px) {
+            /* ADDED: Move hero content up by one line */
+            .coach-hero {
+                padding-top: 140px; /* Reduced from 160px to move content up */
+            }
+            
+            .coach-hero-content {
+                margin-top: -20px; /* Additional adjustment to move content up */
+            }
+
             /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
@@ -1342,7 +1351,6 @@
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .coach-hero-title {
                 font-size: 45px;
-                margin-top: -15%; /* MOVED UP: Added this to move the hero content up by 15% */
             }
 
             .coach-hero-subtitle {
@@ -1354,7 +1362,7 @@
             /* ADDED: Show mobile coach tab ONLY on mobile - MOVED 20% LOWER */
             .mobile-coach-tab {
                 display: flex;
-                top: 100%; /* MOVED 20% LOWER: Changed from 60% to 80% */
+                top: 80%; /* MOVED 20% LOWER: Changed from 60% to 80% */
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1431,6 +1439,15 @@
         }
 
         @media (max-width: 480px) {
+            /* ADDED: Move hero content up by one line for small screens */
+            .coach-hero {
+                padding-top: 130px; /* Further reduced for small screens */
+            }
+            
+            .coach-hero-content {
+                margin-top: -15px; /* Slightly less adjustment for small screens */
+            }
+
             .logo-img {
                 height: 100px;
             }
@@ -1446,7 +1463,6 @@
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .coach-hero-title {
                 font-size: 45px;
-                margin-top: -15%; /* MOVED UP: Added this to move the hero content up by 15% */
             }
             
             .coach-hero-subtitle {
@@ -2140,4 +2156,3 @@
 
 </body>
 </html>
-
