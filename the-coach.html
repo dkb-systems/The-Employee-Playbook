@@ -1164,39 +1164,9 @@
             text-decoration: none;
         }
 
-        /* Mobile Coach Tab */
+        /* Mobile Coach Tab - REMOVED: Completely removed the floating tab */
         .mobile-coach-tab {
             display: none;
-            position: fixed;
-            left: 0;
-            top: 75%; /* MOVED UP: Changed from 90% to 75% (15% higher) */
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
-            color: white;
-            padding: 14px 18px;
-            border-radius: 0 12px 12px 0;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 20px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .mobile-coach-tab:hover {
-            padding-left: 22px;
-            box-shadow: 0 8px 25px rgba(123, 95, 196, 0.5);
-        }
-
-        .tab-text {
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .tab-icon {
-            font-size: 18px;
         }
 
         /* Responsive */
@@ -1348,12 +1318,13 @@
 
             .coach-hero-subtitle {
                 font-size: 20px;
+                margin-top: 20px; /* ADDED: Blank line between H1 and subtitle */
+                margin-bottom: 20px; /* ADDED: Blank line between subtitle and tab */
             }
 
-            /* ADDED: Show mobile coach tab */
+            /* REMOVED: Completely removed the mobile coach tab */
             .mobile-coach-tab {
-                display: flex;
-                top: 60%; /* MOVED UP: Changed from 75% to 60% (15% higher) */
+                display: none;
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1450,6 +1421,8 @@
             
             .coach-hero-subtitle {
                 font-size: 18px;
+                margin-top: 20px; /* ADDED: Blank line between H1 and subtitle */
+                margin-bottom: 20px; /* ADDED: Blank line between subtitle and tab */
             }
             
             /* REDUCED: Further reduce final statement size for very small mobile */
@@ -1486,7 +1459,7 @@
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
             <!-- CHANGED: Hide The Coach in desktop view -->
-            <div class="nav-link-container" style="display: none;">
+            <div class="nav-link-container">
                 <a href="the-coach.html" class="nav-link active">The Coach</a>
                 <span class="new-tag">NEW</span>
             </div>
@@ -1511,7 +1484,9 @@
 <section class="coach-hero">
     <div class="container coach-hero-content">
         <h1 class="coach-hero-title">When the pressure spikes, clarity is power</h1>
+        <!-- ADDED: Blank line between H1 and subtitle for mobile -->
         <p class="coach-hero-subtitle">The Coach is your private space to untangle complex situations and find your way forward with confidence</p>
+        <!-- ADDED: Blank line between subtitle and CTA buttons for mobile -->
         <div class="cta-buttons">
             <a href="#benefits" class="cta-button">Learn How It Works</a>
             <a href="#" class="secondary-cta" id="openChatCta">Try The Coach Now →</a>
@@ -1580,13 +1555,7 @@
     </div>
 </section>
 
-<!-- Mobile Coach Tab (only visible on mobile) -->
-<div class="mobile-coach-tab" id="mobileCoachTab">
-    <div class="tab-icon">
-        <i class="fas fa-comments"></i>
-    </div>
-    <div class="tab-text">The Coach</div>
-</div>
+<!-- REMOVED: Completely removed the Mobile Coach Tab floating on left side -->
 
 <!-- Chat UI -->
 <div class="chat-ui" id="chatUI">
@@ -1789,19 +1758,7 @@
         let isTyping = false;
         let typingTimeout;
 
-        // Tab functionality - Mobile
-        document.getElementById('mobileCoachTab').addEventListener('click', function() {
-            // Open the chat UI with sliding animation
-            document.getElementById('chatUI').classList.add('open');
-            
-            // Show disclaimer after 2 seconds
-            setTimeout(() => {
-                if (!disclaimerAccepted) {
-                    const disclaimerModal = document.getElementById('disclaimerModal');
-                    disclaimerModal.classList.add('show');
-                }
-            }, 2000);
-        });
+        // REMOVED: Mobile Coach Tab functionality since the tab is removed
 
         // Open chat from CTA
         document.getElementById('openChatCta').addEventListener('click', function(e) {
