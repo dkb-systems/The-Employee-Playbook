@@ -264,58 +264,69 @@
             display: none;
         }
 
-        /* Mobile Create Account Tab - Updated Position */
-        .mobile-create-tab {
+        /* Mobile Tabs Container */
+        .mobile-tabs {
             display: none;
-            position: absolute;
-            right: 20px; /* Positioned to the right */
-            top: 50%; /* Vertically centered */
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            width: 120px; /* Tab width */
-            height: 36px; /* Tab height */
-            border-radius: 6px 6px 0 0; /* Rounded top corners only for tab appearance */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--primary-white);
+            border-top: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .mobile-tabs-container {
+            display: flex;
+            justify-content: space-around;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 12px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
-            cursor: pointer;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .mobile-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: var(--text-medium);
             transition: all 0.3s ease;
-            z-index: 10;
+            flex: 1;
+            padding: 8px 0;
         }
 
-        .mobile-create-tab i {
+        .mobile-tab.active {
+            color: var(--accent-purple);
+        }
+
+        .mobile-tab-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .mobile-tab-text {
             font-size: 12px;
+            font-weight: 500;
         }
 
-        /* Mobile Lens Tab - Updated Position */
-        .mobile-lens-tab {
-            display: none;
-            position: absolute;
-            left: 20px; /* Positioned to the left */
-            top: 50%; /* Vertically centered */
-            transform: translateY(-50%);
+        .mobile-tab-lens {
             background: var(--accent-purple);
             color: white;
-            width: 40px;
-            height: 40px;
             border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 2px 6px rgba(123, 95, 196, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
+            margin-top: -20px;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
         }
 
-        .dark-mode .mobile-sign-in {
-            background: var(--primary-white);
-            color: var(--accent-purple);
-            border: 2px solid var(--accent-purple);
+        .mobile-tab-lens .mobile-tab-icon {
+            font-size: 22px;
         }
 
         /* Main Content */
@@ -1580,7 +1591,7 @@
             border-top: 1px solid var(--border-light);
             background-color: var(--primary-white);
             position: fixed;
-            bottom: 0;
+            bottom: 80px; /* Account for mobile tabs */
             left: 0;
             width: 100%;
             z-index: 10;
@@ -1753,21 +1764,16 @@
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            /* Mobile Create Account Tab - Show on mobile */
-            .mobile-create-tab {
-                display: flex;
-            }
-
-            /* Mobile Lens Tab - Show on mobile */
-            .mobile-lens-tab {
-                display: flex;
+            /* Mobile Tabs - Show on mobile */
+            .mobile-tabs {
+                display: block;
             }
 
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
             
             /* Main content padding */
             main {
-                padding: 80px 15px 15px;
+                padding: 80px 15px 80px; /* Extra bottom padding for mobile tabs */
             }
 
             /* Hero section sizing */
@@ -2037,21 +2043,6 @@
                 transform: translateY(0);
             }
 
-            /* Mobile Lens Overlay */
-            .mobile-lens-input-container {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                padding: 15px;
-                background-color: var(--primary-white);
-                border-top: 1px solid var(--border-light);
-            }
-
-            .mobile-lens-messages {
-                padding-bottom: 80px; /* Space for input */
-            }
-
             /* Hide desktop chat on mobile */
             .chat-container {
                 display: none;
@@ -2111,21 +2102,10 @@
         <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Mobile Lens Tab -->
-        <div class="mobile-lens-tab" id="mobileLensTab">
-            <i class="fas fa-search"></i>
-        </div>
-        
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
-        
-        <!-- Mobile Create Account Tab -->
-        <div class="mobile-create-tab" id="mobileCreateTab">
-            <span>Create Account</span>
-            <i class="fas fa-user-plus"></i>
-        </div>
         
         <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
@@ -2149,6 +2129,31 @@
         </div>
     </div>
 </nav>
+
+<!-- Mobile Tabs -->
+<div class="mobile-tabs">
+    <div class="mobile-tabs-container">
+        <a href="index.html" class="mobile-tab">
+            <div class="mobile-tab-icon"><i class="fas fa-home"></i></div>
+            <div class="mobile-tab-text">Home</div>
+        </a>
+        <a href="the-toolkit.html" class="mobile-tab">
+            <div class="mobile-tab-icon"><i class="fas fa-toolbox"></i></div>
+            <div class="mobile-tab-text">Toolkit</div>
+        </a>
+        <a href="#" class="mobile-tab mobile-tab-lens" id="mobileLensTab">
+            <div class="mobile-tab-icon"><i class="fas fa-search"></i></div>
+        </a>
+        <a href="the-coach.html" class="mobile-tab">
+            <div class="mobile-tab-icon"><i class="fas fa-comments"></i></div>
+            <div class="mobile-tab-text">Coach</div>
+        </a>
+        <a href="#" class="mobile-tab" id="mobileCreateTab">
+            <div class="mobile-tab-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="mobile-tab-text">Sign Up</div>
+        </a>
+    </div>
+</div>
 
 <!-- Main Content Area -->
 <main>
