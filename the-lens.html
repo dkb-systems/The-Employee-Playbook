@@ -431,11 +431,11 @@
             font-weight: 500;
         }
 
-        /* NEW: Lens Tab for Mobile */
+        /* NEW: Lens Tab for Mobile - POSITIONED BELOW "NOISY" */
         .mobile-lens-tab {
             display: none;
             position: fixed;
-            top: 25%;
+            top: 50%; /* Positioned below the word "noisy" */
             left: 0;
             background: var(--accent-purple);
             color: white;
@@ -489,6 +489,7 @@
             flex-direction: column;
             transform: translateX(-100%);
             transition: transform 0.3s ease;
+            overflow: hidden;
         }
 
         .mobile-lens-panel.active {
@@ -575,6 +576,24 @@
             box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
         }
 
+        .mobile-lens-clear-session {
+            background: none;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .mobile-lens-clear-session:hover {
+            background: var(--accent-purple);
+            color: white;
+        }
+
         /* Main Content */
         main {
             flex: 1;
@@ -603,7 +622,7 @@
             margin-bottom: 17px;
             color: var(--text-dark);
             line-height: 1.1;
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -781,7 +800,7 @@
             display: none;
         }
 
-        /* Zoom In Section */
+        /* Zoom In Section - HIDDEN ON MOBILE */
         .zoom-in-section {
             margin-bottom: 35px;
         }
@@ -1689,9 +1708,10 @@
                 display: flex;
             }
             
-            /* NEW: Show the Lens Tab on mobile */
+            /* NEW: Show the Lens Tab on mobile - POSITIONED BELOW "NOISY" */
             .mobile-lens-tab {
                 display: flex;
+                top: 50%; /* Positioned below the word "noisy" */
             }
 
             /* Mobile Navigation Changes */
@@ -1809,6 +1829,11 @@
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
+            }
+
+            /* HIDE "Find Your Solution" section on mobile */
+            .zoom-in-section.desktop-only {
+                display: none;
             }
 
             /* MOBILE SIZING FIXES - MATCHING HOMEPAGE */
@@ -1936,41 +1961,9 @@
                 font-size: 12px;
             }
 
-            /* Chat container */
+            /* Chat container - HIDDEN ON MOBILE */
             .chat-container {
-                height: 600px; /* Increased for better mobile experience */
-                margin: 20px 0;
-            }
-
-            .chat-header {
-                padding: 15px;
-            }
-
-            .chat-title {
-                font-size: 20px;
-            }
-
-            .chat-messages {
-                padding: 15px;
-            }
-
-            .message {
-                max-width: 95%;
-                font-size: 15px;
-            }
-
-            .chat-input-container {
-                padding: 15px;
-            }
-
-            .chat-input {
-                font-size: 15px;
-                padding: 14px 16px;
-            }
-
-            .send-button {
-                padding: 0 22px;
-                font-size: 15px;
+                display: none;
             }
 
             /* Micro CTA */
@@ -2084,11 +2077,6 @@
             .popular-issues.active {
                 transform: translateY(0);
             }
-
-            /* Hide desktop chat on mobile */
-            .chat-container {
-                display: none;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2143,7 +2131,7 @@
     <i class="fas fa-user-plus"></i>
 </a>
 
-<!-- NEW: Lens Tab for Mobile -->
+<!-- NEW: Lens Tab for Mobile - POSITIONED BELOW "NOISY" -->
 <a href="#" class="mobile-lens-tab" id="mobileLensTab">
     <div class="mobile-lens-tab-icon"><i class="fas fa-search"></i></div>
     <div class="mobile-lens-tab-text">The Lens</div>
@@ -2188,9 +2176,12 @@
 <div class="mobile-lens-panel" id="mobileLensPanel">
     <div class="mobile-lens-header">
         <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
-        <button class="close-mobile-lens" id="closeMobileLens">
-            <i class="fas fa-times"></i>
-        </button>
+        <div>
+            <button class="mobile-lens-clear-session" id="mobileClearSession">Clear Session</button>
+            <button class="close-mobile-lens" id="closeMobileLens">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
     </div>
     <div class="mobile-lens-content">
         <div class="mobile-lens-messages" id="mobileLensMessages">
@@ -2642,6 +2633,14 @@
         const closeMobileLens = document.getElementById('closeMobileLens');
         const mobileLensMessages = document.getElementById('mobileLensMessages');
         const mobileLensInput = document.getElementById('mobileLensInput');
+        const mobileClearSession = document.getElementById('mobileClearSession');
+        
+        // Track conversation state for mobile
+        let mobileConversationState = {
+            firstMessage: true,
+            userScenario: '',
+            messageCount: 0
+        };
         
         // Open mobile lens when clicking the Lens tab
         mobileLensTab.addEventListener('click', function(e) {
@@ -2652,6 +2651,40 @@
         // Close mobile lens
         closeMobileLens.addEventListener('click', function() {
             mobileLensPanel.classList.remove('active');
+        });
+        
+        // Clear session for mobile
+        mobileClearSession.addEventListener('click', function() {
+            // Clear mobile chat messages except the initial bot message
+            mobileLensMessages.innerHTML = `
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Let's get into it. What's been happening at work?</p>
+                        <p>No judgement. Just say it how it feels.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Reset conversation state
+            mobileConversationState = {
+                firstMessage: true,
+                userScenario: '',
+                messageCount: 0
+            };
+            
+            // Clear input field
+            mobileLensInput.value = '';
+            
+            // Show confirmation message
+            const confirmationMsg = document.createElement('div');
+            confirmationMsg.className = 'message bot-message';
+            confirmationMsg.innerHTML = `
+                <div class="message-content">
+                    <p>Session cleared. Ready to start fresh.</p>
+                </div>
+            `;
+            mobileLensMessages.appendChild(confirmationMsg);
+            mobileLensMessages.scrollTop = mobileLensMessages.scrollHeight;
         });
         
         // Mobile lens input functionality
@@ -2671,14 +2704,44 @@
                 mobileLensMessages.appendChild(userMessageDiv);
                 mobileLensInput.value = '';
                 
+                // Increment message count
+                mobileConversationState.messageCount++;
+                
                 // Simulate bot response
                 setTimeout(() => {
+                    let response = '';
+                    
+                    if (mobileConversationState.messageCount === 1) {
+                        // First interaction - use empathy and ask for more information
+                        mobileConversationState.userScenario = message;
+                        
+                        response = `
+                            <p>I hear you. ${getEmpatheticResponse(message)}</p>
+                            <p>To help you better, could you tell me a bit more about the situation? For example, how long has this been going on or if you've tried addressing it already?</p>
+                        `;
+                    } else if (mobileConversationState.messageCount === 2) {
+                        // Second interaction - provide 3 specific tools with closing statement
+                        response = `
+                            <p>Thank you for sharing that. Based on what you've described, here are 3 specific tools that could help right now:</p>
+                            <div class="resources-grid">
+                                ${generateThreeTools(mobileConversationState.userScenario + ' ' + message)}
+                            </div>
+                            <br>
+                            <p style="font-size: 16px; line-height: 2;">These tools are designed to give you immediate clarity and actionable steps.</p>
+                            <p style="font-size: 16px; line-height: 1.5;">If you still need help, please check The Toolkit or have a chat with The Coach.</p>
+                        `;
+                    } else {
+                        // Third+ interaction - suggest The Coach
+                        response = `
+                            <p>For deeper, personalised guidance on implementing these strategies, I'd recommend exploring <strong>The Coach</strong> - our one-on-one support system for complex workplace situations.</p>
+                        `;
+                    }
+                    
                     const botMessageDiv = document.createElement('div');
                     botMessageDiv.className = 'message bot-message';
                     botMessageDiv.innerHTML = `
                         <div class="message-content">
-                            <p>Thank you for sharing that. I understand how challenging that situation can be.</p>
-                            <p>Based on what you've described, I recommend checking out the "Difficult Conversations" section in The Toolkit for specific strategies and scripts.</p>
+                            ${response}
                         </div>
                     `;
                     mobileLensMessages.appendChild(botMessageDiv);
@@ -2689,12 +2752,126 @@
             }
         });
 
+        // Function to generate empathetic response
+        function getEmpatheticResponse(message) {
+            if (message.includes('workload') || message.includes('burnout') || message.includes('overwhelmed')) {
+                return "That sounds incredibly draining. Feeling constantly overwhelmed at work can take a real toll on both your professional effectiveness and personal wellbeing.";
+            } else if (message.includes('micromanag')) {
+                return "That must feel frustrating and limiting. Being micromanaged can undermine your confidence and make it hard to do your best work.";
+            } else if (message.includes('excluded') || message.includes('left out')) {
+                return "That sounds isolating and frustrating. Being excluded from important conversations can make you feel undervalued and disconnected from your team.";
+            } else if (message.includes('favouritism') || message.includes('promotion') || message.includes('overlooked')) {
+                return "That must feel demoralizing and unfair. When recognition and opportunities don't reflect your contributions, it can be deeply frustrating.";
+            } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
+                return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
+            } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
+                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
+            } else {
+                return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
+            }
+        }
+
+        // Function to generate three tools
+        function generateThreeTools(userMessage) {
+            let tools = '';
+            const msg = userMessage.toLowerCase();
+            
+            if (msg.includes('workload') || msg.includes('burnout') || msg.includes('overwhelmed')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Immediate Relief</div>
+                        <h3>Burnout Intervention Checklist</h3>
+                        <p class="description">Identify and address burnout symptoms before they escalate with this step-by-step guide.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Workload Escalation Script</h3>
+                        <p class="description">Professional ways to communicate your capacity concerns and negotiate priorities effectively.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Capacity Assessment</h3>
+                        <p class="description">Evaluate your current workload against organizational priorities to build your case.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else if (msg.includes('micromanag')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Micromanagement Response Script</h3>
+                        <p class="description">Professional ways to address micromanagement while building trust with your manager.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Proactive Updates Framework</h3>
+                        <p class="description">Structure your communication to preemptively address your manager's concerns.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Action Plan</div>
+                        <h3>Autonomy Building Plan</h3>
+                        <p class="description">Gradually increase your independence while demonstrating reliability and competence.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else if (msg.includes('excluded') || message.includes('conversation')) {
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Inclusion Request Script</h3>
+                        <p class="description">Professional ways to request inclusion in key meetings and decisions that impact your work.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Visibility & Influence Plan</h3>
+                        <p class="description">Systematically build your presence and impact within the organization.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Relationship Building</div>
+                        <h3>Stakeholder Connection Guide</h3>
+                        <p class="description">Develop strategic relationships with key decision-makers in your organization.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            } else {
+                // Default tools for unspecified scenarios
+                tools = `
+                    <div class="resource-card">
+                        <div class="category">Assessment</div>
+                        <h3>Situation Analysis Framework</h3>
+                        <p class="description">A structured approach to understand the dynamics and stakeholders in your situation.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Communication</div>
+                        <h3>Difficult Conversation Guide</h3>
+                        <p class="description">Prepare for and navigate challenging workplace discussions effectively.</p>
+                        <button>Access Tool</button>
+                    </div>
+                    <div class="resource-card">
+                        <div class="category">Strategy</div>
+                        <h3>Personal Action Plan</h3>
+                        <p class="description">Develop a step-by-step approach to address your specific workplace challenge.</p>
+                        <button>Access Tool</button>
+                    </div>
+                `;
+            }
+            
+            return tools;
+        }
+
         // Hide desktop chat container on mobile
         if (window.innerWidth <= 768) {
             document.querySelector('.chat-container').style.display = 'none';
         }
 
-        // JavaScript for The Lens chat functionality (desktop)
+        // Desktop Lens chat functionality (unchanged)
         const chatMessages = document.getElementById('chatMessages');
         const userInput = document.getElementById('userInput');
         const sendButton = document.getElementById('sendButton');
@@ -2998,120 +3175,6 @@
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 100);
             }
-        }
-        
-        // Generate empathetic response based on user message
-        function getEmpatheticResponse(message) {
-            if (message.includes('workload') || message.includes('burnout') || message.includes('overwhelmed')) {
-                return "That sounds incredibly draining. Feeling constantly overwhelmed at work can take a real toll on both your professional effectiveness and personal wellbeing.";
-            } else if (message.includes('micromanag')) {
-                return "That must feel frustrating and limiting. Being micromanaged can undermine your confidence and make it hard to do your best work.";
-            } else if (message.includes('excluded') || message.includes('left out')) {
-                return "That sounds isolating and frustrating. Being excluded from important conversations can make you feel undervalued and disconnected from your team.";
-            } else if (message.includes('favouritism') || message.includes('promotion') || message.includes('overlooked')) {
-                return "That must feel demoralizing and unfair. When recognition and opportunities don't reflect your contributions, it can be deeply frustrating.";
-            } else if (message.includes('aggressive') || message.includes('unpredictable') || message.includes('toxic') || message.includes('safe')) {
-                return "That sounds really difficult and stressful. No one should feel unsafe or constantly on edge in their workplace.";
-            } else if (message.includes('undermine') || message.includes('credit') || message.includes('acknowledged')) {
-                return "That must feel incredibly frustrating and demotivating. When your hard work isn't properly recognised, it can make you question your value and contributions.";
-            } else {
-                return "That sounds challenging. Workplace difficulties can be stressful and impact both your professional satisfaction and personal wellbeing.";
-            }
-        }
-        
-        // Generate exactly 3 tools based on user scenario
-        function generateThreeTools(userMessage) {
-            let tools = '';
-            const msg = userMessage.toLowerCase();
-            
-            if (msg.includes('workload') || msg.includes('burnout') || msg.includes('overwhelmed')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Immediate Relief</div>
-                        <h3>Burnout Intervention Checklist</h3>
-                        <p class="description">Identify and address burnout symptoms before they escalate with this step-by-step guide.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Workload Escalation Script</h3>
-                        <p class="description">Professional ways to communicate your capacity concerns and negotiate priorities effectively.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Capacity Assessment</h3>
-                        <p class="description">Evaluate your current workload against organizational priorities to build your case.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else if (msg.includes('micromanag')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Micromanagement Response Script</h3>
-                        <p class="description">Professional ways to address micromanagement while building trust with your manager.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Proactive Updates Framework</h3>
-                        <p class="description">Structure your communication to preemptively address your manager's concerns.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Action Plan</div>
-                        <h3>Autonomy Building Plan</h3>
-                        <p class="description">Gradually increase your independence while demonstrating reliability and competence.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else if (msg.includes('excluded') || msg.includes('conversation')) {
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Inclusion Request Script</h3>
-                        <p class="description">Professional ways to request inclusion in key meetings and decisions that impact your work.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Visibility & Influence Plan</h3>
-                        <p class="description">Systematically build your presence and impact within the organization.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Relationship Building</div>
-                        <h3>Stakeholder Connection Guide</h3>
-                        <p class="description">Develop strategic relationships with key decision-makers in your organization.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            } else {
-                // Default tools for unspecified scenarios
-                tools = `
-                    <div class="resource-card">
-                        <div class="category">Assessment</div>
-                        <h3>Situation Analysis Framework</h3>
-                        <p class="description">A structured approach to understand the dynamics and stakeholders in your situation.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Communication</div>
-                        <h3>Difficult Conversation Guide</h3>
-                        <p class="description">Prepare for and navigate challenging workplace discussions effectively.</p>
-                        <button>Access Tool</button>
-                    </div>
-                    <div class="resource-card">
-                        <div class="category">Strategy</div>
-                        <h3>Personal Action Plan</h3>
-                        <p class="description">Develop a step-by-step approach to address your specific workplace challenge.</p>
-                        <button>Access Tool</button>
-                    </div>
-                `;
-            }
-            
-            return tools;
         }
         
         // Event listeners
