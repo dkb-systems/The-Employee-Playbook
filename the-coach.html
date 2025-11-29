@@ -1169,7 +1169,7 @@
             display: none;
             position: fixed;
             left: 0;
-            top: 90%; /* MOVED DOWN: Changed from 75% to 90% (15% lower) */
+            top: 75%; /* MOVED UP: Changed from 90% to 75% (15% higher) */
             transform: translateY(-50%);
             background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
             color: white;
@@ -1343,7 +1343,7 @@
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .coach-hero-title {
                 font-size: 45px;
-                margin-top: -20px;
+                margin-top: -15%; /* MOVED UP: Added this to move the hero content up by 15% */
             }
 
             .coach-hero-subtitle {
@@ -1353,6 +1353,7 @@
             /* ADDED: Show mobile coach tab */
             .mobile-coach-tab {
                 display: flex;
+                top: 60%; /* MOVED UP: Changed from 75% to 60% (15% higher) */
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1444,7 +1445,7 @@
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .coach-hero-title {
                 font-size: 45px;
-                margin-top: -20px;
+                margin-top: -15%; /* MOVED UP: Added this to move the hero content up by 15% */
             }
             
             .coach-hero-subtitle {
@@ -1484,7 +1485,8 @@
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
-            <div class="nav-link-container">
+            <!-- CHANGED: Hide The Coach in desktop view -->
+            <div class="nav-link-container" style="display: none;">
                 <a href="the-coach.html" class="nav-link active">The Coach</a>
                 <span class="new-tag">NEW</span>
             </div>
