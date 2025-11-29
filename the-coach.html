@@ -1164,31 +1164,6 @@
             text-decoration: none;
         }
 
-        /* Desktop Coach Tab - HIDDEN ON DESKTOP */
-        .coach-tab {
-            display: none; /* HIDDEN: Coach tab is hidden on desktop */
-            position: fixed;
-            left: 0;
-            top: 40%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-dark) 100%);
-            color: white;
-            padding: 14px 18px;
-            border-radius: 0 12px 12px 0;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 20px rgba(123, 95, 196, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .coach-tab:hover {
-            padding-left: 22px;
-            box-shadow: 0 8px 25px rgba(123, 95, 196, 0.5);
-        }
-
         /* Mobile Coach Tab */
         .mobile-coach-tab {
             display: none;
@@ -1603,14 +1578,6 @@
     </div>
 </section>
 
-<!-- Desktop Coach Tab (hidden on desktop, only visible on mobile) -->
-<div class="coach-tab" id="coachTab">
-    <div class="tab-icon">
-        <i class="fas fa-comments"></i>
-    </div>
-    <div class="tab-text">The Coach</div>
-</div>
-
 <!-- Mobile Coach Tab (only visible on mobile) -->
 <div class="mobile-coach-tab" id="mobileCoachTab">
     <div class="tab-icon">
@@ -1819,11 +1786,6 @@
         let userContext = {};
         let isTyping = false;
         let typingTimeout;
-
-        // Tab functionality - Desktop (hidden on desktop)
-        // document.getElementById('coachTab').addEventListener('click', function() {
-        //     // This is commented out since the desktop tab is hidden
-        // });
 
         // Tab functionality - Mobile
         document.getElementById('mobileCoachTab').addEventListener('click', function() {
