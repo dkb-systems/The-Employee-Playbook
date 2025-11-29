@@ -431,11 +431,11 @@
             font-weight: 500;
         }
 
-        /* NEW: Lens Tab for Mobile - POSITIONED BELOW "NOISY" */
+        /* NEW: Lens Tab for Mobile - POSITIONED LOWER */
         .mobile-lens-tab {
             display: none;
             position: fixed;
-            top: 50%; /* Positioned below the word "noisy" */
+            top: 70%; /* Positioned lower by 3x its height */
             left: 0;
             background: var(--accent-purple);
             color: white;
@@ -609,11 +609,11 @@
             gap: 25px;
         }
 
-        /* Lens Header */
+        /* Lens Header - DESKTOP SPACING */
         .lens-header {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 90px;
+            padding-top: 160px; /* Added 160px above heading */
         }
 
         .hero-title {
@@ -631,7 +631,7 @@
             font-size: 20px;
             color: var(--text-medium);
             max-width: 1000px;
-            margin: 0 auto 0px;
+            margin: 0 auto 120px; /* Added 120px below subtitle */
             font-weight: 500;
         }
 
@@ -1708,10 +1708,10 @@
                 display: flex;
             }
             
-            /* NEW: Show the Lens Tab on mobile - POSITIONED BELOW "NOISY" */
+            /* NEW: Show the Lens Tab on mobile - POSITIONED LOWER */
             .mobile-lens-tab {
                 display: flex;
-                top: 50%; /* Positioned below the word "noisy" */
+                top: 70%; /* Positioned lower by 3x its height */
             }
 
             /* Mobile Navigation Changes */
@@ -1843,7 +1843,7 @@
                 padding: 80px 15px 30px; /* Reduced bottom padding for removed mobile tabs */
             }
 
-            /* Hero section sizing */
+            /* Hero section sizing - MOBILE SPACING */
             .lens-header {
                 padding-top: 100px;
                 margin-bottom: 30px;
@@ -1858,6 +1858,7 @@
             .hero-subtitle {
                 font-size: 18px; /* Increased for better readability */
                 line-height: 1.5;
+                margin-bottom: 40px; /* Reduced spacing on mobile */
             }
 
             /* Clarity intro block */
@@ -2131,7 +2132,7 @@
     <i class="fas fa-user-plus"></i>
 </a>
 
-<!-- NEW: Lens Tab for Mobile - POSITIONED BELOW "NOISY" -->
+<!-- NEW: Lens Tab for Mobile - POSITIONED LOWER -->
 <a href="#" class="mobile-lens-tab" id="mobileLensTab">
     <div class="mobile-lens-tab-icon"><i class="fas fa-search"></i></div>
     <div class="mobile-lens-tab-text">The Lens</div>
@@ -2239,14 +2240,9 @@
             <!-- Lens Header -->
             <div class="lens-header">
                 <h1 class="hero-title">When the moment feels noisy, clarity is power.</h1>
-                <p class="hero-subtitle">The Lens helps you step back, see the dynamics at play, <br> and find your best next move</p>
+                <p class="hero-subtitle">Clarity isn't about more information. It's about knowing what matters right now The Lens cuts through noise so you can respond strategically, not react emotionally</p>
             </div>
-            
-            <!-- Clarity Intro Block -->
-            <p class="clarity-intro">
-                Clarity isn't about more information. It's about knowing what matters right now
-                The Lens cuts through noise so you can respond strategically, not react emotionally
-            </p>
+
             
             <!-- Three Pill Sections -->
             <div class="full-width-section">
