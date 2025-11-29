@@ -476,7 +476,7 @@
             line-height: 1.1;
         }
 
-        /* NEW: Lens Slide Panel for Mobile - ENHANCED DESIGN */
+        /* NEW: Lens Slide Panel for Mobile */
         .mobile-lens-panel {
             display: none;
             position: fixed;
@@ -497,13 +497,12 @@
         }
 
         .mobile-lens-header {
-            padding: 15px 20px;
+            padding: 20px;
             border-bottom: 1px solid var(--border-light);
             display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: var(--primary-white);
-            height: 70px;
         }
 
         .mobile-lens-title {
@@ -513,29 +512,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .mobile-lens-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .mobile-lens-clear-session {
-            background: none;
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-            padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-lens-clear-session:hover {
-            background: var(--accent-purple);
-            color: white;
         }
 
         .close-mobile-lens {
@@ -574,58 +550,6 @@
             background-color: var(--light-gray);
         }
 
-        /* Mobile chat bubbles - WIDER DESIGN */
-        .mobile-message {
-            max-width: 95%; /* Increased width for better mobile experience */
-            padding: 14px 18px; /* Increased padding for better readability */
-            border-radius: 18px;
-            position: relative;
-            animation: fadeIn 0.4s ease;
-            line-height: 1.5;
-            font-size: 15px; /* Slightly larger font for mobile */
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .mobile-user-message {
-            align-self: flex-end;
-            background-color: var(--user-msg-bg);
-            color: white;
-            border-bottom-right-radius: 5px;
-            box-shadow: 0 1px 5px rgba(123, 95, 196, 0.15);
-            flex-direction: row-reverse;
-        }
-
-        .mobile-bot-message {
-            align-self: flex-start;
-            background-color: var(--bot-msg-bg);
-            color: var(--text-dark);
-            border-bottom-left-radius: 5px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
-        }
-
-        .mobile-bot-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: var(--accent-purple);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 2px solid var(--accent-purple-dark);
-            align-self: flex-start;
-            margin-top: 2px;
-        }
-
-        .mobile-message-content {
-            flex: 1;
-        }
-
         .mobile-lens-input-container {
             padding: 15px;
             border-top: 1px solid var(--border-light);
@@ -639,11 +563,11 @@
 
         .mobile-lens-input {
             width: 100%;
-            padding: 14px 18px; /* Increased padding for better touch targets */
+            padding: 12px 16px;
             border: 1px solid var(--medium-gray);
             border-radius: 25px;
             outline: none;
-            font-size: 15px; /* Slightly larger font for mobile */
+            font-size: 14px;
             transition: all 0.3s;
         }
 
@@ -652,36 +576,22 @@
             box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
         }
 
-        /* Mobile typing indicator */
-        .mobile-typing-indicator {
-            display: inline-block;
-            padding: 14px 18px;
-            background-color: var(--bot-msg-bg);
-            border-radius: 18px;
-            border-bottom-left-radius: 5px;
-            max-width: 95%; /* Match the wider message width */
-        }
-
-        .mobile-typing-dots {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .mobile-typing-dots .mobile-bot-avatar {
+        .mobile-lens-clear-session {
+            background: none;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
             margin-right: 10px;
-            align-self: flex-start;
-            margin-top: 0;
         }
 
-        .mobile-typing-dots span {
-            height: 6px;
-            width: 6px;
-            background-color: var(--dark-gray);
-            border-radius: 50%;
-            display: block;
-            margin: 14px 0px;
-            animation: typing 1.4s infinite ease-in-out;
-            align-self: center;
+        .mobile-lens-clear-session:hover {
+            background: var(--accent-purple);
+            color: white;
         }
 
         /* Main Content */
@@ -699,11 +609,11 @@
             gap: 25px;
         }
 
-        /* Lens Header - COMPACT DESIGN */
+        /* Lens Header - DESKTOP SPACING */
         .lens-header {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 120px; /* Reduced from 160px to save space */
+            padding-top: 160px; /* Added 160px above heading */
         }
 
         .hero-title {
@@ -721,8 +631,34 @@
             font-size: 20px;
             color: var(--text-medium);
             max-width: 1000px;
-            margin: 0 auto 80px; /* Reduced from 120px to save space */
+            margin: 0 auto 60px; /* Added 120px below subtitle */
             font-weight: 500;
+        }
+
+        /* NEW: Desktop CTA under hero subheading */
+        .hero-cta {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 100px;
+        }
+
+        .hero-cta-button {
+            background: var(--accent-purple);
+            color: white;
+            padding: 14px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+            display: inline-block;
+        }
+
+        .hero-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+            background: var(--accent-purple-dark);
         }
 
         /* Clarity Intro Block */
@@ -734,7 +670,7 @@
             line-height: 1.6;
             color: var(--text-medium);
             font-style: italic;
-            padding: 0 20px;
+            padding: 50px 0px;
             border-left: 3px solid var(--accent-purple);
             background: var(--neutral-bg);
             padding: 20px;
@@ -1804,12 +1740,6 @@
                 display: none;
             }
             
-            /* Make "The Lens" purple in mobile hamburger menu when active */
-            .nav-link.active[href="the-lens.html"] {
-                color: var(--accent-purple);
-                font-weight: 600;
-            }
-            
             /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
@@ -1855,6 +1785,11 @@
 
             /* HIDE "Find Your Solution" section on mobile */
             .zoom-in-section.desktop-only {
+                display: none;
+            }
+
+            /* HIDE desktop CTA on mobile */
+            .hero-cta {
                 display: none;
             }
 
@@ -2011,14 +1946,14 @@
                 padding: 12px 24px;
             }
 
-            /* Footer */
+            /* Footer - FIXED: The Company section now appears below The Playbook section on mobile */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
 
@@ -2175,11 +2110,11 @@
     </div>
 </div>
 
-<!-- NEW: Lens Slide Panel for Mobile - ENHANCED DESIGN -->
+<!-- NEW: Lens Slide Panel for Mobile -->
 <div class="mobile-lens-panel" id="mobileLensPanel">
     <div class="mobile-lens-header">
         <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
-        <div class="mobile-lens-controls">
+        <div>
             <button class="mobile-lens-clear-session" id="mobileClearSession">Clear Session</button>
             <button class="close-mobile-lens" id="closeMobileLens">
                 <i class="fas fa-times"></i>
@@ -2188,9 +2123,9 @@
     </div>
     <div class="mobile-lens-content">
         <div class="mobile-lens-messages" id="mobileLensMessages">
-            <div class="mobile-message mobile-bot-message">
-                <div class="mobile-bot-avatar">TL</div>
-                <div class="mobile-message-content">
+            <div class="message bot-message">
+                <div class="bot-avatar">TL</div>
+                <div class="message-content">
                     <p>Let's get into it. What's been happening at work?</p>
                     <p>No judgement. Just say it how it feels.</p>
                 </div>
@@ -2240,15 +2175,20 @@
 <main>
     <div class="container">
         <div class="content-wrapper">
-            <!-- Lens Header - COMPACT DESIGN -->
+            <!-- Lens Header -->
             <div class="lens-header">
                 <h1 class="hero-title">When the moment feels noisy, clarity is power.</h1>
                 <p class="hero-subtitle">Clarity isn't about more information. It's about knowing what matters right now The Lens cuts through noise so you can respond strategically, not react emotionally</p>
+                
+                <!-- NEW: Desktop CTA to try The Lens -->
+                <div class="hero-cta">
+                    <a href="#lensChat" class="hero-cta-button">Try The Lens Now</a>
+                </div>
             </div>
 
             
-            <!-- Three Pill Sections -->
-            <div class="full-width-section">
+            <!-- Three Pill Sections - FIXED: Moved down by 30px on desktop -->
+            <div class="full-width-section" style="margin-top: 30px;">
                 <div class="pill-sections">
                     <div class="pill-section">
                         <div class="pill-icon">
@@ -2510,7 +2450,7 @@
             </div>
             
             <div class="footer-nav">
-                <!-- 2-column grid for The Playbook and The Company -->
+                <!-- 2-column grid for The Playbook and The Company - FIXED: Now The Company appears below The Playbook on mobile -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -2614,7 +2554,7 @@
             }
         });
 
-        // Mobile Lens Panel - ENHANCED FUNCTIONALITY
+        // Mobile Lens Panel - FIXED FUNCTIONALITY
         const mobileLensTab = document.getElementById('mobileLensTab');
         const mobileLensPanel = document.getElementById('mobileLensPanel');
         const closeMobileLens = document.getElementById('closeMobileLens');
@@ -2660,9 +2600,9 @@
         mobileClearSession.addEventListener('click', function() {
             // Clear mobile chat messages except the initial bot message
             mobileLensMessages.innerHTML = `
-                <div class="mobile-message mobile-bot-message">
-                    <div class="mobile-bot-avatar">TL</div>
-                    <div class="mobile-message-content">
+                <div class="message bot-message">
+                    <div class="bot-avatar">TL</div>
+                    <div class="message-content">
                         <p>Let's get into it. What's been happening at work?</p>
                         <p>No judgement. Just say it how it feels.</p>
                     </div>
@@ -2681,10 +2621,10 @@
             
             // Show confirmation message
             const confirmationMsg = document.createElement('div');
-            confirmationMsg.className = 'mobile-message mobile-bot-message';
+            confirmationMsg.className = 'message bot-message';
             confirmationMsg.innerHTML = `
-                <div class="mobile-bot-avatar">TL</div>
-                <div class="mobile-message-content">
+                <div class="bot-avatar">TL</div>
+                <div class="message-content">
                     <p>Session cleared. Ready to start fresh.</p>
                 </div>
             `;
@@ -2700,9 +2640,9 @@
                 
                 // Add user message
                 const userMessageDiv = document.createElement('div');
-                userMessageDiv.className = 'mobile-message mobile-user-message';
+                userMessageDiv.className = 'message user-message';
                 userMessageDiv.innerHTML = `
-                    <div class="mobile-message-content">
+                    <div class="message-content">
                         ${message}
                     </div>
                 `;
@@ -2714,11 +2654,11 @@
                 
                 // Show typing indicator
                 const typingIndicator = document.createElement('div');
-                typingIndicator.className = 'mobile-message mobile-bot-message mobile-typing-indicator';
+                typingIndicator.className = 'message bot-message typing-indicator';
                 typingIndicator.innerHTML = `
-                    <div class="mobile-bot-avatar">TL</div>
-                    <div class="mobile-message-content">
-                        <div class="mobile-typing-dots">
+                    <div class="bot-avatar">TL</div>
+                    <div class="message-content">
+                        <div class="typing-dots">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -2761,10 +2701,10 @@
                     }
                     
                     const botMessageDiv = document.createElement('div');
-                    botMessageDiv.className = 'mobile-message mobile-bot-message';
+                    botMessageDiv.className = 'message bot-message';
                     botMessageDiv.innerHTML = `
-                        <div class="mobile-bot-avatar">TL</div>
-                        <div class="mobile-message-content">
+                        <div class="bot-avatar">TL</div>
+                        <div class="message-content">
                             ${response}
                         </div>
                     `;
