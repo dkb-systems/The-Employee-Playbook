@@ -1736,6 +1736,11 @@
                 display: flex;
             }
             
+            /* FIXED: Make The Lens link purple in mobile hamburger menu */
+            .nav-link.active {
+                color: var(--accent-purple);
+            }
+            
             /* Remove purple underline from active nav link on mobile */
             .nav-link.active::after {
                 display: none;
@@ -1957,6 +1962,18 @@
             .footer-nav-grid {
                 grid-template-columns: 1fr; /* FIXED: Changed from 1fr 1fr to 1fr */
                 gap: 30px;
+                /* FIXED: Reorder sections so The Company appears below The Playbook */
+                order: 1;
+            }
+
+            /* FIXED: Ensure The Playbook section appears first */
+            .footer-nav-section:nth-child(1) {
+                order: 1;
+            }
+            
+            /* FIXED: Ensure The Company section appears second */
+            .footer-nav-section:nth-child(2) {
+                order: 2;
             }
 
             .footer-logo-img {
