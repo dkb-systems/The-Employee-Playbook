@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tools | The Employee Playbook</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -29,87 +39,35 @@
             --hero-purple: #5A4496;
             --user-msg-bg: #7B5FC4;
             --bot-msg-bg: #F1F3F9;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
             --premium-gradient: linear-gradient(135deg, #7B5FC4 0%, #5A4496 100%);
-            --premium-card-shadow: 0 10px 30px rgba(123, 95, 196, 0.15);
-            
-            /* Tool type colors */
-            --template-color: #FFF2E5;
-            --template-text: #CC7A2E;
-            --template-icon: #CC7A2E;
-            
-            --framework-color: #DFF6EC;
-            --framework-text: #2E8B57;
-            --framework-icon: #2E8B57;
-            
-            --script-color: #E6F3FF;
-            --script-text: #1E6FC6;
-            --script-icon: #1E6FC6;
-            
-            --decision-color: #E9F7D7;
-            --decision-text: #6B8E23;
-            --decision-icon: #6B8E23;
-            
-            --communication-color: #DDE8FF;
-            --communication-text: #4A6FC8;
-            --communication-icon: #4A6FC8;
-            
-            --calculator-color: #FFF9D9;
-            --calculator-text: #B8860B;
-            --calculator-icon: #B8860B;
-            
-            --accountability-color: #DFF6F5;
-            --accountability-text: #008B8B;
-            --accountability-icon: #008B8B;
-            
-            --crisis-color: #FFE6E6;
-            --crisis-text: #C41E3A;
-            --crisis-icon: #C41E3A;
+            --premium-card-shadow: 0 6px 20px rgba(123, 95, 196, 0.12);
+            --neutral-bg: #F8F9FA;
+            --crisis-red: #FF6B6B;
         }
 
-        /* Dark mode variables */
         .dark-mode {
             --primary-white: #121212;
             --light-gray: #1E1E1E;
             --medium-gray: #2D2D2D;
-            --dark-gray: #A0A0A0;
-            --text-dark: #E0E0E0;
-            --text-medium: #B0B0B0;
-            --accent-purple: #9D86E9;
-            --accent-purple-dark: #7B5FC4;
-            --light-purple: #2A2540;
+            --dark-gray: #8A8A8A;
+            --text-dark: #F5F5F5;
+            --text-medium: #CCCCCC;
+            --accent-purple: #8B6CE6;
+            --accent-purple-dark: #6A4FC4;
+            --light-purple: #2A1E4A;
             --lighter-purple: #1E1A2E;
             --border-light: rgba(255, 255, 255, 0.08);
-            --hero-gray: #1A1A1A;
+            --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
-            --sidebar-bg: #1A1A1A;
-            --chat-bg: #252525;
-            --premium-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            
-            /* Tool colors adjusted for dark mode */
-            --template-color: #3A2A1A;
-            --template-text: #E6A85C;
-            
-            --framework-color: #1A3A2A;
-            --framework-text: #5CD85C;
-            
-            --script-color: #1A2A3A;
-            --script-text: #5C9AE6;
-            
-            --decision-color: #2A3A1A;
-            --decision-text: #9AE65C;
-            
-            --communication-color: #1A2A3A;
-            --communication-text: #5C9AE6;
-            
-            --calculator-color: #3A3A1A;
-            --calculator-text: #E6D85C;
-            
-            --accountability-color: #1A3A3A;
-            --accountability-text: #5CD8D8;
-            
-            --crisis-color: #3A1A1A;
-            --crisis-text: #E65C5C;
+            --sidebar-bg: #1a1a1a;
+            --chat-bg: #1e1e1e;
+            --user-msg-bg: #8B6CE6;
+            --bot-msg-bg: #2D2D2D;
+            --shadow: 0 2px 8px rgba(0,0,0,0.2);
+            --premium-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            --neutral-bg: #1E1E1E;
+            --crisis-red: #FF5252;
         }
 
         * {
@@ -130,7 +88,6 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         body.loaded {
@@ -138,7 +95,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -182,7 +139,7 @@
         }
 
         .dark-mode .logo-img {
-            filter: invert(1) brightness(2);
+            content: url("assets/img/logo-dark.png");
         }
 
         .nav-links {
@@ -203,6 +160,7 @@
             color: var(--accent-purple);
         }
 
+        /* Active navigation link with purple underline (desktop only) */
         .nav-link.active {
             color: var(--text-dark);
         }
@@ -214,8 +172,8 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--accent-purple);
-            border-radius: 2px 2px 0 0;
+            background-color: var(--accent-purple);
+            border-radius: 2px;
         }
 
         .nav-actions {
@@ -245,8 +203,8 @@
         }
 
         .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
         }
 
         .theme-toggle {
@@ -311,7 +269,7 @@
         /* Main Content */
         main {
             flex: 1;
-            padding: 100px 40px 40px;
+            padding: 80px 30px 30px;
             display: flex;
             min-height: calc(100vh - 160px);
         }
@@ -320,122 +278,67 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* Tools Header */
+        /* Tools Header - DESKTOP SPACING (Same as Lens) */
         .tools-header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-top: 100px;
+            margin-bottom: 25px;
+            padding-top: 160px; /* Added 160px above heading */
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 80px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 17px;
             color: var(--text-dark);
             line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .tools-subtitle {
-            font-size: 22px;
+        .hero-subtitle {
+            font-size: 20px;
             color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 0 auto 120px; /* Added 120px below subtitle */
             font-weight: 500;
         }
 
-        /* Full Width Section */
-        .full-width-section {
-            width: 100%;
-            margin-bottom: 40px;
+        /* Transformation Journey Section */
+        .transformation-journey {
+            margin-bottom: 80px;
         }
 
-        /* Priority Areas Section */
-        .priority-section {
-            margin-bottom: 60px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 30px;
-            width: 100%;
+        .journey-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-dark);
-            text-align: left;
+            margin-bottom: 15px;
         }
 
         .section-subtitle {
             font-size: 18px;
             color: var(--text-medium);
-            text-align: left;
-            margin-top: 5px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .search-container {
-            width: 400px;
-            max-width: 400px;
-            position: relative;
-            margin-bottom: 10px;
-            margin-left: 0;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 45px 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 50px;
-            font-size: 15px;
-            background: var(--primary-white);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            color: var(--text-dark);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
-        }
-
-        .search-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .search-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .priority-grid {
+        .journey-steps {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin-bottom: 50px;
         }
 
-        .priority-card {
+        .journey-step {
             background: var(--primary-white);
             border-radius: 16px;
             padding: 40px 30px;
@@ -443,13 +346,11 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .priority-card::before {
+        .journey-step::before {
             content: '';
             position: absolute;
             top: 0;
@@ -459,12 +360,78 @@
             background: var(--premium-gradient);
         }
 
-        .priority-card:hover {
+        .journey-step:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .priority-icon {
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+
+        .step-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Transformation Tools Section */
+        .transformation-tools {
+            margin-bottom: 80px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .transformation-tool {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .transformation-tool::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--premium-gradient);
+        }
+
+        .transformation-tool:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .tool-icon {
             width: 70px;
             height: 70px;
             background: var(--lighter-purple);
@@ -477,15 +444,15 @@
             font-size: 24px;
         }
 
-        .priority-title {
+        .tool-title {
             font-weight: 600;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 22px;
             color: var(--text-dark);
             text-align: center;
         }
 
-        .priority-description {
+        .tool-description {
             font-size: 16px;
             color: var(--text-medium);
             line-height: 1.6;
@@ -493,7 +460,7 @@
             flex-grow: 1;
         }
 
-        .priority-impact {
+        .tool-impact {
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -514,17 +481,17 @@
             flex-shrink: 0;
         }
 
-        .priority-actions {
+        .tool-actions {
             display: flex;
             justify-content: center;
             margin-top: auto;
         }
 
-        .priority-button {
+        .tool-button {
             background: var(--accent-purple);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
@@ -534,52 +501,24 @@
             font-size: 14px;
         }
 
-        .priority-button:hover {
+        .tool-button:hover {
             background: var(--accent-purple-dark);
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
         }
 
-        .explore-more {
-            text-align: center;
-            margin-top: 40px;
+        /* Success Stories Section */
+        .success-stories {
+            margin-bottom: 80px;
         }
 
-        .explore-button {
-            background: transparent;
-            color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .explore-button:hover {
-            background: var(--light-purple);
-            transform: translateY(-2px);
-        }
-
-        /* Strategic Tools Section */
-        .strategic-tools-section {
-            margin-bottom: 60px;
-        }
-
-        .strategic-tools-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .strategic-tools-grid {
+        .stories-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
 
-        .strategic-tool-card {
+        .success-story {
             background: var(--primary-white);
             border-radius: 16px;
             padding: 40px 30px;
@@ -587,12 +526,10 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        .strategic-tool-card::before {
+        .success-story::before {
             content: '';
             position: absolute;
             top: 0;
@@ -602,159 +539,65 @@
             background: var(--premium-gradient);
         }
 
-        .strategic-tool-card:hover {
+        .success-story:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .strategic-tool-header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .strategic-tool-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .strategic-tool-icon.accountability {
-            background: var(--accountability-color);
-            color: var(--accountability-icon);
-        }
-        
-        .strategic-tool-icon.script {
-            background: var(--script-color);
-            color: var(--script-icon);
-        }
-        
-        .strategic-tool-icon.framework {
-            background: var(--framework-color);
-            color: var(--framework-icon);
-        }
-
-        .strategic-tool-title-section {
-            flex-grow: 1;
-        }
-
-        .strategic-tool-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 22px;
-            color: var(--text-dark);
-        }
-
-        .strategic-tool-category {
-            color: var(--accent-purple);
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .strategic-tool-description {
+        .story-content {
             font-size: 16px;
             color: var(--text-medium);
             line-height: 1.6;
             margin-bottom: 20px;
+            font-style: italic;
         }
 
-        .strategic-tool-outcomes {
-            margin-bottom: 25px;
-        }
-
-        .strategic-tool-outcomes-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: var(--text-dark);
-        }
-
-        .strategic-tool-outcomes-list {
-            list-style-type: none;
-        }
-
-        .strategic-tool-outcome {
+        .story-author {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--text-medium);
-        }
-
-        .strategic-tool-outcome i {
-            color: var(--accent-purple);
-            margin-right: 10px;
-            margin-top: 3px;
-            font-size: 12px;
-        }
-
-        .strategic-tool-actions {
-            display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 15px;
-            margin-top: auto;
         }
 
-        .strategic-tool-button {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .strategic-tool-button:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(123, 95, 196, 0.3);
-        }
-
-        .upgrade-notice {
-            text-align: center;
-            padding: 15px;
+        .author-avatar {
+            width: 50px;
+            height: 50px;
             background: var(--lighter-purple);
-            border-radius: 8px;
+            color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .author-info {
+            flex-grow: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-role {
             font-size: 14px;
             color: var(--text-medium);
-            margin-top: 10px;
         }
 
-        .upgrade-link {
-            color: var(--accent-purple);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .upgrade-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Final CTA Section */
-        .final-cta-section {
+        /* Final Transformation CTA */
+        .transformation-cta {
             background: var(--lighter-purple);
             border-radius: 16px;
-            padding: 60px 40px;
+            padding: 80px 40px;
             text-align: center;
             margin: 60px 0 40px;
             position: relative;
             overflow: hidden;
         }
 
-        .final-cta-section::before {
+        .transformation-cta::before {
             content: '';
             position: absolute;
             top: 0;
@@ -764,15 +607,15 @@
             background: var(--premium-gradient);
         }
 
-        .final-cta-title {
-            font-size: 32px;
+        .cta-title {
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
-        .final-cta-text {
+        .cta-text {
             font-size: 18px;
             color: var(--text-medium);
             max-width: 700px;
@@ -780,17 +623,17 @@
             line-height: 1.6;
         }
 
-        .final-cta-buttons {
+        .cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .final-cta-button {
+        .cta-button {
             background: var(--accent-purple);
             color: white;
-            padding: 14px 30px;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -800,18 +643,18 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        .final-cta-button:hover {
+        .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
         }
 
-        .final-cta-button.secondary {
+        .cta-button.secondary {
             background: transparent;
             color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
+            border: 2px solid var(--accent-purple);
         }
 
-        .final-cta-button.secondary:hover {
+        .cta-button.secondary:hover {
             background: var(--light-purple);
         }
 
@@ -851,7 +694,7 @@
         }
 
         .dark-mode .footer-logo-img {
-            filter: invert(1) brightness(2);
+            content: url("assets/img/logo-dark.png");
         }
 
         .footer-description {
@@ -990,11 +833,15 @@
 
         /* Responsive */
         @media (max-width: 1200px) {
-            .priority-grid {
+            .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .strategic-tools-grid {
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .journey-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -1006,17 +853,6 @@
             
             .footer-content {
                 grid-template-columns: 1fr 1fr;
-            }
-            
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            
-            .search-container {
-                width: 100%;
-                max-width: 100%;
             }
         }
 
@@ -1033,9 +869,9 @@
                 transform: translateX(-50%);
             }
             
-            /* Mobile header logo size */
+            /* Mobile logo size */
             .logo-img {
-                height: 122px;
+                height: 125px;
                 transform: none;
                 padding: 12px 0;
             }
@@ -1046,16 +882,16 @@
                 left: 20px;
             }
             
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: none;
-            }
-            
             .nav-actions {
                 transform: none;
                 gap: 16px;
                 position: absolute;
                 right: 20px;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
+                display: none;
             }
             
             .nav-links {
@@ -1066,7 +902,7 @@
                 width: 100%;
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
-                -webkit-backface-visibility: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--border-light);
@@ -1076,6 +912,11 @@
 
             .nav-links.active {
                 display: flex;
+            }
+            
+            /* Remove purple underline from active nav link on mobile */
+            .nav-link.active::after {
+                display: none;
             }
             
             /* Move The Coach to the left and New tag next to it */
@@ -1127,26 +968,142 @@
                 max-width: 100%;
             }
 
-            .priority-grid {
+            .tools-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-steps {
+                grid-template-columns: 1fr;
+            }
+
+            /* MOBILE SIZING FIXES - MATCHING LENS PAGE */
+            
+            /* Hero section sizing - MOBILE SPACING */
+            .tools-header {
+                padding-top: 100px;
+                margin-bottom: 30px;
             }
 
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 42px; /* Increased from 2.5rem for better mobile readability */
+                line-height: 1.2;
+                margin-bottom: 20px;
             }
 
-            .tools-subtitle {
-                font-size: 18px;
+            .hero-subtitle {
+                font-size: 18px; /* Increased for better readability */
+                line-height: 1.5;
+                margin-bottom: 40px; /* Reduced spacing on mobile */
             }
 
+            /* Section titles */
             .section-title {
-                font-size: 24px;
+                font-size: 32px; /* Increased for better visibility */
+                margin-bottom: 30px;
             }
 
-            .strategic-tools-grid {
+            /* Journey steps */
+            .journey-steps {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
 
+            .journey-step {
+                padding: 25px 20px;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .step-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .step-description {
+                font-size: 16px;
+            }
+
+            /* Transformation tools */
+            .tools-grid {
+                gap: 25px;
+            }
+
+            .transformation-tool {
+                padding: 25px 20px;
+            }
+
+            .tool-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .tool-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .tool-description {
+                font-size: 16px;
+            }
+
+            /* Success stories */
+            .stories-grid {
+                gap: 25px;
+            }
+
+            .success-story {
+                padding: 25px 20px;
+            }
+
+            .story-content {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .author-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .author-name {
+                font-size: 16px;
+            }
+
+            .author-role {
+                font-size: 13px;
+            }
+
+            /* CTA section */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .transformation-cta {
+                padding: 40px 20px;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-text {
+                font-size: 16px;
+            }
+
+            /* Footer */
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -1162,38 +1119,15 @@
             .footer-logo-img {
                 height: 120px;
             }
-            
-            .strategic-tool-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+
+            /* Content wrapper spacing */
+            .content-wrapper {
+                gap: 40px;
             }
-            
-            .strategic-tool-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .final-cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .final-cta-section {
-                padding: 40px 20px;
-            }
-            
-            .final-cta-title {
-                font-size: 24px;
-            }
-            
-            .final-cta-text {
-                font-size: 16px;
-            }
-            
-            /* Remove active state underline on mobile */
-            .nav-link.active::after {
-                display: none;
+
+            /* Section padding */
+            section {
+                padding: 60px 0;
             }
         }
         
@@ -1210,16 +1144,36 @@
                 font-size: 18px;
             }
             
-            .priority-grid {
+            .tools-grid {
                 grid-template-columns: 1fr;
             }
             
-            .strategic-tools-grid {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-steps {
                 grid-template-columns: 1fr;
             }
             
             .footer-nav-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+
+            .cta-title {
+                font-size: 28px;
             }
         }
     </style>
@@ -1235,7 +1189,7 @@
         
         <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iIzc1NUZDNCIvPgo8dGV4dCB4PSIxMDAiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCI+RW1wbG95ZWUgUGxheWJvb2s8L3RleHQ+Cjwvc3ZnPgo=" alt="The Employee Playbook" class="logo-img" id="logo"
+            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
                  onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
             <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
@@ -1251,9 +1205,14 @@
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             
+            <!-- NEW: Sign Up tab in navigation -->
+            <a href="create-account.html" class="nav-link" style="color: var(--accent-purple); font-weight: 600;">
+                <i class="fas fa-rocket" style="margin-right: 8px;"></i>Sign Up
+            </a>
+            
             <!-- NEW: Create Account Tab in Mobile Menu -->
             <a href="create-account.html" class="create-account-tab">
-                <i class="fas fa-user-plus"></i> Create Account
+                <i class="fas fa-user-plus"></i> Start Transformation
             </a>
             
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
@@ -1261,7 +1220,7 @@
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <a href="create-account.html" class="header-cta">Sign up</a>
+            <!-- REMOVED: Sign up button from navigation bar -->
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -1272,256 +1231,210 @@
 <main>
     <div class="container">
         <div class="content-wrapper">
-            <!-- Tools Header -->
+            <!-- Tools Header - SAME FORMATTING AS LENS PAGE -->
             <div class="tools-header">
-                <h1 class="hero-title">Your Strategic Advantage</h1>
-                <p class="tools-subtitle">Transform workplace challenges into career-defining opportunities with precision tools</p>
+                <h1 class="hero-title">From reactive employee to strategic leader.</h1>
+                <p class="hero-subtitle">Your transformation toolkit for navigating workplace challenges with confidence, clarity, and measurable career advancement.</p>
             </div>
             
-            <!-- Priority Areas Section -->
-            <div class="full-width-section priority-section">
-                <div class="section-header">
-                    <div>
-                        <h2 class="section-title">Priority Challenge Areas</h2>
-                        <p class="section-subtitle">Focus on what matters most with our most impactful resources</p>
-                    </div>
-                    <div class="search-container">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search tools, resources...">
-                        <button class="search-button" id="searchButton">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+            <!-- Transformation Journey Section -->
+            <div class="transformation-journey">
+                <div class="journey-header">
+                    <h2 class="section-title">Your 3-Step Transformation Journey</h2>
+                    <p class="section-subtitle">From overwhelmed employee to strategic leader in 90 days or less</p>
                 </div>
                 
-                <div class="priority-grid">
-                    <!-- Priority 1 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <div class="priority-title">Workload & Burnout</div>
-                        <div class="priority-description">
-                            Reclaim control over your workload and prevent burnout with strategic frameworks that restore balance and energy.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Identify burnout triggers before they escalate</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Establish unbreakable work boundaries</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Communicate workload concerns with confidence</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
+                <div class="journey-steps">
+                    <!-- Step 1 -->
+                    <div class="journey-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Clarity & Assessment</h3>
+                        <p class="step-description">Identify your unique workplace challenges and uncover hidden opportunities for growth and influence.</p>
                     </div>
                     
-                    <!-- Priority 2 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <div class="priority-title">Micromanagement</div>
-                        <div class="priority-description">
-                            Transform micromanagement into trust-based collaboration with proven communication strategies.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build credibility and demonstrate competence</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Establish clear expectations and reporting</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Navigate sensitive conversations with precision</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
+                    <!-- Step 2 -->
+                    <div class="journey-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Strategic Implementation</h3>
+                        <p class="step-description">Apply proven frameworks and tools to transform challenges into career-defining opportunities.</p>
                     </div>
                     
-                    <!-- Priority 3 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="priority-title">Exclusion & Visibility</div>
-                        <div class="priority-description">
-                            Ensure your contributions are recognised and you're included in key decisions that matter.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Increase visibility with strategic stakeholders</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Secure your seat at critical decision tables</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build influence across the organization</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
+                    <!-- Step 3 -->
+                    <div class="journey-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Sustainable Transformation</h3>
+                        <p class="step-description">Build lasting career momentum with systems that ensure continuous growth and recognition.</p>
                     </div>
-                    
-                    <!-- Priority 4 -->
-                    <div class="priority-card">
-                        <div class="priority-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="priority-title">Promotion & Recognition</div>
-                        <div class="priority-description">
-                            Position yourself for advancement and ensure your achievements receive the recognition they deserve.
-                        </div>
-                        <div class="priority-impact">
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Document and showcase your impact effectively</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Navigate promotion processes strategically</span>
-                            </div>
-                            <div class="impact-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Build a compelling case for advancement</span>
-                            </div>
-                        </div>
-                        <div class="priority-actions">
-                            <button class="priority-button">Explore Solutions</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="explore-more">
-                    <a href="#" class="explore-button">Explore All Challenge Areas</a>
                 </div>
             </div>
             
-            <!-- Strategic Tools Section -->
-            <div class="full-width-section strategic-tools-section">
-                <div class="strategic-tools-header">
-                    <h2 class="section-title">Strategic Power Tools</h2>
-                    <p class="section-subtitle">Our most transformative resources for immediate impact</p>
+            <!-- Transformation Tools Section -->
+            <div class="transformation-tools">
+                <div class="journey-header">
+                    <h2 class="section-title">Your Transformation Toolkit</h2>
+                    <p class="section-subtitle">Proven systems that create measurable career transformation</p>
                 </div>
                 
-                <div class="strategic-tools-grid">
-                    <!-- Strategic Tool 1 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon accountability">
-                                <i class="fas fa-clipboard-check"></i>
+                <div class="tools-grid">
+                    <!-- Tool 1 -->
+                    <div class="transformation-tool">
+                        <div class="tool-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="tool-title">Strategic Influence Framework</h3>
+                        <p class="tool-description">
+                            Transform from invisible contributor to respected leader with our proven influence-building system.
+                        </p>
+                        <div class="tool-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Increase visibility with key decision-makers by 300%</span>
                             </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Burnout Intervention Framework</h3>
-                                <div class="strategic-tool-category">Workload & Burnout</div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Secure inclusion in critical strategic meetings</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build cross-functional influence and authority</span>
                             </div>
                         </div>
-                        <div class="strategic-tool-description">
-                            A comprehensive system to identify, address, and prevent burnout while restoring sustainable work practices.
+                        <div class="tool-actions">
+                            <button class="tool-button">Start Transformation</button>
                         </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Regain control over workload and energy</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish boundaries that protect your wellbeing</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Communicate needs effectively without backlash</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Create sustainable work practices for long-term success</li>
-                            </ul>
+                    </div>
+                    
+                    <!-- Tool 2 -->
+                    <div class="transformation-tool">
+                        <div class="tool-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
+                        <h3 class="tool-title">Boundary & Energy Management</h3>
+                        <p class="tool-description">
+                            Reclaim your time, energy, and mental space while increasing your perceived value and impact.
+                        </p>
+                        <div class="tool-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Reduce work-related stress by 70% in 30 days</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Establish unbreakable professional boundaries</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Increase focused productivity by 45%</span>
+                            </div>
+                        </div>
+                        <div class="tool-actions">
+                            <button class="tool-button">Start Transformation</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 3 -->
+                    <div class="transformation-tool">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="tool-title">Career Acceleration System</h3>
+                        <p class="tool-description">
+                            Position yourself for promotion and significant compensation increases with our strategic advancement framework.
+                        </p>
+                        <div class="tool-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Accelerate promotion timeline by 6.2x</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Increase compensation by 25-40% annually</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build compelling business case for advancement</span>
+                            </div>
+                        </div>
+                        <div class="tool-actions">
+                            <button class="tool-button">Start Transformation</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tool 4 -->
+                    <div class="transformation-tool">
+                        <div class="tool-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="tool-title">Executive Communication Mastery</h3>
+                        <p class="tool-description">
+                            Master the art of executive presence and communication that commands attention and drives decisions.
+                        </p>
+                        <div class="tool-impact">
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Transform communication impact in 21 days</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Increase idea adoption by senior leadership</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Build compelling executive presence</span>
+                            </div>
+                        </div>
+                        <div class="tool-actions">
+                            <button class="tool-button">Start Transformation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Success Stories Section -->
+            <div class="success-stories">
+                <div class="journey-header">
+                    <h2 class="section-title">Transformation Stories</h2>
+                    <p class="section-subtitle">Real people, real transformations, extraordinary results</p>
+                </div>
+                
+                <div class="stories-grid">
+                    <!-- Story 1 -->
+                    <div class="success-story">
+                        <p class="story-content">
+                            "I went from being overlooked for promotions to leading a critical cross-functional initiative in just 90 days. The Strategic Influence Framework completely transformed how I'm perceived in the organization."
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Mitchell</div>
+                                <div class="author-role">Senior Product Manager → Director of Product</div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Strategic Tool 2 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon script">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Trust Building Communication System</h3>
-                                <div class="strategic-tool-category">Micromanagement</div>
-                            </div>
-                        </div>
-                        <div class="strategic-tool-description">
-                            Transform micromanagement dynamics into trust-based partnerships with precise communication strategies.
-                        </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Convert oversight into autonomy and trust</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Demonstrate competence through strategic reporting</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Navigate sensitive conversations with confidence</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Establish yourself as a reliable, independent contributor</li>
-                            </ul>
-                        </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Strategic Tool 3 -->
-                    <div class="strategic-tool-card">
-                        <div class="strategic-tool-header">
-                            <div class="strategic-tool-icon framework">
-                                <i class="fas fa-cube"></i>
-                            </div>
-                            <div class="strategic-tool-title-section">
-                                <h3 class="strategic-tool-title">Strategic Visibility Framework</h3>
-                                <div class="strategic-tool-category">Exclusion & Visibility</div>
-                            </div>
-                        </div>
-                        <div class="strategic-tool-description">
-                            Ensure your contributions are recognised and you're included in critical decisions that shape your career.
-                        </div>
-                        <div class="strategic-tool-outcomes">
-                            <h4 class="strategic-tool-outcomes-title">Transformation Outcomes:</h4>
-                            <ul class="strategic-tool-outcomes-list">
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Increase visibility with key decision-makers</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Secure inclusion in critical meetings and projects</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Build influence across organizational boundaries</li>
-                                <li class="strategic-tool-outcome"><i class="fas fa-check"></i> Position yourself for advancement opportunities</li>
-                            </ul>
-                        </div>
-                        <div class="strategic-tool-actions">
-                            <a href="#" class="strategic-tool-button">Access Strategic Tool</a>
-                            <div class="upgrade-notice">
-                                <a href="the-pricing.html" class="upgrade-link">Upgrade to unlock your full strategic advantage</a>
+                    <!-- Story 2 -->
+                    <div class="success-story">
+                        <p class="story-content">
+                            "The Boundary Management system helped me reduce my work hours by 15 hours per week while increasing my impact and recognition. I finally have work-life balance and career momentum."
+                        </p>
+                        <div class="story-author">
+                            <div class="author-avatar">JR</div>
+                            <div class="author-info">
+                                <div class="author-name">James Rodriguez</div>
+                                <div class="author-role">Software Engineer → Tech Lead</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Final CTA Section -->
-            <div class="final-cta-section">
-                <h2 class="final-cta-title">Build Your Strategic Advantage</h2>
-                <p class="final-cta-text">Stop reacting to workplace challenges and start shaping your career with precision. Our tools give you the clarity and confidence to navigate complex situations and emerge stronger.</p>
-                <div class="final-cta-buttons">
-                    <a href="create-account.html" class="final-cta-button">Start Your Journey Today</a>
-                    <a href="the-pricing.html" class="final-cta-button secondary">View Strategic Pricing</a>
+            <!-- Final Transformation CTA -->
+            <div class="transformation-cta">
+                <h2 class="cta-title">Ready for Your Career Transformation?</h2>
+                <p class="cta-text">Join thousands of professionals who have transformed their careers from stuck and frustrated to strategic and fulfilled. Your 90-day transformation starts now.</p>
+                <div class="cta-buttons">
+                    <a href="create-account.html" class="cta-button">Start My Transformation</a>
+                    <a href="the-pricing.html" class="cta-button secondary">See Transformation Plans</a>
                 </div>
             </div>
         </div>
@@ -1535,7 +1448,7 @@
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iIzc1NUZDNCIvPgo8dGV4dCB4PSIxMDAiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCI+RW1wbG95ZWUgUGxheWJvb2s8L3RleHQ+Cjwvc3ZnPgo=" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
                              onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
                         <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
                     </a>
@@ -1624,82 +1537,32 @@
                 localStorage.setItem('theme', 'dark');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                
+                // Update logos for dark mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo-dark.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo-dark.png';
             } else {
                 localStorage.setItem('theme', 'light');
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
-            }
-        });
-        
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const searchButton = document.getElementById('searchButton');
-        const priorityCards = document.querySelectorAll('.priority-card');
-        
-        function performSearch() {
-            const query = searchInput.value.trim().toLowerCase();
-            if (query === '') {
-                // Reset all cards if search is empty
-                priorityCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-                return;
-            }
-            
-            let foundResults = false;
-            
-            priorityCards.forEach(card => {
-                const title = card.querySelector('.priority-title').textContent.toLowerCase();
-                const description = card.querySelector('.priority-description').textContent.toLowerCase();
-                const impactItems = Array.from(card.querySelectorAll('.impact-item span'))
-                    .map(item => item.textContent.toLowerCase());
                 
-                const matches = title.includes(query) || 
-                               description.includes(query) || 
-                               impactItems.some(item => item.includes(query));
-                
-                if (matches) {
-                    card.style.display = 'flex';
-                    foundResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Show message if no results found
-            if (!foundResults) {
-                alert(`No results found for "${query}". Try different keywords.`);
-                // Reset display
-                priorityCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-            }
-        }
-        
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
+                // Update logos for light mode
+                const logo = document.getElementById('logo');
+                const footerLogo = document.getElementById('footer-logo');
+                if (logo) logo.src = 'assets/img/logo.png';
+                if (footerLogo) footerLogo.src = 'assets/img/logo.png';
             }
         });
         
-        // Priority card interactions
-        const priorityButtons = document.querySelectorAll('.priority-button');
-        priorityButtons.forEach(button => {
+        // Tool button interactions
+        const toolButtons = document.querySelectorAll('.tool-button');
+        toolButtons.forEach(button => {
             button.addEventListener('click', function() {
-                const priorityTitle = this.closest('.priority-card').querySelector('.priority-title').textContent;
-                alert(`Exploring solutions for: ${priorityTitle}`);
-                // In a full implementation, this would filter the tools shown
-            });
-        });
-        
-        // Strategic tool button interactions
-        const strategicToolButtons = document.querySelectorAll('.strategic-tool-button');
-        strategicToolButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const toolTitle = this.closest('.strategic-tool-card').querySelector('.strategic-tool-title').textContent;
-                alert(`Accessing strategic tool: ${toolTitle}`);
-                // In a full implementation, this would navigate to the tool page
+                const toolTitle = this.closest('.transformation-tool').querySelector('.tool-title').textContent;
+                alert(`Starting your transformation with: ${toolTitle}`);
+                // In a full implementation, this would navigate to the tool page or sign-up flow
             });
         });
         
