@@ -112,7 +112,7 @@
             padding: 80px 0;
         }
 
-        /* Navigation */
+        /* Navigation - COPIED FROM THE SHIFT PAGE */
         nav {
             position: fixed;
             top: 0;
@@ -168,20 +168,27 @@
             color: var(--accent-purple);
         }
 
-        /* Active navigation link with purple underline (desktop only) */
+        /* Active page indicator - Purple underline */
         .nav-link.active {
-            color: var(--text-dark);
+            color: var(--accent-purple);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-purple);
-            border-radius: 2px;
+        /* Active page indicator - Black text for desktop with purple underline */
+        @media (min-width: 769px) {
+            .nav-link.active {
+                color: var(--text-dark);
+            }
+            
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--accent-purple);
+                border-radius: 2px;
+            }
         }
 
         .nav-actions {
@@ -211,8 +218,8 @@
         }
 
         .header-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
         }
 
         .theme-toggle {
@@ -272,6 +279,16 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             z-index: 10;
             white-space: nowrap;
+        }
+
+        /* Mobile Sign In Button */
+        .mobile-sign-in {
+            display: none;
+        }
+
+        /* Mobile Sign Up Button - hidden by default */
+        .mobile-sign-up {
+            display: none;
         }
 
         /* NEW: Create Account Tab for Mobile - Updated from The Shift page */
@@ -439,16 +456,6 @@
             color: var(--accent-purple);
             text-decoration: none;
             font-weight: 500;
-        }
-
-        /* Mobile Sign In Button */
-        .mobile-sign-in {
-            display: none;
-        }
-
-        /* Mobile Sign Up Button - hidden by default */
-        .mobile-sign-up {
-            display: none;
         }
 
         /* Main Content */
@@ -843,7 +850,7 @@
             background: var(--light-purple);
         }
 
-        /* Footer */
+        /* Footer - UPDATED LAYOUT */
         footer {
             background-color: var(--primary-white);
             padding: 40px 0 20px;
@@ -861,7 +868,6 @@
 
         .footer-about {
             max-width: 400px;
-            padding-left: 20px;
         }
 
         .footer-logo {
@@ -919,6 +925,7 @@
             font-size: 14px;
         }
 
+        /* UPDATED: Footer Navigation Grid - Playbook and Company side by side */
         .footer-nav {
             background-color: transparent;
             padding: 0;
@@ -990,27 +997,6 @@
             text-decoration: none;
         }
 
-        /* Mobile Create Account Tab */
-        .create-account-tab {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: var(--accent-purple);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .create-account-tab:hover {
-            background: var(--accent-purple-dark);
-            transform: translateY(-2px);
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .tools-grid {
@@ -1042,7 +1028,7 @@
                 display: flex;
             }
 
-            /* Mobile Navigation Changes */
+            /* Mobile Navigation Changes - COPIED FROM THE SHIFT PAGE */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1054,9 +1040,9 @@
                 transform: translateX(-50%);
             }
             
-            /* Mobile logo size */
+            /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 125px;
+                height: 122px; /* Increased from 100px to 125px (25% increase) */
                 transform: none;
                 padding: 12px 0;
             }
@@ -1067,16 +1053,21 @@
                 left: 20px;
             }
             
+            /* REMOVED: Hide the Sign Up button in mobile view */
+            .header-cta {
+                display: none !important;
+            }
+            
+            /* CHANGED: Remove Sign In from header bar on mobile */
+            .nav-actions .sign-in {
+                display: none !important;
+            }
+            
             .nav-actions {
                 transform: none;
                 gap: 16px;
                 position: absolute;
                 right: 20px;
-            }
-            
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: none;
             }
             
             .nav-links {
@@ -1093,15 +1084,11 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
+                text-align: left; /* CHANGED: Left justify the menu items */
             }
 
             .nav-links.active {
                 display: flex;
-            }
-            
-            /* Remove purple underline from active nav link on mobile */
-            .nav-link.active::after {
-                display: none;
             }
             
             /* Move The Coach to the left and New tag next to it */
@@ -1119,12 +1106,7 @@
                 right: auto;
             }
             
-            /* Show the Create Account tab in mobile menu */
-            .create-account-tab {
-                display: flex;
-            }
-            
-            /* Make the Sign In button in hamburger menu white */
+            /* Make the Sign In button in hamburger menu - no icons */
             .mobile-sign-in {
                 display: flex !important;
                 align-items: center;
@@ -1180,6 +1162,15 @@
                 background: var(--accent-purple);
                 color: white;
                 border: 2px solid var(--accent-purple);
+            }
+
+            /* REMOVED: Purple line for active page indicator on mobile */
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .nav-link.active {
+                color: var(--accent-purple);
             }
 
             main {
@@ -1445,7 +1436,7 @@
     </div>
 </div>
 
-<!-- Navigation -->
+<!-- Navigation - COPIED FROM THE SHIFT PAGE -->
 <nav>
     <div class="container nav-container">
         <!-- Hamburger menu on the left for mobile -->
@@ -1468,24 +1459,14 @@
             </div>
             <a href="the-shift.html" class="nav-link">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
-            
-            <!-- NEW: Sign Up tab in navigation -->
-            <a href="create-account.html" class="nav-link" style="color: var(--accent-purple); font-weight: 600;">
-                <i class="fas fa-rocket" style="margin-right: 8px;"></i>Sign Up
-            </a>
-            
-            <!-- NEW: Create Account Tab in Mobile Menu -->
-            <a href="create-account.html" class="create-account-tab">
-                <i class="fas fa-user-plus"></i> Start Transformation
-            </a>
-            
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
             <a href="create-account.html" class="mobile-sign-up">Sign Up</a>
         </div>
         
         <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
-            <!-- REMOVED: Sign up button from navigation bar -->
+            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
+            <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
@@ -1706,7 +1687,7 @@
     </div>
 </main>
 
-<!-- Footer -->
+<!-- Footer - UPDATED LAYOUT -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -1719,14 +1700,6 @@
                     </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
-                <form class="footer-newsletter-form">
-                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
-                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
-                </form>
             </div>
             
             <div class="footer-nav">
@@ -1754,6 +1727,14 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
+                </form>
             </div>
         </div>
         
