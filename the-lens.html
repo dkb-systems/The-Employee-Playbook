@@ -514,6 +514,29 @@
             gap: 10px;
         }
 
+        .mobile-lens-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mobile-lens-clear {
+            background: none;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-lens-clear:hover {
+            background: var(--accent-purple);
+            color: white;
+        }
+
         .close-mobile-lens {
             background: none;
             border: none;
@@ -574,24 +597,6 @@
         .mobile-lens-input:focus {
             border-color: var(--accent-purple);
             box-shadow: 0 0 0 2px rgba(123, 95, 196, 0.1);
-        }
-
-        .mobile-lens-clear-session {
-            background: none;
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-right: 10px;
-        }
-
-        .mobile-lens-clear-session:hover {
-            background: var(--accent-purple);
-            color: white;
         }
 
         /* Main Content */
@@ -2133,8 +2138,8 @@
 <div class="mobile-lens-panel" id="mobileLensPanel">
     <div class="mobile-lens-header">
         <h2 class="mobile-lens-title"><i class="fas fa-search"></i> The Lens</h2>
-        <div>
-            <button class="mobile-lens-clear-session" id="mobileClearSession">Clear Session</button>
+        <div class="mobile-lens-actions">
+            <button class="mobile-lens-clear" id="mobileClearSession">Clear</button>
             <button class="close-mobile-lens" id="closeMobileLens">
                 <i class="fas fa-times"></i>
             </button>
