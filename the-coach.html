@@ -1311,6 +1311,16 @@
                 right: auto;
             }
             
+            /* CHANGED: Remove purple underline and make active page title purple in mobile menu */
+            .nav-link.active::after {
+                display: none; /* Remove the purple underline */
+            }
+            
+            .nav-link.active {
+                color: var(--accent-purple); /* Make active page title purple */
+                font-weight: 600;
+            }
+
             /* Make the Sign In button in hamburger menu white */
             .mobile-sign-in {
                 display: block !important;
@@ -1364,6 +1374,16 @@
             .mobile-coach-tab {
                 display: flex;
                 top: 80%; /* MOVED 20% LOWER: Changed from 60% to 80% */
+                /* CHANGED: Make coach tab 5% bigger */
+                padding: 15px 19px; /* Increased by 5% from 14px 18px */
+            }
+
+            .tab-text {
+                font-size: 15.75px; /* Increased by 5% from 15px */
+            }
+
+            .tab-icon {
+                font-size: 18.9px; /* Increased by 5% from 18px */
             }
 
             /* REMOVED: Remove the CTA buttons in mobile view */
@@ -1476,6 +1496,8 @@
             /* ADDED: Mobile coach tab position for very small screens */
             .mobile-coach-tab {
                 top: 80%; /* MOVED 20% LOWER: Changed from 60% to 80% */
+                /* CHANGED: Make coach tab 5% bigger for small screens too */
+                padding: 15px 19px; /* Increased by 5% from 14px 18px */
             }
             
             /* REDUCED: Further reduce final statement size for very small mobile */
