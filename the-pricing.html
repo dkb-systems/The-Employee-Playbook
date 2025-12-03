@@ -268,7 +268,7 @@
             display: none;
         }
 
-        /* NEW: Create Account Tab for Mobile */
+        /* NEW: Create Account Tab for Mobile - FROM LENS PAGE */
         .mobile-create-account-tab {
             display: none;
             position: fixed;
@@ -447,7 +447,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 40px; /* Reduced from 60px to bring cards closer to toggle */
+            gap: 60px; /* Increased from 40px to move content down */
         }
 
         /* PRICING HEADER - MATCHING THE LENS STYLE */
@@ -472,16 +472,67 @@
             font-size: 20px;
             color: var(--text-medium);
             max-width: 1000px;
-            margin: 0 auto 0px; /* Reduced from 160px to bring toggle closer */
+            margin: 0 auto 0px; /* Added spacing */
             font-weight: 500;
             line-height: 1.6;
         }
 
-        /* NEW: Pricing Toggle Component */
+        /* UPDATED: Annual Savings CTA */
+        .savings-cta {
+            text-align: center;
+            margin: 0 auto 100px;
+            max-width: 600px;
+            padding: 16px 24px;
+            background: var(--premium-gradient);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 15px rgba(123, 95, 196, 0.25);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .savings-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(123, 95, 196, 0.35);
+        }
+
+        .savings-cta-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .savings-icon {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .savings-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-left: 0px;
+            white-space: nowrap;
+        }
+
+        /* NEW: Pricing Toggle Component - MOVED DOWN */
         .pricing-toggle-container {
             text-align: center;
-            margin: 0 0 0px; /* Reduced top margin to bring cards closer */
-            padding: 120px;
+            margin: 30px 0 40px;
+            padding: 0;
         }
 
         .pricing-toggle-wrapper {
@@ -529,15 +580,10 @@
             transform: translateX(100%);
         }
 
-        /* REMOVED: Savings badge */
-        /* .savings-badge {
-            display: none;
-        } */
-
         /* Updated plan period display for annual */
         .plan-period.annual {
-            color: var(--text-dark); /* Changed from green to black */
-            font-weight: 500; /* Changed from 600 to 500 */
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         .annual-note {
@@ -552,11 +598,6 @@
         .plan-price.annual-price {
             position: relative;
         }
-
-        /* REMOVED: Annual savings display */
-        /* .annual-savings {
-            display: none;
-        } */
 
         /* Pricing Cards */
         .pricing-cards {
@@ -1145,9 +1186,14 @@
         }
 
         @media (max-width: 768px) {
+            /* NEW: Show the Create Account Tab on mobile - FROM LENS PAGE */
+            .mobile-create-account-tab {
+                display: flex;
+            }
+
             /* Mobile Toggle Styles */
             .pricing-toggle-container {
-                margin: 0 0 30px;
+                margin: 20px 0 30px;
                 padding: 0;
             }
 
@@ -1178,16 +1224,50 @@
                 background: var(--light-gray);
             }
 
-            /* REMOVED: Savings badge for mobile */
-            /* .savings-badge {
-                display: none;
-            } */
-
             .annual-note {
                 font-size: 13px;
                 margin-top: 12px;
                 padding: 0 15px;
                 line-height: 1.4;
+            }
+
+            /* UPDATED: Savings CTA for Mobile - Fixed positioning */
+            .savings-cta {
+                margin: 0 auto 20px;
+                padding: 12px 20px;
+                border-radius: 16px;
+                position: relative;
+                width: calc(100% - 30px);
+                max-width: 500px;
+                transform: none;
+                box-shadow: 0 6px 20px rgba(123, 95, 196, 0.2);
+            }
+
+            .savings-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(123, 95, 196, 0.25);
+            }
+
+            .savings-cta-content {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .savings-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+
+            .savings-highlight {
+                margin-left: 0;
+                margin-top: 4px;
+                padding: 3px 10px;
+                font-size: 14px;
+                white-space: nowrap;
+                display: inline-block;
             }
 
             /* Mobile Navigation Changes */
@@ -1320,25 +1400,25 @@
             }
 
             .content-wrapper {
-                gap: 30px; /* Reduced from 40px for mobile */
+                gap: 40px;
             }
 
             /* PRICING HEADER MOBILE */
             .pricing-header {
                 padding-top: 100px;
-                margin-bottom: 20px; /* Reduced from 30px */
+                margin-bottom: 20px;
             }
 
             .pricing-title {
                 font-size: 42px;
                 line-height: 1.2;
-                margin-bottom: 15px; /* Reduced from 20px */
+                margin-bottom: 15px;
             }
 
             .pricing-subtitle {
                 font-size: 18px;
                 line-height: 1.5;
-                margin-bottom: 30px; /* Reduced from 40px */
+                margin-bottom: 30px;
             }
 
             .pricing-card {
@@ -1421,7 +1501,7 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr; /* FIXED: Changed back to 2 columns for mobile */
+                grid-template-columns: 1fr 1fr;
                 gap: 30px;
                 order: 1;
             }
@@ -1445,7 +1525,7 @@
             }
 
             .annual-note {
-                margin-top: 10px; /* Reduced from 15px */
+                margin-top: 10px;
             }
         }
 
@@ -1483,8 +1563,35 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr; /* Stack on very small screens */
+                grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            /* Further mobile optimizations for savings CTA */
+            .savings-cta {
+                padding: 10px 16px;
+                border-radius: 12px;
+                width: calc(100% - 20px);
+            }
+
+            .savings-cta-content {
+                font-size: 15px;
+                gap: 6px;
+            }
+
+            .savings-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+
+            .savings-highlight {
+                font-size: 13px;
+                padding: 2px 8px;
+            }
+
+            .savings-cta:hover {
+                transform: translateY(-2px);
             }
         }
     </style>
@@ -1492,7 +1599,7 @@
 
 <body>
 
-<!-- NEW: Create Account Tab for Mobile -->
+<!-- NEW: Create Account Tab for Mobile - FROM LENS PAGE -->
 <a href="#" class="mobile-create-account-tab" id="createAccountTab">
     <i class="fas fa-user-plus"></i>
 </a>
@@ -1575,8 +1682,21 @@
                 <h1 class="pricing-title">Clear pricing.<br>Real value.</h1>
                 <p class="pricing-subtitle">Every plan has the essentials. Higher tiers add more strategic guidance.</p>
             </div>
+
+            <!-- UPDATED: Annual Savings CTA -->
+            <div class="savings-cta" id="savingsCta">
+                <div class="savings-cta-content">
+                    <div class="savings-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div>
+                        Save 20% with annual billing: <br><span class="savings-highlight">2 months FREE!</span>
+    
+                    </div>
+                </div>
+            </div>
             
-            <!-- NEW: Pricing Toggle -->
+            <!-- NEW: Pricing Toggle - MOVED DOWN -->
             <div class="pricing-toggle-container">
                 <div class="pricing-toggle-wrapper">
                     <div class="toggle-slider" id="toggleSlider"></div>
@@ -2014,7 +2134,7 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Create Account Modal
+        // Create Account Modal - FROM LENS PAGE
         const createAccountModal = document.getElementById('createAccountModal');
         const closeModal = document.getElementById('closeModal');
         const createAccountTab = document.getElementById('createAccountTab');
@@ -2043,6 +2163,7 @@
         const annualNote = document.getElementById('annualNote');
         const planPrices = document.querySelectorAll('.plan-price');
         const planPeriods = document.querySelectorAll('.plan-period');
+        const savingsCta = document.getElementById('savingsCta');
 
         // Set initial state
         let isAnnual = false;
@@ -2061,6 +2182,11 @@
                     toggleSlider.classList.add('annual');
                     isAnnual = true;
                     annualNote.textContent = 'Switch to monthly billing for flexibility';
+                    // Highlight the savings CTA when annual is selected
+                    savingsCta.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        savingsCta.style.transform = '';
+                    }, 300);
                 } else {
                     toggleSlider.classList.remove('annual');
                     isAnnual = false;
@@ -2099,6 +2225,23 @@
                 }
             });
         }
+
+        // Make savings CTA clickable - when clicked, select annual billing
+        savingsCta.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Find and click the annual toggle label
+            const annualLabel = document.querySelector('.toggle-label[data-period="annual"]');
+            if (annualLabel) {
+                annualLabel.click();
+                
+                // Smooth scroll to pricing cards
+                document.querySelector('.pricing-cards').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
 
         // Mobile responsive adjustment
         function checkMobileView() {
@@ -2151,6 +2294,25 @@
                 document.querySelector('.pricing-cards').scrollIntoView({ behavior: 'smooth' });
             }, 500);
         }
+
+        // Prevent savings CTA from moving on mobile resize
+        let savingsCtaInitialized = false;
+        function initializeSavingsCta() {
+            if (window.innerWidth <= 768 && !savingsCtaInitialized) {
+                // Ensure CTA stays in place by setting explicit positioning
+                savingsCta.style.position = 'relative';
+                savingsCta.style.margin = '0 auto 20px';
+                savingsCta.style.transform = 'none';
+                savingsCtaInitialized = true;
+            } else if (window.innerWidth > 768) {
+                savingsCtaInitialized = false;
+                savingsCta.style.position = '';
+                savingsCta.style.margin = '';
+            }
+        }
+
+        initializeSavingsCta();
+        window.addEventListener('resize', initializeSavingsCta);
     });
 </script>
 
