@@ -36,6 +36,10 @@
             --soft-blue: #EFF5FF;
             --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
             --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
+            --locked-gray: #8A8D93;
+            --locked-bg: #F8F9FA;
+            --trending-orange: #FF6B35;
+            --trending-bg: #FFF5F0;
         }
 
         .dark-mode {
@@ -55,6 +59,10 @@
             --soft-blue: #1A2333;
             --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
             --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
+            --locked-gray: #6C6C6C;
+            --locked-bg: #2A2A2A;
+            --trending-orange: #FF8C5A;
+            --trending-bg: #332926;
         }
 
         * {
@@ -404,7 +412,7 @@
 
         .form-input:focus {
             outline: none;
-            border-color: var(--accent-purple);
+                border-color: var(--accent-purple);
         }
 
         .submit-btn {
@@ -438,29 +446,22 @@
             font-weight: 500;
         }
 
-        /* Hero Section */
+        /* Hero Section - Updated to white */
         .shift-hero {
-            background: var(--soft-blue);
+            background: var(--primary-white);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            padding-top: 160px;
+            padding-top: 170px;
             position: relative;
             overflow: hidden;
         }
 
+        /* Remove gradient overlay */
         .shift-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-secondary);
-            opacity: 0.7;
-            z-index: 0;
+            display: none;
         }
 
         .shift-hero-content {
@@ -475,7 +476,7 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: var(--deep-navy);
+            color: var(--text-dark);
             letter-spacing: -1.5px;
         }
 
@@ -687,6 +688,7 @@
             gap: 40px;
         }
 
+        /* Module Card - Updated with lock feature */
         .module-card {
             background: var(--primary-white);
             border-radius: 16px;
@@ -697,6 +699,116 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
+        }
+
+        /* Locked Module Style */
+        .module-card.locked {
+            background: var(--locked-bg);
+            border-color: var(--border-light);
+            cursor: not-allowed;
+        }
+
+        .module-card.locked .module-title,
+        .module-card.locked .module-subtitle,
+        .module-card.locked .module-description,
+        .module-card.locked .module-feature {
+            color: var(--locked-gray);
+        }
+
+        .module-card.locked .module-icon {
+            background: var(--light-gray);
+            color: var(--locked-gray);
+        }
+
+        .module-card.locked .feature-icon {
+            color: var(--locked-gray);
+        }
+
+        /* Lock overlay */
+        .lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dark-mode .lock-overlay {
+            background: rgba(18, 18, 18, 0.9);
+        }
+
+        .module-card.locked .lock-overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lock-icon {
+            font-size: 48px;
+            color: var(--locked-gray);
+            margin-bottom: 20px;
+        }
+
+        .lock-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--locked-gray);
+            margin-bottom: 8px;
+        }
+
+        .views-required {
+            font-size: 14px;
+            color: var(--locked-gray);
+            margin-bottom: 20px;
+        }
+
+        .unlock-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        /* Trending Badge */
+        .trending-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--trending-bg);
+            color: var(--trending-orange);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 3;
+        }
+
+        .trending-badge i {
+            font-size: 10px;
         }
 
         .module-card:hover {
@@ -778,6 +890,20 @@
         .module-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        }
+
+        /* Views counter */
+        .views-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin-top: 15px;
+        }
+
+        .views-counter i {
+            font-size: 12px;
         }
 
         /* Final CTA */
@@ -1458,8 +1584,12 @@
         </div>
         
         <div class="modules-grid">
-            <!-- Module 1 -->
+            <!-- Module 1 - Unlocked & Trending -->
             <div class="module-card">
+                <!-- Trending Badge -->
+                <div class="trending-badge">
+                    <i class="fas fa-fire"></i> TRENDING
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-brain"></i>
@@ -1484,11 +1614,23 @@
                         <span>Mindfulness practices for decision-making clarity</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 2,845 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 2 -->
-            <div class="module-card">
+            <!-- Module 2 - Locked -->
+            <div class="module-card locked">
+                <!-- Lock Overlay -->
+                <div class="lock-overlay">
+                    <div class="lock-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="lock-text">Module Locked</div>
+                    <div class="views-required">Complete 2 modules to unlock</div>
+                    <button class="unlock-btn" onclick="unlockModule(1)">Unlock Now</button>
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-compass"></i>
@@ -1513,11 +1655,27 @@
                         <span>Progress tracking and adjustment system</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 1,923 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 3 -->
-            <div class="module-card">
+            <!-- Module 3 - Locked & Trending -->
+            <div class="module-card locked">
+                <!-- Lock Overlay -->
+                <div class="lock-overlay">
+                    <div class="lock-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="lock-text">Module Locked</div>
+                    <div class="views-required">Complete 3 modules to unlock</div>
+                    <button class="unlock-btn" onclick="unlockModule(2)">Unlock Now</button>
+                </div>
+                <!-- Trending Badge -->
+                <div class="trending-badge">
+                    <i class="fas fa-fire"></i> TRENDING
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-user-tie"></i>
@@ -1542,11 +1700,23 @@
                         <span>Executive presence cultivation</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 3,452 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 4 -->
-            <div class="module-card">
+            <!-- Module 4 - Locked -->
+            <div class="module-card locked">
+                <!-- Lock Overlay -->
+                <div class="lock-overlay">
+                    <div class="lock-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="lock-text">Module Locked</div>
+                    <div class="views-required">Complete 4 modules to unlock</div>
+                    <button class="unlock-btn" onclick="unlockModule(3)">Unlock Now</button>
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-handshake"></i>
@@ -1571,11 +1741,23 @@
                         <span>Difficult conversation scripts and templates</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 2,187 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 5 -->
-            <div class="module-card">
+            <!-- Module 5 - Locked -->
+            <div class="module-card locked">
+                <!-- Lock Overlay -->
+                <div class="lock-overlay">
+                    <div class="lock-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="lock-text">Module Locked</div>
+                    <div class="views-required">Complete 5 modules to unlock</div>
+                    <button class="unlock-btn" onclick="unlockModule(4)">Unlock Now</button>
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-battery-three-quarters"></i>
@@ -1600,11 +1782,23 @@
                         <span>Boundary-setting strategies for sustainable performance</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 1,756 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 6 -->
-            <div class="module-card">
+            <!-- Module 6 - Locked -->
+            <div class="module-card locked">
+                <!-- Lock Overlay -->
+                <div class="lock-overlay">
+                    <div class="lock-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="lock-text">Module Locked</div>
+                    <div class="views-required">Complete 6 modules to unlock</div>
+                    <button class="unlock-btn" onclick="unlockModule(5)">Unlock Now</button>
+                </div>
                 <div class="module-header">
                     <div class="module-icon">
                         <i class="fas fa-chart-line"></i>
@@ -1629,6 +1823,9 @@
                         <span>Negotiation scripts and objection handling</span>
                     </li>
                 </ul>
+                <div class="views-counter">
+                    <i class="fas fa-eye"></i> 2,934 views this month
+                </div>
                 <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
         </div>
@@ -1704,6 +1901,16 @@
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
+        
+        // Track completed modules (simulate user progress)
+        let completedModules = 1; // First module is completed by default
+        
+        // Function to unlock module
+        window.unlockModule = function(moduleIndex) {
+            // In a real app, this would check authentication and user progress
+            // For demo, redirect to create account page
+            window.location.href = 'create-account.html';
+        };
         
         // Dark mode toggle
         document.querySelector('.theme-toggle').addEventListener('click', function () {
@@ -1788,6 +1995,21 @@
             alert('Account creation would be processed here in a real implementation');
             createAccountModal.classList.remove('active');
         });
+        
+        // Initialize module locking based on progress
+        function updateModuleLocks() {
+            const modules = document.querySelectorAll('.module-card');
+            modules.forEach((module, index) => {
+                if (index < completedModules) {
+                    module.classList.remove('locked');
+                } else {
+                    module.classList.add('locked');
+                }
+            });
+        }
+        
+        // Call initially
+        updateModuleLocks();
     });
 </script>
 
