@@ -6,6 +6,9 @@
     <meta name="description" content="Get real-time strategic guidance for workplace challenges. Navigate office politics, difficult conversations, and career decisions with confidence.">
     <title>The Coach | Real-Time Strategic Guidance | The Employee Playbook</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
     <!-- Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +16,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --primary-white: #FFFFFF;
@@ -29,6 +30,7 @@
             --accent-purple: #7B5FC4;
             --accent-purple-dark: #5A4496;
             --light-purple: #E6E0F5;
+            --light-purple-user: #D5C9F1; /* Lighter purple for user bubbles */
             --border-light: rgba(0, 0, 0, 0.08);
             --hero-gray: #f5f7fa;
             --nav-bg: rgba(255, 255, 255, 0.95);
@@ -50,6 +52,7 @@
             --accent-purple: #8B6CE6;
             --accent-purple-dark: #6A4FC4;
             --light-purple: #E6E0F5;
+            --light-purple-user: #A28CE0; /* Lighter purple for user bubbles in dark mode */
             --border-light: rgba(255, 255, 255, 0.08);
             --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
@@ -95,7 +98,7 @@
             padding: 80px 0;
         }
 
-        /* Navigation - MATCHING THE LENS */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -118,7 +121,6 @@
             height: 100%;
         }
 
-        /* Logo Styles - MATCHING THE LENS */
         .logo-img {
             height: 100px;
             width: auto;
@@ -130,7 +132,7 @@
         }
 
         .dark-mode .logo-img {
-            content: url('assets/img/logo-dark.png');
+            filter: invert(1) brightness(2);
         }
 
         .nav-links {
@@ -151,7 +153,6 @@
             color: var(--accent-purple);
         }
 
-        /* Active page indicator - Purple underline - MATCHING THE LENS */
         .nav-link.active {
             color: var(--text-dark);
         }
@@ -236,7 +237,6 @@
             background-color: var(--light-gray);
         }
 
-        /* New Tag for The Coach - MATCHING THE LENS */
         .nav-link-container {
             position: relative;
             display: inline-block;
@@ -257,17 +257,14 @@
             white-space: nowrap;
         }
 
-        /* Mobile Sign In Button - MATCHING THE LENS */
         .mobile-sign-in {
             display: none;
         }
 
-        /* Mobile Create Account Button - MATCHING THE LENS */
         .mobile-create-account {
             display: none;
         }
 
-        /* NEW: Create Account Tab for Mobile - MATCHING THE LENS */
         .mobile-create-account-tab {
             display: none;
             position: fixed;
@@ -299,7 +296,6 @@
             border: 2px solid var(--primary-white);
         }
 
-        /* NEW: Create Account Modal - MATCHING THE LENS */
         .create-account-modal {
             display: none;
             position: fixed;
@@ -434,7 +430,7 @@
             font-weight: 500;
         }
 
-        /* Main Content - MATCHING THE LENS STRUCTURE */
+        /* Main Content */
         main {
             flex: 1;
             padding: 80px 30px 30px;
@@ -449,11 +445,11 @@
             gap: 25px;
         }
 
-        /* Hero Section - MATCHING THE LENS STRUCTURE */
+        /* Hero Section */
         .hero-section {
             text-align: center;
             margin-bottom: 25px;
-            padding-top: 160px; /* Match The Lens spacing */
+            padding-top: 160px;
         }
 
         .hero-title {
@@ -480,6 +476,18 @@
             text-align: center;
             margin-top: 0px;
             margin-bottom: 100px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
         }
 
         .cta-button {
@@ -493,6 +501,8 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
             display: inline-block;
+            min-width: 250px;
+            text-align: center;
         }
 
         .cta-button:hover {
@@ -512,7 +522,8 @@
             font-size: 18px;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-purple);
-            margin-left: 20px;
+            min-width: 250px;
+            text-align: center;
         }
 
         .secondary-cta:hover {
@@ -520,13 +531,337 @@
             transform: translateY(-2px);
         }
 
-        /* Full Width Section - MATCHING THE LENS */
+        /* How It Works Cards */
+        .how-it-works {
+            margin: 80px 0 60px;
+        }
+
+        .how-it-works-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .process-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px 30px 30px; /* Reduced top padding to make icon appear more circular */
+            box-shadow: var(--premium-card-shadow);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(123, 95, 196, 0.15);
+        }
+
+        /* Updated icon positioning - reduced height */
+        .process-icon {
+            width: 90px; /* Slightly larger */
+            height: 90px; /* Slightly larger */
+            background: var(--primary-white);
+            color: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px; /* Reduced bottom margin */
+            font-size: 32px; /* Slightly larger icon */
+            border: 2px solid var(--accent-purple);
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
+            position: relative;
+            top: 0;
+        }
+
+        .process-title {
+            font-weight: 600;
+            margin-bottom: 15px; /* Reduced margin */
+            font-size: 22px;
+            color: var(--text-dark);
+        }
+
+        .process-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* Coach Demo Animation - Wider and moved closer */
+        .coach-demo-section {
+            margin: 40px 0 80px; /* Reduced top margin to bring closer */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-container {
+            background: var(--primary-white);
+            border-radius: 24px;
+            padding: 40px; /* Increased padding */
+            box-shadow: 0 20px 60px rgba(123, 95, 196, 0.15);
+            border: 1px solid var(--border-light);
+            max-width: 920px; /* Increased from 800px (15% wider) */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .demo-subtitle {
+            font-size: 16px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wider chat demo - Increased height by 20% */
+        .chat-demo {
+            background: var(--light-gray);
+            border-radius: 16px;
+            overflow: hidden;
+            height: 456px; /* Increased by 20% from 380px to 456px */
+            position: relative;
+            border: 1px solid var(--border-light);
+            width: 100%;
+        }
+
+        .chat-demo-header {
+            background: var(--accent-purple);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .demo-chat-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .demo-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .demo-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+            animation: pulse 2s infinite;
+        }
+
+        .demo-messages {
+            padding: 16px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .demo-message {
+            max-width: 90%; /* Increased from 80% for wider bubbles */
+            padding: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageSlideIn 0.8s ease forwards; /* Slower animation */
+        }
+
+        @keyframes messageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .demo-message-coach {
+            align-self: flex-start;
+        }
+
+        .demo-message-user {
+            align-self: flex-end;
+        }
+
+        /* Demo message sender names */
+        .demo-message-sender {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--dark-gray);
+            display: block; /* Show on all devices */
+        }
+
+        .demo-message-coach .demo-message-sender {
+            color: var(--accent-purple);
+        }
+
+        .demo-message-user .demo-message-sender {
+            color: var(--accent-purple-dark);
+            text-align: right;
+        }
+
+        .demo-message-bubble {
+            padding: 12px 18px; /* Increased padding */
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            max-width: 100%; /* Allow bubbles to use full available width */
+        }
+
+        .demo-message-coach .demo-message-bubble {
+            background: var(--primary-white);
+            color: var(--text-dark);
+            border-bottom-left-radius: 6px;
+            border: 1px solid var(--border-light);
+        }
+
+        .demo-message-user .demo-message-bubble {
+            background: var(--light-purple-user); /* Changed to lighter purple */
+            color: var(--accent-purple-dark); /* Darker text for contrast */
+            border-bottom-right-radius: 6px;
+            border: 1px solid rgba(123, 95, 196, 0.2);
+        }
+
+        .demo-chat-input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-white);
+            padding: 16px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .demo-input-field {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 16px;
+            font-size: 13px;
+            background: var(--primary-white);
+            color: var(--text-dark);
+        }
+
+        .demo-typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 16px;
+            background: var(--primary-white);
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            width: fit-content;
+        }
+
+        .demo-typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+            opacity: 0.6;
+            animation: typingPulse 1.5s infinite ease-in-out;
+        }
+
+        .demo-typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .demo-typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .demo-cta {
+            text-align: center;
+            margin-top: 30px; /* Increased margin */
+        }
+
+        .demo-cta-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .demo-trigger {
+            background: var(--accent-purple);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
+        }
+
+        .demo-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+            background: var(--accent-purple-dark);
+        }
+
+        /* Removed the progress dots */
+        .demo-progress {
+            display: none; /* Hide the progress dots */
+        }
+
+        /* Full Width Section */
         .full-width-section {
             width: 100%;
             margin-bottom: 35px;
         }
 
-        /* Pill Sections - MATCHING THE LENS STYLE */
+        /* Pill Sections */
         .pill-sections {
             display: flex;
             gap: 20px;
@@ -537,7 +872,7 @@
         .pill-section {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 30px;
+            padding: 50px 30px 40px; /* Increased top padding */
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
             flex: 1;
@@ -563,21 +898,21 @@
         }
 
         .pill-icon {
-            width: 70px;
-            height: 70px;
+            width: 90px; /* Larger */
+            height: 90px; /* Larger */
             background: var(--light-purple);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
+            margin: 0 auto 30px; /* Increased bottom margin */
+            font-size: 32px; /* Larger icon */
         }
 
         .pill-title {
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Increased margin */
             font-size: 20px;
             color: var(--text-dark);
         }
@@ -611,16 +946,16 @@
         .benefit-card {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 30px 25px;
+            padding: 40px 25px 30px; /* Reduced top padding for consistent height */
             text-align: center;
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
             position: relative;
-            height: 300px;
+            height: 290px; /* Reduced height to match process cards */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Align from top */
         }
 
         .benefit-card:hover {
@@ -629,23 +964,23 @@
         }
 
         .benefit-icon {
-            width: 75px;
-            height: 75px;
+            width: 85px; /* Slightly larger */
+            height: 85px; /* Slightly larger */
             background: var(--primary-white);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 26px;
+            margin: 0 auto 20px; /* Reduced bottom margin */
+            font-size: 28px; /* Slightly larger */
             border: 2px solid var(--accent-purple);
             box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
         }
 
         .benefit-title {
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Reduced margin */
             font-size: 20px;
             color: var(--text-dark);
         }
@@ -833,9 +1168,10 @@
         }
 
         .message-user .message-bubble {
-            background: var(--accent-purple);
-            color: white;
+            background: var(--light-purple-user); /* Changed to lighter purple */
+            color: var(--accent-purple-dark); /* Darker text for contrast */
             border-bottom-right-radius: 6px;
+            border: 1px solid rgba(123, 95, 196, 0.2);
         }
 
         .message-meta {
@@ -1203,28 +1539,39 @@
             background: var(--accent-purple-dark);
         }
 
-        /* Micro CTA Section - MATCHING THE LENS */
+        /* Micro CTA Section - Full width */
         .micro-cta {
             text-align: center;
-            padding: 30px;
-            margin: 40px 0;
+            padding: 40px 30px;
+            margin: 60px 0;
             background: var(--neutral-bg);
-            border-radius: 12px;
             border: 1px solid var(--border-light);
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .micro-cta-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .micro-cta p {
             font-size: 30px;
             color: var(--text-dark);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 600;
         }
 
         .cta-small {
             background: var(--accent-purple);
             color: white;
-            padding: 10px 24px;
-            border-radius: 25px;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
@@ -1235,7 +1582,7 @@
         }
 
         .cta-small:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(123, 95, 196, 0.3);
         }
 
@@ -1252,7 +1599,7 @@
             color: var(--accent-purple-dark);
         }
 
-        /* Footer - MATCHING THE LENS */
+        /* Footer */
         footer {
             background-color: var(--primary-white);
             padding: 40px 0 20px;
@@ -1289,7 +1636,7 @@
         }
 
         .dark-mode .footer-logo-img {
-            content: url('assets/img/logo-dark.png');
+            filter: invert(1) brightness(2);
         }
 
         .footer-description {
@@ -1337,7 +1684,6 @@
             margin: 0;
         }
 
-        /* Footer navigation grid to 2 columns - MATCHING THE LENS */
         .footer-nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1392,15 +1738,24 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Responsive - MATCHING THE LENS */
+        /* Responsive Design */
         @media (max-width: 1200px) {
-            .pill-sections {
-                flex-direction: column;
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
             }
             
             .benefits-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 25px;
+            }
+            
+            .coach-demo-section {
+                margin: 40px 0 60px;
+            }
+            
+            .chat-demo {
+                height: 456px; /* Maintain increased height on larger screens */
             }
         }
 
@@ -1412,15 +1767,31 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
+            
+            .demo-title {
+                font-size: 28px;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .demo-container {
+                max-width: 800px;
+            }
+            
+            .chat-demo {
+                height: 456px; /* Maintain increased height */
+            }
         }
 
         @media (max-width: 768px) {
-            /* NEW: Show the Create Account Tab on mobile - MATCHING THE LENS */
+            /* Mobile Navigation */
             .mobile-create-account-tab {
                 display: flex;
             }
 
-            /* Mobile Navigation Changes - MATCHING THE LENS */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1435,7 +1806,6 @@
                 height: 100%;
             }
             
-            /* Mobile logo size - MATCHING THE LENS */
             .logo-img {
                 height: 125px;
                 transform: none;
@@ -1459,12 +1829,10 @@
                 align-items: center;
             }
             
-            /* Hide the desktop Sign In button in mobile view - MATCHING THE LENS */
             .nav-actions .sign-in {
                 display: none;
             }
             
-            /* Hide the sign-up button in mobile navigation - MATCHING THE LENS */
             .nav-actions .header-cta {
                 display: none;
             }
@@ -1489,17 +1857,14 @@
                 display: flex;
             }
             
-            /* FIXED: Make active page link purple in mobile hamburger menu - MATCHING THE LENS */
             .nav-link.active {
                 color: var(--accent-purple);
             }
             
-            /* Remove purple underline from active nav link on mobile - MATCHING THE LENS */
             .nav-link.active::after {
                 display: none;
             }
             
-            /* Move The Coach to the left and New tag next to it - MATCHING THE LENS */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -1510,11 +1875,8 @@
             .new-tag {
                 position: static;
                 margin-left: 8px;
-                top: auto;
-                right: auto;
             }
             
-            /* Make the Sign In button in hamburger menu white - MATCHING THE LENS */
             .mobile-sign-in {
                 display: block !important;
                 margin-top: 10px;
@@ -1542,14 +1904,12 @@
                 box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            /* MOBILE SIZING FIXES - MATCHING THE LENS */
-            
-            /* Main content padding */
+            /* Mobile Responsive Layout */
             main {
                 padding: 80px 15px 30px;
             }
 
-            /* Hero section sizing - MOBILE SPACING */
+            /* Hero Section Mobile */
             .hero-section {
                 padding-top: 100px;
                 margin-bottom: 30px;
@@ -1567,13 +1927,98 @@
                 margin-bottom: 40px;
             }
 
+            /* Center CTAs on mobile */
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 60px;
+            }
+
+            .cta-button, .secondary-cta {
+                width: 100%;
+                max-width: 320px;
+                margin: 0;
+            }
+
+            /* How It Works Cards - Mobile */
+            .how-it-works {
+                margin: 50px 0 40px;
+            }
+
+            .how-it-works-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .process-card {
+                padding: 35px 25px 25px; /* Adjusted for mobile - reduced height */
+            }
+
+            .process-icon {
+                width: 80px; /* Adjusted for mobile */
+                height: 80px; /* Adjusted for mobile */
+                font-size: 28px; /* Adjusted for mobile */
+                margin-bottom: 20px; /* Reduced bottom margin */
+            }
+
+            .process-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .process-description {
+                font-size: 16px;
+            }
+
+            /* Coach Demo Section Mobile */
+            .coach-demo-section {
+                margin: 40px 0;
+            }
+
+            .demo-container {
+                padding: 20px;
+                max-width: 100%; /* Full width on mobile */
+            }
+
+            .demo-title {
+                font-size: 26px;
+            }
+
+            .demo-subtitle {
+                font-size: 15px;
+            }
+
+            .chat-demo {
+                height: 420px; /* Slightly reduced but still larger than original */
+            }
+
+            .demo-messages {
+                padding: 14px;
+            }
+
+            .demo-message {
+                max-width: 95%; /* Even wider on mobile */
+                font-size: 12px;
+            }
+
+            /* Demo message sender names - slightly larger on mobile */
+            .demo-message-sender {
+                font-size: 12px;
+            }
+
             /* Section titles */
             .benefits-title {
                 font-size: 32px;
                 margin-bottom: 30px;
             }
 
-            /* Process visual */
+            /* Benefits grid */
             .benefits-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
@@ -1581,15 +2026,15 @@
 
             .benefit-card {
                 height: auto;
-                min-height: 250px;
-                padding: 25px 20px;
+                min-height: 260px;
+                padding: 35px 20px 25px; /* Reduced padding */
             }
 
             .benefit-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 24px;
-                margin-bottom: 20px;
+                width: 80px;
+                height: 80px;
+                font-size: 26px;
+                margin-bottom: 15px; /* Reduced margin */
             }
 
             .benefit-title {
@@ -1608,14 +2053,14 @@
             }
 
             .pill-section {
-                padding: 25px 20px;
+                padding: 40px 20px 30px;
             }
 
             .pill-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 22px;
-                margin-bottom: 20px;
+                width: 80px;
+                height: 80px;
+                font-size: 28px;
+                margin-bottom: 25px;
             }
 
             .pill-title {
@@ -1627,15 +2072,24 @@
                 font-size: 16px;
             }
 
-            /* Micro CTA */
+            /* Micro CTA - Full width on mobile */
             .micro-cta {
                 padding: 30px 20px;
-                margin: 40px 0;
+                margin: 40px -15px;
+                width: calc(100% + 30px);
+                left: 0;
+                right: 0;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .micro-cta-content {
+                padding: 0 15px;
             }
 
             .micro-cta p {
-                font-size: 20px;
-                margin-bottom: 25px;
+                font-size: 22px;
+                margin-bottom: 20px;
             }
 
             .cta-small, .cta-link, .secondary-cta {
@@ -1646,29 +2100,39 @@
                 padding: 12px 24px;
             }
 
-            .secondary-cta {
-                margin-left: 0;
+            .cta-link {
                 margin-top: 15px;
+                display: inline-block;
             }
 
-            /* Footer - MATCHING THE LENS */
+            /* Footer - Mobile adjustments */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .footer-nav-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                order: 1;
+            .footer-nav {
+                order: 1; /* Move navigation to top on mobile */
             }
 
-            /* Ensure The Playbook section appears first */
+            .footer-about {
+                order: 2; /* Move about section below navigation */
+            }
+
+            .footer-newsletter {
+                order: 3; /* Move newsletter to bottom */
+            }
+
+            .footer-nav-grid {
+                grid-template-columns: 1fr 1fr; /* Keep two columns on mobile */
+                gap: 40px;
+            }
+
+            /* Reorder footer sections for mobile - The Playbook first, then The Company */
             .footer-nav-section:nth-child(1) {
                 order: 1;
             }
             
-            /* Ensure The Company section appears second */
             .footer-nav-section:nth-child(2) {
                 order: 2;
             }
@@ -1736,9 +2200,10 @@
                 font-size: 16px;
             }
             
+            /* Stack footer nav links on very small screens */
             .footer-nav-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
             }
             
             .benefits-title {
@@ -1746,20 +2211,42 @@
             }
 
             .micro-cta p {
-                font-size: 18px;
+                font-size: 20px;
+            }
+            
+            .demo-title {
+                font-size: 24px;
+            }
+            
+            .chat-demo {
+                height: 380px; /* Slightly reduced for very small screens */
+            }
+            
+            .how-it-works-title {
+                font-size: 28px;
+            }
+            
+            .process-card {
+                padding: 30px 20px 20px; /* Further reduced for small screens */
+            }
+            
+            .process-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+                margin-bottom: 15px;
             }
         }
     </style>
 </head>
 
 <body>
-
-<!-- NEW: Create Account Tab for Mobile - MATCHING THE LENS -->
+<!-- Mobile Create Account Tab -->
 <a href="#" class="mobile-create-account-tab" id="createAccountTab">
     <i class="fas fa-user-plus"></i>
 </a>
 
-<!-- NEW: Create Account Modal - MATCHING THE LENS -->
+<!-- Create Account Modal -->
 <div class="create-account-modal" id="createAccountModal">
     <div class="modal-content">
         <div class="modal-header">
@@ -1797,15 +2284,12 @@
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
-        <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
-        <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
             <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
         </a>
         
-        <!-- Navigation links with mobile sign-in -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
@@ -1819,7 +2303,6 @@
             <a href="create-account.html" class="mobile-create-account">Create Account</a>
         </div>
         
-        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
@@ -1828,7 +2311,7 @@
     </div>
 </nav>
 
-<!-- Main Content Area - MATCHING THE LENS STRUCTURE -->
+<!-- Main Content Area -->
 <main>
     <div class="container">
         <div class="content-wrapper">
@@ -1839,38 +2322,80 @@
                 
                 <!-- Desktop CTA -->
                 <div class="cta-buttons">
-                    <a href="#benefits" class="cta-button">Learn How It Works</a>
+                    <a href="#how-it-works" class="cta-button">Learn How It Works</a>
                     <a href="#" class="secondary-cta" id="openChatCta">Try The Coach Now</a>
                 </div>
             </div>
 
-            <!-- Three Pill Sections -->
-            <div class="full-width-section">
-                <div class="pill-sections">
-                    <div class="pill-section">
-                        <div class="pill-icon">
+            <!-- How It Works Cards -->
+            <div class="how-it-works" id="how-it-works">
+                <h2 class="how-it-works-title">How The Coach Works</h2>
+                
+                <div class="cards-container">
+                    <div class="process-card">
+                        <div class="process-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <div class="pill-title">Get unstuck in real time</div>
-                        <div class="pill-description">When you're facing a difficult conversation, political challenge, or career crossroads</div>
+                        <div class="process-title">Get unstuck in real time</div>
+                        <div class="process-description">When you're facing a difficult conversation, political challenge, or career crossroads</div>
                     </div>
-                    <div class="pill-section">
-                        <div class="pill-icon">
+
+                    <div class="process-card">
+                        <div class="process-icon">
                             <i class="fas fa-chess-board"></i>
                         </div>
-                        <div class="pill-title">Navigate office politics</div>
-                        <div class="pill-description">With strategic frameworks that help you maintain integrity while building influence</div>
+                        <div class="process-title">Navigate office politics</div>
+                        <div class="process-description">With strategic frameworks that help you maintain integrity while building influence</div>
                     </div>
-                    <div class="pill-section">
-                        <div class="pill-icon">
+
+                    <div class="process-card">
+                        <div class="process-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
-                        <div class="pill-title">Turn tension into opportunity</div>
-                        <div class="pill-description">By learning to handle conflicts, negotiations, and difficult stakeholders</div>
+                        <div class="process-title">Turn tension into opportunity</div>
+                        <div class="process-description">By learning to handle conflicts, negotiations, and difficult stakeholders</div>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Coach Demo Animation Section - Moved closer to How It Works -->
+            <div class="coach-demo-section">
+                <div class="demo-container">
+                    <div class="demo-header">
+                        <h2 class="demo-title">See The Coach in Action</h2>
+                        <p class="demo-subtitle">Watch how The Coach helps navigate a real workplace challenge</p>
+                    </div>
+                    
+                    <div class="chat-demo">
+                        <div class="chat-demo-header">
+                            <div class="demo-chat-title">The Coach</div>
+                            <div class="demo-status">
+                                <div class="demo-status-dot"></div>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-messages" id="demoMessages">
+                            <!-- Messages will be added by JavaScript -->
+                        </div>
+                        
+                        <div class="demo-chat-input">
+                            <div class="demo-typing-indicator" id="typingIndicator" style="display: none;">
+                                <div class="demo-typing-dot"></div>
+                                <div class="demo-typing-dot"></div>
+                                <div class="demo-typing-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-cta">
+                        <!-- Removed "Ready to get personalised guidance?" title -->
+                        <button class="demo-trigger" id="startDemo">Replay Demo</button>
+                        <!-- Progress dots removed as requested -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Benefits Section -->
             <div class="full-width-section benefits-section" id="benefits">
                 <h2 class="benefits-title">Your confidential sounding board for workplace challenges</h2>
@@ -1930,11 +2455,13 @@
                 </div>
             </div>
 
-            <!-- Micro CTA Section - MATCHING THE LENS -->
+            <!-- Micro CTA Section - Full width -->
             <div class="micro-cta">
-                <p>Ready to turn clarity into strategy?</p>
-                <a href="the-pricing.html" class="cta-small">Start with The Core plan (£9/mo)</a>
-                <a href="the-pricing.html" class="cta-link">See full pricing</a>
+                <div class="micro-cta-content">
+                    <p>Ready to turn clarity into strategy?</p>
+                    <a href="the-pricing.html" class="cta-small">Start with The Core plan (£9/mo)</a>
+                    <a href="the-pricing.html" class="cta-link">See full pricing</a>
+                </div>
             </div>
         </div>
     </div>
@@ -1964,8 +2491,12 @@
         <div class="chat-messages" id="chatMessages">
             <div class="message message-coach">
                 <div class="message-bubble">
-                    Hey there! <span class="hand-wave">👋</span>I'm here to be your confidential sounding board for those workplace situations. The ones you can't discuss with colleagues or HR.<br><br>
-                    What's on your mind today? You can ask me anything about difficult conversations, office politics, career strategy, or anything else that's weighing on you.
+                    When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
+                    That's this space.<br><br>
+                    Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
+                    I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
+                    This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
+                    What's the part of your situation that feels most urgent today?
                 </div>
                 <div class="message-meta">The Coach • Just now</div>
             </div>
@@ -2018,7 +2549,7 @@
     </div>
 </div>
 
-<!-- Footer - MATCHING THE LENS -->
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -2040,7 +2571,6 @@
             </div>
             
             <div class="footer-nav">
-                <!-- FIXED: The Company section now appears below The Playbook section on mobile -->
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
                         <h3 class="footer-heading">The Playbook</h3>
@@ -2074,7 +2604,6 @@
 </footer>
 
 <script>
-    // Mark page as loaded to prevent FOUC and jumping
     document.addEventListener('DOMContentLoaded', function() {
         // Force scroll to top immediately
         window.scrollTo(0, 0);
@@ -2088,7 +2617,6 @@
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
-        // Check for saved theme preference or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
         if (currentTheme === 'dark') {
             document.body.classList.add('dark-mode');
@@ -2100,23 +2628,10 @@
             document.body.classList.toggle('dark-mode');
             const isDarkMode = document.body.classList.contains('dark-mode');
             
-            // Update icon
             themeIcon.classList.toggle('fa-moon');
             themeIcon.classList.toggle('fa-sun');
             
-            // Save theme preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            
-            // Update logo for dark mode
-            const logo = document.getElementById('logo');
-            const footerLogo = document.getElementById('footer-logo');
-            if (isDarkMode) {
-                logo.src = 'assets/img/logo-dark.png';
-                footerLogo.src = 'assets/img/logo-dark.png';
-            } else {
-                logo.src = 'assets/img/logo.png';
-                footerLogo.src = 'assets/img/logo.png';
-            }
         });
 
         // Mobile navigation toggle
@@ -2132,35 +2647,30 @@
         const closeModal = document.getElementById('closeModal');
         const createAccountTab = document.getElementById('createAccountTab');
         
-        // Open modal when clicking Create Account tab
         createAccountTab.addEventListener('click', function(e) {
             e.preventDefault();
             createAccountModal.classList.add('active');
         });
         
-        // Close modal
         closeModal.addEventListener('click', function() {
             createAccountModal.classList.remove('active');
         });
         
-        // Close modal when clicking outside
         createAccountModal.addEventListener('click', function(e) {
             if (e.target === createAccountModal) {
                 createAccountModal.classList.remove('active');
             }
         });
 
-        // Smooth scrolling with offset for fixed header
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Skip if it's an external link or mailto
                 if (this.getAttribute('href').startsWith('http') || 
                     this.getAttribute('href').startsWith('mailto') ||
                     this.getAttribute('href').startsWith('tel')) {
                     return;
                 }
                 
-                // Skip if it's the create account tab
                 if (this.classList.contains('mobile-create-account-tab')) {
                     return;
                 }
@@ -2171,11 +2681,10 @@
                 
                 const target = document.querySelector(targetId);
                 if (target) {
-                    const offset = 96; // 80px header + 16px extra spacing
+                    const offset = 96;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
-                    // Close mobile menu if open
                     document.querySelector('.nav-links').classList.remove('active');
                     document.querySelector('.mobile-toggle i').classList.add('fa-bars');
                     document.querySelector('.mobile-toggle i').classList.remove('fa-times');
@@ -2183,8 +2692,141 @@
             });
         });
 
+        // Coach Demo Animation
+        const demoMessages = document.getElementById('demoMessages');
+        const startDemoBtn = document.getElementById('startDemo');
+        const typingIndicator = document.getElementById('typingIndicator');
+        
+        let demoStep = 0;
+        let demoInterval;
+        let hasDemoStarted = false;
+        
+        // Updated demo conversation with British spelling
+        const demoConversation = [
+            {
+                sender: 'coach',
+                text: "Let's get specific: what part of feeling invisible is hitting you hardest right now?",
+                delay: 1500 // Slower transition
+            },
+            {
+                sender: 'user',
+                text: "I deliver everything on time, but my manager presents my work as his own. I'm not in the key meetings. It's like I'm a ghost contributor.",
+                delay: 2500 // Slower transition
+            },
+            {
+                sender: 'coach',
+                text: "That's a quiet erosion of your professional identity — the work is yours, but the recognition isn't. How long has this pattern been building?",
+                delay: 3000 // Slower transition
+            },
+            {
+                sender: 'user',
+                text: "Six months, maybe longer. Last quarter he took my entire project plan to the directors and didn't mention me once. When I asked about it, he said he was 'streamlining communication.'",
+                delay: 2500 // Slower transition
+            },
+            {
+                sender: 'coach',
+                text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating — it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
+                delay: 3500 // Slower transition
+            },
+            {
+                sender: 'user',
+                text: "Exactly. I don't want drama — I just want to be seen.",
+                delay: 2500 // Slower transition
+            },
+            {
+                sender: 'coach',
+                text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update — something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you — not like corporate speak?",
+                delay: 4000 // Slower transition
+            }
+        ];
+        
+        function showTypingIndicator() {
+            typingIndicator.style.display = 'flex';
+        }
+        
+        function hideTypingIndicator() {
+            typingIndicator.style.display = 'none';
+        }
+        
+        function addDemoMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('demo-message', `demo-message-${sender}`);
+            
+            // Add sender name
+            const senderSpan = document.createElement('span');
+            senderSpan.classList.add('demo-message-sender');
+            senderSpan.textContent = sender === 'coach' ? 'The Coach' : 'You';
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.classList.add('demo-message-bubble');
+            
+            // Preserve line breaks in the text
+            const lines = text.split('\n\n');
+            lines.forEach((line, index) => {
+                if (index > 0) {
+                    bubbleDiv.appendChild(document.createElement('br'));
+                    bubbleDiv.appendChild(document.createElement('br'));
+                }
+                bubbleDiv.appendChild(document.createTextNode(line));
+            });
+            
+            messageDiv.appendChild(senderSpan);
+            messageDiv.appendChild(bubbleDiv);
+            demoMessages.appendChild(messageDiv);
+            demoMessages.scrollTop = demoMessages.scrollHeight;
+        }
+        
+        function playDemoStep() {
+            if (demoStep >= demoConversation.length) {
+                clearInterval(demoInterval);
+                startDemoBtn.textContent = 'Replay Demo';
+                startDemoBtn.disabled = false;
+                return;
+            }
+            
+            const step = demoConversation[demoStep];
+            
+            if (step.sender === 'coach') {
+                showTypingIndicator();
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    addDemoMessage(step.text, step.sender);
+                    demoStep++;
+                }, 1800); // Longer typing delay
+            } else {
+                addDemoMessage(step.text, step.sender);
+                demoStep++;
+            }
+        }
+        
+        function startDemo() {
+            // Clear previous demo
+            demoMessages.innerHTML = '';
+            demoStep = 0;
+            startDemoBtn.textContent = 'Demo Running...';
+            startDemoBtn.disabled = true;
+            hasDemoStarted = true;
+            
+            // Clear any existing interval
+            if (demoInterval) {
+                clearInterval(demoInterval);
+            }
+            
+            // Start the demo with slower intervals
+            demoInterval = setInterval(playDemoStep, 4000); // Slower interval
+            playDemoStep();
+        }
+        
+        // Start demo automatically when page loads (after a short delay)
+        setTimeout(() => {
+            if (!hasDemoStarted) {
+                startDemo();
+            }
+        }, 1500);
+        
+        startDemoBtn.addEventListener('click', startDemo);
+
         // Coach Chat Functionality
-        // State variables
         let messageCount = 0;
         let disclaimerAccepted = false;
         let userContext = {};
@@ -2196,11 +2838,9 @@
             e.preventDefault();
             document.getElementById('chatUI').classList.add('open');
             
-            // Show disclaimer after 2 seconds
             setTimeout(() => {
                 if (!disclaimerAccepted) {
-                    const disclaimerModal = document.getElementById('disclaimerModal');
-                    disclaimerModal.classList.add('show');
+                    document.getElementById('disclaimerModal').classList.add('show');
                 }
             }, 2000);
         });
@@ -2208,24 +2848,26 @@
         // Close chat functionality
         document.getElementById('closeChat').addEventListener('click', function() {
             document.getElementById('chatUI').classList.remove('open');
-            // Also close disclaimer if open
             document.getElementById('disclaimerModal').classList.remove('show');
         });
 
-        // New session button functionality - clear chat
+        // New session button
         document.getElementById('newSessionBtn').addEventListener('click', function() {
             const chatMessages = document.getElementById('chatMessages');
             chatMessages.innerHTML = `
                 <div class="message message-coach">
                     <div class="message-bubble">
-                        Hey there! <span class="hand-wave">👋</span>I'm here to be your confidential sounding board for those workplace situations. The ones you can't discuss with colleagues or HR.<br><br>
-                        What's on your mind today? You can ask me anything about difficult conversations, office politics, career strategy, or anything else that's weighing on you.
+                        When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
+                        That's this space.<br><br>
+                        Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
+                        I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
+                        This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
+                        What's the part of your situation that feels most urgent today?
                     </div>
                     <div class="message-meta">The Coach • Just now</div>
                 </div>
             `;
             
-            // Reset message count and enable chat
             messageCount = 0;
             document.getElementById('chatSend').disabled = false;
             document.getElementById('signinPrompt').style.display = 'none';
@@ -2240,7 +2882,6 @@
         document.getElementById('acceptDisclaimer').addEventListener('click', function() {
             disclaimerAccepted = true;
             document.getElementById('disclaimerModal').classList.remove('show');
-            // Enable the chat input after accepting disclaimer
             document.getElementById('chatSend').disabled = false;
         });
 
@@ -2248,7 +2889,6 @@
         document.getElementById('declineDisclaimer').addEventListener('click', function() {
             document.getElementById('chatUI').classList.remove('open');
             document.getElementById('disclaimerModal').classList.remove('show');
-            window.location.href = 'index.html';
         });
 
         // Sign in button
@@ -2263,7 +2903,6 @@
         const chatSend = document.getElementById('chatSend');
         const signinPrompt = document.getElementById('signinPrompt');
         
-        // Initially disable chat until disclaimer is accepted
         chatSend.disabled = true;
         
         // Auto-resize textarea
@@ -2271,23 +2910,20 @@
             this.style.height = 'auto';
             this.style.height = (this.scrollHeight) + 'px';
             
-            // Show typing animation
             if (!isTyping) {
                 showTypingAnimation();
                 isTyping = true;
             }
             
-            // Clear existing timeout
             clearTimeout(typingTimeout);
             
-            // Set new timeout to remove typing animation
             typingTimeout = setTimeout(() => {
                 removeTypingAnimation();
                 isTyping = false;
             }, 1000);
         });
 
-        // Handle Enter key to submit (but allow Shift+Enter for new line)
+        // Handle Enter key
         chatInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -2299,20 +2935,17 @@
         chatForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Remove typing animation if active
             if (isTyping) {
                 removeTypingAnimation();
                 isTyping = false;
                 clearTimeout(typingTimeout);
             }
             
-            // Check if disclaimer has been accepted
             if (!disclaimerAccepted) {
                 document.getElementById('disclaimerModal').classList.add('show');
                 return;
             }
             
-            // Check message limit
             if (messageCount >= 2) {
                 signinPrompt.style.display = 'block';
                 chatSend.disabled = true;
@@ -2322,30 +2955,23 @@
             const userMessage = chatInput.value.trim();
             if (!userMessage) return;
             
-            // Add user message to chat
             addMessage(userMessage, 'user');
             messageCount++;
             
-            // Update user context based on message
             updateUserContext(userMessage);
             
-            // Clear input and reset height
             chatInput.value = '';
             chatInput.style.height = 'auto';
             
-            // Show thinking animation
             showThinkingAnimation();
             
-            // Simulate coach response after delay
             setTimeout(() => {
                 removeThinkingAnimation();
                 
                 if (messageCount <= 2) {
-                    // Give personalized response for first two messages
-                    addMessage(getPersonalizedResponse(userMessage), 'coach');
+                    addMessage(getPersonalisedResponse(userMessage), 'coach');
                 }
                 
-                // Check if we've reached the message limit
                 if (messageCount >= 2) {
                     setTimeout(() => {
                         signinPrompt.style.display = 'block';
@@ -2355,11 +2981,9 @@
             }, 1500);
         });
         
-        // Update user context based on their message
         function updateUserContext(message) {
             const lowerMessage = message.toLowerCase();
             
-            // Detect topic
             if (lowerMessage.includes('manager') || lowerMessage.includes('boss') || lowerMessage.includes('supervisor')) {
                 userContext.topic = 'management';
             } else if (lowerMessage.includes('team') || lowerMessage.includes('colleague') || lowerMessage.includes('coworker')) {
@@ -2372,7 +2996,6 @@
                 userContext.topic = 'office politics';
             }
             
-            // Detect emotion
             if (lowerMessage.includes('frustrat') || lowerMessage.includes('angry') || lowerMessage.includes('upset')) {
                 userContext.emotion = 'frustrated';
             } else if (lowerMessage.includes('stress') || lowerMessage.includes('overwhelm') || lowerMessage.includes('anxious')) {
@@ -2384,11 +3007,9 @@
             }
         }
         
-        // Get personalised response based on user context
-        function getPersonalizedResponse(userMessage) {
+        function getPersonalisedResponse(userMessage) {
             const responses = [];
             
-            // First response - acknowledge and ask follow-up
             if (messageCount === 1) {
                 if (userContext.topic === 'management') {
                     responses.push("I understand you're dealing with a management situation. What specifically has your manager done or said that's causing concern?");
@@ -2403,9 +3024,7 @@
                 } else {
                     responses.push("Thank you for sharing. What's the most important aspect of this situation for you right now?");
                 }
-            } 
-            // Second response - more personalised follow-up
-            else if (messageCount === 2) {
+            } else if (messageCount === 2) {
                 if (userContext.emotion === 'frustrated') {
                     responses.push("I can hear the frustration in your situation. When we feel this way, it's helpful to identify what's within our control. What one action could you take that would move things forward positively?");
                 } else if (userContext.emotion === 'stressed') {
@@ -2422,7 +3041,6 @@
             return responses[Math.floor(Math.random() * responses.length)];
         }
         
-        // Add message to chat
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', `message-${sender}`);
@@ -2449,7 +3067,6 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
-        // Show thinking animation
         function showThinkingAnimation() {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', 'message-coach');
@@ -2472,7 +3089,6 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
-        // Remove thinking animation
         function removeThinkingAnimation() {
             const messages = chatMessages.querySelectorAll('.message');
             const lastMessage = messages[messages.length - 1];
@@ -2481,14 +3097,14 @@
             }
         }
         
-        // Show typing animation
         function showTypingAnimation() {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', 'message-user');
             
             const bubbleDiv = document.createElement('div');
             bubbleDiv.classList.add('message-bubble');
-            bubbleDiv.style.background = 'var(--accent-purple)';
+            bubbleDiv.style.background = 'var(--light-purple-user)';
+            bubbleDiv.style.color = 'var(--accent-purple-dark)';
             
             const typingDiv = document.createElement('div');
             typingDiv.classList.add('typing-animation');
@@ -2496,6 +3112,7 @@
             for (let i = 0; i < 3; i++) {
                 const dot = document.createElement('div');
                 dot.classList.add('typing-dot');
+                dot.style.backgroundColor = 'var(--accent-purple-dark)';
                 typingDiv.appendChild(dot);
             }
             
@@ -2505,7 +3122,6 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
-        // Remove typing animation
         function removeTypingAnimation() {
             const messages = chatMessages.querySelectorAll('.message');
             const lastMessage = messages[messages.length - 1];
