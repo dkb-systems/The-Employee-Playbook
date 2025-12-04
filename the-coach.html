@@ -1018,7 +1018,7 @@
             font-size: 16px;
         }
 
-        /* Chat UI */
+        /* Chat UI - Reduced padding */
         .chat-ui {
             position: fixed;
             top: 0;
@@ -1047,7 +1047,7 @@
         }
 
         .chat-header {
-            padding: 20px 30px;
+            padding: 18px 27px; /* Reduced by 10% from 20px 30px */
             border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
@@ -1060,7 +1060,7 @@
         .chat-title-section {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px; /* Reduced by 10% from 8px */
         }
 
         .chat-title-section h1 {
@@ -1127,11 +1127,11 @@
 
         .chat-messages {
             flex: 1;
-            padding: 20px 30px;
+            padding: 17px 25.5px; /* Reduced by 15% from 20px 30px */
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 13.6px; /* Reduced by 15% from 16px */
             min-height: 0;
         }
 
@@ -1153,7 +1153,7 @@
         }
 
         .message-bubble {
-            padding: 12px 18px;
+            padding: 10.2px 15.3px; /* Reduced by 15% from 12px 18px */
             border-radius: 18px;
             position: relative;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -1177,8 +1177,8 @@
         .message-meta {
             font-size: 11px;
             color: var(--dark-gray);
-            margin-top: 4px;
-            padding: 0 4px;
+            margin-top: 3.4px; /* Reduced by 15% from 4px */
+            padding: 0 3.4px; /* Reduced by 15% from 0 4px */
             transition: color 0.3s ease;
         }
 
@@ -1187,7 +1187,7 @@
         }
 
         .chat-input-container {
-            padding: 20px 30px;
+            padding: 17px 25.5px; /* Reduced by 15% from 20px 30px */
             border-top: 1px solid var(--border-light);
             background: var(--primary-white);
             border-radius: 0 0 16px 16px;
@@ -1197,18 +1197,18 @@
         .chat-form {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10.2px; /* Reduced by 15% from 12px */
         }
 
         .chat-input-row {
             display: flex;
-            gap: 12px;
+            gap: 10.2px; /* Reduced by 15% from 12px */
             align-items: flex-end;
         }
 
         .chat-input {
             flex: 1;
-            padding: 14px 18px;
+            padding: 11.9px 15.3px; /* Reduced by 15% from 14px 18px */
             border: 1px solid var(--medium-gray);
             border-radius: 16px;
             font-size: 15px;
@@ -2035,7 +2035,7 @@
 
             .benefit-card {
                 height: auto;
-                min-height: 3300px;
+                min-height: 260px;
                 padding: 35px 20px 25px; /* Reduced padding */
                 text-align: center;
             }
@@ -2197,14 +2197,14 @@
                 justify-content: center;
             }
 
-            /* Chat UI Mobile Adjustments */
+            /* Chat UI Mobile Adjustments - Reduced padding */
             .chat-container {
                 margin: 10px;
                 height: calc(100% - 20px);
             }
             
             .chat-header, .chat-messages, .chat-input-container {
-                padding: 15px 20px;
+                padding: 12.75px 17px; /* Reduced proportionally */
             }
             
             .chat-input-row {
