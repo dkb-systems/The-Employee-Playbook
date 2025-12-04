@@ -2035,7 +2035,7 @@
 
             .benefit-card {
                 height: auto;
-                min-height: 260px;
+                min-height: 3300px;
                 padding: 35px 20px 25px; /* Reduced padding */
                 text-align: center;
             }
@@ -2127,32 +2127,36 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }
-
-            .footer-nav {
-                order: 1; /* Move navigation to top on mobile */
+                text-align: center;
             }
 
             .footer-about {
-                order: 2; /* Move about section below navigation */
+                order: 1;
+                max-width: 100%;
+                padding-left: 0;
+                padding-bottom: 20px;
+                border-bottom: 1px solid var(--border-light);
+                margin-bottom: 20px;
+            }
+
+            .footer-nav {
+                order: 2;
             }
 
             .footer-newsletter {
-                order: 3; /* Move newsletter to bottom */
+                order: 3;
+                padding-top: 20px;
+                border-top: 1px solid var(--border-light);
+                margin-top: 20px;
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr; /* Keep two columns on mobile - FIXED */
-                gap: 40px; /* Good spacing between columns */
-                display: grid; /* Ensure it's a grid */
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                display: grid !important; /* Force grid display */
             }
 
-            /* Ensure footer nav sections are side by side */
-            .footer-nav-section {
-                width: 100%; /* Take full width of grid cell */
-            }
-
-            /* Reorder footer sections for mobile - The Playbook first, then The Company */
+            /* Ensure The Company is next to The Playbook */
             .footer-nav-section:nth-child(1) {
                 order: 1;
             }
@@ -2163,6 +2167,13 @@
 
             .footer-logo-img {
                 height: 120px;
+                margin: 0 auto;
+            }
+
+            .footer-description {
+                text-align: center;
+                margin: 0 auto 20px;
+                max-width: 90%;
             }
 
             /* Content wrapper spacing */
@@ -2522,10 +2533,10 @@
         <div class="chat-messages" id="chatMessages">
             <div class="message message-coach">
                 <div class="message-bubble">
-                    When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
+                    When the pressure rises, you don't need more noise, you need a place where things finally make sense.<br><br>
                     That's this space.<br><br>
                     Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
-                    I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
+                    I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly, without conflict or overexposure.<br><br>
                     This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
                     What's the part of your situation that feels most urgent today?
                 </div>
@@ -2593,14 +2604,6 @@
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
             </div>
             
-            <div class="footer-newsletter">
-                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
-                <form class="footer-newsletter-form">
-                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
-                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
-                </form>
-            </div>
-            
             <div class="footer-nav">
                 <div class="footer-nav-grid">
                     <div class="footer-nav-section">
@@ -2625,6 +2628,14 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-newsletter-title">Stay updated with strategic insights</h3>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email" required>
+                    <button type="submit" class="footer-newsletter-button">Subscribe</button>
+                </form>
             </div>
         </div>
         
@@ -2746,7 +2757,7 @@
             },
             {
                 sender: 'coach',
-                text: "That's a quiet erosion of your professional identity — the work is yours, but the recognition isn't. How long has this pattern been building?",
+                text: "That's a quiet erosion of your professional identity, the work is yours, but the recognition isn't. How long has this pattern been building?",
                 delay: 3000 // Slower transition
             },
             {
@@ -2756,17 +2767,17 @@
             },
             {
                 sender: 'coach',
-                text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating — it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
+                text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating, it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
                 delay: 3500 // Slower transition
             },
             {
                 sender: 'user',
-                text: "Exactly. I don't want drama — I just want to be seen.",
+                text: "Exactly. I don't want drama, I just want to be seen.",
                 delay: 2500 // Slower transition
             },
             {
                 sender: 'coach',
-                text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update — something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you — not like corporate speak?",
+                text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update, something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you, not like corporate speak?",
                 delay: 4000 // Slower transition
             }
         ];
@@ -2888,10 +2899,10 @@
             chatMessages.innerHTML = `
                 <div class="message message-coach">
                     <div class="message-bubble">
-                        When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
+                        When the pressure rises, you don't need more noise, you need a place where things finally make sense.<br><br>
                         That's this space.<br><br>
                         Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
-                        I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
+                        I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly, without conflict or overexposure.<br><br>
                         This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
                         What's the part of your situation that feels most urgent today?
                     </div>
@@ -3059,7 +3070,7 @@
                 if (userContext.emotion === 'frustrated') {
                     responses.push("I can hear the frustration in your situation. When we feel this way, it's helpful to identify what's within our control. What one action could you take that would move things forward positively?");
                 } else if (userContext.emotion === 'stressed') {
-                    responses.push("This sounds stressful. Let's break this down - what's the immediate priority that needs attention right now?");
+                    responses.push("This sounds stressful. Let's break this down, what's the immediate priority that needs attention right now?");
                 } else if (userContext.emotion === 'confused') {
                     responses.push("When things feel unclear, it helps to focus on what you do know. What aspects of this situation feel most certain to you?");
                 } else if (userContext.emotion === 'disappointed') {
