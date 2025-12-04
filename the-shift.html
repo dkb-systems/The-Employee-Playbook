@@ -158,7 +158,7 @@
 
         /* Active page indicator - Purple underline */
         .nav-link.active {
-            color: var(--accent-purple);
+            color: var(--text-dark);
         }
 
         /* Active page indicator - Black text for desktop with purple underline */
@@ -283,7 +283,7 @@
         .mobile-create-account-tab {
             display: none;
             position: fixed;
-            top: 15%;
+            top: 15%; /* Changed from 20% to 15% */
             right: 0;
             background: var(--accent-purple);
             color: white;
@@ -700,6 +700,56 @@
             flex-direction: column;
             height: 100%;
             position: relative;
+        }
+
+        /* Module card content structure */
+        .module-card-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Trending badge positioning fix */
+        .module-card.has-trending {
+            position: relative;
+        }
+
+        @media (min-width: 769px) {
+            /* Desktop: Keep trending badge in top-right */
+            .module-card.has-trending .trending-badge {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        .module-card.has-trending .trending-badge {
+            order: 1;
+            align-self: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .module-card.has-trending .module-header {
+            order: 2;
+        }
+
+        .module-card.has-trending .module-description {
+            order: 3;
+        }
+
+        .module-card.has-trending .module-features {
+            order: 4;
+        }
+
+        .module-card.has-trending .views-counter {
+            order: 5;
+        }
+
+        .module-card.has-trending .module-cta {
+            order: 6;
+        }
+
+        .module-card.has-trending .lock-overlay {
+            order: 7;
         }
 
         /* Locked Module Style */
@@ -1160,68 +1210,88 @@
                 display: flex;
             }
 
-            /* MOBILE NAVIGATION - Matching other pages */
+            /* NEW: Center content for mobile view */
+            .container {
+                text-align: center;
+            }
+            
+            /* Mobile Navigation Changes - Match The Lens */
             .nav-container {
-                justify-content: space-between;
-                padding: 0 16px;
+                justify-content: center;
+                position: relative;
             }
             
             .logo {
-                position: static;
-                transform: none;
-                flex: 1;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
                 display: flex;
-                justify-content: center;
+                align-items: center;
+                height: 100%;
             }
             
-            /* Logo size matching other pages */
             .logo-img {
-                height: 56px; /* Matching other pages mobile size */
+                height: 125px; /* Match The Lens */
                 transform: none;
-                padding: 8px 0;
+                padding: 12px 0;
+                display: flex;
+                align-items: center;
             }
             
             .mobile-toggle {
                 display: flex;
-                position: static;
-                order: 1;
-                margin-right: 10px;
+                position: absolute;
+                left: 20px;
+                align-items: center;
             }
             
-            /* Hide desktop actions completely */
             .nav-actions {
+                transform: none;
+                gap: 16px;
+                position: absolute;
+                right: 20px;
+                align-items: center;
+            }
+            
+            /* Hide the desktop Sign In button in mobile view */
+            .nav-actions .sign-in {
                 display: none !important;
             }
             
-            /* Center logo in the middle */
-            .logo {
-                order: 2;
-                display: flex;
-                justify-content: center;
+            /* Hide the sign-up button in mobile navigation */
+            .nav-actions .header-cta {
+                display: none !important;
             }
             
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 80px;
+                position: absolute;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                height: calc(100vh - 80px);
                 background: var(--nav-bg);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 30px 20px;
+                padding: 20px;
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                gap: 25px;
-                text-align: left;
-                overflow-y: auto;
-                z-index: 1000;
+                gap: 20px;
+                text-align: left; /* Left-align like The Lens */
             }
 
             .nav-links.active {
                 display: flex;
+            }
+            
+            /* Make The Shift link purple in mobile menu */
+            .nav-link.active {
+                color: var(--accent-purple);
+            }
+            
+            /* Remove purple underline from active nav link on mobile */
+            .nav-link.active::after {
+                display: none;
             }
             
             /* Move The Coach to the left and New tag next to it */
@@ -1239,13 +1309,11 @@
                 right: auto;
             }
             
-            /* Mobile sign in/up buttons - Matching other pages */
+            /* Mobile Sign In button - Match The Lens */
             .mobile-sign-in {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                margin-top: 20px;
-                padding: 14px 24px;
+                display: block !important;
+                margin-top: 10px;
+                padding: 12px 20px;
                 background: white;
                 color: var(--accent-purple);
                 border-radius: 8px;
@@ -1253,28 +1321,13 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
-                transition: all 0.3s ease;
-                width: 100%;
-                font-size: 16px;
             }
 
-            .mobile-sign-in:hover {
-                background: rgba(123, 95, 196, 0.1);
-                transform: translateY(-1px);
-            }
-
-            .dark-mode .mobile-sign-in {
-                background: var(--primary-white);
-                color: var(--accent-purple);
-                border: 2px solid var(--accent-purple);
-            }
-
+            /* Mobile Sign Up button - Match The Lens */
             .mobile-sign-up {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
+                display: block !important;
                 margin-top: 10px;
-                padding: 14px 24px;
+                padding: 12px 20px;
                 background: var(--accent-purple);
                 color: white;
                 border-radius: 8px;
@@ -1282,337 +1335,195 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
-                transition: all 0.3s ease;
-                box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
-                width: 100%;
-                font-size: 16px;
+                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
             }
 
-            .mobile-sign-up:hover {
-                background: var(--accent-purple-dark);
-                transform: translateY(-1px);
-                box-shadow: 0 5px 12px rgba(123, 95, 196, 0.35);
-            }
-
-            .dark-mode .mobile-sign-up {
-                background: var(--accent-purple);
-                color: white;
-                border: 2px solid var(--accent-purple);
-            }
-
-            /* HERO SECTION - Matching other pages mobile sizing */
+            /* Mobile Content Sizing - Match The Lens */
+            
+            /* Hero section - Match The Lens */
             .shift-hero {
-                padding: 120px 0 60px;
-                min-height: auto;
+                padding-top: 140px; /* Match The Lens spacing */
             }
-
-            .shift-hero-content {
-                padding: 0 16px;
-            }
-
+            
             .shift-hero-title {
-                font-size: 32px; /* Matching other pages mobile size */
+                font-size: 42px; /* Match The Lens hero-title */
                 line-height: 1.2;
                 margin-bottom: 20px;
-                letter-spacing: -0.5px;
+                margin-top: 0; /* Reset the previous negative margin */
             }
 
             .shift-hero-subtitle {
-                font-size: 16px; /* Matching other pages mobile size */
-                margin-bottom: 30px;
+                font-size: 18px; /* Match The Lens hero-subtitle */
                 line-height: 1.5;
+                margin-bottom: 40px;
+            }
+
+            /* Section titles - Match The Lens */
+            .section-title,
+            .conflict-title,
+            .narrative-title {
+                font-size: 32px; /* Match The Lens section titles */
+                margin-bottom: 30px;
+            }
+            
+            /* Narrative text - Match The Lens */
+            .narrative-text {
+                font-size: 16px; /* Match The Lens body text */
+                line-height: 1.5;
+                padding: 0 20px;
+            }
+            
+            /* Bridge statement - Match The Lens */
+            .bridge-statement {
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 0 20px;
+            }
+            
+            /* Final statement - Match The Lens */
+            .final-statement {
+                font-size: 20px; /* Match The Lens micro-cta */
+                margin-bottom: 25px;
+            }
+            
+            .cta-note {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            
+            .module-header {
+                flex-direction: row; /* Keep icon and text side by side */
+                text-align: left; /* Left-align like The Lens */
+                margin-bottom: 20px;
+            }
+            
+            .module-icon {
+                margin-right: 15px;
+                margin-bottom: 0;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .module-title {
+                font-size: 20px; /* Match The Lens card titles */
+            }
+            
+            .module-description {
+                font-size: 16px; /* Match The Lens body text */
+                line-height: 1.5;
+            }
+            
+            .module-feature {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            
+            /* Module cards - Match The Lens spacing */
+            .modules-grid {
+                gap: 25px;
+            }
+            
+            .module-card {
+                padding: 25px 20px; /* Match The Lens card padding */
+            }
+            
+            /* Move trending badges to not cover text */
+            .trending-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                align-self: flex-start;
+                margin-bottom: 15px;
+                order: -1; /* Move to top of card content */
+            }
+            
+            .conflict-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .conflict-cycle, .shift-solution {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav-grid {
+                grid-template-columns: 1fr; /* Match The Lens single column */
+                gap: 30px;
+                order: 1;
+            }
+            
+            /* Ensure The Playbook section appears first */
+            .footer-nav-section:nth-child(1) {
+                order: 1;
+            }
+            
+            /* Ensure The Company section appears second */
+            .footer-nav-section:nth-child(2) {
+                order: 2;
+            }
+
+            .footer-newsletter-form {
+                flex-direction: column;
             }
 
             .cta-buttons {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-                padding: 16px 24px;
-                font-size: 16px;
-                margin-bottom: 10px;
             }
 
             .secondary-cta {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
                 margin-left: 0;
-                padding: 14px 24px;
-                font-size: 14px;
-            }
-
-            /* SECTION SPACING - Matching other pages */
-            section {
-                padding: 60px 0;
-            }
-
-            .conflict-section, .stages-narrative, .modules, .final-cta {
-                padding: 60px 0;
-            }
-
-            /* CONTAINER PADDING - Matching other pages */
-            .container {
-                padding: 0 16px;
-            }
-
-            /* SECTION TITLES - Matching other pages */
-            .section-title, .narrative-title, .conflict-title {
-                font-size: 28px; /* Matching other pages mobile size */
-                margin-bottom: 20px;
-                line-height: 1.2;
-            }
-
-            .section-subtitle, .narrative-text, .solution-text, .bridge-statement {
-                font-size: 16px; /* Matching other pages mobile size */
-                line-height: 1.6;
-            }
-
-            /* CONFLICT GRID - single column for mobile */
-            .conflict-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .conflict-cycle, .shift-solution {
-                padding: 20px;
-            }
-
-            .cycle-title, .solution-title {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-
-            .cycle-item {
-                padding: 10px 0;
-                font-size: 14px;
-            }
-
-            .solution-text {
-                font-size: 16px;
-            }
-
-            /* MODULE CARDS - full width for mobile */
-            .modules-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .module-card {
-                padding: 20px;
-            }
-
-            .module-header {
-                flex-direction: row;
-                text-align: left;
-                align-items: flex-start;
-                margin-bottom: 15px;
-            }
-
-            .module-icon {
-                width: 50px;
-                height: 50px;
-                margin-right: 15px;
-                margin-bottom: 0;
-                font-size: 20px;
-            }
-
-            .module-title {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-
-            .module-subtitle {
-                font-size: 14px;
-            }
-
-            .module-description {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-
-            .module-feature {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
-
-            .module-cta {
-                align-self: stretch;
-                width: 100%;
-                text-align: center;
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-
-            /* TRENDING BADGE adjustments for mobile */
-            .trending-badge {
-                top: 15px;
-                right: 15px;
-                font-size: 10px;
-                padding: 4px 8px;
-            }
-
-            /* LOCK OVERLAY adjustments for mobile */
-            .lock-overlay {
-                padding: 20px;
-            }
-
-            .lock-icon {
-                font-size: 36px;
-                margin-bottom: 15px;
-            }
-
-            .lock-text {
-                font-size: 16px;
-                margin-bottom: 5px;
-            }
-
-            .views-required {
-                font-size: 12px;
-                margin-bottom: 15px;
-            }
-
-            .unlock-btn {
-                width: 100%;
-                max-width: 200px;
-                padding: 12px 20px;
-            }
-
-            /* VIEWS COUNTER adjustments */
-            .views-counter {
-                font-size: 12px;
-                justify-content: center;
-                margin-top: 12px;
-            }
-
-            /* FINAL CTA - Matching other pages */
-            .final-cta {
-                padding: 60px 0;
-            }
-
-            .final-statement {
-                font-size: 24px; /* Matching other pages mobile size */
-                margin-bottom: 20px;
-                line-height: 1.3;
-            }
-
-            .cta-note {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .final-cta .cta-button {
-                max-width: 280px;
-            }
-
-            /* FOOTER - Matching other pages */
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 0;
-            }
-
-            .footer-about {
-                padding-left: 0;
-                text-align: center;
-            }
-
-            .footer-logo {
-                justify-content: center;
-            }
-
-            .footer-logo-img {
-                height: 70px; /* Matching other pages mobile size */
-            }
-
-            .footer-description {
-                font-size: 14px;
-            }
-
-            .footer-nav-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-heading {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-
-            .footer-link {
-                margin-bottom: 8px;
-                font-size: 14px;
-            }
-
-            .footer-newsletter-title {
-                font-size: 16px;
-                margin-bottom: 12px;
-            }
-
-            .footer-newsletter-form {
-                max-width: 100%;
-            }
-
-            /* REMOVED: Purple line for active page indicator on mobile */
-            .nav-link.active::after {
-                display: none;
             }
             
-            .nav-link.active {
-                color: var(--accent-purple);
+            /* Footer Changes */
+            .footer-logo-img {
+                height: 120px; /* Match The Lens */
+            }
+            
+            .footer-about {
+                padding-left: 0; /* Remove left padding for mobile */
+                text-align: center; /* Center align like The Lens */
+            }
+            
+            .bridge-statement {
+                font-size: 18px;
+                padding: 0 20px;
             }
         }
 
         @media (max-width: 480px) {
-            /* Extra small screen adjustments */
-            .shift-hero-title {
-                font-size: 28px;
-            }
-            
-            .shift-hero-subtitle {
-                font-size: 15px;
-            }
-            
-            .section-title, .narrative-title, .conflict-title {
-                font-size: 24px;
-            }
-            
-            .final-statement {
-                font-size: 22px;
-            }
-            
             .logo-img {
-                height: 50px;
+                height: 100px; /* Adjusted for very small screens */
             }
             
             .footer-logo-img {
-                height: 60px;
+                height: 100px; /* Adjusted for very small screens */
             }
             
             .logo-fallback {
                 font-size: 18px;
             }
-        }
-        
-        /* Tablet specific adjustments */
-        @media (min-width: 769px) and (max-width: 1024px) {
+            
             .shift-hero-title {
-                font-size: 56px;
+                font-size: 36px;
             }
             
-            .modules-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .shift-hero-subtitle {
+                font-size: 16px;
             }
             
-            .module-card {
-                padding: 30px;
+            .final-statement {
+                font-size: 18px;
+            }
+            
+            .narrative-text {
+                font-size: 16px;
             }
         }
     </style>
@@ -1756,43 +1667,45 @@
         
         <div class="modules-grid">
             <!-- Module 1 - Unlocked & Trending -->
-            <div class="module-card">
+            <div class="module-card has-trending">
                 <!-- Trending Badge -->
                 <div class="trending-badge">
                     <i class="fas fa-fire"></i> TRENDING
                 </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-brain"></i>
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">Boundary Mastery & Burnout Prevention</h3>
+                            <p class="module-subtitle">Protect your energy in always-on work culture</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="module-title">Resilience & Self-Mastery</h3>
-                        <p class="module-subtitle">Build unshakeable inner stability</p>
+                    <p class="module-description">Master the art of setting professional boundaries without guilt. Learn to say no strategically, manage expectations, and prevent burnout in high-demand environments.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Boundary-setting scripts for meetings, emails, and after-hours requests</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Burnout early warning system and recovery protocols</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Energy management for hybrid/remote work environments</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 3,421 views this month
                     </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <p class="module-description">Develop the mental and emotional resilience to navigate uncertainty with confidence. Learn techniques to maintain clarity under pressure and bounce back from setbacks stronger than before.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Stress management techniques for high-pressure environments</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Emotional regulation strategies</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Mindfulness practices for decision-making clarity</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 2,845 views this month
-                </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 2 - Locked -->
-            <div class="module-card locked">
+            <div class="module-card locked has-trending">
                 <!-- Lock Overlay -->
                 <div class="lock-overlay">
                     <div class="lock-icon">
@@ -1802,37 +1715,42 @@
                     <div class="views-required">Complete 2 modules to unlock</div>
                     <button class="unlock-btn" onclick="unlockModule(1)">Unlock Now</button>
                 </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-compass"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Next 90 Days Strategy</h3>
-                        <p class="module-subtitle">Create career leverage systematically</p>
-                    </div>
+                <div class="trending-badge">
+                    <i class="fas fa-fire"></i> TRENDING
                 </div>
-                <p class="module-description">Design a strategic 90-day plan to position yourself for maximum impact and visibility. Identify key projects, relationships, and accomplishments that will accelerate your career trajectory.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Strategic goal-setting framework</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Stakeholder mapping and engagement plan</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Progress tracking and adjustment system</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 1,923 views this month
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-comments-dollar"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">Compensation & Promotion Strategy</h3>
+                            <p class="module-subtitle">Get paid what you're worth in uncertain times</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Navigate compensation discussions and promotion paths during economic uncertainty. Build your case, time your ask, and negotiate effectively even when budgets are tight.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Value documentation framework for remote/hybrid work</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Market data negotiation scripts for inflationary periods</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Alternative compensation strategies (equity, flexibility, development)</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 2,893 views this month
+                    </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 3 - Locked & Trending -->
+            <!-- Module 3 - Locked -->
             <div class="module-card locked">
                 <!-- Lock Overlay -->
                 <div class="lock-overlay">
@@ -1843,38 +1761,36 @@
                     <div class="views-required">Complete 3 modules to unlock</div>
                     <button class="unlock-btn" onclick="unlockModule(2)">Unlock Now</button>
                 </div>
-                <!-- Trending Badge -->
-                <div class="trending-badge">
-                    <i class="fas fa-fire"></i> TRENDING
-                </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-user-tie"></i>
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">Hybrid Work Influence & Visibility</h3>
+                            <p class="module-subtitle">Stay visible and influential in distributed teams</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="module-title">Identity Before Action</h3>
-                        <p class="module-subtitle">Who do you want to be?</p>
+                    <p class="module-description">Build and maintain influence in hybrid/remote environments. Master digital presence, strategic relationship-building, and ensuring your work gets seen by decision-makers.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Digital presence optimization for hybrid work</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Virtual relationship-building with remote leaders</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Asynchronous communication mastery</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 2,567 views this month
                     </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <p class="module-description">Clarify your professional identity and values to ensure your actions align with the leader you aspire to become. Build authentic presence that commands respect and influence.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Values clarification and alignment exercises</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Personal branding development</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Executive presence cultivation</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 3,452 views this month
-                </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 4 - Locked -->
@@ -1888,38 +1804,40 @@
                     <div class="views-required">Complete 4 modules to unlock</div>
                     <button class="unlock-btn" onclick="unlockModule(3)">Unlock Now</button>
                 </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-handshake"></i>
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">AI Integration & Skill Evolution</h3>
+                            <p class="module-subtitle">Stay relevant in rapidly changing workplaces</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="module-title">Conflict Mastery Without Ego</h3>
-                        <p class="module-subtitle">Navigate disagreements with strategic grace</p>
+                    <p class="module-description">Strategically integrate AI tools while developing irreplaceable human skills. Position yourself as both technologically adept and uniquely human in your problem-solving.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>AI tool integration for productivity enhancement</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Developing AI-resistant human skills (judgment, creativity, empathy)</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Career path adaptation for AI-augmented roles</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 3,012 views this month
                     </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <p class="module-description">Transform conflict from a threat into an opportunity for growth and strengthened relationships. Learn to de-escalate tension while maintaining your position and principles.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>De-escalation techniques for tense situations</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Negotiation frameworks for win-win outcomes</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Difficult conversation scripts and templates</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 2,187 views this month
-                </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
-            <!-- Module 5 - Locked -->
-            <div class="module-card locked">
+            <!-- Module 5 - Locked & Trending -->
+            <div class="module-card locked has-trending">
                 <!-- Lock Overlay -->
                 <div class="lock-overlay">
                     <div class="lock-icon">
@@ -1929,34 +1847,40 @@
                     <div class="views-required">Complete 5 modules to unlock</div>
                     <button class="unlock-btn" onclick="unlockModule(4)">Unlock Now</button>
                 </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-battery-three-quarters"></i>
-                    </div>
-                    <div>
-                        <h3 class="module-title">Burnout Reset Path</h3>
-                        <p class="module-subtitle">Recover and rebuild sustainable energy</p>
-                    </div>
+                <!-- Trending Badge -->
+                <div class="trending-badge">
+                    <i class="fas fa-fire"></i> TRENDING
                 </div>
-                <p class="module-description">Identify burnout triggers and implement a personalized recovery plan. Develop sustainable work habits that protect your energy while maintaining high performance.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Burnout assessment and recovery roadmap</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Energy management techniques</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Boundary-setting strategies for sustainable performance</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 1,756 views this month
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">Psychological Safety & Microaggressions</h3>
+                            <p class="module-subtitle">Navigate complex interpersonal dynamics</p>
+                        </div>
+                    </div>
+                    <p class="module-description">Address microaggressions, build psychological safety, and navigate diverse workplace dynamics with confidence and strategic awareness.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Microaggression response toolkit for bystanders and targets</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Psychological safety creation in team environments</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Inclusive leadership behaviors and communication</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 2,845 views this month
+                    </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
             
             <!-- Module 6 - Locked -->
@@ -1970,34 +1894,36 @@
                     <div class="views-required">Complete 6 modules to unlock</div>
                     <button class="unlock-btn" onclick="unlockModule(5)">Unlock Now</button>
                 </div>
-                <div class="module-header">
-                    <div class="module-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="module-card-content">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <div>
+                            <h3 class="module-title">Strategic Career Pivoting</h3>
+                            <p class="module-subtitle">Navigate career transitions in volatile markets</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="module-title">Raise Accelerator Module</h3>
-                        <p class="module-subtitle">Position yourself for maximum compensation</p>
+                    <p class="module-description">Plan and execute strategic career pivots during economic uncertainty. Identify transferable skills, build transition narratives, and navigate internal mobility opportunities.</p>
+                    <ul class="module-features">
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Transferable skills audit and narrative development</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Internal mobility strategy and relationship mapping</span>
+                        </li>
+                        <li class="module-feature">
+                            <span class="feature-icon"><i class="fas fa-check"></i></span>
+                            <span>Career transition risk assessment and mitigation</span>
+                        </li>
+                    </ul>
+                    <div class="views-counter">
+                        <i class="fas fa-eye"></i> 2,178 views this month
                     </div>
+                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
                 </div>
-                <p class="module-description">Systematically prepare for and execute successful compensation negotiations. Build your case, time your approach, and communicate your value with confidence.</p>
-                <ul class="module-features">
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Value documentation framework</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Market research and positioning strategies</span>
-                    </li>
-                    <li class="module-feature">
-                        <span class="feature-icon"><i class="fas fa-check"></i></span>
-                        <span>Negotiation scripts and objection handling</span>
-                    </li>
-                </ul>
-                <div class="views-counter">
-                    <i class="fas fa-eye"></i> 2,934 views this month
-                </div>
-                <a href="create-account.html" class="module-cta">Enter This Stage</a>
             </div>
         </div>
     </div>
@@ -2049,7 +1975,7 @@
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">Company</h3>
+                        <h3 class="footer-heading">The Company</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
@@ -2178,6 +2104,19 @@
                 }
             });
         }
+        
+        // Add trending class to appropriate modules and wrap content
+        document.querySelectorAll('.module-card').forEach(card => {
+            // Check if card has trending badge
+            const hasTrending = card.querySelector('.trending-badge');
+            if (hasTrending) {
+                card.classList.add('has-trending');
+            }
+            
+            // Wrap existing content in module-card-content
+            const content = card.innerHTML;
+            card.innerHTML = `<div class="module-card-content">${content}</div>`;
+        });
         
         // Call initially
         updateModuleLocks();
