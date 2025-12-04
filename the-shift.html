@@ -1243,7 +1243,143 @@
         @media (max-width: 768px) {
             /* Mobile improvements */
             
-            /* 1. Left justify text under footer logo */
+            /* 1. Move first line of header heading down by one line */
+            .shift-hero-title {
+                display: block !important;
+            }
+            
+            .hero-line {
+                display: block !important;
+                margin-bottom: 8px;
+            }
+            
+            /* 2. Centre the subheading */
+            .shift-hero-subtitle {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            /* 3. Centre 'how the shift fits...' content */
+            .integration-content {
+                text-align: center !important;
+            }
+            
+            /* 4. Centre the library categories */
+            .categories-list {
+                justify-content: center !important;
+                align-items: center !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+            }
+            
+            /* 5. Put 'individual' on next line in structure section */
+            .structure-section .section-title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .structure-section .section-title::after {
+                content: "Individual Shift";
+                font-size: 32px;
+                font-weight: 700;
+                margin-top: 5px;
+                color: var(--deep-navy);
+            }
+            
+            .structure-section .section-title br {
+                display: none;
+            }
+            
+            /* 6. Centre content in 'The Four Types...' section */
+            .types-section .section-header,
+            .types-grid {
+                text-align: center !important;
+            }
+            
+            .type-card {
+                text-align: center !important;
+                align-items: center !important;
+            }
+            
+            .type-icon {
+                margin: 0 auto 20px !important;
+            }
+            
+            /* 7. Centre 'what the shift is' and the stats */
+            .what-is-section .what-is-content {
+                text-align: center !important;
+            }
+            
+            .what-is-description {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            .hero-stats {
+                align-items: center !important;
+                text-align: center !important;
+                padding-left: 0 !important;
+            }
+            
+            .stat-item {
+                align-items: center !important;
+            }
+            
+            /* 8. Reduce width of CTA buttons */
+            .cta-buttons {
+                width: 100%;
+                max-width: 350px !important; /* Reduced from 400px */
+                margin: 0 auto;
+            }
+            
+            .cta-button, .secondary-cta {
+                width: 100%;
+                text-align: center;
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+            
+            .secondary-cta {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            /* Additional centering for Why It Works section */
+            .why-works-section .section-header,
+            .why-works-grid,
+            .why-works-card {
+                text-align: center !important;
+            }
+            
+            /* Additional centering for Problems section */
+            .problems-section .section-header {
+                text-align: center !important;
+            }
+            
+            /* Additional centering for Examples section */
+            .examples-section .section-header {
+                text-align: center !important;
+            }
+            
+            .example-card {
+                text-align: center !important;
+            }
+            
+            /* Additional centering for Final CTA */
+            .final-cta-content {
+                text-align: center !important;
+            }
+            
+            .final-statement {
+                text-align: center !important;
+            }
+            
+            .cta-note {
+                text-align: center !important;
+            }
+            
+            /* Original mobile styles */
             .footer-about {
                 text-align: left;
                 padding-left: 0;
@@ -1253,7 +1389,6 @@
                 text-align: left;
             }
             
-            /* 2. Resize headings to match The Lens mobile */
             .what-is-title {
                 font-size: 28px;
                 margin-bottom: 20px;
@@ -1268,11 +1403,10 @@
                 font-size: 18px;
             }
             
-            /* 3. Adjust description under 'what the shift is' */
             .what-is-description {
                 font-size: 18px;
                 line-height: 1.5;
-                text-align: left;
+                text-align: center !important;
                 padding: 0 10px;
             }
             
@@ -1280,29 +1414,9 @@
                 margin-bottom: 15px;
             }
             
-            /* 4. Move hero heading lower by its own line height x 1 */
             .shift-hero {
-                padding-top: 140px; /* Increased from 100px to move content lower */
+                padding-top: 140px;
                 min-height: 85vh;
-            }
-            
-            /* 5. Reduce width of CTAs */
-            .cta-buttons {
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            
-            .cta-button, .secondary-cta {
-                width: 100%;
-                text-align: center;
-                padding: 16px 20px;
-                font-size: 16px;
-            }
-            
-            .secondary-cta {
-                margin-left: 0;
-                margin-top: 10px;
             }
 
             /* NEW: Show the Create Account Tab on mobile */
@@ -1343,7 +1457,7 @@
             
             /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 122px; /* Increased from 100px to 125px (25% increase) */
+                height: 122px;
                 transform: none;
                 padding: 12px 0;
             }
@@ -1385,7 +1499,7 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
-                text-align: left; /* CHANGED: Left justify the menu items */
+                text-align: left;
             }
 
             .nav-links.active {
@@ -1465,7 +1579,6 @@
                 border: 2px solid var(--accent-purple);
             }
 
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero {
                 min-height: 80vh;
             }
@@ -1487,14 +1600,13 @@
 
             .shift-hero-subtitle {
                 font-size: 20px;
+                text-align: center !important;
             }
 
-            /* REDUCED: Reduce section titles to match conflict-title size */
             .section-title {
-                font-size: 32px; /* Reduced from 45px to match conflict-title */
+                font-size: 32px;
             }
             
-            /* Mobile Content Updates */
             .types-grid {
                 grid-template-columns: 1fr;
             }
@@ -1530,7 +1642,7 @@
             }
             
             .categories-list {
-                justify-content: center;
+                justify-content: center !important;
             }
             
             .category-tag {
@@ -1552,56 +1664,48 @@
             }
 
             /* Additional mobile improvements */
-            /* Make example cards and type cards left-aligned text */
             .type-card, .example-card, .problem-card {
-                text-align: left;
+                text-align: center !important;
             }
             
-            /* Adjust type icon alignment for left-aligned content */
             .type-icon {
-                margin: 0 0 20px 0;
+                margin: 0 auto 20px !important;
             }
             
-            /* Left-align structure items on mobile */
             .structure-item {
-                text-align: left;
-                align-items: flex-start;
+                text-align: center !important;
+                align-items: center !important;
             }
             
-            /* Left-align integration content */
             .integration-content {
-                text-align: left;
+                text-align: center !important;
                 padding: 30px;
             }
             
-            /* Left-align final CTA */
             .final-cta-content {
-                text-align: left;
+                text-align: center !important;
             }
             
             .final-statement {
                 font-size: 28px;
-                text-align: left;
+                text-align: center !important;
             }
             
             .cta-note {
-                text-align: left;
+                text-align: center !important;
             }
             
-            /* Footer Changes */
             .footer-nav-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 30px;
             }
             
-            /* Mobile Logo Adjustments */
             .footer-logo-img {
-                height: 120px; /* Doubled for mobile (was 60px) */
+                height: 120px;
             }
             
-            /* REDUCED: Final statement size for mobile */
             .final-statement {
-                font-size: 28px; /* Reduced from 40px */
+                font-size: 28px;
             }
             
             .integration-content {
@@ -1612,29 +1716,49 @@
         @media (max-width: 480px) {
             /* Further adjustments for very small screens */
             
+            /* 1. Centre everything properly */
+            .shift-hero-subtitle {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            /* 2. Centre categories list */
+            .categories-list {
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            
+            .category-tag {
+                margin: 5px;
+            }
+            
+            /* 3. Further reduce CTA button width */
+            .cta-buttons {
+                max-width: 320px !important;
+            }
+            
+            /* Original very small screen styles */
             .shift-hero-title {
-                font-size: 2.4rem; /* Slightly larger for better readability */
+                font-size: 2.4rem;
                 line-height: 1.2;
             }
             
             .shift-hero-subtitle {
                 font-size: 18px;
-                text-align: left;
+                text-align: center !important;
                 padding: 0 10px;
             }
             
-            /* Make hero stats left-aligned */
             .hero-stats {
-                align-items: flex-start;
-                text-align: left;
-                padding-left: 20px;
+                align-items: center !important;
+                text-align: center !important;
+                padding-left: 0 !important;
             }
             
             .stat-item {
-                align-items: flex-start;
+                align-items: center !important;
             }
             
-            /* Reduce section titles further for very small screens */
             .section-title {
                 font-size: 28px;
             }
@@ -1643,41 +1767,38 @@
                 font-size: 26px;
             }
             
-            /* Make categories list left-aligned */
             .categories-list {
-                justify-content: flex-start;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-left: 0;
-                margin-right: 0;
+                justify-content: center !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                margin-left: auto;
+                margin-right: auto;
             }
             
-            /* Adjust integration points for mobile */
             .integration-points {
-                align-items: flex-start;
+                align-items: center !important;
             }
             
             .integration-point {
                 padding: 0;
-                text-align: left;
+                text-align: center !important;
             }
             
-            /* Logo adjustments */
             .logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .footer-logo-img {
-                height: 100px; /* Adjusted for very small screens */
+                height: 100px;
             }
             
             .logo-fallback {
                 font-size: 18px;
             }
             
-            /* REDUCED: Further reduce final statement size for very small mobile */
             .final-statement {
-                font-size: 24px; /* Further reduced for very small screens */
+                font-size: 24px;
+                text-align: center !important;
             }
             
             .why-works-grid {
@@ -1945,7 +2066,7 @@
 <section class="structure-section">
     <div class="container structure-content">
         <div class="section-header">
-            <h2 class="section-title">Structure of an Individual Shift</h2>
+            <h2 class="section-title">Structure of an<br>Individual Shift</h2>
             <p class="structure-description">Every Shift follows the same 7‑element architecture designed for maximum impact and retention</p>
         </div>
         
