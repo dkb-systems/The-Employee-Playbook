@@ -1909,22 +1909,24 @@
                 padding: 80px 15px 30px;
             }
 
-            /* Hero Section Mobile */
+            /* Hero Section Mobile - Made H1 slightly bigger and ensured it fits */
             .hero-section {
                 padding-top: 100px;
                 margin-bottom: 30px;
             }
 
             .hero-title {
-                font-size: 42px;
+                font-size: 46px; /* Increased from 42px to 46px */
                 line-height: 1.2;
                 margin-bottom: 20px;
+                text-align: center;
             }
 
             .hero-subtitle {
                 font-size: 18px;
                 line-height: 1.5;
                 margin-bottom: 40px;
+                text-align: center;
             }
 
             /* Center CTAs on mobile */
@@ -1949,6 +1951,7 @@
             .how-it-works-title {
                 font-size: 32px;
                 margin-bottom: 30px;
+                text-align: center;
             }
 
             .cards-container {
@@ -1958,6 +1961,7 @@
 
             .process-card {
                 padding: 35px 25px 25px; /* Adjusted for mobile - reduced height */
+                text-align: center;
             }
 
             .process-icon {
@@ -1970,10 +1974,12 @@
             .process-title {
                 font-size: 20px;
                 margin-bottom: 15px;
+                text-align: center;
             }
 
             .process-description {
                 font-size: 16px;
+                text-align: center;
             }
 
             /* Coach Demo Section Mobile */
@@ -1988,10 +1994,12 @@
 
             .demo-title {
                 font-size: 26px;
+                text-align: center;
             }
 
             .demo-subtitle {
                 font-size: 15px;
+                text-align: center;
             }
 
             .chat-demo {
@@ -2016,6 +2024,7 @@
             .benefits-title {
                 font-size: 32px;
                 margin-bottom: 30px;
+                text-align: center;
             }
 
             /* Benefits grid */
@@ -2028,6 +2037,7 @@
                 height: auto;
                 min-height: 260px;
                 padding: 35px 20px 25px; /* Reduced padding */
+                text-align: center;
             }
 
             .benefit-icon {
@@ -2040,10 +2050,12 @@
             .benefit-title {
                 font-size: 20px;
                 margin-bottom: 15px;
+                text-align: center;
             }
 
             .benefit-description {
                 font-size: 16px;
+                text-align: center;
             }
 
             /* Pill sections */
@@ -2054,6 +2066,7 @@
 
             .pill-section {
                 padding: 40px 20px 30px;
+                text-align: center;
             }
 
             .pill-icon {
@@ -2066,10 +2079,12 @@
             .pill-title {
                 font-size: 20px;
                 margin-bottom: 15px;
+                text-align: center;
             }
 
             .pill-description {
                 font-size: 16px;
+                text-align: center;
             }
 
             /* Micro CTA - Full width on mobile */
@@ -2090,6 +2105,7 @@
             .micro-cta p {
                 font-size: 22px;
                 margin-bottom: 20px;
+                text-align: center;
             }
 
             .cta-small, .cta-link, .secondary-cta {
@@ -2098,11 +2114,13 @@
                 max-width: 220px;
                 font-size: 15px;
                 padding: 12px 24px;
+                text-align: center;
             }
 
             .cta-link {
                 margin-top: 15px;
                 display: inline-block;
+                text-align: center;
             }
 
             /* Footer - Mobile adjustments */
@@ -2124,8 +2142,14 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr; /* Keep two columns on mobile */
-                gap: 40px;
+                grid-template-columns: 1fr 1fr; /* Keep two columns on mobile - FIXED */
+                gap: 40px; /* Good spacing between columns */
+                display: grid; /* Ensure it's a grid */
+            }
+
+            /* Ensure footer nav sections are side by side */
+            .footer-nav-section {
+                width: 100%; /* Take full width of grid cell */
             }
 
             /* Reorder footer sections for mobile - The Playbook first, then The Company */
@@ -2193,11 +2217,13 @@
             }
             
             .hero-title {
-                font-size: 36px;
+                font-size: 40px; /* Slightly larger on very small screens */
+                line-height: 1.2;
             }
             
             .hero-subtitle {
                 font-size: 16px;
+                line-height: 1.5;
             }
             
             /* Stack footer nav links on very small screens */
@@ -2208,14 +2234,17 @@
             
             .benefits-title {
                 font-size: 28px;
+                text-align: center;
             }
 
             .micro-cta p {
                 font-size: 20px;
+                text-align: center;
             }
             
             .demo-title {
                 font-size: 24px;
+                text-align: center;
             }
             
             .chat-demo {
@@ -2224,10 +2253,12 @@
             
             .how-it-works-title {
                 font-size: 28px;
+                text-align: center;
             }
             
             .process-card {
                 padding: 30px 20px 20px; /* Further reduced for small screens */
+                text-align: center;
             }
             
             .process-icon {
