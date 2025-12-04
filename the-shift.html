@@ -1241,29 +1241,14 @@
         }
 
         @media (max-width: 768px) {
-            /* 1. Fix Structure of an heading and make it consistent with others */
-            .structure-section .section-title {
-                display: block !important;
-                font-size: 32px !important; /* Same as other section titles */
-                text-align: center;
-            }
-            
-            .structure-section .section-title::after {
-                content: "" !important; /* Remove the extra text */
-            }
-            
-            .structure-section .section-title br {
-                display: block !important; /* Show the line break */
-            }
-            
-            /* 2. Revert Problems section to left justified and fix title */
+            /* 1. Problems Section - Centre title and subheading, left justify bullet points */
             .problems-section .section-header {
-                text-align: left !important;
+                text-align: center !important;
             }
             
             .problems-section .section-title,
             .problems-section .section-subtitle {
-                text-align: left !important;
+                text-align: center !important;
             }
             
             .problem-card {
@@ -1274,23 +1259,54 @@
                 justify-content: flex-start !important;
             }
             
-            /* 3. Adjust hero heading to move first line down and keep on one line */
+            /* 2. Fix Hero Header - Make text fit properly and centre it */
             .shift-hero {
-                padding-top: 160px !important; /* Increased from 140px to move content down */
+                padding-top: 160px !important;
             }
             
             .shift-hero-title {
-                font-size: 2.8rem !important;
+                font-size: 2.5rem !important;
                 line-height: 1.2;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 10px !important;
             }
             
             .hero-line {
                 display: block !important;
-                white-space: nowrap !important;
-                overflow: visible !important;
+                white-space: normal !important;
+                text-align: center !important;
+                width: 100% !important;
+                overflow-wrap: normal !important;
             }
             
-            /* Ensure all titles have capital letters for each word */
+            .hero-line:nth-child(1) {
+                /* First line: Shift how you think. */
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-line:nth-child(2) {
+                /* Second line: Shift how you lead. */
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-line:nth-child(3) {
+                /* Third line: Shift what happens next. */
+                font-size: 2.5rem !important;
+                color: var(--accent-purple) !important;
+            }
+            
+            .shift-hero-subtitle {
+                font-size: 1.2rem !important;
+                text-align: center !important;
+                padding: 0 10px !important;
+                line-height: 1.5 !important;
+                max-width: 90% !important;
+                margin: 20px auto 40px !important;
+            }
+            
+            /* 3. Ensure all titles have capital letters for each word */
             .section-title,
             .what-is-title,
             .integration-title,
@@ -1604,11 +1620,6 @@
             .shift-hero {
                 min-height: 80vh;
             }
-            
-            .shift-hero-title {
-                font-size: 2.8rem;
-                letter-spacing: -1px;
-            }
 
             .hero-stats {
                 flex-direction: column;
@@ -1618,11 +1629,6 @@
 
             .stat-number {
                 font-size: 1.75rem;
-            }
-
-            .shift-hero-subtitle {
-                font-size: 20px;
-                text-align: center !important;
             }
 
             .section-title {
@@ -1761,12 +1767,12 @@
             
             /* Original very small screen styles */
             .shift-hero-title {
-                font-size: 2.4rem;
+                font-size: 2.2rem !important;
                 line-height: 1.2;
             }
             
             .shift-hero-subtitle {
-                font-size: 18px;
+                font-size: 1.1rem !important;
                 text-align: center !important;
                 padding: 0 10px;
             }
@@ -2217,7 +2223,7 @@
                     <p class="point-desc">Guides you through the immediate moment and specific challenges</p>
                 </div>
                 
-                <div class="integration-point">
+                .integration-point {
                     <h4 class="point-title">The Shift</h4>
                     <p class="point-desc">Rewires the underlying pattern so it doesn't happen again</p>
                 </div>
