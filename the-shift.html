@@ -446,26 +446,21 @@
             font-weight: 500;
         }
 
-        /* Hero Section - Updated to white */
+        /* Updated Hero Section - Redesigned */
         .shift-hero {
             background: var(--primary-white);
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            padding-top: 170px;
+            padding-top: 160px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Remove gradient overlay */
-        .shift-hero::before {
-            display: none;
-        }
-
         .shift-hero-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -475,18 +470,76 @@
             font-size: 80px;
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--text-dark);
-            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+            color: var(--deep-navy);
+            letter-spacing: -2px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-line:nth-child(1) { animation-delay: 0.1s; }
+        .hero-line:nth-child(2) { animation-delay: 0.3s; }
+        .hero-line:nth-child(3) { 
+            animation-delay: 0.5s;
+            color: var(--accent-purple);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .shift-hero-subtitle {
-            font-size: 22px;
+            font-size: 1.4rem;
             color: var(--text-medium);
-            margin-bottom: 44px;
-            line-height: 1.5;
+            margin-bottom: 48px;
+            line-height: 1.6;
             max-width: 900px;
-            margin: 0 auto 44px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 48px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .cta-button {
@@ -528,138 +581,42 @@
             transform: translateY(-2px);
         }
 
-        /* Narrative Bridge */
-        .narrative-bridge {
+        /* NEW STYLES FOR SHIFT PAGE */
+        
+        /* What The Shift Is Section */
+        .what-is-section {
             background: var(--primary-white);
             padding: 80px 0;
             border-bottom: 1px solid var(--border-light);
         }
 
-        .bridge-content {
+        .what-is-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .bridge-statement {
-            font-size: 22px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        /* Emotional Conflict Section */
-        .conflict-section {
-            background: var(--primary-white);
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .conflict-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .conflict-title {
+        .what-is-title {
             font-size: 36px;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             color: var(--deep-navy);
         }
 
-        .conflict-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .conflict-cycle, .shift-solution {
-            padding: 40px;
-            border-radius: 16px;
-        }
-
-        .conflict-cycle {
-            background: var(--light-gray);
-            border: 1px solid var(--border-light);
-        }
-
-        .shift-solution {
-            background: var(--gradient-secondary);
-            border: 1px solid var(--light-purple);
-        }
-
-        .cycle-title, .solution-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--deep-navy);
-        }
-
-        .cycle-list {
-            list-style: none;
-        }
-
-        .cycle-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-light);
-            color: var(--text-medium);
-            position: relative;
-            padding-left: 24px;
-        }
-
-        .cycle-item:before {
-            content: '•';
-            color: var(--accent-purple);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .cycle-item:last-child {
-            border-bottom: none;
-        }
-
-        .solution-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-medium);
-        }
-
-        /* Stages Narrative */
-        .stages-narrative {
-            background: var(--primary-white);
-            padding: 100px 0 40px;
-        }
-
-        .narrative-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .narrative-title {
-            font-size: 44px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--deep-navy);
-        }
-
-        .narrative-text {
+        .what-is-description {
             font-size: 22px;
             line-height: 1.6;
             color: var(--text-medium);
         }
 
-        /* Hidden utility class */
-        .hidden {
-            display: none !important;
+        .what-is-description p {
+            margin-bottom: 20px;
         }
 
-        /* Modules Section */
-        .modules {
+        /* Types of Shifts Grid */
+        .types-section {
             background: var(--primary-white);
+            padding: 100px 0;
         }
 
         .section-header {
@@ -668,7 +625,7 @@
         }
 
         .section-title {
-            font-size: 44px;
+            font-size: 36px;
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
@@ -676,284 +633,371 @@
         }
 
         .section-subtitle {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--text-medium);
             max-width: 700px;
             margin: 0 auto;
         }
 
-        .modules-grid {
+        .types-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
         }
 
-        /* Module Card - Updated with lock feature */
-        .module-card {
+        .type-card {
             background: var(--primary-white);
             border-radius: 16px;
             padding: 40px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-light);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
+            text-align: center;
         }
 
-        /* Module card content structure */
-        .module-card-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Trending badge positioning fix */
-        .module-card.has-trending {
-            position: relative;
-        }
-
-        @media (min-width: 769px) {
-            /* Desktop: Keep trending badge in top-right */
-            .module-card.has-trending .trending-badge {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-        }
-
-        .module-card.has-trending .trending-badge {
-            order: 1;
-            align-self: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .module-card.has-trending .module-header {
-            order: 2;
-        }
-
-        .module-card.has-trending .module-description {
-            order: 3;
-        }
-
-        .module-card.has-trending .module-features {
-            order: 4;
-        }
-
-        .module-card.has-trending .views-counter {
-            order: 5;
-        }
-
-        .module-card.has-trending .module-cta {
-            order: 6;
-        }
-
-        .module-card.has-trending .lock-overlay {
-            order: 7;
-        }
-
-        /* Locked Module Style */
-        .module-card.locked {
-            background: var(--locked-bg);
-            border-color: var(--border-light);
-            cursor: not-allowed;
-        }
-
-        .module-card.locked .module-title,
-        .module-card.locked .module-subtitle,
-        .module-card.locked .module-description,
-        .module-card.locked .module-feature {
-            color: var(--locked-gray);
-        }
-
-        .module-card.locked .module-icon {
-            background: var(--light-gray);
-            color: var(--locked-gray);
-        }
-
-        .module-card.locked .feature-icon {
-            color: var(--locked-gray);
-        }
-
-        /* Lock overlay */
-        .lock-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .dark-mode .lock-overlay {
-            background: rgba(18, 18, 18, 0.9);
-        }
-
-        .module-card.locked .lock-overlay {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .lock-icon {
-            font-size: 48px;
-            color: var(--locked-gray);
-            margin-bottom: 20px;
-        }
-
-        .lock-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--locked-gray);
-            margin-bottom: 8px;
-        }
-
-        .views-required {
-            font-size: 14px;
-            color: var(--locked-gray);
-            margin-bottom: 20px;
-        }
-
-        .unlock-btn {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-        }
-
-        .unlock-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
-        }
-
-        /* Trending Badge */
-        .trending-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--trending-bg);
-            color: var(--trending-orange);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 3;
-        }
-
-        .trending-badge i {
-            font-size: 10px;
-        }
-
-        .module-card:hover {
+        .type-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .module-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+        .type-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
             background: var(--gradient-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
+            margin: 0 auto 30px;
+            font-size: 32px;
             color: var(--accent-purple);
         }
 
-        .module-title {
-            font-size: 24px;
+        .type-title {
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
             color: var(--deep-navy);
         }
 
-        .module-subtitle {
+        .type-description {
             font-size: 16px;
             color: var(--text-medium);
+            line-height: 1.6;
         }
 
-        .module-description {
-            margin-bottom: 24px;
+        /* Why It Works Section */
+        .why-works-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .why-works-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .why-works-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .why-works-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-purple);
+        }
+
+        .why-works-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+            color: var(--deep-navy);
+        }
+
+        /* Problems Section */
+        .problems-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .problem-title i {
+            color: var(--accent-purple);
+            font-size: 20px;
+        }
+
+        .problem-line {
+            font-size: 16px;
             color: var(--text-medium);
+            margin-bottom: 12px;
+            line-height: 1.5;
+            padding-left: 32px;
+        }
+
+        /* Structure Section - Redesigned */
+        .structure-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+        }
+
+        .structure-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .structure-description {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 60px;
             line-height: 1.6;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .structure-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--gradient-primary);
+            z-index: 0;
+        }
+
+        .structure-item {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .structure-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(123, 95, 196, 0.15);
+            border-color: var(--accent-purple);
+        }
+
+        .structure-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .structure-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--deep-navy);
+            line-height: 1.3;
+        }
+
+        .structure-desc {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.5;
             flex-grow: 1;
         }
 
-        .module-features {
-            list-style: none;
-            margin-bottom: 30px;
+        /* Examples Section */
+        .examples-section {
+            background: var(--primary-white);
+            padding: 100px 0;
         }
 
-        .module-feature {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .example-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--deep-navy);
+        }
+
+        .example-description {
             font-size: 15px;
             color: var(--text-medium);
+            line-height: 1.5;
         }
 
-        .feature-icon {
+        /* Categories Section */
+        .categories-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .category-tag {
+            background: var(--gradient-secondary);
             color: var(--accent-purple);
-            margin-right: 10px;
-            font-size: 14px;
-            margin-top: 4px;
-        }
-
-        .module-cta {
-            align-self: flex-start;
-            background: var(--gradient-primary);
-            color: white;
             padding: 12px 24px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
             transition: all 0.3s ease;
+            border: 1px solid var(--light-purple);
+        }
+
+        .category-tag:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        .module-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
+        /* Integration Section */
+        .integration-section {
+            background: var(--light-gray);
+            padding: 80px 0;
         }
 
-        /* Views counter */
-        .views-counter {
+        .integration-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--primary-white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+        }
+
+        .integration-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--deep-navy);
+        }
+
+        .integration-description {
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .integration-points {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--dark-gray);
-            margin-top: 15px;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 40px;
         }
 
-        .views-counter i {
-            font-size: 12px;
+        .integration-point {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .point-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-purple);
+        }
+
+        .point-desc {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
         }
 
         /* Final CTA */
@@ -1149,40 +1193,27 @@
             text-decoration: none;
         }
 
-        /* Close Options Examples */
-        .close-options {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .close-options-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .close-options-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .close-option {
-            background: var(--light-gray);
-            border: 1px solid var(--border-light);
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 12px;
-            color: var(--text-medium);
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
-            .modules-grid {
-                grid-template-columns: 1fr;
+            .types-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .why-works-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .examples-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .structure-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+            
+            .structure-grid::before {
+                display: none;
             }
         }
 
@@ -1202,6 +1233,11 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .integration-points {
+                flex-direction: column;
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1215,7 +1251,21 @@
                 text-align: center;
             }
             
-            /* Mobile Navigation Changes - Match The Lens */
+            .module-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .module-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .module-cta {
+                align-self: center;
+            }
+            
+            /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1225,24 +1275,29 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                display: flex;
-                align-items: center;
-                height: 100%;
             }
             
+            /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 125px; /* Match The Lens */
+                height: 122px; /* Increased from 100px to 125px (25% increase) */
                 transform: none;
                 padding: 12px 0;
-                display: flex;
-                align-items: center;
             }
             
             .mobile-toggle {
                 display: flex;
                 position: absolute;
                 left: 20px;
-                align-items: center;
+            }
+            
+            /* REMOVED: Hide the Sign Up button in mobile view */
+            .header-cta {
+                display: none !important;
+            }
+            
+            /* CHANGED: Remove Sign In from header bar on mobile */
+            .nav-actions .sign-in {
+                display: none !important;
             }
             
             .nav-actions {
@@ -1250,17 +1305,6 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
-                align-items: center;
-            }
-            
-            /* Hide the desktop Sign In button in mobile view */
-            .nav-actions .sign-in {
-                display: none !important;
-            }
-            
-            /* Hide the sign-up button in mobile navigation */
-            .nav-actions .header-cta {
-                display: none !important;
             }
             
             .nav-links {
@@ -1277,21 +1321,11 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
-                text-align: left; /* Left-align like The Lens */
+                text-align: left; /* CHANGED: Left justify the menu items */
             }
 
             .nav-links.active {
                 display: flex;
-            }
-            
-            /* Make The Shift link purple in mobile menu */
-            .nav-link.active {
-                color: var(--accent-purple);
-            }
-            
-            /* Remove purple underline from active nav link on mobile */
-            .nav-link.active::after {
-                display: none;
             }
             
             /* Move The Coach to the left and New tag next to it */
@@ -1309,9 +1343,11 @@
                 right: auto;
             }
             
-            /* Mobile Sign In button - Match The Lens */
+            /* Make the Sign In button in hamburger menu - no icons */
             .mobile-sign-in {
-                display: block !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: white;
@@ -1321,11 +1357,25 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
             }
 
-            /* Mobile Sign Up button - Match The Lens */
+            .mobile-sign-in:hover {
+                background: rgba(123, 95, 196, 0.1);
+                transform: translateY(-1px);
+            }
+
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
+            }
+
+            /* NEW: Mobile Sign Up button styles - no icons */
             .mobile-sign-up {
-                display: block !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: var(--accent-purple);
@@ -1335,116 +1385,94 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
-                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
             }
 
-            /* Mobile Content Sizing - Match The Lens */
-            
-            /* Hero section - Match The Lens */
+            .mobile-sign-up:hover {
+                background: var(--accent-purple-dark);
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(123, 95, 196, 0.35);
+            }
+
+            .dark-mode .mobile-sign-up {
+                background: var(--accent-purple);
+                color: white;
+                border: 2px solid var(--accent-purple);
+            }
+
+            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero {
-                padding-top: 140px; /* Match The Lens spacing */
+                min-height: 80vh;
+                padding-top: 100px;
             }
             
             .shift-hero-title {
-                font-size: 42px; /* Match The Lens hero-title */
-                line-height: 1.2;
-                margin-bottom: 20px;
-                margin-top: 0; /* Reset the previous negative margin */
+                font-size: 2.8rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+                padding: 20px 0;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
             }
 
             .shift-hero-subtitle {
-                font-size: 18px; /* Match The Lens hero-subtitle */
-                line-height: 1.5;
-                margin-bottom: 40px;
-            }
-
-            /* Section titles - Match The Lens */
-            .section-title,
-            .conflict-title,
-            .narrative-title {
-                font-size: 32px; /* Match The Lens section titles */
-                margin-bottom: 30px;
-            }
-            
-            /* Narrative text - Match The Lens */
-            .narrative-text {
-                font-size: 16px; /* Match The Lens body text */
-                line-height: 1.5;
-                padding: 0 20px;
-            }
-            
-            /* Bridge statement - Match The Lens */
-            .bridge-statement {
-                font-size: 16px;
-                line-height: 1.5;
-                padding: 0 20px;
-            }
-            
-            /* Final statement - Match The Lens */
-            .final-statement {
-                font-size: 20px; /* Match The Lens micro-cta */
-                margin-bottom: 25px;
-            }
-            
-            .cta-note {
-                font-size: 16px;
-                line-height: 1.5;
-            }
-            
-            .module-header {
-                flex-direction: row; /* Keep icon and text side by side */
-                text-align: left; /* Left-align like The Lens */
-                margin-bottom: 20px;
-            }
-            
-            .module-icon {
-                margin-right: 15px;
-                margin-bottom: 0;
-                width: 50px;
-                height: 50px;
                 font-size: 20px;
             }
-            
-            .module-title {
-                font-size: 20px; /* Match The Lens card titles */
+
+            /* REDUCED: Reduce section titles to match conflict-title size */
+            .section-title {
+                font-size: 36px; /* Reduced from 45px to match conflict-title */
             }
             
-            .module-description {
-                font-size: 16px; /* Match The Lens body text */
-                line-height: 1.5;
-            }
-            
-            .module-feature {
-                font-size: 14px;
-                line-height: 1.4;
-            }
-            
-            /* Module cards - Match The Lens spacing */
-            .modules-grid {
-                gap: 25px;
-            }
-            
-            .module-card {
-                padding: 25px 20px; /* Match The Lens card padding */
-            }
-            
-            /* Move trending badges to not cover text */
-            .trending-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-                align-self: flex-start;
-                margin-bottom: 15px;
-                order: -1; /* Move to top of card content */
-            }
-            
-            .conflict-grid {
+            /* Mobile Content Updates */
+            .types-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
             
-            .conflict-cycle, .shift-solution {
+            .why-works-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .structure-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .types-grid,
+            .why-works-grid,
+            .problems-grid,
+            .examples-grid {
+                gap: 30px;
+            }
+            
+            .type-card,
+            .problem-card,
+            .example-card {
                 padding: 30px 20px;
+            }
+            
+            .categories-list {
+                justify-content: center;
+            }
+            
+            .category-tag {
+                padding: 10px 20px;
+                font-size: 14px;
             }
 
             .footer-content {
@@ -1452,19 +1480,8 @@
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr; /* Match The Lens single column */
+                grid-template-columns: 1fr 1fr;
                 gap: 30px;
-                order: 1;
-            }
-            
-            /* Ensure The Playbook section appears first */
-            .footer-nav-section:nth-child(1) {
-                order: 1;
-            }
-            
-            /* Ensure The Company section appears second */
-            .footer-nav-section:nth-child(2) {
-                order: 2;
             }
 
             .footer-newsletter-form {
@@ -1482,18 +1499,23 @@
             }
             
             /* Footer Changes */
+            .footer-nav-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            /* Mobile Logo Adjustments */
             .footer-logo-img {
-                height: 120px; /* Match The Lens */
+                height: 120px; /* Doubled for mobile (was 60px) */
             }
             
-            .footer-about {
-                padding-left: 0; /* Remove left padding for mobile */
-                text-align: center; /* Center align like The Lens */
+            /* REDUCED: Final statement size for mobile */
+            .final-statement {
+                font-size: 28px; /* Reduced from 40px */
             }
             
-            .bridge-statement {
-                font-size: 18px;
-                padding: 0 20px;
+            .integration-content {
+                padding: 30px 20px;
             }
         }
 
@@ -1510,20 +1532,37 @@
                 font-size: 18px;
             }
             
+            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero-title {
-                font-size: 36px;
+                font-size: 2.2rem;
             }
             
             .shift-hero-subtitle {
-                font-size: 16px;
-            }
-            
-            .final-statement {
                 font-size: 18px;
             }
             
-            .narrative-text {
-                font-size: 16px;
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            /* REDUCED: Further reduce final statement size for very small mobile */
+            .final-statement {
+                font-size: 24px; /* Further reduced for very small screens */
+            }
+            
+            .why-works-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .type-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .integration-points {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
@@ -1609,332 +1648,321 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- 1. Hero Section - Redesigned -->
 <section class="shift-hero">
     <div class="container shift-hero-content">
-        <h1 class="shift-hero-title">Shift from reacting to leading</h1>
-        <p class="shift-hero-subtitle">The Shift is not about reacting better. It is about becoming harder to destabilise. You will learn how to think, communicate and position yourself like someone who leads the pace, not absorbs it. This is a transformation, not a toolkit</p>
+        <h1 class="shift-hero-title">
+            <span class="hero-line">Shift how you think.</span>
+            <span class="hero-line">Shift how you lead.</span>
+            <span class="hero-line">Shift what happens next.</span>
+        </h1>
+        <p class="shift-hero-subtitle">A practical behaviour-change system that upgrades how you show up at work.<br>One strategic shift at a time.</p>
+        </div>
         <div class="cta-buttons">
-            <a href="create-account.html" class="cta-button">Begin Your Shift</a>
-            <a href="the-coach.html" class="secondary-cta">If your situation feels urgent → go to Coach first</a>
+            <a href="create-account.html" class="cta-button">Start Your First Shift</a>
+            <a href="#shift-library" class="secondary-cta">Explore the Shift Library</a>
         </div>
     </div>
 </section>
 
-
-<!-- Emotional Conflict Section -->
-<section class="conflict-section">
-    <div class="container conflict-content">
-        <h3 class="conflict-title">Why most employees never make the shift</h3>
-        <div class="conflict-grid">
-            <div class="conflict-cycle">
-                <h4 class="cycle-title">The Reactive Cycle</h4>
-                <ul class="cycle-list">
-                    <li class="cycle-item">Constant firefighting becomes normalised</li>
-                    <li class="cycle-item">Urgency overrides strategic thinking</li>
-                    <li class="cycle-item">Internal destabilisation erodes authority</li>
-                    <li class="cycle-item">Reactive patterns become embedded identity</li>
-                    <li class="cycle-item">Decision-making shifts from intentional to protective</li>
-                    <li class="cycle-item">You start managing risk to avoid mistakes rather than leading toward opportunity</li>
-                </ul>
+<!-- 2. What The Shift Is (3-Line Descriptor) -->
+<section class="what-is-section">
+    <div class="container what-is-content">
+        <h2 class="what-is-title">What The Shift Is</h2>
+        <div class="what-is-description">
+            <p>The Shift is your behavioural transformation module.</p>
+            <p>Each Shift targets one high-impact workplace pattern you need to upgrade — thinking, communication, boundaries, presence, decision-making.</p>
+            <p>You get micro-lessons, strategic reframes, and actionable steps you can apply immediately.</p>
+        </div>
+    </div>
+            <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Targeted Shifts</span>
             </div>
-            <div class="shift-solution">
-                <h4 class="solution-title">The Shift Break</h4>
-                <p class="solution-text">The Shift disrupts the cycle at its core. <br> <br> It's not about trying harder but about changing how you respond when the pressure builds. <br> <br> Instead of focusing on coping, it helps you become someone people listen to and take seriously. <br> <br>Each stage develops calm, confidence and the ability to guide the pace rather than constantly trying to catch up</p>
+            <div class="stat-item">
+                <span class="stat-number">7‑Step</span>
+                <span class="stat-label">Proven Framework</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Immediate</span>
+                <span class="stat-label">Application</span>
             </div>
         </div>
-    </div>
 </section>
 
-<!-- Stages Narrative -->
-<section class="stages-narrative">
-    <div class="container">
-        <div class="narrative-content">
-            <h3 class="narrative-title">The Architecture of Your Shift</h3>
-            <!-- CHANGED: Increased font size for mobile view -->
-            <p class="narrative-text">This is not sequential training. Each stage addresses a different dimension of strategic leadership. You progress by integrating new operational identities, not by consuming resources. The sequence builds from internal stability to external influence.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Modules Section -->
-<section class="modules">
+<!-- 3. The Four Types of Shifts -->
+<section class="types-section">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title">Your Framework for Lasting Impact</h2>
-            <p class="section-subtitle">Transform how you operate, lead, and thrive in your organisation</p>
+            <h2 class="section-title">The Four Types of Shifts</h2>
+            <p class="section-subtitle">Strategic upgrades for every dimension of workplace performance</p>
         </div>
         
-        <div class="modules-grid">
-            <!-- Module 1 - Unlocked & Trending -->
-            <div class="module-card has-trending">
-                <!-- Trending Badge -->
-                <div class="trending-badge">
-                    <i class="fas fa-fire"></i> TRENDING
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-brain"></i>
                 </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">Boundary Mastery & Burnout Prevention</h3>
-                            <p class="module-subtitle">Protect your energy in always-on work culture</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Master the art of setting professional boundaries without guilt. Learn to say no strategically, manage expectations, and prevent burnout in high-demand environments.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Boundary-setting scripts for meetings, emails, and after-hours requests</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Burnout early warning system and recovery protocols</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Energy management for hybrid/remote work environments</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 3,421 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
-                </div>
+                <h3 class="type-title">Mindset Shifts</h3>
+                <p class="type-description">Upgrade interpretation of pressure, conflict, ambiguity.</p>
             </div>
             
-            <!-- Module 2 - Locked -->
-            <div class="module-card locked has-trending">
-                <!-- Lock Overlay -->
-                <div class="lock-overlay">
-                    <div class="lock-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="lock-text">Module Locked</div>
-                    <div class="views-required">Complete 2 modules to unlock</div>
-                    <button class="unlock-btn" onclick="unlockModule(1)">Unlock Now</button>
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-people-arrows"></i>
                 </div>
-                <div class="trending-badge">
-                    <i class="fas fa-fire"></i> TRENDING
-                </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-comments-dollar"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">Compensation & Promotion Strategy</h3>
-                            <p class="module-subtitle">Get paid what you're worth in uncertain times</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Navigate compensation discussions and promotion paths during economic uncertainty. Build your case, time your ask, and negotiate effectively even when budgets are tight.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Value documentation framework for remote/hybrid work</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Market data negotiation scripts for inflationary periods</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Alternative compensation strategies (equity, flexibility, development)</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 2,893 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
-                </div>
+                <h3 class="type-title">Behaviour Shifts</h3>
+                <p class="type-description">Adjust behaviours that change how others respond to you.</p>
             </div>
             
-            <!-- Module 3 - Locked -->
-            <div class="module-card locked">
-                <!-- Lock Overlay -->
-                <div class="lock-overlay">
-                    <div class="lock-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="lock-text">Module Locked</div>
-                    <div class="views-required">Complete 3 modules to unlock</div>
-                    <button class="unlock-btn" onclick="unlockModule(2)">Unlock Now</button>
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-bullhorn"></i>
                 </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">Hybrid Work Influence & Visibility</h3>
-                            <p class="module-subtitle">Stay visible and influential in distributed teams</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Build and maintain influence in hybrid/remote environments. Master digital presence, strategic relationship-building, and ensuring your work gets seen by decision-makers.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Digital presence optimization for hybrid work</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Virtual relationship-building with remote leaders</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Asynchronous communication mastery</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 2,567 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
-                </div>
+                <h3 class="type-title">Influence Shifts</h3>
+                <p class="type-description">Communicate with presence, precision, and strategic framing.</p>
             </div>
             
-            <!-- Module 4 - Locked -->
-            <div class="module-card locked">
-                <!-- Lock Overlay -->
-                <div class="lock-overlay">
-                    <div class="lock-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="lock-text">Module Locked</div>
-                    <div class="views-required">Complete 4 modules to unlock</div>
-                    <button class="unlock-btn" onclick="unlockModule(3)">Unlock Now</button>
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-user-shield"></i>
                 </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">AI Integration & Skill Evolution</h3>
-                            <p class="module-subtitle">Stay relevant in rapidly changing workplaces</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Strategically integrate AI tools while developing irreplaceable human skills. Position yourself as both technologically adept and uniquely human in your problem-solving.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>AI tool integration for productivity enhancement</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Developing AI-resistant human skills (judgment, creativity, empathy)</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Career path adaptation for AI-augmented roles</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 3,012 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
-                </div>
+                <h3 class="type-title">Identity Shifts</h3>
+                <p class="type-description">Strengthen internal positioning and self-perception.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Why It Works (Psychology Section) -->
+<section class="why-works-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why It Works</h2>
+            <p class="section-subtitle">Built on proven behavioural psychology principles</p>
+        </div>
+        
+        <div class="why-works-grid">
+            <div class="why-works-card">
+                <i class="fas fa-sync-alt" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Pattern Interruption</h4>
             </div>
             
-            <!-- Module 5 - Locked & Trending -->
-            <div class="module-card locked has-trending">
-                <!-- Lock Overlay -->
-                <div class="lock-overlay">
-                    <div class="lock-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="lock-text">Module Locked</div>
-                    <div class="views-required">Complete 5 modules to unlock</div>
-                    <button class="unlock-btn" onclick="unlockModule(4)">Unlock Now</button>
-                </div>
-                <!-- Trending Badge -->
-                <div class="trending-badge">
-                    <i class="fas fa-fire"></i> TRENDING
-                </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">Psychological Safety & Microaggressions</h3>
-                            <p class="module-subtitle">Navigate complex interpersonal dynamics</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Address microaggressions, build psychological safety, and navigate diverse workplace dynamics with confidence and strategic awareness.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Microaggression response toolkit for bystanders and targets</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Psychological safety creation in team environments</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Inclusive leadership behaviors and communication</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 2,845 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
-                </div>
+            <div class="why-works-card">
+                <i class="fas fa-exchange-alt" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Cognitive Reframing</h4>
             </div>
             
-            <!-- Module 6 - Locked -->
-            <div class="module-card locked">
-                <!-- Lock Overlay -->
-                <div class="lock-overlay">
-                    <div class="lock-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="lock-text">Module Locked</div>
-                    <div class="views-required">Complete 6 modules to unlock</div>
-                    <button class="unlock-btn" onclick="unlockModule(5)">Unlock Now</button>
+            <div class="why-works-card">
+                <i class="fas fa-flask" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Behavioural Micro‑Experimenting</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-eye" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Perception Management</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-layer-group" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Identity Consolidation</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Problems The Shift Solves -->
+<section class="problems-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Problems The Shift Solves</h2>
+            <p class="section-subtitle">Targeted solutions for workplace challenges</p>
+        </div>
+        
+        <div class="problems-grid">
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-tachometer-alt"></i> When you feel overwhelmed or losing control</h3>
+                <p class="problem-line">• Regain mental clarity under pressure</p>
+                <p class="problem-line">• Establish boundaries without guilt</p>
+                <p class="problem-line">• Convert reactivity into strategic response</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-redo"></i> When you keep getting the same negative outcomes</h3>
+                <p class="problem-line">• Break repetitive patterns that hold you back</p>
+                <p class="problem-line">• Identify blind spots in your approach</p>
+                <p class="problem-line">• Create new pathways to better results</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-user-minus"></i> When confidence drops after criticism or micromanagement</h3>
+                <p class="problem-line">• Rebuild self‑assurance systematically</p>
+                <p class="problem-line">• Neutralise external doubt and internal imposter syndrome</p>
+                <p class="problem-line">• Project competence even when you don't feel it</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-heartbeat"></i> When emotions take over or you're overlooked</h3>
+                <p class="problem-line">• Master emotional regulation in high‑stakes moments</p>
+                <p class="problem-line">• Increase visibility without over‑performing</p>
+                <p class="problem-line">• Ensure your contributions are recognised</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. Structure of an Individual Shift - Redesigned -->
+<section class="structure-section">
+    <div class="container structure-content">
+        <div class="section-header">
+            <h2 class="section-title">Structure of an Individual Shift</h2>
+            <p class="structure-description">Every Shift follows the same 7‑element architecture designed for maximum impact and retention</p>
+        </div>
+        
+        <div class="structure-grid">
+            <div class="structure-item">
+                <div class="structure-number">1</div>
+                <h4 class="structure-name">The Pattern</h4>
+                <p class="structure-desc">Identify the automatic behaviour or thinking habit</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">2</div>
+                <h4 class="structure-name">Why It Happens</h4>
+                <p class="structure-desc">Understand the psychological trigger and reinforcement</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">3</div>
+                <h4 class="structure-name">The Shift</h4>
+                <p class="structure-desc">The specific cognitive or behavioural change to make</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">4</div>
+                <h4 class="structure-name">The Practice</h4>
+                <p class="structure-desc">Actionable exercises to embed the new pattern</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">5</div>
+                <h4 class="structure-name">The Warning Signs</h4>
+                <p class="structure-desc">Early signals the old pattern is re‑emerging</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">6</div>
+                <h4 class="structure-name">The Upgrade</h4>
+                <p class="structure-desc">The measurable improvement you'll experience</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">7</div>
+                <h4 class="structure-name">The Identity Anchor</h4>
+                <p class="structure-desc">How this change reinforces your desired professional identity</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. Example Shifts (Preview Cards) -->
+<section class="examples-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Example Shifts</h2>
+            <p class="section-subtitle">Preview of transformative shifts in the library</p>
+        </div>
+        
+        <div class="examples-grid">
+            <div class="example-card">
+                <h3 class="example-title">The One‑Breathe Reset</h3>
+                <p class="example-description">Pause and recalibrate before reacting to pressure or criticism.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The Power Frame</h3>
+                <p class="example-description">Reframe conversations from defensive to strategically assertive.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The No‑Rush Rule</h3>
+                <p class="example-description">Break the urgency addiction that leads to poor decisions.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The Boundary Sentence</h3>
+                <p class="example-description">Politely decline unreasonable requests without damaging relationships.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">Perception Calibration</h3>
+                <p class="example-description">Align how you're perceived with how you want to be seen.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The 24‑Hour Reframe</h3>
+                <p class="example-description">Transform setbacks into strategic insights within one day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. Shift Library Categories -->
+<section class="categories-section" id="shift-library">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Shift Library Categories</h2>
+            <p class="section-subtitle">Browse by the area you want to transform</p>
+        </div>
+        
+        <div class="categories-list">
+            <div class="category-tag">Confidence & Presence</div>
+            <div class="category-tag">Communication & Influence</div>
+            <div class="category-tag">Boundaries & Power Dynamics</div>
+            <div class="category-tag">Emotional Regulation</div>
+            <div class="category-tag">Leadership & Decision‑Making</div>
+            <div class="category-tag">Identity & Self‑Respect</div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. Integration With Lens & Coach -->
+<section class="integration-section">
+    <div class="container">
+        <div class="integration-content">
+            <h2 class="integration-title">How The Shift Fits With The Employee Playbook</h2>
+            <p class="integration-description">A complete system for workplace transformation</p>
+            
+            <div class="integration-points">
+                <div class="integration-point">
+                    <h4 class="point-title">The Lens</h4>
+                    <p class="point-desc">Diagnoses what's happening in your current situation</p>
                 </div>
-                <div class="module-card-content">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <i class="fas fa-chart-network"></i>
-                        </div>
-                        <div>
-                            <h3 class="module-title">Strategic Career Pivoting</h3>
-                            <p class="module-subtitle">Navigate career transitions in volatile markets</p>
-                        </div>
-                    </div>
-                    <p class="module-description">Plan and execute strategic career pivots during economic uncertainty. Identify transferable skills, build transition narratives, and navigate internal mobility opportunities.</p>
-                    <ul class="module-features">
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Transferable skills audit and narrative development</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Internal mobility strategy and relationship mapping</span>
-                        </li>
-                        <li class="module-feature">
-                            <span class="feature-icon"><i class="fas fa-check"></i></span>
-                            <span>Career transition risk assessment and mitigation</span>
-                        </li>
-                    </ul>
-                    <div class="views-counter">
-                        <i class="fas fa-eye"></i> 2,178 views this month
-                    </div>
-                    <a href="create-account.html" class="module-cta">Enter This Stage</a>
+                
+                <div class="integration-point">
+                    <h4 class="point-title">The Coach</h4>
+                    <p class="point-desc">Guides you through the immediate moment and specific challenges</p>
+                </div>
+                
+                <div class="integration-point">
+                    <h4 class="point-title">The Shift</h4>
+                    <p class="point-desc">Rewires the underlying pattern so it doesn't happen again</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Final CTA -->
+<!-- 10. Final CTA Section -->
 <section class="final-cta">
     <div class="container final-cta-content">
-        <h2 class="final-statement">Your transformation from reactive employee to strategic leader starts here.</h2>
-        <p class="cta-note">Join professionals who've shifted from surviving workplace challenges to thriving through strategic clarity.</p>
-        <a href="create-account.html" class="cta-button">Begin Your Shift Journey Today</a>
+        <h2 class="final-statement">Ready to make your next move your strongest one?</h2>
+        <p class="cta-note">Begin transforming how you think, communicate, and lead in your organization</p>
+        <div class="cta-buttons">
+            <a href="create-account.html" class="cta-button">Start your first Shift →</a>
+            <a href="sign-in.html" class="secondary-cta">Log in to access your Shift Library →</a>
+        </div>
     </div>
 </section>
 
@@ -1975,7 +2003,7 @@
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">The Company</h3>
+                        <h3 class="footer-heading">Company</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
@@ -1998,16 +2026,6 @@
     // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
-        
-        // Track completed modules (simulate user progress)
-        let completedModules = 1; // First module is completed by default
-        
-        // Function to unlock module
-        window.unlockModule = function(moduleIndex) {
-            // In a real app, this would check authentication and user progress
-            // For demo, redirect to create account page
-            window.location.href = 'create-account.html';
-        };
         
         // Dark mode toggle
         document.querySelector('.theme-toggle').addEventListener('click', function () {
@@ -2092,34 +2110,6 @@
             alert('Account creation would be processed here in a real implementation');
             createAccountModal.classList.remove('active');
         });
-        
-        // Initialize module locking based on progress
-        function updateModuleLocks() {
-            const modules = document.querySelectorAll('.module-card');
-            modules.forEach((module, index) => {
-                if (index < completedModules) {
-                    module.classList.remove('locked');
-                } else {
-                    module.classList.add('locked');
-                }
-            });
-        }
-        
-        // Add trending class to appropriate modules and wrap content
-        document.querySelectorAll('.module-card').forEach(card => {
-            // Check if card has trending badge
-            const hasTrending = card.querySelector('.trending-badge');
-            if (hasTrending) {
-                card.classList.add('has-trending');
-            }
-            
-            // Wrap existing content in module-card-content
-            const content = card.innerHTML;
-            card.innerHTML = `<div class="module-card-content">${content}</div>`;
-        });
-        
-        // Call initially
-        updateModuleLocks();
     });
 </script>
 
