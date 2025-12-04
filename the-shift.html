@@ -454,20 +454,20 @@
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            padding-top: 160px;
+            padding-top: 120px;
             position: relative;
             overflow: hidden;
         }
 
         .shift-hero-content {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
         .shift-hero-title {
-            font-size: 80px;
+            font-size: 4.5rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 32px;
@@ -591,20 +591,20 @@
         }
 
         .what-is-content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
 
         .what-is-title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--deep-navy);
         }
 
         .what-is-description {
-            font-size: 22px;
+            font-size: 20px;
             line-height: 1.6;
             color: var(--text-medium);
         }
@@ -625,7 +625,7 @@
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 44px;
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
@@ -633,7 +633,7 @@
         }
 
         .section-subtitle {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--text-medium);
             max-width: 700px;
             margin: 0 auto;
@@ -674,7 +674,7 @@
         }
 
         .type-title {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--deep-navy);
@@ -1241,6 +1241,70 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile improvements */
+            
+            /* 1. Left justify text under footer logo */
+            .footer-about {
+                text-align: left;
+                padding-left: 0;
+            }
+            
+            .footer-description {
+                text-align: left;
+            }
+            
+            /* 2. Resize headings to match The Lens mobile */
+            .what-is-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            
+            .section-subtitle {
+                font-size: 18px;
+            }
+            
+            /* 3. Adjust description under 'what the shift is' */
+            .what-is-description {
+                font-size: 18px;
+                line-height: 1.5;
+                text-align: left;
+                padding: 0 10px;
+            }
+            
+            .what-is-description p {
+                margin-bottom: 15px;
+            }
+            
+            /* 4. Move hero heading lower by its own line height x 1 */
+            .shift-hero {
+                padding-top: 140px; /* Increased from 100px to move content lower */
+                min-height: 85vh;
+            }
+            
+            /* 5. Reduce width of CTAs */
+            .cta-buttons {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .cta-button, .secondary-cta {
+                width: 100%;
+                text-align: center;
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+            
+            .secondary-cta {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
             /* NEW: Show the Create Account Tab on mobile */
             .mobile-create-account-tab {
                 display: flex;
@@ -1404,7 +1468,6 @@
             /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
             .shift-hero {
                 min-height: 80vh;
-                padding-top: 100px;
             }
             
             .shift-hero-title {
@@ -1428,7 +1491,7 @@
 
             /* REDUCED: Reduce section titles to match conflict-title size */
             .section-title {
-                font-size: 36px; /* Reduced from 45px to match conflict-title */
+                font-size: 32px; /* Reduced from 45px to match conflict-title */
             }
             
             /* Mobile Content Updates */
@@ -1488,14 +1551,41 @@
                 flex-direction: column;
             }
 
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
+            /* Additional mobile improvements */
+            /* Make example cards and type cards left-aligned text */
+            .type-card, .example-card, .problem-card {
+                text-align: left;
             }
-
-            .secondary-cta {
-                margin-left: 0;
+            
+            /* Adjust type icon alignment for left-aligned content */
+            .type-icon {
+                margin: 0 0 20px 0;
+            }
+            
+            /* Left-align structure items on mobile */
+            .structure-item {
+                text-align: left;
+                align-items: flex-start;
+            }
+            
+            /* Left-align integration content */
+            .integration-content {
+                text-align: left;
+                padding: 30px;
+            }
+            
+            /* Left-align final CTA */
+            .final-cta-content {
+                text-align: left;
+            }
+            
+            .final-statement {
+                font-size: 28px;
+                text-align: left;
+            }
+            
+            .cta-note {
+                text-align: left;
             }
             
             /* Footer Changes */
@@ -1520,6 +1610,59 @@
         }
 
         @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            
+            .shift-hero-title {
+                font-size: 2.4rem; /* Slightly larger for better readability */
+                line-height: 1.2;
+            }
+            
+            .shift-hero-subtitle {
+                font-size: 18px;
+                text-align: left;
+                padding: 0 10px;
+            }
+            
+            /* Make hero stats left-aligned */
+            .hero-stats {
+                align-items: flex-start;
+                text-align: left;
+                padding-left: 20px;
+            }
+            
+            .stat-item {
+                align-items: flex-start;
+            }
+            
+            /* Reduce section titles further for very small screens */
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .what-is-title {
+                font-size: 26px;
+            }
+            
+            /* Make categories list left-aligned */
+            .categories-list {
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            /* Adjust integration points for mobile */
+            .integration-points {
+                align-items: flex-start;
+            }
+            
+            .integration-point {
+                padding: 0;
+                text-align: left;
+            }
+            
+            /* Logo adjustments */
             .logo-img {
                 height: 100px; /* Adjusted for very small screens */
             }
@@ -1530,19 +1673,6 @@
             
             .logo-fallback {
                 font-size: 18px;
-            }
-            
-            /* CHANGED: Increase Hero headline size by 25% for mobile and move it higher */
-            .shift-hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .shift-hero-subtitle {
-                font-size: 18px;
-            }
-            
-            .hero-stats {
-                gap: 20px;
             }
             
             /* REDUCED: Further reduce final statement size for very small mobile */
@@ -1671,11 +1801,10 @@
         <h2 class="what-is-title">What The Shift Is</h2>
         <div class="what-is-description">
             <p>The Shift is your behavioural transformation module.</p>
-            <p>Each Shift targets one high-impact workplace pattern you need to upgrade — thinking, communication, boundaries, presence, decision-making.</p>
+            <p>Each Shift targets one high-impact workplace pattern you need to upgrade, thinking, communication, boundaries, presence, decision-making.</p>
             <p>You get micro-lessons, strategic reframes, and actionable steps you can apply immediately.</p>
         </div>
-    </div>
-            <div class="hero-stats">
+                <div class="hero-stats">
             <div class="stat-item">
                 <span class="stat-number">50+</span>
                 <span class="stat-label">Targeted Shifts</span>
@@ -1688,7 +1817,7 @@
                 <span class="stat-number">Immediate</span>
                 <span class="stat-label">Application</span>
             </div>
-        </div>
+    </div>
 </section>
 
 <!-- 3. The Four Types of Shifts -->
