@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get real-time strategic guidance for workplace challenges. Navigate office politics, difficult conversations, and career decisions with confidence.">
-    <title>The Coach | Real-Time Strategic Guidance | The Employee Playbook</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta name="description" content="Transform from reactive employee to strategic leader. Build resilience, influence and clarity for long-term career success.">
+    <title>The Shift | From Reacting to Leading | The Employee Playbook</title>
     
     <!-- Font Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +13,11 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-white: #FFFFFF;
@@ -30,7 +29,6 @@
             --accent-purple: #7B5FC4;
             --accent-purple-dark: #5A4496;
             --light-purple: #E6E0F5;
-            --light-purple-user: #D5C9F1; /* Lighter purple for user bubbles */
             --border-light: rgba(0, 0, 0, 0.08);
             --hero-gray: #f5f7fa;
             --nav-bg: rgba(255, 255, 255, 0.95);
@@ -38,8 +36,10 @@
             --soft-blue: #EFF5FF;
             --gradient-primary: linear-gradient(135deg, #7B5FC4 0%, #5A3FB5 100%);
             --gradient-secondary: linear-gradient(135deg, #E6E0F5 0%, #F0EDFA 100%);
-            --premium-card-shadow: 0 6px 20px rgba(123, 95, 196, 0.12);
-            --neutral-bg: #F8F9FA;
+            --locked-gray: #8A8D93;
+            --locked-bg: #F8F9FA;
+            --trending-orange: #FF6B35;
+            --trending-bg: #FFF5F0;
         }
 
         .dark-mode {
@@ -52,7 +52,6 @@
             --accent-purple: #8B6CE6;
             --accent-purple-dark: #6A4FC4;
             --light-purple: #E6E0F5;
-            --light-purple-user: #A28CE0; /* Lighter purple for user bubbles in dark mode */
             --border-light: rgba(255, 255, 255, 0.08);
             --hero-gray: #1a1a1a;
             --nav-bg: rgba(18, 18, 18, 0.95);
@@ -60,8 +59,10 @@
             --soft-blue: #1A2333;
             --gradient-primary: linear-gradient(135deg, #8B6CE6 0%, #6A4BD6 100%);
             --gradient-secondary: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 100%);
-            --premium-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            --neutral-bg: #1E1E1E;
+            --locked-gray: #6C6C6C;
+            --locked-bg: #2A2A2A;
+            --trending-orange: #FF8C5A;
+            --trending-bg: #332926;
         }
 
         * {
@@ -82,6 +83,7 @@
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         body.loaded {
@@ -95,7 +97,7 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         /* Navigation */
@@ -121,6 +123,7 @@
             height: 100%;
         }
 
+        /* Logo Styles */
         .logo-img {
             height: 100px;
             width: auto;
@@ -132,7 +135,7 @@
         }
 
         .dark-mode .logo-img {
-            filter: invert(1) brightness(2);
+            content: url('assets/img/logo-dark.png');
         }
 
         .nav-links {
@@ -153,19 +156,27 @@
             color: var(--accent-purple);
         }
 
+        /* Active page indicator - Purple underline */
         .nav-link.active {
             color: var(--text-dark);
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-purple);
-            border-radius: 2px;
+        /* Active page indicator - Black text for desktop with purple underline */
+        @media (min-width: 769px) {
+            .nav-link.active {
+                color: var(--text-dark);
+            }
+            
+            .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--accent-purple);
+                border-radius: 2px;
+            }
         }
 
         .nav-actions {
@@ -195,8 +206,8 @@
         }
 
         .header-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
         }
 
         .theme-toggle {
@@ -237,6 +248,7 @@
             background-color: var(--light-gray);
         }
 
+        /* New Tag for The Coach */
         .nav-link-container {
             position: relative;
             display: inline-block;
@@ -257,18 +269,21 @@
             white-space: nowrap;
         }
 
+        /* Mobile Sign In Button */
         .mobile-sign-in {
             display: none;
         }
 
-        .mobile-create-account {
+        /* Mobile Sign Up Button - hidden by default */
+        .mobile-sign-up {
             display: none;
         }
 
+        /* NEW: Create Account Tab for Mobile - Updated from homepage */
         .mobile-create-account-tab {
             display: none;
             position: fixed;
-            top: 15%;
+            top: 15%; /* Changed from 20% to 15% */
             right: 0;
             background: var(--accent-purple);
             color: white;
@@ -296,6 +311,7 @@
             border: 2px solid var(--primary-white);
         }
 
+        /* NEW: Create Account Modal */
         .create-account-modal {
             display: none;
             position: fixed;
@@ -345,7 +361,7 @@
         .modal-title {
             font-size: 24px;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--deep-navy);
         }
 
         .close-modal {
@@ -396,11 +412,11 @@
 
         .form-input:focus {
             outline: none;
-            border-color: var(--accent-purple);
+                border-color: var(--accent-purple);
         }
 
         .submit-btn {
-            background: var(--accent-purple);
+            background: var(--gradient-primary);
             color: white;
             border: none;
             padding: 14px 20px;
@@ -430,100 +446,134 @@
             font-weight: 500;
         }
 
-        /* Main Content */
-        main {
-            flex: 1;
-            padding: 80px 30px 30px;
-            display: flex;
-            min-height: calc(100vh - 160px);
-        }
-
-        .content-wrapper {
-            width: 100%;
+        /* Updated Hero Section - Redesigned */
+        .shift-hero {
+            background: var(--primary-white);
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-        }
-
-        /* Hero Section */
-        .hero-section {
+            justify-content: center;
             text-align: center;
-            margin-bottom: 25px;
             padding-top: 160px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-title {
-            font-size: 80px;
+        .shift-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shift-hero-title {
+            font-size: 4.5rem;
             font-weight: 700;
-            margin-bottom: 17px;
-            color: var(--text-dark);
             line-height: 1.1;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 32px;
+            color: var(--deep-navy);
+            letter-spacing: -2px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .hero-subtitle {
-            font-size: 20px;
+        .hero-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-line:nth-child(1) { animation-delay: 0.1s; }
+        .hero-line:nth-child(2) { animation-delay: 0.3s; }
+        .hero-line:nth-child(3) { 
+            animation-delay: 0.5s;
+            color: var(--accent-purple);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shift-hero-subtitle {
+            font-size: 1.4rem;
             color: var(--text-medium);
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            font-weight: 500;
+            margin-bottom: 48px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 48px;
+            font-weight: 400;
         }
 
-        /* CTA buttons */
-        .cta-buttons {
-            text-align: center;
-            margin-top: 0px;
-            margin-bottom: 100px;
+        /* Hero Stats */
+        .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 60px;
+            margin-bottom: 48px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .cta-button-container {
+        .stat-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            width: 100%;
+            gap: 8px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .cta-button {
-            background: var(--accent-purple);
+            display: inline-block;
+            background: var(--gradient-primary);
             color: white;
-            padding: 14px 50px;
+            padding: 18px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 17px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
-            display: inline-block;
-            min-width: 250px;
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(123, 95, 196, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
-            background: var(--accent-purple-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(123, 95, 196, 0.4);
         }
 
         .secondary-cta {
             display: inline-block;
             background: transparent;
             color: var(--accent-purple);
-            padding: 12px 40px;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-purple);
-            min-width: 250px;
-            text-align: center;
+            margin-left: 20px;
         }
 
         .secondary-cta:hover {
@@ -531,1054 +581,469 @@
             transform: translateY(-2px);
         }
 
-        /* How It Works Cards */
-        .how-it-works {
-            margin: 80px 0 60px;
+        /* NEW STYLES FOR SHIFT PAGE */
+        
+        /* What The Shift Is Section */
+        .what-is-section {
+            background: var(--primary-white);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .how-it-works-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--text-dark);
+        .what-is-content {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
+        .what-is-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--deep-navy);
         }
 
-        .process-card {
+        .what-is-description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        .what-is-description p {
+            margin-bottom: 20px;
+        }
+
+        /* Types of Shifts Grid */
+        .types-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: var(--deep-navy);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .type-card {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 40px 30px 30px; /* Reduced top padding to make icon appear more circular */
-            box-shadow: var(--premium-card-shadow);
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-light);
             text-align: center;
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 32px;
+            color: var(--accent-purple);
+        }
+
+        .type-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--deep-navy);
+        }
+
+        .type-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Why It Works Section */
+        .why-works-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .why-works-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .why-works-card {
+            background: var(--primary-white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
+        }
+
+        .why-works-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-purple);
+        }
+
+        .why-works-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+            color: var(--deep-navy);
+        }
+
+        /* Problems Section */
+        .problems-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .problem-title i {
+            color: var(--accent-purple);
+            font-size: 20px;
+        }
+
+        .problem-line {
+            font-size: 16px;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+            line-height: 1.5;
+            padding-left: 32px;
+        }
+
+        /* Structure Section - Redesigned */
+        .structure-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+        }
+
+        .structure-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .structure-description {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            margin-bottom: 60px;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
             position: relative;
-            overflow: hidden;
+        }
+
+        .structure-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--gradient-primary);
+            z-index: 0;
+        }
+
+        .structure-item {
+            background: var(--primary-white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+            text-align: center;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .process-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+        .structure-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(123, 95, 196, 0.15);
+            border-color: var(--accent-purple);
+        }
+
+        .structure-number {
+            width: 48px;
+            height: 48px;
             background: var(--gradient-primary);
-        }
-
-        .process-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(123, 95, 196, 0.15);
-        }
-
-        /* Updated icon positioning - reduced height */
-        .process-icon {
-            width: 90px; /* Slightly larger */
-            height: 90px; /* Slightly larger */
-            background: var(--primary-white);
-            color: var(--accent-purple);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px; /* Reduced bottom margin */
-            font-size: 32px; /* Slightly larger icon */
-            border: 2px solid var(--accent-purple);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
             position: relative;
-            top: 0;
+            z-index: 2;
         }
 
-        .process-title {
-            font-weight: 600;
-            margin-bottom: 15px; /* Reduced margin */
-            font-size: 22px;
-            color: var(--text-dark);
+        .structure-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--deep-navy);
+            line-height: 1.3;
         }
 
-        .process-description {
-            font-size: 16px;
+        .structure-desc {
+            font-size: 0.95rem;
             color: var(--text-medium);
-            line-height: 1.6;
+            line-height: 1.5;
             flex-grow: 1;
         }
 
-        /* Coach Demo Animation - Wider and moved closer */
-        .coach-demo-section {
-            margin: 40px 0 80px; /* Reduced top margin to bring closer */
-            position: relative;
-            overflow: hidden;
-        }
-
-        .demo-container {
+        /* Examples Section */
+        .examples-section {
             background: var(--primary-white);
-            border-radius: 24px;
-            padding: 40px; /* Increased padding */
-            box-shadow: 0 20px 60px rgba(123, 95, 196, 0.15);
-            border: 1px solid var(--border-light);
-            max-width: 920px; /* Increased from 800px (15% wider) */
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
+            padding: 100px 0;
         }
 
-        .demo-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        .demo-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .demo-subtitle {
-            font-size: 16px;
-            color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Wider chat demo - Increased height by 20% */
-        .chat-demo {
-            background: var(--light-gray);
-            border-radius: 16px;
-            overflow: hidden;
-            height: 456px; /* Increased by 20% from 380px to 456px */
-            position: relative;
-            border: 1px solid var(--border-light);
-            width: 100%;
-        }
-
-        .chat-demo-header {
-            background: var(--accent-purple);
-            color: white;
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .demo-chat-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .demo-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-        }
-
-        .demo-status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10B981;
-            animation: pulse 2s infinite;
-        }
-
-        .demo-messages {
-            padding: 16px;
-            height: calc(100% - 120px);
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .demo-message {
-            max-width: 90%; /* Increased from 80% for wider bubbles */
-            padding: 0;
-            font-size: 13px;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: messageSlideIn 0.8s ease forwards; /* Slower animation */
-        }
-
-        @keyframes messageSlideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .demo-message-coach {
-            align-self: flex-start;
-        }
-
-        .demo-message-user {
-            align-self: flex-end;
-        }
-
-        .demo-message-bubble {
-            padding: 12px 18px; /* Increased padding */
-            border-radius: 16px;
-            position: relative;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            max-width: 100%; /* Allow bubbles to use full available width */
-        }
-
-        .demo-message-coach .demo-message-bubble {
-            background: var(--primary-white);
-            color: var(--text-dark);
-            border-bottom-left-radius: 6px;
-            border: 1px solid var(--border-light);
-        }
-
-        .demo-message-user .demo-message-bubble {
-            background: var(--light-purple-user); /* Changed to lighter purple */
-            color: var(--accent-purple-dark); /* Darker text for contrast */
-            border-bottom-right-radius: 6px;
-            border: 1px solid rgba(123, 95, 196, 0.2);
-        }
-
-        .demo-chat-input {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--primary-white);
-            padding: 16px;
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .demo-input-field {
-            flex: 1;
-            padding: 10px 14px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 16px;
-            font-size: 13px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-        }
-
-        .demo-typing-indicator {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 10px 16px;
+        .example-card {
             background: var(--primary-white);
             border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-light);
-            width: fit-content;
+            transition: all 0.3s ease;
         }
 
-        .demo-typing-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-purple);
-            opacity: 0.6;
-            animation: typingPulse 1.5s infinite ease-in-out;
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
-        .demo-typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .demo-typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .demo-cta {
-            text-align: center;
-            margin-top: 30px; /* Increased margin */
-        }
-
-        .demo-cta-title {
+        .example-title {
             font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--deep-navy);
         }
 
-        .demo-trigger {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 28px;
+        .example-description {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background: var(--primary-white);
+            padding: 100px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .category-tag {
+            background: var(--gradient-secondary);
+            color: var(--accent-purple);
+            padding: 12px 24px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
+            font-size: 16px;
             transition: all 0.3s ease;
+            border: 1px solid var(--light-purple);
+        }
+
+        .category-tag:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        .demo-trigger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(123, 95, 196, 0.4);
-            background: var(--accent-purple-dark);
+        /* Integration Section */
+        .integration-section {
+            background: var(--light-gray);
+            padding: 80px 0;
         }
 
-        /* Removed the progress dots */
-        .demo-progress {
-            display: none; /* Hide the progress dots */
-        }
-
-        /* Full Width Section */
-        .full-width-section {
-            width: 100%;
-            margin-bottom: 35px;
-        }
-
-        /* Pill Sections */
-        .pill-sections {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 35px;
-            margin-top: 30px;
-        }
-
-        .pill-section {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 50px 30px 40px; /* Increased top padding */
-            box-shadow: var(--premium-card-shadow);
-            border: 1px solid var(--border-light);
-            flex: 1;
+        .integration-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            transition: all 0.3s ease;
+            background: var(--primary-white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+        }
+
+        .integration-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--deep-navy);
+        }
+
+        .integration-description {
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .integration-points {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+
+        .integration-point {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .point-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-purple);
+        }
+
+        .point-desc {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--soft-blue);
+            text-align: center;
+            padding: 100px 0;
             position: relative;
             overflow: hidden;
         }
 
-        .pill-section::before {
+        .final-cta::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-secondary);
+            opacity: 0.7;
+            z-index: 0;
         }
 
-        .pill-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .pill-icon {
-            width: 90px; /* Larger */
-            height: 90px; /* Larger */
-            background: var(--light-purple);
-            color: var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px; /* Increased bottom margin */
-            font-size: 32px; /* Larger icon */
-        }
-
-        .pill-title {
-            font-weight: 600;
-            margin-bottom: 20px; /* Increased margin */
-            font-size: 20px;
-            color: var(--text-dark);
-        }
-
-        .pill-description {
-            font-size: 16px;
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits-section {
-            margin-bottom: 35px;
-        }
-
-        .benefits-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 35px;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .benefit-card {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 40px 25px 30px; /* Reduced top padding for consistent height */
-            text-align: center;
-            box-shadow: var(--premium-card-shadow);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
+        .final-cta-content {
             position: relative;
-            height: 290px; /* Reduced height to match process cards */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Align from top */
+            z-index: 1;
         }
 
-        .benefit-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .benefit-icon {
-            width: 85px; /* Slightly larger */
-            height: 85px; /* Slightly larger */
-            background: var(--primary-white);
-            color: var(--accent-purple);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px; /* Reduced bottom margin */
-            font-size: 28px; /* Slightly larger */
-            border: 2px solid var(--accent-purple);
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
-        }
-
-        .benefit-title {
-            font-weight: 600;
-            margin-bottom: 15px; /* Reduced margin */
-            font-size: 20px;
-            color: var(--text-dark);
-        }
-
-        .benefit-description {
-            font-size: 15px;
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        /* Features Pills */
-        .features-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+        .final-statement {
+            font-size: 38px;
+            font-weight: 700;
             margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.3;
+            color: var(--deep-navy);
         }
 
-        .feature-pill {
-            background: var(--light-purple);
-            border-radius: 50px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--accent-purple-dark);
-            font-size: 15px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .feature-pill .check-icon {
-            color: var(--accent-purple);
-            font-size: 16px;
-        }
-
-        /* Chat UI */
-        .chat-ui {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--deep-navy);
-            z-index: 1500;
-            flex-direction: column;
-            transition: left 1.2s ease;
-        }
-
-        .chat-ui.open {
-            left: 0;
-        }
-
-        .chat-container {
-            background: var(--primary-white);
-            border-radius: 16px;
-            margin: 30px;
-            height: calc(100% - 80px);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .chat-header {
-            padding: 20px 30px;
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background: var(--primary-white);
-            border-radius: 16px 16px 0 0;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .chat-title-section {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .chat-title-section h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0;
-            transition: color 0.3s ease;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--dark-gray);
-            transition: color 0.3s ease;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10B981;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-        .chat-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .chat-action-btn {
-            background: none;
-            border: none;
+        .cta-note {
+            font-size: 18px;
             color: var(--text-medium);
-            cursor: pointer;
-            font-size: 16px;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .chat-action-btn:hover {
-            background: var(--light-gray);
-            color: var(--accent-purple);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px 30px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            min-height: 0;
-        }
-
-        .message {
-            max-width: 100%;
-            padding: 0;
-            font-size: 15px;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .message-coach {
-            align-self: flex-start;
-        }
-
-        .message-user {
-            align-self: flex-end;
-        }
-
-        .message-bubble {
-            padding: 12px 18px;
-            border-radius: 18px;
-            position: relative;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            width: 100%;
-        }
-
-        .message-coach .message-bubble {
-            background: var(--light-gray);
-            color: var(--text-dark);
-            border-bottom-left-radius: 6px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .message-user .message-bubble {
-            background: var(--light-purple-user); /* Changed to lighter purple */
-            color: var(--accent-purple-dark); /* Darker text for contrast */
-            border-bottom-right-radius: 6px;
-            border: 1px solid rgba(123, 95, 196, 0.2);
-        }
-
-        .message-meta {
-            font-size: 11px;
-            color: var(--dark-gray);
-            margin-top: 4px;
-            padding: 0 4px;
-            transition: color 0.3s ease;
-        }
-
-        .message-user .message-meta {
-            text-align: right;
-        }
-
-        .chat-input-container {
-            padding: 20px 30px;
-            border-top: 1px solid var(--border-light);
-            background: var(--primary-white);
-            border-radius: 0 0 16px 16px;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .chat-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .chat-input-row {
-            display: flex;
-            gap: 12px;
-            align-items: flex-end;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 14px 18px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 16px;
-            font-size: 15px;
-            background: var(--primary-white);
-            color: var(--text-dark);
-            resize: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            min-height: 50px;
-            max-height: 120px;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 3px rgba(123, 95, 196, 0.1);
-        }
-
-        .chat-input::placeholder {
-            color: var(--dark-gray);
-        }
-
-        .chat-actions-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .privacy-notice {
-            font-size: 12px;
-            color: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .privacy-icon {
-            color: var(--accent-purple);
-        }
-
-        .chat-send {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(123, 95, 196, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            height: fit-content;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(123, 95, 196, 0.4);
-        }
-
-        .chat-send:disabled {
-            background: var(--dark-gray);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Thinking Animation */
-        .thinking-animation {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 0;
-        }
-
-        .thinking-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--accent-purple);
-            opacity: 0.6;
-            animation: thinkingPulse 1.5s infinite ease-in-out;
-        }
-
-        .thinking-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .thinking-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes thinkingPulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* User Typing Animation */
-        .typing-animation {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 0;
-            align-self: flex-end;
-        }
-
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: white;
-            opacity: 0.6;
-            animation: typingPulse 1.5s infinite ease-in-out;
-        }
-
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes typingPulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* Close Button */
-        .close-chat {
-            background: none;
-            border: none;
-            color: var(--text-medium);
-            cursor: pointer;
-            font-size: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .close-chat:hover {
-            background: var(--light-gray);
-            color: var(--accent-purple);
-        }
-
-        /* Disclaimer Modal */
-        .disclaimer-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .disclaimer-modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .disclaimer-content {
-            background: var(--primary-white);
-            border-radius: 16px;
-            padding: 30px;
+            margin-bottom: 40px;
             max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .disclaimer-modal.show .disclaimer-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .disclaimer-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--deep-navy);
-            transition: color 0.3s ease;
-        }
-
-        .disclaimer-text {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: var(--text-medium);
-            transition: color 0.3s ease;
-        }
-
-        .disclaimer-text strong {
-            font-weight: 700;
-            color: var(--deep-navy);
-        }
-
-        .disclaimer-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .disclaimer-checkbox input {
-            margin-top: 4px;
-        }
-
-        .disclaimer-checkbox label {
-            font-size: 14px;
-            color: var(--text-medium);
-            line-height: 1.5;
-            transition: color 0.3s ease;
-        }
-
-        .terms-link {
-            color: var(--accent-purple);
-            text-decoration: none;
-        }
-
-        .terms-link:hover {
-            text-decoration: underline;
-        }
-
-        .disclaimer-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-        }
-
-        .disclaimer-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .disclaimer-btn.accept {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-        }
-
-        .disclaimer-btn.accept:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        .disclaimer-btn.accept:disabled {
-            background: var(--dark-gray);
-            cursor: not-allowed;
-        }
-
-        .disclaimer-btn.decline {
-            background: var(--light-gray);
-            color: var(--text-medium);
-            border: 1px solid var(--medium-gray);
-        }
-
-        .disclaimer-btn.decline:hover {
-            background: var(--medium-gray);
-        }
-
-        /* Sign In Prompt */
-        .signin-prompt {
-            display: none;
-            background: var(--light-gray);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            color: var(--text-dark);
-            border: 1px solid var(--border-light);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .signin-prompt h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .signin-prompt p {
-            margin-bottom: 15px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .signin-btn {
-            background: var(--accent-purple);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .signin-btn:hover {
-            background: var(--accent-purple-dark);
-        }
-
-        /* Micro CTA Section - Full width */
-        .micro-cta {
-            text-align: center;
-            padding: 40px 30px;
-            margin: 60px 0;
-            background: var(--neutral-bg);
-            border: 1px solid var(--border-light);
-            position: relative;
-            width: 100vw;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
-
-        .micro-cta-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .micro-cta p {
-            font-size: 30px;
-            color: var(--text-dark);
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .cta-small {
-            background: var(--accent-purple);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin: 0 10px;
-            box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
-        }
-
-        .cta-small:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(123, 95, 196, 0.3);
-        }
-
-        .cta-link {
-            color: var(--accent-purple);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .cta-link:hover {
-            color: var(--accent-purple-dark);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
@@ -1608,17 +1073,16 @@
             margin-bottom: 10px;
         }
 
+        /* Footer Logo - DOUBLED SIZE */
         .footer-logo-img {
-            height: 100px;
+            height: 100px; /* Doubled from 100px */
             width: auto;
             padding: 8px 0;
             transition: all 0.3s ease;
-            display: block;
-            min-height: 100px;
         }
 
         .dark-mode .footer-logo-img {
-            filter: invert(1) brightness(2);
+            content: url('assets/img/logo-dark.png');
         }
 
         .footer-description {
@@ -1720,60 +1184,288 @@
             box-shadow: 0 5px 15px rgba(123, 95, 196, 0.3);
         }
 
-        /* Responsive Design */
+        /* Logo Fallback */
+        .logo-fallback {
+            display: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        /* Responsive */
         @media (max-width: 1200px) {
-            .cards-container {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
-            }
-            
-            .benefits-grid {
+            .types-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
             }
             
-            .coach-demo-section {
-                margin: 40px 0 60px;
+            .why-works-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .chat-demo {
-                height: 456px; /* Maintain increased height on larger screens */
+            .examples-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .structure-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+            
+            .structure-grid::before {
+                display: none;
             }
         }
 
         @media (max-width: 992px) {
+            .shift-hero-title {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
             .nav-links {
                 gap: 30px;
             }
-            
+
             .footer-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             
-            .demo-title {
-                font-size: 28px;
-            }
-            
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-            
-            .demo-container {
-                max-width: 800px;
-            }
-            
-            .chat-demo {
-                height: 456px; /* Maintain increased height */
+            .integration-points {
+                flex-direction: column;
+                gap: 30px;
             }
         }
 
         @media (max-width: 768px) {
-            /* Mobile Navigation */
+            /* 1. Fix Structure of an heading and make it consistent with others */
+            .structure-section .section-title {
+                display: block !important;
+                font-size: 32px !important; /* Same as other section titles */
+                text-align: center;
+            }
+            
+            .structure-section .section-title::after {
+                content: "" !important; /* Remove the extra text */
+            }
+            
+            .structure-section .section-title br {
+                display: block !important; /* Show the line break */
+            }
+            
+            /* 2. Revert Problems section to left justified and fix title */
+            .problems-section .section-header {
+                text-align: left !important;
+            }
+            
+            .problems-section .section-title,
+            .problems-section .section-subtitle {
+                text-align: left !important;
+            }
+            
+            .problem-card {
+                text-align: left !important;
+            }
+            
+            .problem-title {
+                justify-content: flex-start !important;
+            }
+            
+            /* 3. Adjust hero heading to move first line down and keep on one line */
+            .shift-hero {
+                padding-top: 160px !important; /* Increased from 140px to move content down */
+            }
+            
+            .shift-hero-title {
+                font-size: 2.8rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-line {
+                display: block !important;
+                white-space: nowrap !important;
+                overflow: visible !important;
+            }
+            
+            /* Ensure all titles have capital letters for each word */
+            .section-title,
+            .what-is-title,
+            .integration-title,
+            .final-statement,
+            .type-title,
+            .example-title,
+            .point-title,
+            .structure-name {
+                text-transform: capitalize !important;
+            }
+            
+            /* Original mobile styles remain below */
+            /* Centre the subheading */
+            .shift-hero-subtitle {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            /* Centre 'how the shift fits...' content */
+            .integration-content {
+                text-align: center !important;
+            }
+            
+            /* Centre the library categories */
+            .categories-list {
+                justify-content: center !important;
+                align-items: center !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+            }
+            
+            /* Centre content in 'The Four Types...' section */
+            .types-section .section-header,
+            .types-grid {
+                text-align: center !important;
+            }
+            
+            .type-card {
+                text-align: center !important;
+                align-items: center !important;
+            }
+            
+            .type-icon {
+                margin: 0 auto 20px !important;
+            }
+            
+            /* Centre 'what the shift is' and the stats */
+            .what-is-section .what-is-content {
+                text-align: center !important;
+            }
+            
+            .what-is-description {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            .hero-stats {
+                align-items: center !important;
+                text-align: center !important;
+                padding-left: 0 !important;
+            }
+            
+            .stat-item {
+                align-items: center !important;
+            }
+            
+            /* Reduce width of CTA buttons */
+            .cta-buttons {
+                width: 100%;
+                max-width: 350px !important;
+                margin: 0 auto;
+            }
+            
+            .cta-button, .secondary-cta {
+                width: 100%;
+                text-align: center;
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+            
+            .secondary-cta {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            /* Additional centering for Why It Works section */
+            .why-works-section .section-header,
+            .why-works-grid,
+            .why-works-card {
+                text-align: center !important;
+            }
+            
+            /* Additional centering for Examples section */
+            .examples-section .section-header {
+                text-align: center !important;
+            }
+            
+            .example-card {
+                text-align: center !important;
+            }
+            
+            /* Additional centering for Final CTA */
+            .final-cta-content {
+                text-align: center !important;
+            }
+            
+            .final-statement {
+                text-align: center !important;
+            }
+            
+            .cta-note {
+                text-align: center !important;
+            }
+            
+            /* Original mobile improvements */
+            
+            .footer-about {
+                text-align: left;
+                padding-left: 0;
+            }
+            
+            .footer-description {
+                text-align: left;
+            }
+            
+            .what-is-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            
+            .section-subtitle {
+                font-size: 18px;
+            }
+            
+            .what-is-description {
+                font-size: 18px;
+                line-height: 1.5;
+                text-align: center !important;
+                padding: 0 10px;
+            }
+            
+            .what-is-description p {
+                margin-bottom: 15px;
+            }
+            
+            /* NEW: Show the Create Account Tab on mobile */
             .mobile-create-account-tab {
                 display: flex;
             }
 
+            /* NEW: Center content for mobile view */
+            .container {
+                text-align: center;
+            }
+            
+            .module-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .module-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .module-cta {
+                align-self: center;
+            }
+            
+            /* Mobile Navigation Changes */
             .nav-container {
                 justify-content: center;
                 position: relative;
@@ -1783,24 +1475,29 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                display: flex;
-                align-items: center;
-                height: 100%;
             }
             
+            /* INCREASED: Mobile header logo size by 25% */
             .logo-img {
-                height: 125px;
+                height: 122px;
                 transform: none;
                 padding: 12px 0;
-                display: flex;
-                align-items: center;
             }
             
             .mobile-toggle {
                 display: flex;
                 position: absolute;
                 left: 20px;
-                align-items: center;
+            }
+            
+            /* REMOVED: Hide the Sign Up button in mobile view */
+            .header-cta {
+                display: none !important;
+            }
+            
+            /* CHANGED: Remove Sign In from header bar on mobile */
+            .nav-actions .sign-in {
+                display: none !important;
             }
             
             .nav-actions {
@@ -1808,15 +1505,6 @@
                 gap: 16px;
                 position: absolute;
                 right: 20px;
-                align-items: center;
-            }
-            
-            .nav-actions .sign-in {
-                display: none;
-            }
-            
-            .nav-actions .header-cta {
-                display: none;
             }
             
             .nav-links {
@@ -1833,20 +1521,14 @@
                 border-top: 1px solid var(--border-light);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 gap: 20px;
+                text-align: left;
             }
 
             .nav-links.active {
                 display: flex;
             }
             
-            .nav-link.active {
-                color: var(--accent-purple);
-            }
-            
-            .nav-link.active::after {
-                display: none;
-            }
-            
+            /* Move The Coach to the left and New tag next to it */
             .nav-link-container {
                 display: flex;
                 align-items: center;
@@ -1857,10 +1539,15 @@
             .new-tag {
                 position: static;
                 margin-left: 8px;
+                top: auto;
+                right: auto;
             }
             
+            /* Make the Sign In button in hamburger menu - no icons */
             .mobile-sign-in {
-                display: block !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: white;
@@ -1870,10 +1557,25 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
+                transition: all 0.3s ease;
             }
 
-            .mobile-create-account {
-                display: block !important;
+            .mobile-sign-in:hover {
+                background: rgba(123, 95, 196, 0.1);
+                transform: translateY(-1px);
+            }
+
+            .dark-mode .mobile-sign-in {
+                background: var(--primary-white);
+                color: var(--accent-purple);
+                border: 2px solid var(--accent-purple);
+            }
+
+            /* NEW: Mobile Sign Up button styles - no icons */
+            .mobile-sign-up {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
                 margin-top: 10px;
                 padding: 12px 20px;
                 background: var(--accent-purple);
@@ -1883,272 +1585,227 @@
                 font-weight: 600;
                 text-decoration: none;
                 border: 2px solid var(--accent-purple);
-                box-shadow: 0 2px 6px rgba(123, 95, 196, 0.2);
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 8px rgba(123, 95, 196, 0.25);
             }
 
-            /* Mobile Responsive Layout */
-            main {
-                padding: 80px 15px 30px;
+            .mobile-sign-up:hover {
+                background: var(--accent-purple-dark);
+                transform: translateY(-1px);
+                box-shadow: 0 5px 12px rgba(123, 95, 196, 0.35);
             }
 
-            /* Hero Section Mobile */
-            .hero-section {
-                padding-top: 100px;
-                margin-bottom: 30px;
+            .dark-mode .mobile-sign-up {
+                background: var(--accent-purple);
+                color: white;
+                border: 2px solid var(--accent-purple);
             }
 
-            .hero-title {
-                font-size: 42px;
-                line-height: 1.2;
-                margin-bottom: 20px;
+            .shift-hero {
+                min-height: 80vh;
+            }
+            
+            .shift-hero-title {
+                font-size: 2.8rem;
+                letter-spacing: -1px;
             }
 
-            .hero-subtitle {
-                font-size: 18px;
-                line-height: 1.5;
-                margin-bottom: 40px;
-            }
-
-            /* Center CTAs on mobile */
-            .cta-buttons {
+            .hero-stats {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
-                margin-bottom: 60px;
+                gap: 24px;
+                padding: 20px 0;
             }
 
-            .cta-button, .secondary-cta {
-                width: 100%;
-                max-width: 320px;
-                margin: 0;
+            .stat-number {
+                font-size: 1.75rem;
             }
 
-            /* How It Works Cards - Mobile */
-            .how-it-works {
-                margin: 50px 0 40px;
+            .shift-hero-subtitle {
+                font-size: 20px;
+                text-align: center !important;
             }
 
-            .how-it-works-title {
+            .section-title {
                 font-size: 32px;
-                margin-bottom: 30px;
             }
-
-            .cards-container {
+            
+            .types-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
             }
-
-            .process-card {
-                padding: 35px 25px 25px; /* Adjusted for mobile - reduced height */
+            
+            .why-works-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .process-icon {
-                width: 80px; /* Adjusted for mobile */
-                height: 80px; /* Adjusted for mobile */
-                font-size: 28px; /* Adjusted for mobile */
-                margin-bottom: 20px; /* Reduced bottom margin */
-            }
-
-            .process-title {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-
-            .process-description {
-                font-size: 16px;
-            }
-
-            /* Coach Demo Section Mobile */
-            .coach-demo-section {
-                margin: 40px 0;
-            }
-
-            .demo-container {
-                padding: 20px;
-                max-width: 100%; /* Full width on mobile */
-            }
-
-            .demo-title {
-                font-size: 26px;
-            }
-
-            .demo-subtitle {
-                font-size: 15px;
-            }
-
-            .chat-demo {
-                height: 420px; /* Slightly reduced but still larger than original */
-            }
-
-            .demo-messages {
-                padding: 14px;
-            }
-
-            .demo-message {
-                max-width: 95%; /* Even wider on mobile */
-                font-size: 12px;
-            }
-
-            /* Section titles */
-            .benefits-title {
-                font-size: 32px;
-                margin-bottom: 30px;
-            }
-
-            /* Benefits grid */
-            .benefits-grid {
+            
+            .problems-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
             }
-
-            .benefit-card {
-                height: auto;
-                min-height: 260px;
-                padding: 35px 20px 25px; /* Reduced padding */
+            
+            .structure-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
-
-            .benefit-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 26px;
-                margin-bottom: 15px; /* Reduced margin */
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
             }
-
-            .benefit-title {
-                font-size: 20px;
-                margin-bottom: 15px;
+            
+            .types-grid,
+            .why-works-grid,
+            .problems-grid,
+            .examples-grid {
+                gap: 30px;
             }
-
-            .benefit-description {
-                font-size: 16px;
-            }
-
-            /* Pill sections */
-            .pill-sections {
-                gap: 25px;
-                margin-top: 30px;
-            }
-
-            .pill-section {
-                padding: 40px 20px 30px;
-            }
-
-            .pill-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 28px;
-                margin-bottom: 25px;
-            }
-
-            .pill-title {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-
-            .pill-description {
-                font-size: 16px;
-            }
-
-            /* Micro CTA - Full width on mobile */
-            .micro-cta {
+            
+            .type-card,
+            .problem-card,
+            .example-card {
                 padding: 30px 20px;
-                margin: 40px -15px;
-                width: calc(100% + 30px);
-                left: 0;
-                right: 0;
-                margin-left: 0;
-                margin-right: 0;
+            }
+            
+            .categories-list {
+                justify-content: center !important;
+            }
+            
+            .category-tag {
+                padding: 10px 20px;
+                font-size: 14px;
             }
 
-            .micro-cta-content {
-                padding: 0 15px;
-            }
-
-            .micro-cta p {
-                font-size: 22px;
-                margin-bottom: 20px;
-            }
-
-            .cta-small, .cta-link, .secondary-cta {
-                display: block;
-                margin: 10px auto;
-                max-width: 220px;
-                font-size: 15px;
-                padding: 12px 24px;
-            }
-
-            .cta-link {
-                margin-top: 15px;
-                display: inline-block;
-            }
-
-            /* Footer */
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 30px;
-                order: 1;
             }
 
-            .footer-nav-section:nth-child(1) {
-                order: 1;
+            .footer-newsletter-form {
+                flex-direction: column;
+            }
+
+            /* Additional mobile improvements */
+            .type-card, .example-card, .problem-card {
+                text-align: center !important;
             }
             
-            .footer-nav-section:nth-child(2) {
-                order: 2;
+            .type-icon {
+                margin: 0 auto 20px !important;
             }
-
+            
+            .structure-item {
+                text-align: center !important;
+                align-items: center !important;
+            }
+            
+            .integration-content {
+                text-align: center !important;
+                padding: 30px;
+            }
+            
+            .final-cta-content {
+                text-align: center !important;
+            }
+            
+            .final-statement {
+                font-size: 28px;
+                text-align: center !important;
+            }
+            
+            .cta-note {
+                text-align: center !important;
+            }
+            
+            .footer-nav-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
             .footer-logo-img {
                 height: 120px;
             }
-
-            /* Content wrapper spacing */
-            .content-wrapper {
-                gap: 40px;
-            }
-
-            /* Section padding */
-            section {
-                padding: 60px 0;
-            }
-
-            /* Features pills */
-            .features-pills {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .feature-pill {
-                width: 100%;
-                justify-content: center;
-            }
-
-            /* Chat UI Mobile Adjustments */
-            .chat-container {
-                margin: 10px;
-                height: calc(100% - 20px);
+            
+            .final-statement {
+                font-size: 28px;
             }
             
-            .chat-header, .chat-messages, .chat-input-container {
-                padding: 15px 20px;
-            }
-            
-            .chat-input-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .chat-send {
-                width: 100%;
-                justify-content: center;
+            .integration-content {
+                padding: 30px 20px;
             }
         }
 
         @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            
+            /* 1. Centre everything properly */
+            .shift-hero-subtitle {
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            /* 2. Centre categories list */
+            .categories-list {
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            
+            .category-tag {
+                margin: 5px;
+            }
+            
+            /* 3. Further reduce CTA button width */
+            .cta-buttons {
+                max-width: 320px !important;
+            }
+            
+            /* Original very small screen styles */
+            .shift-hero-title {
+                font-size: 2.4rem;
+                line-height: 1.2;
+            }
+            
+            .shift-hero-subtitle {
+                font-size: 18px;
+                text-align: center !important;
+                padding: 0 10px;
+            }
+            
+            .hero-stats {
+                align-items: center !important;
+                text-align: center !important;
+                padding-left: 0 !important;
+            }
+            
+            .stat-item {
+                align-items: center !important;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .what-is-title {
+                font-size: 26px;
+            }
+            
+            .categories-list {
+                justify-content: center !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .integration-points {
+                align-items: center !important;
+            }
+            
+            .integration-point {
+                padding: 0;
+                text-align: center !important;
+            }
+            
             .logo-img {
                 height: 100px;
             }
@@ -2157,60 +1814,41 @@
                 height: 100px;
             }
             
-            .hero-title {
-                font-size: 36px;
+            .logo-fallback {
+                font-size: 18px;
             }
             
-            .hero-subtitle {
-                font-size: 16px;
+            .final-statement {
+                font-size: 24px;
+                text-align: center !important;
             }
             
-            .footer-nav-grid {
+            .why-works-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .type-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .integration-points {
+                flex-direction: column;
                 gap: 20px;
-            }
-            
-            .benefits-title {
-                font-size: 28px;
-            }
-
-            .micro-cta p {
-                font-size: 20px;
-            }
-            
-            .demo-title {
-                font-size: 24px;
-            }
-            
-            .chat-demo {
-                height: 380px; /* Slightly reduced for very small screens */
-            }
-            
-            .how-it-works-title {
-                font-size: 28px;
-            }
-            
-            .process-card {
-                padding: 30px 20px 20px; /* Further reduced for small screens */
-            }
-            
-            .process-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 24px;
-                margin-bottom: 15px;
             }
         }
     </style>
 </head>
 
 <body>
-<!-- Mobile Create Account Tab -->
+
+<!-- NEW: Create Account Tab for Mobile - Updated from homepage -->
 <a href="#" class="mobile-create-account-tab" id="createAccountTab">
     <i class="fas fa-user-plus"></i>
 </a>
 
-<!-- Create Account Modal -->
+<!-- NEW: Create Account Modal -->
 <div class="create-account-modal" id="createAccountModal">
     <div class="modal-content">
         <div class="modal-header">
@@ -2242,32 +1880,40 @@
         <div class="modal-footer">
             <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
         </div>
+        
     </div>
 </div>
 
 <!-- Navigation -->
 <nav>
     <div class="container nav-container">
+        <!-- Hamburger menu on the left for mobile -->
         <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
         
+        <!-- Logo centered for mobile -->
         <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo">
+            <img src="assets/img/logo.png" alt="The Employee Playbook" class="logo-img" id="logo"
+                 onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <div class="logo-fallback" id="logo-fallback">THE EMPLOYEE PLAYBOOK</div>
         </a>
         
+        <!-- Navigation links with mobile sign-in and sign-up -->
         <div class="nav-links">
             <a href="the-lens.html" class="nav-link">The Lens</a>
             <a href="the-toolkit.html" class="nav-link">The Toolkit</a>
             <div class="nav-link-container">
-                <a href="the-coach.html" class="nav-link active">The Coach</a>
+                <a href="the-coach.html" class="nav-link">The Coach</a>
                 <span class="new-tag">NEW</span>
             </div>
-            <a href="the-shift.html" class="nav-link">The Shift</a>
+            <a href="the-shift.html" class="nav-link active">The Shift</a>
             <a href="the-pricing.html" class="nav-link">The Pricing</a>
             <a href="sign-in.html" class="mobile-sign-in">Sign In</a>
-            <a href="create-account.html" class="mobile-create-account">Create Account</a>
+            <a href="create-account.html" class="mobile-sign-up">Sign Up</a>
         </div>
         
+        <!-- Desktop actions (hidden on mobile) -->
         <div class="nav-actions">
+            <!-- CHANGED: Text changed from "Sign me up" to "Sign up" -->
             <a href="create-account.html" class="header-cta">Sign up</a>
             <a href="sign-in.html" class="sign-in">Sign in</a>
             <button class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -2275,243 +1921,322 @@
     </div>
 </nav>
 
-<!-- Main Content Area -->
-<main>
+<!-- 1. Hero Section - Redesigned -->
+<section class="shift-hero">
+    <div class="container shift-hero-content">
+        <h1 class="shift-hero-title">
+            <span class="hero-line">Shift how you think.</span>
+            <span class="hero-line">Shift how you lead.</span>
+            <span class="hero-line">Shift what happens next.</span>
+        </h1>
+        <p class="shift-hero-subtitle">A practical behaviour-change system that upgrades how you show up at work.<br>One strategic shift at a time.</p>
+        </div>
+        <div class="cta-buttons">
+            <a href="create-account.html" class="cta-button">Start Your First Shift</a>
+            <a href="#shift-library" class="secondary-cta">Explore the Shift Library</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. What The Shift Is (3-Line Descriptor) -->
+<section class="what-is-section">
+    <div class="container what-is-content">
+        <h2 class="what-is-title">What The Shift Is</h2>
+        <div class="what-is-description">
+            <p>The Shift is your behavioural transformation module.</p>
+            <p>Each Shift targets one high-impact workplace pattern you need to upgrade, thinking, communication, boundaries, presence, decision-making.</p>
+            <p>You get micro-lessons, strategic reframes, and actionable steps you can apply immediately.</p>
+        </div>
+                <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Targeted Shifts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">7‑Step</span>
+                <span class="stat-label">Proven Framework</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Immediate</span>
+                <span class="stat-label">Application</span>
+            </div>
+    </div>
+</section>
+
+<!-- 3. The Four Types of Shifts -->
+<section class="types-section">
     <div class="container">
-        <div class="content-wrapper">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <h1 class="hero-title">When the pressure spikes, clarity is power</h1>
-                <p class="hero-subtitle">The Coach is your private space to untangle complex situations and find your way forward with confidence</p>
+        <div class="section-header">
+            <h2 class="section-title">The Four Types of Shifts</h2>
+            <p class="section-subtitle">Strategic upgrades for every dimension of workplace performance</p>
+        </div>
+        
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="type-title">Mindset Shifts</h3>
+                <p class="type-description">Upgrade interpretation of pressure, conflict, ambiguity.</p>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-people-arrows"></i>
+                </div>
+                <h3 class="type-title">Behaviour Shifts</h3>
+                <p class="type-description">Adjust behaviours that change how others respond to you.</p>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="type-title">Influence Shifts</h3>
+                <p class="type-description">Communicate with presence, precision, and strategic framing.</p>
+            </div>
+            
+            <div class="type-card">
+                <div class="type-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="type-title">Identity Shifts</h3>
+                <p class="type-description">Strengthen internal positioning and self-perception.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Why It Works (Psychology Section) -->
+<section class="why-works-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why It Works</h2>
+            <p class="section-subtitle">Built on proven behavioural psychology principles</p>
+        </div>
+        
+        <div class="why-works-grid">
+            <div class="why-works-card">
+                <i class="fas fa-sync-alt" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Pattern Interruption</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-exchange-alt" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Cognitive Reframing</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-flask" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Behavioural Micro‑Experimenting</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-eye" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Perception Management</h4>
+            </div>
+            
+            <div class="why-works-card">
+                <i class="fas fa-layer-group" style="font-size: 32px; color: var(--accent-purple);"></i>
+                <h4 class="why-works-title">Identity Consolidation</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Problems That The Shift Solves -->
+<section class="problems-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Problems That The Shift Solves</h2>
+            <p class="section-subtitle">Targeted Solutions For Workplace Challenges</p>
+        </div>
+        
+        <div class="problems-grid">
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-tachometer-alt"></i> When You Feel Overwhelmed Or Losing Control</h3>
+                <p class="problem-line">• Regain mental clarity under pressure</p>
+                <p class="problem-line">• Establish boundaries without guilt</p>
+                <p class="problem-line">• Convert reactivity into strategic response</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-redo"></i> When You Keep Getting The Same Negative Outcomes</h3>
+                <p class="problem-line">• Break repetitive patterns that hold you back</p>
+                <p class="problem-line">• Identify blind spots in your approach</p>
+                <p class="problem-line">• Create new pathways to better results</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-user-minus"></i> When Confidence Drops After Criticism Or Micromanagement</h3>
+                <p class="problem-line">• Rebuild self‑assurance systematically</p>
+                <p class="problem-line">• Neutralise external doubt and internal imposter syndrome</p>
+                <p class="problem-line">• Project competence even when you don't feel it</p>
+            </div>
+            
+            <div class="problem-card">
+                <h3 class="problem-title"><i class="fas fa-heartbeat"></i> When Emotions Take Over Or You're Overlooked</h3>
+                <p class="problem-line">• Master emotional regulation in high‑stakes moments</p>
+                <p class="problem-line">• Increase visibility without over‑performing</p>
+                <p class="problem-line">• Ensure your contributions are recognised</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. Structure of an Individual Shift - Redesigned -->
+<section class="structure-section">
+    <div class="container structure-content">
+        <div class="section-header">
+            <h2 class="section-title">Structure of an<br>Individual Shift</h2>
+            <p class="structure-description">Every Shift follows the same 7‑element architecture designed for maximum impact and retention</p>
+        </div>
+        
+        <div class="structure-grid">
+            <div class="structure-item">
+                <div class="structure-number">1</div>
+                <h4 class="structure-name">The Pattern</h4>
+                <p class="structure-desc">Identify the automatic behaviour or thinking habit</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">2</div>
+                <h4 class="structure-name">Why It Happens</h4>
+                <p class="structure-desc">Understand the psychological trigger and reinforcement</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">3</div>
+                <h4 class="structure-name">The Shift</h4>
+                <p class="structure-desc">The specific cognitive or behavioural change to make</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">4</div>
+                <h4 class="structure-name">The Practice</h4>
+                <p class="structure-desc">Actionable exercises to embed the new pattern</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">5</div>
+                <h4 class="structure-name">The Warning Signs</h4>
+                <p class="structure-desc">Early signals the old pattern is re‑emerging</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">6</div>
+                <h4 class="structure-name">The Upgrade</h4>
+                <p class="structure-desc">The measurable improvement you'll experience</p>
+            </div>
+            
+            <div class="structure-item">
+                <div class="structure-number">7</div>
+                <h4 class="structure-name">The Identity Anchor</h4>
+                <p class="structure-desc">How this change reinforces your desired professional identity</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. Example Shifts (Preview Cards) -->
+<section class="examples-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Example Shifts</h2>
+            <p class="section-subtitle">Preview of transformative shifts in the library</p>
+        </div>
+        
+        <div class="examples-grid">
+            <div class="example-card">
+                <h3 class="example-title">The One‑Breathe Reset</h3>
+                <p class="example-description">Pause and recalibrate before reacting to pressure or criticism.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The Power Frame</h3>
+                <p class="example-description">Reframe conversations from defensive to strategically assertive.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The No‑Rush Rule</h3>
+                <p class="example-description">Break the urgency addiction that leads to poor decisions.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The Boundary Sentence</h3>
+                <p class="example-description">Politely decline unreasonable requests without damaging relationships.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">Perception Calibration</h3>
+                <p class="example-description">Align how you're perceived with how you want to be seen.</p>
+            </div>
+            
+            <div class="example-card">
+                <h3 class="example-title">The 24‑Hour Reframe</h3>
+                <p class="example-description">Transform setbacks into strategic insights within one day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. Shift Library Categories -->
+<section class="categories-section" id="shift-library">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Shift Library Categories</h2>
+            <p class="section-subtitle">Browse by the area you want to transform</p>
+        </div>
+        
+        <div class="categories-list">
+            <div class="category-tag">Confidence & Presence</div>
+            <div class="category-tag">Communication & Influence</div>
+            <div class="category-tag">Boundaries & Power Dynamics</div>
+            <div class="category-tag">Emotional Regulation</div>
+            <div class="category-tag">Leadership & Decision‑Making</div>
+            <div class="category-tag">Identity & Self‑Respect</div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. Integration With Lens & Coach -->
+<section class="integration-section">
+    <div class="container">
+        <div class="integration-content">
+            <h2 class="integration-title">How The Shift Fits With The Employee Playbook</h2>
+            <p class="integration-description">A complete system for workplace transformation</p>
+            
+            <div class="integration-points">
+                <div class="integration-point">
+                    <h4 class="point-title">The Lens</h4>
+                    <p class="point-desc">Diagnoses what's happening in your current situation</p>
+                </div>
                 
-                <!-- Desktop CTA -->
-                <div class="cta-buttons">
-                    <a href="#how-it-works" class="cta-button">Learn How It Works</a>
-                    <a href="#" class="secondary-cta" id="openChatCta">Try The Coach Now</a>
+                <div class="integration-point">
+                    <h4 class="point-title">The Coach</h4>
+                    <p class="point-desc">Guides you through the immediate moment and specific challenges</p>
                 </div>
-            </div>
-
-            <!-- How It Works Cards -->
-            <div class="how-it-works" id="how-it-works">
-                <h2 class="how-it-works-title">How The Coach Works</h2>
                 
-                <div class="cards-container">
-                    <div class="process-card">
-                        <div class="process-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="process-title">Get unstuck in real time</div>
-                        <div class="process-description">When you're facing a difficult conversation, political challenge, or career crossroads</div>
-                    </div>
-
-                    <div class="process-card">
-                        <div class="process-icon">
-                            <i class="fas fa-chess-board"></i>
-                        </div>
-                        <div class="process-title">Navigate office politics</div>
-                        <div class="process-description">With strategic frameworks that help you maintain integrity while building influence</div>
-                    </div>
-
-                    <div class="process-card">
-                        <div class="process-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="process-title">Turn tension into opportunity</div>
-                        <div class="process-description">By learning to handle conflicts, negotiations, and difficult stakeholders</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Coach Demo Animation Section - Moved closer to How It Works -->
-            <div class="coach-demo-section">
-                <div class="demo-container">
-                    <div class="demo-header">
-                        <h2 class="demo-title">See The Coach in Action</h2>
-                        <p class="demo-subtitle">Watch how The Coach helps navigate a real workplace challenge</p>
-                    </div>
-                    
-                    <div class="chat-demo">
-                        <div class="chat-demo-header">
-                            <div class="demo-chat-title">The Coach</div>
-                            <div class="demo-status">
-                                <div class="demo-status-dot"></div>
-                                <span>Available</span>
-                            </div>
-                        </div>
-                        
-                        <div class="demo-messages" id="demoMessages">
-                            <!-- Messages will be added by JavaScript -->
-                        </div>
-                        
-                        <div class="demo-chat-input">
-                            <div class="demo-typing-indicator" id="typingIndicator" style="display: none;">
-                                <div class="demo-typing-dot"></div>
-                                <div class="demo-typing-dot"></div>
-                                <div class="demo-typing-dot"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-cta">
-                        <!-- Removed "Ready to get personalised guidance?" title -->
-                        <button class="demo-trigger" id="startDemo">Replay Demo</button>
-                        <!-- Progress dots removed as requested -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Benefits Section -->
-            <div class="full-width-section benefits-section" id="benefits">
-                <h2 class="benefits-title">Your confidential sounding board for workplace challenges</h2>
-                
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="benefit-title">Get unstuck in real time</div>
-                        <div class="benefit-description">When you're facing a difficult conversation, political challenge, or career crossroads</div>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-chess-board"></i>
-                        </div>
-                        <div class="benefit-title">Navigate office politics</div>
-                        <div class="benefit-description">With strategic frameworks that help you maintain integrity while building influence</div>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="benefit-title">Turn tension into opportunity</div>
-                        <div class="benefit-description">By learning to handle conflicts, negotiations, and difficult stakeholders</div>
-                    </div>
-
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="benefit-title">Build career momentum</div>
-                        <div class="benefit-description">With actionable steps that position you for recognition, promotion, and growth</div>
-                    </div>
-                </div>
-
-                <!-- Features Pills -->
-                <div class="features-pills">
-                    <div class="feature-pill">
-                        <i class="fas fa-check check-icon"></i>
-                        <span>Completely confidential</span>
-                    </div>
-                    <div class="feature-pill">
-                        <i class="fas fa-check check-icon"></i>
-                        <span>Real-time strategic guidance</span>
-                    </div>
-                    <div class="feature-pill">
-                        <i class="fas fa-check check-icon"></i>
-                        <span>Actionable frameworks</span>
-                    </div>
-                    <div class="feature-pill">
-                        <i class="fas fa-check check-icon"></i>
-                        <span>No tracking or storage</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Micro CTA Section - Full width -->
-            <div class="micro-cta">
-                <div class="micro-cta-content">
-                    <p>Ready to turn clarity into strategy?</p>
-                    <a href="the-pricing.html" class="cta-small">Start with The Core plan (£9/mo)</a>
-                    <a href="the-pricing.html" class="cta-link">See full pricing</a>
+                <div class="integration-point">
+                    <h4 class="point-title">The Shift</h4>
+                    <p class="point-desc">Rewires the underlying pattern so it doesn't happen again</p>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</section>
 
-<!-- Chat UI -->
-<div class="chat-ui" id="chatUI">
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="chat-title-section">
-                <h1>The Coach</h1>
-                <div class="status-indicator">
-                    <div class="status-dot"></div>
-                    <span>Available</span>
-                </div>
-            </div>
-            <div class="chat-actions">
-                <button class="chat-action-btn" title="New session" id="newSessionBtn">
-                    <i class="fas fa-plus"></i>
-                </button>
-                <button class="close-chat" id="closeChat" title="Close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message message-coach">
-                <div class="message-bubble">
-                    When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
-                    That's this space.<br><br>
-                    Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
-                    I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
-                    This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
-                    What's the part of your situation that feels most urgent today?
-                </div>
-                <div class="message-meta">The Coach • Just now</div>
-            </div>
-        </div>
-        
-        <!-- Sign In Prompt -->
-        <div class="signin-prompt" id="signinPrompt">
-            <h3>Continue Your Conversation</h3>
-            <p>You've reached the limit for guest messages. Sign in to continue your conversation with The Coach.</p>
-            <button class="signin-btn" id="signinBtn">Sign In to Continue</button>
-        </div>
-        
-        <div class="chat-input-container">
-            <form class="chat-form" id="chatForm">
-                <div class="chat-input-row">
-                    <textarea class="chat-input" id="chatInput" placeholder="Describe your situation or ask a question..." rows="2" required></textarea>
-                    <button type="submit" class="chat-send" id="chatSend">
-                        <i class="fas fa-paper-plane"></i>
-                        Send
-                    </button>
-                </div>
-                <div class="chat-actions-row">
-                    <div class="privacy-notice">
-                        <i class="fas fa-lock privacy-icon"></i>
-                        This conversation is private and secure. Your data is never shared.
-                    </div>
-                </div>
-            </form>
+<!-- 10. Final CTA Section -->
+<section class="final-cta">
+    <div class="container final-cta-content">
+        <h2 class="final-statement">Ready to make your next move your strongest one?</h2>
+        <p class="cta-note">Begin transforming how you think, communicate, and lead in your organization</p>
+        <div class="cta-buttons">
+            <a href="create-account.html" class="cta-button">Start your first Shift →</a>
+            <a href="sign-in.html" class="secondary-cta">Log in to access your Shift Library →</a>
         </div>
     </div>
-</div>
-
-<!-- Disclaimer Modal -->
-<div class="disclaimer-modal" id="disclaimerModal">
-    <div class="disclaimer-content">
-        <h2 class="disclaimer-title">Important Guidance Disclaimer</h2>
-        <div class="disclaimer-text">
-            <p><strong>The Coach offers strategic guidance only. It is not legal, financial or psychological advice.</strong></p>
-            <p>Conversations are confidential and not tied to your identity.</p>
-            <p>By using The Coach, you accept this guidance at your own discretion and agree to our <a href="terms-and-conditions.html" class="terms-link">Terms & Conditions</a>. The Employee Playbook is not responsible for decisions made based on its guidance.</p>
-        </div>
-        <div class="disclaimer-checkbox">
-            <input type="checkbox" id="disclaimerCheck">
-            <label for="disclaimerCheck">I have read and understand the disclaimer and agree to the <a href="terms-and-conditions.html" class="terms-link">Terms & Conditions</a></label>
-        </div>
-        <div class="disclaimer-actions">
-            <button class="disclaimer-btn decline" id="declineDisclaimer">Decline</button>
-            <button class="disclaimer-btn accept" id="acceptDisclaimer" disabled>Accept & Continue</button>
-        </div>
-    </div>
-</div>
+</section>
 
 <!-- Footer -->
 <footer>
@@ -2520,7 +2245,9 @@
             <div class="footer-about">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo">
+                        <img src="assets/img/logo.png" alt="The Employee Playbook" class="footer-logo-img" id="footer-logo"
+                             onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').style.display='block';">
+                        <div class="logo-fallback" id="footer-logo-fallback" style="font-size: 28px;">THE EMPLOYEE PLAYBOOK</div>
                     </a>
                 </div>
                 <p class="footer-description">A private strategy system giving employees clarity and advantage in the moments that matter most.</p>
@@ -2548,11 +2275,11 @@
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3 class="footer-heading">The Company</h3>
+                        <h3 class="footer-heading">Company</h3>
                         <ul class="footer-links">
                             <li class="footer-link"><a href="profile.html">Profile</a></li>
                             <li class="footer-link"><a href="about-us.html">About</a></li>
-                            <li class="footer-link"><a href="privacy.html">Privacy</a></li>
+                            <li class="footer-link"><a href="#privacy.html">Privacy</a></li>
                             <li class="footer-link"><a href="terms-and-conditions.html">Terms</a></li>
                             <li class="footer-link"><a href="help-centre.html">Help Centre</a></li>
                         </ul>
@@ -2568,34 +2295,27 @@
 </footer>
 
 <script>
+    // Mark page as loaded to prevent FOUC
     document.addEventListener('DOMContentLoaded', function() {
-        // Force scroll to top immediately
-        window.scrollTo(0, 0);
-        
-        // Add loaded class with delay to prevent visual jump
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, 10);
+        document.body.classList.add('loaded');
         
         // Dark mode toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-        
-        themeToggle.addEventListener('click', function () {
+        document.querySelector('.theme-toggle').addEventListener('click', function () {
             document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
             
-            themeIcon.classList.toggle('fa-moon');
-            themeIcon.classList.toggle('fa-sun');
-            
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            // Update logo for dark mode
+            const logo = document.getElementById('logo');
+            const footerLogo = document.getElementById('footer-logo');
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = 'assets/img/logo-dark.png';
+                footerLogo.src = 'assets/img/logo-dark.png';
+            } else {
+                logo.src = 'assets/img/logo.png';
+                footerLogo.src = 'assets/img/logo.png';
+            }
         });
 
         // Mobile navigation toggle
@@ -2606,487 +2326,62 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Create Account Modal
-        const createAccountModal = document.getElementById('createAccountModal');
-        const closeModal = document.getElementById('closeModal');
-        const createAccountTab = document.getElementById('createAccountTab');
-        
-        createAccountTab.addEventListener('click', function(e) {
-            e.preventDefault();
-            createAccountModal.classList.add('active');
-        });
-        
-        closeModal.addEventListener('click', function() {
-            createAccountModal.classList.remove('active');
-        });
-        
-        createAccountModal.addEventListener('click', function(e) {
-            if (e.target === createAccountModal) {
-                createAccountModal.classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling
+        // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href').startsWith('http') || 
-                    this.getAttribute('href').startsWith('mailto') ||
-                    this.getAttribute('href').startsWith('tel')) {
-                    return;
-                }
-                
-                if (this.classList.contains('mobile-create-account-tab')) {
-                    return;
-                }
-                
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const target = document.querySelector(targetId);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 96;
+                    const offset = 96; // 80px header + 16px extra spacing
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                     
+                    // Close mobile menu if open
                     document.querySelector('.nav-links').classList.remove('active');
                     document.querySelector('.mobile-toggle i').classList.add('fa-bars');
                     document.querySelector('.mobile-toggle i').classList.remove('fa-times');
                 }
             });
         });
-
-        // Coach Demo Animation
-        const demoMessages = document.getElementById('demoMessages');
-        const startDemoBtn = document.getElementById('startDemo');
-        const typingIndicator = document.getElementById('typingIndicator');
         
-        let demoStep = 0;
-        let demoInterval;
-        let hasDemoStarted = false;
+        // Create Account Modal Functionality
+        const createAccountTab = document.getElementById('createAccountTab');
+        const createAccountModal = document.getElementById('createAccountModal');
+        const closeModal = document.getElementById('closeModal');
         
-        // Updated demo conversation with British spelling
-        const demoConversation = [
-            {
-                sender: 'coach',
-                text: "Let's get specific: what part of feeling invisible is hitting you hardest right now?",
-                delay: 1500 // Slower transition
-            },
-            {
-                sender: 'user',
-                text: "I deliver everything on time, but my manager presents my work as his own. I'm not in the key meetings. It's like I'm a ghost contributor.",
-                delay: 2500 // Slower transition
-            },
-            {
-                sender: 'coach',
-                text: "That's a quiet erosion of your professional identity — the work is yours, but the recognition isn't. How long has this pattern been building?",
-                delay: 3000 // Slower transition
-            },
-            {
-                sender: 'user',
-                text: "Six months, maybe longer. Last quarter he took my entire project plan to the directors and didn't mention me once. When I asked about it, he said he was 'streamlining communication.'",
-                delay: 2500 // Slower transition
-            },
-            {
-                sender: 'coach',
-                text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating — it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
-                delay: 3500 // Slower transition
-            },
-            {
-                sender: 'user',
-                text: "Exactly. I don't want drama — I just want to be seen.",
-                delay: 2500 // Slower transition
-            },
-            {
-                sender: 'coach',
-                text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update — something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you — not like corporate speak?",
-                delay: 4000 // Slower transition
-            }
-        ];
-        
-        function showTypingIndicator() {
-            typingIndicator.style.display = 'flex';
-        }
-        
-        function hideTypingIndicator() {
-            typingIndicator.style.display = 'none';
-        }
-        
-        function addDemoMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('demo-message', `demo-message-${sender}`);
-            
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.classList.add('demo-message-bubble');
-            
-            // Preserve line breaks in the text
-            const lines = text.split('\n\n');
-            lines.forEach((line, index) => {
-                if (index > 0) {
-                    bubbleDiv.appendChild(document.createElement('br'));
-                    bubbleDiv.appendChild(document.createElement('br'));
-                }
-                bubbleDiv.appendChild(document.createTextNode(line));
-            });
-            
-            messageDiv.appendChild(bubbleDiv);
-            demoMessages.appendChild(messageDiv);
-            demoMessages.scrollTop = demoMessages.scrollHeight;
-        }
-        
-        function playDemoStep() {
-            if (demoStep >= demoConversation.length) {
-                clearInterval(demoInterval);
-                startDemoBtn.textContent = 'Replay Demo';
-                startDemoBtn.disabled = false;
-                return;
-            }
-            
-            const step = demoConversation[demoStep];
-            
-            if (step.sender === 'coach') {
-                showTypingIndicator();
-                setTimeout(() => {
-                    hideTypingIndicator();
-                    addDemoMessage(step.text, step.sender);
-                    demoStep++;
-                }, 1800); // Longer typing delay
-            } else {
-                addDemoMessage(step.text, step.sender);
-                demoStep++;
-            }
-        }
-        
-        function startDemo() {
-            // Clear previous demo
-            demoMessages.innerHTML = '';
-            demoStep = 0;
-            startDemoBtn.textContent = 'Demo Running...';
-            startDemoBtn.disabled = true;
-            hasDemoStarted = true;
-            
-            // Clear any existing interval
-            if (demoInterval) {
-                clearInterval(demoInterval);
-            }
-            
-            // Start the demo with slower intervals
-            demoInterval = setInterval(playDemoStep, 4000); // Slower interval
-            playDemoStep();
-        }
-        
-        // Start demo automatically when page loads (after a short delay)
-        setTimeout(() => {
-            if (!hasDemoStarted) {
-                startDemo();
-            }
-        }, 1500);
-        
-        startDemoBtn.addEventListener('click', startDemo);
-
-        // Coach Chat Functionality
-        let messageCount = 0;
-        let disclaimerAccepted = false;
-        let userContext = {};
-        let isTyping = false;
-        let typingTimeout;
-
-        // Open chat from CTA
-        document.getElementById('openChatCta').addEventListener('click', function(e) {
+        // Open modal when tab is clicked
+        createAccountTab.addEventListener('click', function(e) {
             e.preventDefault();
-            document.getElementById('chatUI').classList.add('open');
-            
-            setTimeout(() => {
-                if (!disclaimerAccepted) {
-                    document.getElementById('disclaimerModal').classList.add('show');
-                }
-            }, 2000);
+            createAccountModal.classList.add('active');
         });
-
-        // Close chat functionality
-        document.getElementById('closeChat').addEventListener('click', function() {
-            document.getElementById('chatUI').classList.remove('open');
-            document.getElementById('disclaimerModal').classList.remove('show');
-        });
-
-        // New session button
-        document.getElementById('newSessionBtn').addEventListener('click', function() {
-            const chatMessages = document.getElementById('chatMessages');
-            chatMessages.innerHTML = `
-                <div class="message message-coach">
-                    <div class="message-bubble">
-                        When the pressure rises, you don't need more noise — you need a place where things finally make sense.<br><br>
-                        That's this space.<br><br>
-                        Bring the situations that feel messy, political, or quietly exhausting: the sidelining in meetings, the shifting expectations, the pressure to perform without recognition.<br><br>
-                        I help you see the angles clearly, understand what's really driving the behaviour, and take steps that position you strongly — without conflict or overexposure.<br><br>
-                        This is confidential and identity-free. All I need is the truth of what you're dealing with.<br><br>
-                        What's the part of your situation that feels most urgent today?
-                    </div>
-                    <div class="message-meta">The Coach • Just now</div>
-                </div>
-            `;
-            
-            messageCount = 0;
-            document.getElementById('chatSend').disabled = false;
-            document.getElementById('signinPrompt').style.display = 'none';
-        });
-
-        // Disclaimer checkbox
-        document.getElementById('disclaimerCheck').addEventListener('change', function() {
-            document.getElementById('acceptDisclaimer').disabled = !this.checked;
-        });
-
-        // Accept disclaimer
-        document.getElementById('acceptDisclaimer').addEventListener('click', function() {
-            disclaimerAccepted = true;
-            document.getElementById('disclaimerModal').classList.remove('show');
-            document.getElementById('chatSend').disabled = false;
-        });
-
-        // Decline disclaimer
-        document.getElementById('declineDisclaimer').addEventListener('click', function() {
-            document.getElementById('chatUI').classList.remove('open');
-            document.getElementById('disclaimerModal').classList.remove('show');
-        });
-
-        // Sign in button
-        document.getElementById('signinBtn').addEventListener('click', function() {
-            window.location.href = 'sign-in.html';
-        });
-
-        // Chat functionality
-        const chatForm = document.getElementById('chatForm');
-        const chatInput = document.getElementById('chatInput');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatSend = document.getElementById('chatSend');
-        const signinPrompt = document.getElementById('signinPrompt');
         
-        chatSend.disabled = true;
-        
-        // Auto-resize textarea
-        chatInput.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-            
-            if (!isTyping) {
-                showTypingAnimation();
-                isTyping = true;
-            }
-            
-            clearTimeout(typingTimeout);
-            
-            typingTimeout = setTimeout(() => {
-                removeTypingAnimation();
-                isTyping = false;
-            }, 1000);
+        // Close modal when X button is clicked
+        closeModal.addEventListener('click', function() {
+            createAccountModal.classList.remove('active');
         });
-
-        // Handle Enter key
-        chatInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                chatForm.dispatchEvent(new Event('submit'));
+        
+        // Close modal when clicking outside the form
+        createAccountModal.addEventListener('click', function(e) {
+            if (e.target === createAccountModal) {
+                createAccountModal.classList.remove('active');
             }
         });
         
-        // Chat form submission
-        chatForm.addEventListener('submit', function(e) {
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && createAccountModal.classList.contains('active')) {
+                createAccountModal.classList.remove('active');
+            }
+        });
+        
+        // Handle form submission
+        const modalForm = document.querySelector('.modal-form');
+        modalForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            if (isTyping) {
-                removeTypingAnimation();
-                isTyping = false;
-                clearTimeout(typingTimeout);
-            }
-            
-            if (!disclaimerAccepted) {
-                document.getElementById('disclaimerModal').classList.add('show');
-                return;
-            }
-            
-            if (messageCount >= 2) {
-                signinPrompt.style.display = 'block';
-                chatSend.disabled = true;
-                return;
-            }
-            
-            const userMessage = chatInput.value.trim();
-            if (!userMessage) return;
-            
-            addMessage(userMessage, 'user');
-            messageCount++;
-            
-            updateUserContext(userMessage);
-            
-            chatInput.value = '';
-            chatInput.style.height = 'auto';
-            
-            showThinkingAnimation();
-            
-            setTimeout(() => {
-                removeThinkingAnimation();
-                
-                if (messageCount <= 2) {
-                    addMessage(getPersonalisedResponse(userMessage), 'coach');
-                }
-                
-                if (messageCount >= 2) {
-                    setTimeout(() => {
-                        signinPrompt.style.display = 'block';
-                        chatSend.disabled = true;
-                    }, 1000);
-                }
-            }, 1500);
+            // In a real implementation, you would handle form submission here
+            alert('Account creation would be processed here in a real implementation');
+            createAccountModal.classList.remove('active');
         });
-        
-        function updateUserContext(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('manager') || lowerMessage.includes('boss') || lowerMessage.includes('supervisor')) {
-                userContext.topic = 'management';
-            } else if (lowerMessage.includes('team') || lowerMessage.includes('colleague') || lowerMessage.includes('coworker')) {
-                userContext.topic = 'team';
-            } else if (lowerMessage.includes('promotion') || lowerMessage.includes('raise') || lowerMessage.includes('career')) {
-                userContext.topic = 'career growth';
-            } else if (lowerMessage.includes('conflict') || lowerMessage.includes('disagreement') || lowerMessage.includes('tension')) {
-                userContext.topic = 'conflict';
-            } else if (lowerMessage.includes('politics') || lowerMessage.includes('influence') || lowerMessage.includes('network')) {
-                userContext.topic = 'office politics';
-            }
-            
-            if (lowerMessage.includes('frustrat') || lowerMessage.includes('angry') || lowerMessage.includes('upset')) {
-                userContext.emotion = 'frustrated';
-            } else if (lowerMessage.includes('stress') || lowerMessage.includes('overwhelm') || lowerMessage.includes('anxious')) {
-                userContext.emotion = 'stressed';
-            } else if (lowerMessage.includes('confus') || lowerMessage.includes('unsure') || lowerMessage.includes('uncertain')) {
-                userContext.emotion = 'confused';
-            } else if (lowerMessage.includes('disappoint') || lowerMessage.includes('let down')) {
-                userContext.emotion = 'disappointed';
-            }
-        }
-        
-        function getPersonalisedResponse(userMessage) {
-            const responses = [];
-            
-            if (messageCount === 1) {
-                if (userContext.topic === 'management') {
-                    responses.push("I understand you're dealing with a management situation. What specifically has your manager done or said that's causing concern?");
-                } else if (userContext.topic === 'team') {
-                    responses.push("Team dynamics can be challenging. Tell me more about what's happening with your colleagues.");
-                } else if (userContext.topic === 'career growth') {
-                    responses.push("Career advancement is important. What specifically are you hoping to achieve with your promotion or growth goals?");
-                } else if (userContext.topic === 'conflict') {
-                    responses.push("Conflict situations require careful navigation. What's the main issue you're facing in this disagreement?");
-                } else if (userContext.topic === 'office politics') {
-                    responses.push("Office politics can be complex. What specific situation are you trying to navigate?");
-                } else {
-                    responses.push("Thank you for sharing. What's the most important aspect of this situation for you right now?");
-                }
-            } else if (messageCount === 2) {
-                if (userContext.emotion === 'frustrated') {
-                    responses.push("I can hear the frustration in your situation. When we feel this way, it's helpful to identify what's within our control. What one action could you take that would move things forward positively?");
-                } else if (userContext.emotion === 'stressed') {
-                    responses.push("This sounds stressful. Let's break this down - what's the immediate priority that needs attention right now?");
-                } else if (userContext.emotion === 'confused') {
-                    responses.push("When things feel unclear, it helps to focus on what you do know. What aspects of this situation feel most certain to you?");
-                } else if (userContext.emotion === 'disappointed') {
-                    responses.push("Disappointment is tough. What would need to happen for you to feel better about this situation?");
-                } else {
-                    responses.push("Based on what you've shared, let's explore more on what specific action would move you forward. What feels like the most immediate priority right now?");
-                }
-            }
-            
-            return responses[Math.floor(Math.random() * responses.length)];
-        }
-        
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', `message-${sender}`);
-            
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.classList.add('message-bubble');
-            bubbleDiv.textContent = text;
-            
-            const metaDiv = document.createElement('div');
-            metaDiv.classList.add('message-meta');
-            
-            const now = new Date();
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            if (sender === 'coach') {
-                metaDiv.textContent = `The Coach • ${timeString}`;
-            } else {
-                metaDiv.textContent = `You • ${timeString}`;
-            }
-            
-            messageDiv.appendChild(bubbleDiv);
-            messageDiv.appendChild(metaDiv);
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function showThinkingAnimation() {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', 'message-coach');
-            
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.classList.add('message-bubble');
-            
-            const thinkingDiv = document.createElement('div');
-            thinkingDiv.classList.add('thinking-animation');
-            
-            for (let i = 0; i < 3; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('thinking-dot');
-                thinkingDiv.appendChild(dot);
-            }
-            
-            bubbleDiv.appendChild(thinkingDiv);
-            messageDiv.appendChild(bubbleDiv);
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function removeThinkingAnimation() {
-            const messages = chatMessages.querySelectorAll('.message');
-            const lastMessage = messages[messages.length - 1];
-            if (lastMessage && lastMessage.querySelector('.thinking-animation')) {
-                lastMessage.remove();
-            }
-        }
-        
-        function showTypingAnimation() {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', 'message-user');
-            
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.classList.add('message-bubble');
-            bubbleDiv.style.background = 'var(--light-purple-user)';
-            bubbleDiv.style.color = 'var(--accent-purple-dark)';
-            
-            const typingDiv = document.createElement('div');
-            typingDiv.classList.add('typing-animation');
-            
-            for (let i = 0; i < 3; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('typing-dot');
-                dot.style.backgroundColor = 'var(--accent-purple-dark)';
-                typingDiv.appendChild(dot);
-            }
-            
-            bubbleDiv.appendChild(typingDiv);
-            messageDiv.appendChild(bubbleDiv);
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function removeTypingAnimation() {
-            const messages = chatMessages.querySelectorAll('.message');
-            const lastMessage = messages[messages.length - 1];
-            if (lastMessage && lastMessage.querySelector('.typing-animation')) {
-                lastMessage.remove();
-            }
-        }
     });
 </script>
 
