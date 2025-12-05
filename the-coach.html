@@ -554,7 +554,7 @@
         .process-card {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 40px 30px 30px; /* Reduced top padding to make icon appear more circular */
+            padding: 40px 30px 30px;
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
             text-align: center;
@@ -582,18 +582,17 @@
             box-shadow: 0 12px 30px rgba(123, 95, 196, 0.15);
         }
 
-        /* Updated icon positioning - reduced height */
         .process-icon {
-            width: 90px; /* Slightly larger */
-            height: 90px; /* Slightly larger */
+            width: 90px;
+            height: 90px;
             background: var(--primary-white);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px; /* Reduced bottom margin */
-            font-size: 32px; /* Slightly larger icon */
+            margin: 0 auto 25px;
+            font-size: 32px;
             border: 2px solid var(--accent-purple);
             box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
             position: relative;
@@ -602,7 +601,7 @@
 
         .process-title {
             font-weight: 600;
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
             font-size: 22px;
             color: var(--text-dark);
         }
@@ -614,9 +613,9 @@
             flex-grow: 1;
         }
 
-        /* Coach Demo Animation - Wider and moved closer */
+        /* Coach Demo Animation - Moved closer to How It Works */
         .coach-demo-section {
-            margin: 40px 0 80px; /* Reduced top margin to bring closer */
+            margin: 40px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -624,10 +623,10 @@
         .demo-container {
             background: var(--primary-white);
             border-radius: 24px;
-            padding: 40px; /* Increased padding */
+            padding: 40px;
             box-shadow: 0 20px 60px rgba(123, 95, 196, 0.15);
             border: 1px solid var(--border-light);
-            max-width: 920px; /* Increased from 800px (15% wider) */
+            max-width: 920px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -652,12 +651,12 @@
             margin: 0 auto;
         }
 
-        /* Increased height by 20% */
+        /* Increased height by 20% - NEW */
         .chat-demo {
             background: var(--light-gray);
             border-radius: 16px;
             overflow: hidden;
-            height: 456px; /* Increased by 20% from 380px to 456px */
+            height: 547px; /* Increased by 20% from 456px to 547px */
             position: relative;
             border: 1px solid var(--border-light);
             width: 100%;
@@ -702,7 +701,7 @@
         }
 
         .demo-message {
-            max-width: 90%; /* Increased from 80% for wider bubbles */
+            max-width: 90%;
             padding: 0;
             font-size: 13px;
             line-height: 1.5;
@@ -710,7 +709,7 @@
             flex-direction: column;
             opacity: 0;
             transform: translateY(10px);
-            animation: messageSlideIn 0.8s ease forwards; /* Slower animation */
+            animation: messageSlideIn 0.8s ease forwards;
         }
 
         @keyframes messageSlideIn {
@@ -728,13 +727,12 @@
             align-self: flex-end;
         }
 
-        /* Demo message sender names */
         .demo-message-sender {
             font-size: 11px;
             font-weight: 600;
             margin-bottom: 4px;
             color: var(--dark-gray);
-            display: block; /* Show on all devices */
+            display: block;
         }
 
         .demo-message-coach .demo-message-sender {
@@ -747,11 +745,11 @@
         }
 
         .demo-message-bubble {
-            padding: 12px 18px; /* Increased padding */
+            padding: 12px 18px;
             border-radius: 16px;
             position: relative;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            max-width: 100%; /* Allow bubbles to use full available width */
+            max-width: 100%;
         }
 
         .demo-message-coach .demo-message-bubble {
@@ -762,8 +760,8 @@
         }
 
         .demo-message-user .demo-message-bubble {
-            background: var(--light-purple-user); /* Changed to lighter purple */
-            color: var(--accent-purple-dark); /* Darker text for contrast */
+            background: var(--light-purple-user);
+            color: var(--accent-purple-dark);
             border-bottom-right-radius: 6px;
             border: 1px solid rgba(123, 95, 196, 0.2);
         }
@@ -779,16 +777,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .demo-input-field {
-            flex: 1;
-            padding: 10px 14px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 16px;
-            font-size: 13px;
-            background: var(--primary-white);
-            color: var(--text-dark);
         }
 
         .demo-typing-indicator {
@@ -821,14 +809,7 @@
 
         .demo-cta {
             text-align: center;
-            margin-top: 30px; /* Increased margin */
-        }
-
-        .demo-cta-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-dark);
+            margin-top: 30px;
         }
 
         .demo-trigger {
@@ -850,11 +831,6 @@
             background: var(--accent-purple-dark);
         }
 
-        /* Removed the progress dots */
-        .demo-progress {
-            display: none; /* Hide the progress dots */
-        }
-
         /* Full Width Section */
         .full-width-section {
             width: 100%;
@@ -872,7 +848,7 @@
         .pill-section {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 50px 30px 40px; /* Increased top padding */
+            padding: 50px 30px 40px;
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
             flex: 1;
@@ -898,21 +874,21 @@
         }
 
         .pill-icon {
-            width: 90px; /* Larger */
-            height: 90px; /* Larger */
+            width: 90px;
+            height: 90px;
             background: var(--light-purple);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px; /* Increased bottom margin */
-            font-size: 32px; /* Larger icon */
+            margin: 0 auto 30px;
+            font-size: 32px;
         }
 
         .pill-title {
             font-weight: 600;
-            margin-bottom: 20px; /* Increased margin */
+            margin-bottom: 20px;
             font-size: 20px;
             color: var(--text-dark);
         }
@@ -946,16 +922,16 @@
         .benefit-card {
             background: var(--primary-white);
             border-radius: 16px;
-            padding: 40px 25px 30px; /* Reduced top padding for consistent height */
+            padding: 40px 25px 30px;
             text-align: center;
             box-shadow: var(--premium-card-shadow);
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
             position: relative;
-            height: 290px; /* Reduced height to match process cards */
+            height: 290px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Align from top */
+            justify-content: flex-start;
         }
 
         .benefit-card:hover {
@@ -964,23 +940,23 @@
         }
 
         .benefit-icon {
-            width: 85px; /* Slightly larger */
-            height: 85px; /* Slightly larger */
+            width: 85px;
+            height: 85px;
             background: var(--primary-white);
             color: var(--accent-purple);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px; /* Reduced bottom margin */
-            font-size: 28px; /* Slightly larger */
+            margin: 0 auto 20px;
+            font-size: 28px;
             border: 2px solid var(--accent-purple);
             box-shadow: 0 4px 12px rgba(123, 95, 196, 0.15);
         }
 
         .benefit-title {
             font-weight: 600;
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
             font-size: 20px;
             color: var(--text-dark);
         }
@@ -1018,7 +994,7 @@
             font-size: 16px;
         }
 
-        /* Chat UI - Reduced padding */
+        /* Chat UI */
         .chat-ui {
             position: fixed;
             top: 0;
@@ -1047,7 +1023,7 @@
         }
 
         .chat-header {
-            padding: 18px 27px; /* Reduced by 10% from 20px 30px */
+            padding: 18px 27px;
             border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
@@ -1060,7 +1036,7 @@
         .chat-title-section {
             display: flex;
             flex-direction: column;
-            gap: 7px; /* Reduced by 10% from 8px */
+            gap: 7px;
         }
 
         .chat-title-section h1 {
@@ -1127,11 +1103,11 @@
 
         .chat-messages {
             flex: 1;
-            padding: 17px 25.5px; /* Reduced by 15% from 20px 30px */
+            padding: 17px 25.5px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 13.6px; /* Reduced by 15% from 16px */
+            gap: 13.6px;
             min-height: 0;
         }
 
@@ -1153,7 +1129,7 @@
         }
 
         .message-bubble {
-            padding: 10.2px 15.3px; /* Reduced by 15% from 12px 18px */
+            padding: 10.2px 15.3px;
             border-radius: 18px;
             position: relative;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -1168,8 +1144,8 @@
         }
 
         .message-user .message-bubble {
-            background: var(--light-purple-user); /* Changed to lighter purple */
-            color: var(--accent-purple-dark); /* Darker text for contrast */
+            background: var(--light-purple-user);
+            color: var(--accent-purple-dark);
             border-bottom-right-radius: 6px;
             border: 1px solid rgba(123, 95, 196, 0.2);
         }
@@ -1177,8 +1153,8 @@
         .message-meta {
             font-size: 11px;
             color: var(--dark-gray);
-            margin-top: 3.4px; /* Reduced by 15% from 4px */
-            padding: 0 3.4px; /* Reduced by 15% from 0 4px */
+            margin-top: 3.4px;
+            padding: 0 3.4px;
             transition: color 0.3s ease;
         }
 
@@ -1187,7 +1163,7 @@
         }
 
         .chat-input-container {
-            padding: 17px 25.5px; /* Reduced by 15% from 20px 30px */
+            padding: 17px 25.5px;
             border-top: 1px solid var(--border-light);
             background: var(--primary-white);
             border-radius: 0 0 16px 16px;
@@ -1197,18 +1173,18 @@
         .chat-form {
             display: flex;
             flex-direction: column;
-            gap: 10.2px; /* Reduced by 15% from 12px */
+            gap: 10.2px;
         }
 
         .chat-input-row {
             display: flex;
-            gap: 10.2px; /* Reduced by 15% from 12px */
+            gap: 10.2px;
             align-items: flex-end;
         }
 
         .chat-input {
             flex: 1;
-            padding: 11.9px 15.3px; /* Reduced by 15% from 14px 18px */
+            padding: 11.9px 15.3px;
             border: 1px solid var(--medium-gray);
             border-radius: 16px;
             font-size: 15px;
@@ -1755,7 +1731,7 @@
             }
             
             .chat-demo {
-                height: 456px; /* Maintain increased height on larger screens */
+                height: 547px; /* Maintain increased height */
             }
         }
 
@@ -1782,7 +1758,7 @@
             }
             
             .chat-demo {
-                height: 456px; /* Maintain increased height */
+                height: 547px; /* Maintain increased height */
             }
         }
 
@@ -1909,14 +1885,13 @@
                 padding: 80px 15px 30px;
             }
 
-            /* Hero Section Mobile - Made H1 slightly bigger and ensured it fits */
             .hero-section {
                 padding-top: 100px;
                 margin-bottom: 30px;
             }
 
             .hero-title {
-                font-size: 46px; /* Increased from 42px to 46px */
+                font-size: 46px;
                 line-height: 1.2;
                 margin-bottom: 20px;
                 text-align: center;
@@ -1929,7 +1904,6 @@
                 text-align: center;
             }
 
-            /* Center CTAs on mobile */
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1943,7 +1917,6 @@
                 margin: 0;
             }
 
-            /* How It Works Cards - Mobile */
             .how-it-works {
                 margin: 50px 0 40px;
             }
@@ -1960,15 +1933,15 @@
             }
 
             .process-card {
-                padding: 35px 25px 25px; /* Adjusted for mobile - reduced height */
+                padding: 35px 25px 25px;
                 text-align: center;
             }
 
             .process-icon {
-                width: 80px; /* Adjusted for mobile */
-                height: 80px; /* Adjusted for mobile */
-                font-size: 28px; /* Adjusted for mobile */
-                margin-bottom: 20px; /* Reduced bottom margin */
+                width: 80px;
+                height: 80px;
+                font-size: 28px;
+                margin-bottom: 20px;
             }
 
             .process-title {
@@ -1982,14 +1955,13 @@
                 text-align: center;
             }
 
-            /* Coach Demo Section Mobile - Increased height by 20% */
             .coach-demo-section {
                 margin: 40px 0;
             }
 
             .demo-container {
                 padding: 20px;
-                max-width: 100%; /* Full width on mobile */
+                max-width: 100%;
             }
 
             .demo-title {
@@ -2003,7 +1975,7 @@
             }
 
             .chat-demo {
-                height: 504px; /* Increased by 20% from 420px to 504px */
+                height: 605px; /* Increased by 20% from 504px to 605px */
             }
 
             .demo-messages {
@@ -2011,23 +1983,20 @@
             }
 
             .demo-message {
-                max-width: 95%; /* Even wider on mobile */
+                max-width: 95%;
                 font-size: 12px;
             }
 
-            /* Demo message sender names - slightly larger on mobile */
             .demo-message-sender {
                 font-size: 12px;
             }
 
-            /* Section titles */
             .benefits-title {
                 font-size: 32px;
                 margin-bottom: 30px;
                 text-align: center;
             }
 
-            /* Benefits grid */
             .benefits-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
@@ -2036,7 +2005,7 @@
             .benefit-card {
                 height: auto;
                 min-height: 260px;
-                padding: 35px 20px 25px; /* Reduced padding */
+                padding: 35px 20px 25px;
                 text-align: center;
             }
 
@@ -2044,7 +2013,7 @@
                 width: 80px;
                 height: 80px;
                 font-size: 26px;
-                margin-bottom: 15px; /* Reduced margin */
+                margin-bottom: 15px;
             }
 
             .benefit-title {
@@ -2058,7 +2027,6 @@
                 text-align: center;
             }
 
-            /* Pill sections */
             .pill-sections {
                 gap: 25px;
                 margin-top: 30px;
@@ -2087,7 +2055,6 @@
                 text-align: center;
             }
 
-            /* Micro CTA - Full width on mobile */
             .micro-cta {
                 padding: 30px 20px;
                 margin: 40px -15px;
@@ -2123,7 +2090,6 @@
                 text-align: center;
             }
 
-            /* Footer - Mobile adjustments - FIXED */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -2140,7 +2106,7 @@
             }
 
             .footer-newsletter {
-                order: 2; /* Newsletter above navigation */
+                order: 2;
                 padding-top: 0;
                 padding-bottom: 20px;
                 border-top: none;
@@ -2150,16 +2116,15 @@
             }
 
             .footer-nav {
-                order: 3; /* Navigation below newsletter */
+                order: 3;
             }
 
             .footer-nav-grid {
-                grid-template-columns: 1fr 1fr; /* Side by side footer links */
+                grid-template-columns: 1fr 1fr;
                 gap: 30px;
-                display: grid !important; /* Force grid display */
+                display: grid !important;
             }
 
-            /* Ensure The Company is next to The Playbook */
             .footer-nav-section:nth-child(1) {
                 order: 1;
             }
@@ -2179,17 +2144,14 @@
                 max-width: 90%;
             }
 
-            /* Content wrapper spacing */
             .content-wrapper {
                 gap: 40px;
             }
 
-            /* Section padding */
             section {
                 padding: 60px 0;
             }
 
-            /* Features pills */
             .features-pills {
                 flex-direction: column;
                 align-items: center;
@@ -2200,14 +2162,13 @@
                 justify-content: center;
             }
 
-            /* Chat UI Mobile Adjustments - Reduced padding */
             .chat-container {
                 margin: 10px;
                 height: calc(100% - 20px);
             }
             
             .chat-header, .chat-messages, .chat-input-container {
-                padding: 12.75px 17px; /* Reduced proportionally */
+                padding: 12.75px 17px;
             }
             
             .chat-input-row {
@@ -2231,7 +2192,7 @@
             }
             
             .hero-title {
-                font-size: 40px; /* Slightly larger on very small screens */
+                font-size: 40px;
                 line-height: 1.2;
             }
             
@@ -2240,7 +2201,6 @@
                 line-height: 1.5;
             }
             
-            /* Stack footer nav links on very small screens */
             .footer-nav-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -2262,7 +2222,7 @@
             }
             
             .chat-demo {
-                height: 456px; /* Maintain increased height on very small screens */
+                height: 547px; /* Maintain increased height */
             }
             
             .how-it-works-title {
@@ -2271,7 +2231,7 @@
             }
             
             .process-card {
-                padding: 30px 20px 20px; /* Further reduced for small screens */
+                padding: 30px 20px 20px;
                 text-align: center;
             }
             
@@ -2403,8 +2363,8 @@
                 </div>
             </div>
 
-            <!-- Coach Demo Animation Section - Moved closer to How It Works -->
-            <div class="coach-demo-section">
+            <!-- Coach Demo Animation Section -->
+            <div class="coach-demo-section" id="coachDemoSection">
                 <div class="demo-container">
                     <div class="demo-header">
                         <h2 class="demo-title">See The Coach in Action</h2>
@@ -2421,7 +2381,7 @@
                         </div>
                         
                         <div class="demo-messages" id="demoMessages">
-                            <!-- Messages will be added by JavaScript -->
+                            <!-- Messages will be added by JavaScript when demo starts -->
                         </div>
                         
                         <div class="demo-chat-input">
@@ -2434,9 +2394,7 @@
                     </div>
                     
                     <div class="demo-cta">
-                        <!-- Removed "Ready to get personalised guidance?" title -->
                         <button class="demo-trigger" id="startDemo">Replay Demo</button>
-                        <!-- Progress dots removed as requested -->
                     </div>
                 </div>
             </div>
@@ -2737,51 +2695,54 @@
             });
         });
 
-        // Coach Demo Animation - Updated with 2.5 second timing
+        // Coach Demo Animation - Improved conversation flow
         const demoMessages = document.getElementById('demoMessages');
         const startDemoBtn = document.getElementById('startDemo');
         const typingIndicator = document.getElementById('typingIndicator');
+        const coachDemoSection = document.getElementById('coachDemoSection');
         
         let demoStep = 0;
         let demoInterval;
         let hasDemoStarted = false;
+        let isDemoRunning = false;
+        let demoTimeout;
         
-        // Updated demo conversation with consistent 2.5-second delays
+        // Improved demo conversation - logical flow
         const demoConversation = [
             {
                 sender: 'coach',
-                text: "Let's get specific: what part of feeling invisible is hitting you hardest right now?",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "Hi, I'm The Coach. I help professionals navigate complex workplace situations. What's been on your mind recently?",
+                delay: 2500
             },
             {
                 sender: 'user',
-                text: "I deliver everything on time, but my manager presents my work as his own. I'm not in the key meetings. It's like I'm a ghost contributor.",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "I keep getting passed over for promotions, despite strong performance reviews. My manager says I'm doing great work but never advocates for me.",
+                delay: 2500
             },
             {
                 sender: 'coach',
-                text: "That's a quiet erosion of your professional identity, the work is yours, but the recognition isn't. How long has this pattern been building?",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "That's a common challenge. When performance is strong but recognition isn't following, it often means you're not visible to the right people. How are you currently making your accomplishments visible beyond your immediate manager?",
+                delay: 2500
             },
             {
                 sender: 'user',
-                text: "Six months, maybe longer. Last quarter he took my entire project plan to the directors and didn't mention me once. When I asked about it, he said he was 'streamlining communication.'",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "Honestly, I've been focusing on doing great work and assuming it would speak for itself. I'm not comfortable with self-promotion.",
+                delay: 2500
             },
             {
                 sender: 'coach',
-                text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating, it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "That's a key insight. The gap isn't your performance, it's your visibility strategy. Let's reframe 'self-promotion' as 'strategic visibility.' It's not about bragging, it's about ensuring decision-makers see your value.\n\nWhat's one recent accomplishment you're proud of that higher-ups might not know about?",
+                delay: 2500
             },
             {
                 sender: 'user',
-                text: "Exactly. I don't want drama, I just want to be seen.",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "I led a project that saved our team 20 hours per week through automation. The director level doesn't know about it.",
+                delay: 2500
             },
             {
                 sender: 'coach',
-                text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update, something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you, not like corporate speak?",
-                delay: 2500 // Same 2.5 seconds for all messages
+                text: "Perfect. That's exactly the kind of achievement that creates promotability. Here's a low-risk next step: could you share a brief, data-focused update about this automation with one key stakeholder outside your immediate team, framed as something that might help their department too?",
+                delay: 2500
             }
         ];
         
@@ -2826,6 +2787,7 @@
                 clearInterval(demoInterval);
                 startDemoBtn.textContent = 'Replay Demo';
                 startDemoBtn.disabled = false;
+                isDemoRunning = false;
                 return;
             }
             
@@ -2855,6 +2817,7 @@
             startDemoBtn.textContent = 'Demo Running...';
             startDemoBtn.disabled = true;
             hasDemoStarted = true;
+            isDemoRunning = true;
             
             // Clear any existing interval
             if (demoInterval) {
@@ -2866,14 +2829,43 @@
             playDemoStep();
         }
         
-        // Start demo automatically when page loads (after a short delay)
-        setTimeout(() => {
-            if (!hasDemoStarted) {
-                startDemo();
+        function stopDemo() {
+            if (demoInterval) {
+                clearInterval(demoInterval);
             }
-        }, 1500);
+            if (demoTimeout) {
+                clearTimeout(demoTimeout);
+            }
+            isDemoRunning = false;
+            startDemoBtn.textContent = 'Replay Demo';
+            startDemoBtn.disabled = false;
+        }
         
-        startDemoBtn.addEventListener('click', startDemo);
+        // Intersection Observer to start demo when section is visible
+        const demoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasDemoStarted && !isDemoRunning) {
+                    // Start demo when section is 50% visible
+                    demoTimeout = setTimeout(() => {
+                        startDemo();
+                    }, 500);
+                }
+            });
+        }, {
+            threshold: 0.5 // Start when 50% of section is visible
+        });
+        
+        // Start observing the demo section
+        demoObserver.observe(coachDemoSection);
+        
+        // Manual replay button
+        startDemoBtn.addEventListener('click', function() {
+            stopDemo();
+            startDemo();
+        });
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', stopDemo);
 
         // Coach Chat Functionality
         let messageCount = 0;
