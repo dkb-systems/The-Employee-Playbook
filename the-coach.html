@@ -652,7 +652,7 @@
             margin: 0 auto;
         }
 
-        /* Wider chat demo - Increased height by 20% */
+        /* Increased height by 20% */
         .chat-demo {
             background: var(--light-gray);
             border-radius: 16px;
@@ -2737,7 +2737,7 @@
             });
         });
 
-        // Coach Demo Animation - Slowed down by 3 seconds
+        // Coach Demo Animation - Updated with 2.5 second timing
         const demoMessages = document.getElementById('demoMessages');
         const startDemoBtn = document.getElementById('startDemo');
         const typingIndicator = document.getElementById('typingIndicator');
@@ -2746,42 +2746,42 @@
         let demoInterval;
         let hasDemoStarted = false;
         
-        // Updated demo conversation with British spelling - increased delays by 3 seconds
+        // Updated demo conversation with consistent 2.5-second delays
         const demoConversation = [
             {
                 sender: 'coach',
                 text: "Let's get specific: what part of feeling invisible is hitting you hardest right now?",
-                delay: 2500 // Increased by 3 seconds from 1500 to 4500
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'user',
                 text: "I deliver everything on time, but my manager presents my work as his own. I'm not in the key meetings. It's like I'm a ghost contributor.",
-                delay: 3500 // Increased by 3 seconds from 2500 to 5500
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'coach',
                 text: "That's a quiet erosion of your professional identity, the work is yours, but the recognition isn't. How long has this pattern been building?",
-                delay: 4000 // Increased by 3 seconds from 3000 to 6000
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'user',
                 text: "Six months, maybe longer. Last quarter he took my entire project plan to the directors and didn't mention me once. When I asked about it, he said he was 'streamlining communication.'",
-                delay: 3500 // Increased by 3 seconds from 2500 to 5500
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'coach',
                 text: "So you're being sidelined in ways that sound reasonable on the surface, but systematically erase your visibility. That's not just frustrating, it's a reputational risk.\n\nLet's reframe this: your goal isn't to confront him, it's to build a separate channel of recognition above him.",
-                delay: 4500 // Increased by 3 seconds from 3500 to 6500
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'user',
                 text: "Exactly. I don't want drama, I just want to be seen.",
-                delay: 3500 // Increased by 3 seconds from 2500 to 5500
+                delay: 2500 // Same 2.5 seconds for all messages
             },
             {
                 sender: 'coach',
                 text: "Here's a low-risk starting move: identify one senior stakeholder outside your immediate team who would genuinely benefit from a piece of your work. Send them a concise, useful update, something that helps them, framed as collaboration.\n\nWant to draft the wording together so it sounds like you, not like corporate speak?",
-                delay: 5000 // Increased by 3 seconds from 4000 to 7000
+                delay: 2500 // Same 2.5 seconds for all messages
             }
         ];
         
@@ -2831,16 +2831,20 @@
             
             const step = demoConversation[demoStep];
             
+            // Show typing indicator for coach messages
             if (step.sender === 'coach') {
                 showTypingIndicator();
                 setTimeout(() => {
                     hideTypingIndicator();
                     addDemoMessage(step.text, step.sender);
                     demoStep++;
-                }, 4800); // Increased typing delay by 3 seconds from 1800 to 4800
+                }, 2000); // Show typing for 2 seconds, then message appears
             } else {
-                addDemoMessage(step.text, step.sender);
-                demoStep++;
+                // For user messages, show immediately after delay
+                setTimeout(() => {
+                    addDemoMessage(step.text, step.sender);
+                    demoStep++;
+                }, 2500);
             }
         }
         
@@ -2857,8 +2861,8 @@
                 clearInterval(demoInterval);
             }
             
-            // Start the demo with slower intervals (increased by 3 seconds)
-            demoInterval = setInterval(playDemoStep, 7000); // Increased by 3 seconds from 4000 to 7000
+            // Start the demo with 2.5 second intervals
+            demoInterval = setInterval(playDemoStep, 2500); // 2.5 seconds between messages
             playDemoStep();
         }
         
@@ -3179,4 +3183,3 @@
 
 </body>
 </html>
-
