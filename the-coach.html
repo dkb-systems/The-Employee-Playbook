@@ -2695,7 +2695,7 @@
             });
         });
 
-        // Coach Demo Animation - Improved conversation flow
+        // Coach Demo Animation - Completely fixed conversation
         const demoMessages = document.getElementById('demoMessages');
         const startDemoBtn = document.getElementById('startDemo');
         const typingIndicator = document.getElementById('typingIndicator');
@@ -2707,41 +2707,41 @@
         let isDemoRunning = false;
         let demoTimeout;
         
-        // Improved demo conversation - logical flow
+        // FIXED demo conversation - completely logical, no duplicates
         const demoConversation = [
             {
                 sender: 'coach',
-                text: "Hi, I'm The Coach. I help professionals navigate complex workplace situations. What's been on your mind recently?",
+                text: "Hello, I'm The Coach. I help professionals navigate tricky workplace situations. What's been on your mind recently?",
                 delay: 2500
             },
             {
                 sender: 'user',
-                text: "I keep getting passed over for promotions, despite strong performance reviews. My manager says I'm doing great work but never advocates for me.",
+                text: "I'm struggling with a colleague who takes credit for my work in team meetings. It's happening regularly now.",
                 delay: 2500
             },
             {
                 sender: 'coach',
-                text: "That's a common challenge. When performance is strong but recognition isn't following, it often means you're not visible to the right people. How are you currently making your accomplishments visible beyond your immediate manager?",
+                text: "That's a classic workplace challenge. When someone consistently takes credit, it erodes your visibility and impact. How have you tried addressing this so far?",
                 delay: 2500
             },
             {
                 sender: 'user',
-                text: "Honestly, I've been focusing on doing great work and assuming it would speak for itself. I'm not comfortable with self-promotion.",
+                text: "I haven't said anything directly. I don't want to seem petty or create conflict, but it's really frustrating.",
                 delay: 2500
             },
             {
                 sender: 'coach',
-                text: "That's a key insight. The gap isn't your performance, it's your visibility strategy. Let's reframe 'self-promotion' as 'strategic visibility.' It's not about bragging, it's about ensuring decision-makers see your value.\n\nWhat's one recent accomplishment you're proud of that higher-ups might not know about?",
+                text: "Your instinct to avoid conflict is smart, but silence can be misinterpreted as consent. Let's think about low-risk ways to establish ownership without confrontation.",
                 delay: 2500
             },
             {
                 sender: 'user',
-                text: "I led a project that saved our team 20 hours per week through automation. The director level doesn't know about it.",
+                text: "What would that look like? I want to handle this professionally.",
                 delay: 2500
             },
             {
                 sender: 'coach',
-                text: "Perfect. That's exactly the kind of achievement that creates promotability. Here's a low-risk next step: could you share a brief, data-focused update about this automation with one key stakeholder outside your immediate team, framed as something that might help their department too?",
+                text: "Here's one approach: Before the next meeting, send a brief pre-read email summarizing your contributions, cc'ing key stakeholders. In the meeting, when the topic comes up, you can say 'As mentioned in my email...' This establishes ownership without direct confrontation.",
                 delay: 2500
             }
         ];
